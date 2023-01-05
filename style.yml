@@ -1,0 +1,59 @@
+Style/AccessorGrouping:
+  Enabled: true
+  EnforcedStyle: separated
+
+Style/AccessModifierDeclarations:
+  Enabled: true
+  EnforcedStyle: inline
+
+Style/BlockDelimiters:
+  Enabled: false
+
+Style/ConstantVisibility:
+  Enabled: true
+
+Style/Copyright:
+  Enabled: false
+
+Style/ExplicitBlockArgument:
+  Enabled: true
+
+Style/InlineComment:
+  Enabled: false
+
+Style/NegatedWhile:
+  Enabled: true
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Style/Semicolon:
+  Enabled: true
+  AllowAsExpressionSeparator: true
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
+Style/MethodCallWithArgsParentheses:
+  Enabled: false
+
+Style/NumericPredicate:
+ Enabled: false
+
+Style/RequireOrder:
+  Enabled: true
+
+Style/StringConcatenation:
+  Enabled: true
+
+Style/TrailingUnderscoreVariable:
+  Enabled: true
+  AllowNamedUnderscoreVariables: true
+
+Style/ZeroLengthPredicate:
+  Enabled: true

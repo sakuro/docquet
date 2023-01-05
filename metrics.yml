@@ -1,0 +1,17 @@
+Metrics/AbcSize:
+  Enabled: true
+
+Metrics/BlockLength:
+  Enabled: true
+  AllowedMethods:
+    - context
+    - describe
+    - shared_context
+    - shared_examples
+
+Metrics/CyclomaticComplexity:
+  Enabled: true
+
+Metrics/PerceivedComplexity:
+  Enabled: true
+

@@ -1,0 +1,5 @@
+Lint/ConstantResolution:
+  Enabled: false
+
+Lint/EmptyBlock:
+  Enabled: true

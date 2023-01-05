@@ -1,0 +1,27 @@
+Layout/EmptyLineAfterGuardClause:
+  Enabled: true
+
+Layout/FirstMethodArgumentLineBreak:
+  Enabled: true
+
+Layout/LineLength:
+  Enabled: true
+  Max: 120
+  AllowedPatterns:
+    - expect
+
+Layout/MultilineAssignmentLayout:
+  Enabled: false
+
+Layout/SingleLineBlockChain:
+  Enabled: false
+
+Layout/SpaceBeforeBlockBraces:
+  Enabled: true
+  EnforcedStyle: space
+
+Layout/SpaceInsideBlockBraces:
+  Enabled: true
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBraces: no_space
+  SpaceBeforeBlockParameters: false
