@@ -14,9 +14,18 @@ RSpec/ContextWording:
 RSpec/DescribedClass:
   Enabled: false
 
+RSpec/EmptyLineAfterFinalLet:
+  Enabled: true
+
+RSpec/RSpec/InstanceVariable:
+  Enabled: true
+
 RSpec/NotToNot:
   Enabled: true
   EnforcedStyle: not_to
+
+RSpec/LetBeforeExamples:
+  Enabled: true
 
 RSpec/Pending:
   Enabled: false
