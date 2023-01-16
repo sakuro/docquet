@@ -36,6 +36,9 @@ Style/FrozenStringLiteralComment:
   Enabled: true
   EnforcedStyle: always_true
 
+Style/GuardClause:
+  Enabled: true
+
 Style/InlineComment:
   Enabled: false
 
@@ -63,11 +66,19 @@ Style/StringLiteralsInInterpolation:
 Style/MethodCallWithArgsParentheses:
   Enabled: false
 
+Style/MissingElse:
+  Enabled: true
+  EnforcedStyle: case
+
 Style/MultipleComparison:
   Enabled: false
 
 Style/MutableConstant:
   Enabled: true
+
+Style/Next:
+  Enabled: true
+  EnforcedStyle: skip_modifier_ifs
 
 Style/NumericLiterals:
   Enabled: true
