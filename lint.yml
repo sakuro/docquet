@@ -1,3 +1,9 @@
+Lint/AmbiguousOperatorPrecedence:
+  Enabled: true
+
+Lint/ConstantDefinitionInBlock:
+  Enabled: true
+
 Lint/ConstantResolution:
   Enabled: false
 

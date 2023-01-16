@@ -15,8 +15,24 @@ Style/ConstantVisibility:
 Style/Copyright:
   Enabled: false
 
+Style/DisableCopsWithinSourceCodeDirective:
+  Enabled: true
+  AllowedCops:
+    - Style/ConstantVisibility
+
 Style/ExplicitBlockArgument:
   Enabled: true
+
+Style/FormatString:
+  Enabled: true
+  EnforcedStyle: percent
+
+Style/FormatStringToken:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: always_true
 
 Style/InlineComment:
   Enabled: false
@@ -25,6 +41,9 @@ Style/NegatedWhile:
   Enabled: true
 
 Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Style/PerlBackrefs:
   Enabled: false
 
 Style/Semicolon:
@@ -42,6 +61,9 @@ Style/StringLiteralsInInterpolation:
 Style/MethodCallWithArgsParentheses:
   Enabled: false
 
+Style/MultipleComparison:
+  Enabled: false
+
 Style/NumericPredicate:
  Enabled: false
 
@@ -54,6 +76,9 @@ Style/StringConcatenation:
 Style/TrailingUnderscoreVariable:
   Enabled: true
   AllowNamedUnderscoreVariables: true
+
+Style/UnpackFirst:
+  Enabled: true
 
 Style/ZeroLengthPredicate:
   Enabled: true
