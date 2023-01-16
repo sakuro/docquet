@@ -9,3 +9,6 @@ Lint/ConstantResolution:
 
 Lint/EmptyBlock:
   Enabled: true
+
+Lint/PercentStringArray:
+  Enabled: true
