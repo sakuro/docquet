@@ -64,6 +64,10 @@ Style/MethodCallWithArgsParentheses:
 Style/MultipleComparison:
   Enabled: false
 
+Style/NumericLiterals:
+  Enabled: true
+  MinDigits: 6
+
 Style/NumericPredicate:
  Enabled: false
 
