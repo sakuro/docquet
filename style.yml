@@ -66,6 +66,9 @@ Style/MethodCallWithArgsParentheses:
 Style/MultipleComparison:
   Enabled: false
 
+Style/MutableConstant:
+  Enabled: true
+
 Style/NumericLiterals:
   Enabled: true
   MinDigits: 6
