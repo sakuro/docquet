@@ -19,8 +19,8 @@ Style/DisableCopsWithinSourceCodeDirective:
   Enabled: true
   AllowedCops:
     - Lint/BinaryOperatorWithIdenticalOperands
-    - Style/ConstantVisibility
     - RSpec/InstanceVariable
+    - Style/ConstantVisibility
 
 Style/ExplicitBlockArgument:
   Enabled: true
@@ -42,27 +42,6 @@ Style/GuardClause:
 Style/InlineComment:
   Enabled: false
 
-Style/NegatedWhile:
-  Enabled: true
-
-Style/PercentLiteralDelimiters:
-  Enabled: false
-
-Style/PerlBackrefs:
-  Enabled: false
-
-Style/Semicolon:
-  Enabled: true
-  AllowAsExpressionSeparator: true
-
-Style/StringLiterals:
-  Enabled: true
-  EnforcedStyle: double_quotes
-
-Style/StringLiteralsInInterpolation:
-  Enabled: true
-  EnforcedStyle: double_quotes
-
 Style/MethodCallWithArgsParentheses:
   Enabled: false
 
@@ -76,6 +55,9 @@ Style/MultipleComparison:
 Style/MutableConstant:
   Enabled: true
 
+Style/NegatedWhile:
+  Enabled: true
+
 Style/Next:
   Enabled: true
   EnforcedStyle: skip_modifier_ifs
@@ -87,11 +69,29 @@ Style/NumericLiterals:
 Style/NumericPredicate:
  Enabled: false
 
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Style/PerlBackrefs:
+  Enabled: false
+
 Style/RequireOrder:
   Enabled: true
 
+Style/Semicolon:
+  Enabled: true
+  AllowAsExpressionSeparator: true
+
 Style/StringConcatenation:
   Enabled: true
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  Enabled: true
+  EnforcedStyle: double_quotes
 
 Style/TrailingUnderscoreVariable:
   Enabled: true
