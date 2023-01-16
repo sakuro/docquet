@@ -7,8 +7,13 @@ Layout/FirstMethodArgumentLineBreak:
 Layout/LineLength:
   Enabled: true
   Max: 120
+  AllowHeredoc: true
+  AllowURI: true
+  URISchemes: [http, https]
+  IgnoreCopDirectives: true
   AllowedPatterns:
     - expect
+    - (?:all|any|none|one)\?
 
 Layout/MultilineAssignmentLayout:
   Enabled: false
