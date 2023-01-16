@@ -18,7 +18,9 @@ Style/Copyright:
 Style/DisableCopsWithinSourceCodeDirective:
   Enabled: true
   AllowedCops:
+    - Lint/BinaryOperatorWithIdenticalOperands
     - Style/ConstantVisibility
+    - RSpec/InstanceVariable
 
 Style/ExplicitBlockArgument:
   Enabled: true
