@@ -3,6 +3,7 @@
 1. Add this repo as a submodule named `.rubocop`
     ```sh
     git submodule add https://github.com/sakuro/rubocop-config .rubocop
+    git submodule update --init
     ```
 2. Include config files (`*.yml`) under `.rubocop` from your `.rubocop.yml` by using `inherit_from` directive.
     ```yaml
