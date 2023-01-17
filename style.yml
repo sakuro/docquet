@@ -9,6 +9,9 @@ Style/AccessModifierDeclarations:
 Style/BlockDelimiters:
   Enabled: false
 
+Style/CommentedKeyword:
+  Enabled: true
+
 Style/ConstantVisibility:
   Enabled: true
 
