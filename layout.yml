@@ -14,6 +14,7 @@ Layout/LineLength:
   AllowedPatterns:
     - expect
     - (?:all|any|none|one)\?
+    - \bdef [A-Z]?[a-z0-9_]+[!?]?(?:\(.*\))? = .*(?!end)$
 
 Layout/MultilineAssignmentLayout:
   Enabled: false
