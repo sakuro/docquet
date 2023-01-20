@@ -42,6 +42,9 @@ Style/FrozenStringLiteralComment:
 Style/GuardClause:
   Enabled: true
 
+Style/HashConversion:
+  Enabled: false
+
 Style/InlineComment:
   Enabled: false
 
