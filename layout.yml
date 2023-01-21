@@ -1,6 +1,9 @@
 Layout/EmptyLineAfterGuardClause:
   Enabled: true
 
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: true
+
 Layout/FirstMethodArgumentLineBreak:
   Enabled: true
   AllowMultilineFinalElement: true
@@ -23,8 +26,15 @@ Layout/LineLength:
 Layout/MultilineAssignmentLayout:
   Enabled: false
 
+Layout/RedundantLineBreak:
+  Enabled: false
+
 Layout/SingleLineBlockChain:
   Enabled: false
+
+Layout/SpaceAroundEqualsInParameterDefault:
+  Enabled: true
+  EnforcedStyle: no_space
 
 Layout/SpaceBeforeBlockBraces:
   Enabled: true

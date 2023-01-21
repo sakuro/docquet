@@ -23,6 +23,10 @@ RSpec/InstanceVariable:
 RSpec/LetBeforeExamples:
   Enabled: true
 
+RSpec/MultipleMemoizedHelpers:
+  Enabled: true
+  Max: 10
+
 RSpec/NotToNot:
   Enabled: true
   EnforcedStyle: not_to

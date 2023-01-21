@@ -81,6 +81,9 @@ Style/PercentLiteralDelimiters:
 Style/PerlBackrefs:
   Enabled: false
 
+Style/RedundantInterpolation:
+  Enabled: true
+
 Style/RequireOrder:
   Enabled: true
 

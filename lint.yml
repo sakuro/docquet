@@ -10,6 +10,9 @@ Lint/ConstantResolution:
 Lint/EmptyBlock:
   Enabled: true
 
+Lint/NonAtomicFileOperation:
+  Enabled: true
+
 Lint/PercentStringArray:
   Enabled: true
 
