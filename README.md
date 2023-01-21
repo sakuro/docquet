@@ -15,6 +15,7 @@
       - .rubocop/naming.yml
       - .rubocop/performance.yml
       - .rubocop/rspec.yml
+      - .rubocop/security.yml
       - .rubocop/style.yml
       - .rubocop_todo.yml
 
