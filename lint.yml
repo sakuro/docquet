@@ -16,6 +16,6 @@ Lint/NonAtomicFileOperation:
 Lint/PercentStringArray:
   Enabled: true
 
-Lnt/SymbolConversion:
+Lint/SymbolConversion:
   Enabled: true
   EnforcedStyle: strict
