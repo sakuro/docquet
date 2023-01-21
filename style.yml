@@ -90,6 +90,7 @@ Style/Semicolon:
 
 Style/StringConcatenation:
   Enabled: true
+  Mode: conservative
 
 Style/StringLiterals:
   Enabled: true

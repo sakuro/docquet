@@ -3,6 +3,10 @@ Layout/EmptyLineAfterGuardClause:
 
 Layout/FirstMethodArgumentLineBreak:
   Enabled: true
+  AllowMultilineFinalElement: true
+
+Layout/HashAlignment:
+  Enabled: false
 
 Layout/LineLength:
   Enabled: true

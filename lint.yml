@@ -12,3 +12,7 @@ Lint/EmptyBlock:
 
 Lint/PercentStringArray:
   Enabled: true
+
+Lnt/SymbolConversion:
+  Enabled: true
+  EnforcedStyle: strict
