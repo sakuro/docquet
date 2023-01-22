@@ -1,2 +1,3 @@
+# https://docs.rubocop.org/rubocop/cops_bundler.html#bundlerorderedgems
 Bundler/OrderedGems:
   Enabled: true

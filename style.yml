@@ -1,24 +1,31 @@
+# https://docs.rubocop.org/rubocop/cops_style.html#styleaccessorgrouping
 Style/AccessorGrouping:
   Enabled: true
   EnforcedStyle: separated
 
+# https://docs.rubocop.org/rubocop/cops_style.html#styleaccessmodifierdeclarations
 Style/AccessModifierDeclarations:
   Enabled: true
   EnforcedStyle: inline
 
+# https://docs.rubocop.org/rubocop/cops_style.html#styleblockdelimiters
 Style/BlockDelimiters:
   Enabled: false
 
+# https://docs.rubocop.org/rubocop/cops_style.html#stylecommentedkeyword
 Style/CommentedKeyword:
   Enabled: true
 
+# https://docs.rubocop.org/rubocop/cops_style.html#styleconstantvisibility
 Style/ConstantVisibility:
   Enabled: true
   IgnoreModules: true
 
+# https://docs.rubocop.org/rubocop/cops_style.html#stylecopyright
 Style/Copyright:
   Enabled: false
 
+# https://docs.rubocop.org/rubocop/cops_style.html#styledisablecopswithinsourcecodedirective
 Style/DisableCopsWithinSourceCodeDirective:
   Enabled: true
   AllowedCops:
@@ -26,93 +33,120 @@ Style/DisableCopsWithinSourceCodeDirective:
     - RSpec/InstanceVariable
     - Style/ConstantVisibility
 
+# https://docs.rubocop.org/rubocop/cops_style.html#styleexplicitblockargument
 Style/ExplicitBlockArgument:
   Enabled: true
 
+# https://docs.rubocop.org/rubocop/cops_style.html#styleformatstring
 Style/FormatString:
   Enabled: true
   EnforcedStyle: percent
 
+# https://docs.rubocop.org/rubocop/cops_style.html#styleformatstringtoken
 Style/FormatStringToken:
   Enabled: false
 
+# https://docs.rubocop.org/rubocop/cops_style.html#stylefrozenstringliteralcomment
 Style/FrozenStringLiteralComment:
   Enabled: true
   EnforcedStyle: always_true
 
+# https://docs.rubocop.org/rubocop/cops_style.html#styleguardclause
 Style/GuardClause:
   Enabled: true
 
+# https://docs.rubocop.org/rubocop/cops_style.html#stylehashconversion
 Style/HashConversion:
   Enabled: false
 
+# https://docs.rubocop.org/rubocop/cops_style.html#styleinlinecomment
 Style/InlineComment:
   Enabled: false
 
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemethodcallwithargsparentheses
 Style/MethodCallWithArgsParentheses:
   Enabled: false
 
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemissingelse
 Style/MissingElse:
   Enabled: true
   EnforcedStyle: case
 
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemultiplecomparison
 Style/MultipleComparison:
   Enabled: false
 
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemutableconstant
 Style/MutableConstant:
   Enabled: true
 
+# https://docs.rubocop.org/rubocop/cops_style.html#stylenegatedwhile
 Style/NegatedWhile:
   Enabled: true
 
+# https://docs.rubocop.org/rubocop/cops_style.html#stylenext
 Style/Next:
   Enabled: true
   EnforcedStyle: skip_modifier_ifs
 
+# https://docs.rubocop.org/rubocop/cops_style.html#stylenumericliterals
 Style/NumericLiterals:
   Enabled: true
   MinDigits: 6
 
+# https://docs.rubocop.org/rubocop/cops_style.html#stylenumericpredicate
 Style/NumericPredicate:
  Enabled: false
 
+# https://docs.rubocop.org/rubocop/cops_style.html#stylepercentliteraldelimiters
 Style/PercentLiteralDelimiters:
   Enabled: false
 
+# https://docs.rubocop.org/rubocop/cops_style.html#styleperlbackrefs
 Style/PerlBackrefs:
   Enabled: false
 
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantconstantbase
 Style/RedundantConstantBase:
   Enabled: true
 
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantinterpolation
 Style/RedundantInterpolation:
   Enabled: true
 
+# https://docs.rubocop.org/rubocop/cops_style.html#stylerequireorder
 Style/RequireOrder:
   Enabled: true
 
+# https://docs.rubocop.org/rubocop/cops_style.html#stylesemicolon
 Style/Semicolon:
   Enabled: true
   AllowAsExpressionSeparator: true
 
+# https://docs.rubocop.org/rubocop/cops_style.html#stylestringconcatenation
 Style/StringConcatenation:
   Enabled: true
   Mode: conservative
 
+# https://docs.rubocop.org/rubocop/cops_style.html#stylestringliterals
 Style/StringLiterals:
   Enabled: true
   EnforcedStyle: double_quotes
 
+# https://docs.rubocop.org/rubocop/cops_style.html#stylestringliteralsininterpolation
 Style/StringLiteralsInInterpolation:
   Enabled: true
   EnforcedStyle: double_quotes
 
+# https://docs.rubocop.org/rubocop/cops_style.html#styletrailingunderscorevariable
 Style/TrailingUnderscoreVariable:
   Enabled: true
   AllowNamedUnderscoreVariables: true
 
+# https://docs.rubocop.org/rubocop/cops_style.html#styleunpackfirst
 Style/UnpackFirst:
   Enabled: true
 
+# https://docs.rubocop.org/rubocop/cops_style.html#stylezerolengthpredicate
 Style/ZeroLengthPredicate:
   Enabled: true

@@ -1,16 +1,21 @@
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptylineafterguardclause
 Layout/EmptyLineAfterGuardClause:
   Enabled: true
 
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptylinesaroundmodulebody
 Layout/EmptyLinesAroundModuleBody:
   Enabled: true
 
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutfirstmethodargumentlinebreak
 Layout/FirstMethodArgumentLineBreak:
   Enabled: true
   AllowMultilineFinalElement: true
 
+# https://docs.rubocop.org/rubocop/cops_layout.html#layouthashalignment
 Layout/HashAlignment:
   Enabled: false
 
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutlinelength
 Layout/LineLength:
   Enabled: true
   Max: 120
@@ -23,23 +28,29 @@ Layout/LineLength:
     - (?:all|any|none|one)\?
     - \bdef [A-Z]?[a-z0-9_]+[!?]?(?:\(.*\))? = .*(?!end)$
 
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutmultilineassignmentlayout
 Layout/MultilineAssignmentLayout:
   Enabled: false
 
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutredundantlinebreak
 Layout/RedundantLineBreak:
   Enabled: false
 
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutsinglelineblockchain
 Layout/SingleLineBlockChain:
   Enabled: false
 
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspacearoundequalsinparameterdefault
 Layout/SpaceAroundEqualsInParameterDefault:
   Enabled: true
   EnforcedStyle: no_space
 
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspacebeforeblockbraces
 Layout/SpaceBeforeBlockBraces:
   Enabled: true
   EnforcedStyle: space
 
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspaceinsideblockbraces
 Layout/SpaceInsideBlockBraces:
   Enabled: true
   EnforcedStyle: space
