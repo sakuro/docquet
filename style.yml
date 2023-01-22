@@ -118,6 +118,11 @@ Style/RedundantInterpolation:
 Style/RequireOrder:
   Enabled: true
 
+# https://docs.rubocop.org/rubocop/cops_style.html#stylerescuestandarderror
+Style/RescueStandardError:
+  Enabled: true
+  EnforcedStyle: implicit
+
 # https://docs.rubocop.org/rubocop/cops_style.html#stylesemicolon
 Style/Semicolon:
   Enabled: true

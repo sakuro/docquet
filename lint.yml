@@ -18,6 +18,10 @@ Lint/EmptyBlock:
 Lint/NonAtomicFileOperation:
   Enabled: true
 
+# https://docs.rubocop.org/rubocop/cops_lint.html#lintnumberconversion
+Lint/NumberConversion:
+  Enabled: true
+
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintpercentstringarray
 Lint/PercentStringArray:
   Enabled: true
@@ -26,3 +30,7 @@ Lint/PercentStringArray:
 Lint/SymbolConversion:
   Enabled: true
   EnforcedStyle: strict
+
+# https://docs.rubocop.org/rubocop/cops_lint.html#lintuselessrescue
+Lint/UselessRescue:
+  Enabled: true
