@@ -50,9 +50,21 @@ Layout/SpaceBeforeBlockBraces:
   Enabled: true
   EnforcedStyle: space
 
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspaceinsidearrayliteralbrackets
+Layout/SpaceInsideArrayLiteralBrackets:
+  Enabled: true
+  EnforcedStyle: no_space
+  EnforcedStyleForEmptyBrackets: no_space
+
 # https://docs.rubocop.org/rubocop/cops_layout.html#layoutspaceinsideblockbraces
 Layout/SpaceInsideBlockBraces:
   Enabled: true
   EnforcedStyle: space
   EnforcedStyleForEmptyBraces: no_space
   SpaceBeforeBlockParameters: false
+
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspaceinsidehashliteralbraces
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: true
+  EnforcedStyle: no_space
+  EnforcedStyleForEmptyBraces: no_space

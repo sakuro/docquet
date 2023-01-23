@@ -1,3 +1,11 @@
-# https://docs.rubocop.org/rubocop/cops_performance.html#performancetimesmap
+# https://docs.rubocop.org/rubocop-performance/cops_performance.html#performanceblockgivenwithexplicitblock
+Performance/BlockGivenWithExplicitBlock:
+  Enabled: true
+
+# https://docs.rubocop.org/rubocop-performance/cops_performance.html#performanceredundantblockcall
+Performance/RedundantBlockCall:
+  Enabled: true
+
+# https://docs.rubocop.org/rubocop-performance/cops_performance.html#performancetimesmap
 Performance/TimesMap:
   Enabled: true
