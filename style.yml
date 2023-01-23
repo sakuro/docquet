@@ -36,7 +36,7 @@ Style/DisableCopsWithinSourceCodeDirective:
 
 # https://docs.rubocop.org/rubocop/cops_style.html#styleexplicitblockargument
 Style/ExplicitBlockArgument:
-  Enabled: true
+  Enabled: false
 
 # https://docs.rubocop.org/rubocop/cops_style.html#stylefetchenvvar
 Style/FetchEnvVar:
