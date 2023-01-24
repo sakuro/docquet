@@ -1,0 +1,35 @@
+# https://docs.rubocop.org/rubocop/cops_gemspec.html#gemspecdependencyversion
+Gemspec/DependencyVersion:
+  Enabled: true
+  EnforcedStyle: required
+
+# https://docs.rubocop.org/rubocop/cops_gemspec.html#gemspecdeprecatedattributeassignment
+Gemspec/DeprecatedAttributeAssignment:
+  Enabled: true
+
+# https://docs.rubocop.org/rubocop/cops_gemspec.html#gemspecdevelopmentdependencies
+Gemspec/DevelopmentDependencies:
+  Enabled: true
+  EnforcedStyle: Gemfile
+
+# https://docs.rubocop.org/rubocop/cops_gemspec.html#gemspecduplicatedassignment
+Gemspec/DuplicatedAssignment:
+  Enabled: true
+
+# https://docs.rubocop.org/rubocop/cops_gemspec.html#gemspecordereddependencies
+Gemspec/OrderedDependencies:
+  Enabled: true
+  TreatCommentsAsGroupSeparators: true
+  ConsiderPunctuation: true
+
+# https://docs.rubocop.org/rubocop/cops_gemspec.html#gemspecrequiremfa
+Gemspec/RequireMFA:
+  Enabled: true
+
+# https://docs.rubocop.org/rubocop/cops_gemspec.html#gemspecrequiredrubyversion
+Gemspec/RequiredRubyVersion:
+  Enabled: true
+
+# https://docs.rubocop.org/rubocop/cops_gemspec.html#gemspecrubyversionglobalsusage
+Gemspec/RubyVersionGlobalsUsage:
+  Enabled: true

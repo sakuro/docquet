@@ -9,6 +9,7 @@
     ```yaml
     inherit_from:
       - .rubocop/bundler.yml
+      - .rubocop/gemspec.yml
       - .rubocop/layout.yml
       - .rubocop/lint.yml
       - .rubocop/metrics.yml
