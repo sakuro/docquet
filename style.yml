@@ -143,6 +143,10 @@ Style/StringConcatenation:
   Enabled: true
   Mode: conservative
 
+# https://docs.rubocop.org/rubocop/cops_style.html#stylestringhashkeys
+Style/StringHashKeys:
+  Enabled: false
+
 # https://docs.rubocop.org/rubocop/cops_style.html#stylestringliterals
 Style/StringLiterals:
   Enabled: true

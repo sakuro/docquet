@@ -69,6 +69,11 @@ Layout/SpaceBeforeBlockBraces:
   Enabled: true
   EnforcedStyle: space
 
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspacebeforefirstarg
+Layout/SpaceBeforeFirstArg:
+  Enabled: true
+  AllowForAlignment: false
+
 # https://docs.rubocop.org/rubocop/cops_layout.html#layoutspaceinsidearrayliteralbrackets
 Layout/SpaceInsideArrayLiteralBrackets:
   Enabled: true

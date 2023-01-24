@@ -14,6 +14,10 @@ Lint/ConstantResolution:
 Lint/EmptyBlock:
   Enabled: true
 
+# https://docs.rubocop.org/rubocop/cops_lint.html#lintmissingsuper
+Lint/MissingSuper:
+  Enabled: true
+
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintnonatomicfileoperation
 Lint/NonAtomicFileOperation:
   Enabled: true
