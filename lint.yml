@@ -35,6 +35,10 @@ Lint/SymbolConversion:
   Enabled: true
   EnforcedStyle: strict
 
+# https://docs.rubocop.org/rubocop/cops_lint.html#linttojson
+Lint/ToJSON:
+  Enabled: true
+
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintuselessrescue
 Lint/UselessRescue:
   Enabled: true
