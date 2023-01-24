@@ -6,6 +6,10 @@ RSpec/AlignLeftLetBrace:
 RSpec/AlignRightLetBrace:
   Enabled: false
 
+# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecbeeq
+RSpec/BeEq:
+  Enabled: true
+
 # https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecbenil
 RSpec/BeNil:
   Enabled: true
