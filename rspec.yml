@@ -27,6 +27,11 @@ RSpec/DescribedClass:
 RSpec/EmptyLineAfterFinalLet:
   Enabled: true
 
+# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecexpectchange
+RSpec/ExpectChange:
+  Enabled: true
+  EnforcedStyle: method_call
+
 # https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecinstancevariable
 RSpec/InstanceVariable:
   Enabled: true
