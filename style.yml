@@ -96,6 +96,11 @@ Style/Next:
   Enabled: true
   EnforcedStyle: skip_modifier_ifs
 
+# https://docs.rubocop.org/rubocop/cops_style.html#stylenumericliteralprefix
+Style/NumericLiteralPrefix:
+  Enabled: true
+  EnforcedOctalStyle: zero_only
+
 # https://docs.rubocop.org/rubocop/cops_style.html#stylenumericliterals
 Style/NumericLiterals:
   Enabled: true
