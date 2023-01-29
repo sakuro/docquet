@@ -134,6 +134,11 @@ Style/RedundantSelf:
 Style/RequireOrder:
   Enabled: true
 
+# https://docs.rubocop.org/rubocop/cops_style.html#stylereturnnil
+Style/ReturnNil:
+  Enabled: true
+  EnforcedStyle: return
+
 # https://docs.rubocop.org/rubocop/cops_style.html#stylerescuestandarderror
 Style/RescueStandardError:
   Enabled: true

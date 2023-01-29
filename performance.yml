@@ -1,3 +1,7 @@
+# https://docs.rubocop.org/rubocop-performance/cops_performance.html#performancearraysemiinfiniterangeslice
+Performance/ArraySemiInfiniteRangeSlice:
+  Enabled: false
+
 # https://docs.rubocop.org/rubocop-performance/cops_performance.html#performanceblockgivenwithexplicitblock
 Performance/BlockGivenWithExplicitBlock:
   Enabled: true
