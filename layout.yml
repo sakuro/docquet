@@ -64,6 +64,12 @@ Layout/SpaceAroundEqualsInParameterDefault:
   Enabled: true
   EnforcedStyle: no_space
 
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspacearoundoperators
+Layout/SpaceAroundOperators:
+  Enabled: true
+  AllowForAlignment: false
+  EnforcedStyleForExponentOperator: no_space
+
 # https://docs.rubocop.org/rubocop/cops_layout.html#layoutspacebeforeblockbraces
 Layout/SpaceBeforeBlockBraces:
   Enabled: true
