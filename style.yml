@@ -79,6 +79,10 @@ Style/MissingElse:
   Enabled: true
   EnforcedStyle: case
 
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemultilineblockchain
+Style/MultilineBlockChain:
+  Enabled: false
+
 # https://docs.rubocop.org/rubocop/cops_style.html#stylemultiplecomparison
 Style/MultipleComparison:
   Enabled: false
