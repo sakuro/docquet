@@ -39,6 +39,12 @@ Lint/SymbolConversion:
 Lint/ToJSON:
   Enabled: true
 
+# https://docs.rubocop.org/rubocop/cops_lint.html#lintunusedblockargument
+Lint/UnusedBlockArgument:
+  Enabled: true
+  IgnoreEmptyBlocks: false
+  AllowUnusedKeywordArguments: false
+
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintuselessrescue
 Lint/UselessRescue:
   Enabled: true
