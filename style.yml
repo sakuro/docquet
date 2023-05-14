@@ -38,6 +38,7 @@ Style/DisableCopsWithinSourceCodeDirective:
     - Naming/AccessorMethodName
     - RSpec/InstanceVariable
     - RSpec/RepeatedExampleGroupBody
+    - Style/RedundantFetchBlock
 
 
 # https://docs.rubocop.org/rubocop/cops_style.html#styleexplicitblockargument
