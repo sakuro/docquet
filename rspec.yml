@@ -15,6 +15,10 @@ RSpec/BeNil:
   Enabled: true
   EnforcedStyle: be_nil
 
+# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspeccontainexactly
+RSpec/ContainExactly:
+  Enabled: true
+
 # https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspeccontextwording
 RSpec/ContextWording:
   Enabled: false
