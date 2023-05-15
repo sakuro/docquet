@@ -40,6 +40,10 @@ Style/DisableCopsWithinSourceCodeDirective:
     - RSpec/RepeatedExampleGroupBody
     - Style/RedundantFetchBlock
 
+# https://docs.rubocop.org/rubocop/1.51/cops_style.html#styleendlessmethod
+Style/EndlessMethod:
+  Enabled: true
+  EnforcedStyle: allow_single_line
 
 # https://docs.rubocop.org/rubocop/cops_style.html#styleexplicitblockargument
 Style/ExplicitBlockArgument:
@@ -162,6 +166,11 @@ Style/RescueStandardError:
 Style/Semicolon:
   Enabled: true
   AllowAsExpressionSeparator: true
+
+# https://docs.rubocop.org/rubocop/1.51/cops_style.html#stylesinglelinemethods
+Style/SingleLineMethods:
+  Enabled: true
+  AllowIfMethodIsEmpty: true
 
 # https://docs.rubocop.org/rubocop/cops_style.html#stylestringconcatenation
 Style/StringConcatenation:
