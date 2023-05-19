@@ -3,6 +3,10 @@ Style/AccessorGrouping:
   Enabled: true
   EnforcedStyle: separated
 
+# https://docs.rubocop.org/rubocop/cops_style.html#styleandor
+Style/AndOr:
+  Enabled: false
+
 # https://docs.rubocop.org/rubocop/cops_style.html#styleaccessmodifierdeclarations
 Style/AccessModifierDeclarations:
   Enabled: true
@@ -109,6 +113,10 @@ Style/NegatedWhile:
 Style/Next:
   Enabled: true
   EnforcedStyle: skip_modifier_ifs
+
+# https://docs.rubocop.org/rubocop/cops_style.html#stylenot
+Style/Not:
+  Enabled: false
 
 # https://docs.rubocop.org/rubocop/cops_style.html#stylenumericliteralprefix
 Style/NumericLiteralPrefix:
