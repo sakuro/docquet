@@ -66,6 +66,10 @@ RSpec/PendingWithoutReason:
 RSpec/Rails/InferredSpecType:
   Enabled: false
 
+# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecreceivemessages
+RSpec/ReceiveMessages:
+  Enabled: true
+
 # https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecrepeatedexamplegroupbody
 RSpec/RepeatedExampleGroupBody:
   Enabled: true
