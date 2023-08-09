@@ -44,6 +44,7 @@ Style/DisableCopsWithinSourceCodeDirective:
   Enabled: true
   AllowedCops:
     - Lint/BinaryOperatorWithIdenticalOperands
+    - Metrics/CyclomaticComplexity
     - Naming/AccessorMethodName
     - RSpec/InstanceVariable
     - RSpec/RepeatedExampleGroupBody
