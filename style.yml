@@ -185,6 +185,10 @@ Style/SingleLineMethods:
   Enabled: true
   AllowIfMethodIsEmpty: true
 
+# https://docs.rubocop.org/rubocop/1.51/cops_style.html#stylespecialglobalvars
+Style/SpecialGlobalVars:
+  Enabled: false
+
 # https://docs.rubocop.org/rubocop/cops_style.html#stylestringconcatenation
 Style/StringConcatenation:
   Enabled: true
