@@ -2,6 +2,10 @@
 Naming/AccessorMethodName:
   Enabled: true
 
+# https://docs.rubocop.org/rubocop/cops_naming.html#namingfilename
+Naming/FileName:
+  Enabled: true
+
 # https://docs.rubocop.org/rubocop/cops_naming.html#namingmethodparametername
 Naming/MethodParameterName:
   Enabled: true
