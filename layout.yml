@@ -34,6 +34,10 @@ Layout/FirstMethodArgumentLineBreak:
 Layout/HashAlignment:
   Enabled: false
 
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutleadingcommentspace
+Layout/LeadingCommentSpace:
+  Enabled: true
+
 # https://docs.rubocop.org/rubocop/cops_layout.html#layoutlinelength
 Layout/LineLength:
   Enabled: true
