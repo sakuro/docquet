@@ -156,6 +156,10 @@ Style/PerlBackrefs:
 Style/RedundantConstantBase:
   Enabled: true
 
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantfileextensioninrequire
+Style/RedundantFileExtensionInRequire:
+  Enabled: true
+
 # https://docs.rubocop.org/rubocop/cops_style.html#styleredundantfreeze
 Style/RedundantFreeze:
   Enabled: true
