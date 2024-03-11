@@ -25,6 +25,11 @@ Layout/EmptyLineAfterGuardClause:
 Layout/EmptyLinesAroundModuleBody:
   Enabled: true
 
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutfirstarrayelementlinebreak
+Layout/FirstArrayElementLineBreak:
+  Enabled: true
+  AllowMultilineFinalElement: true
+
 # https://docs.rubocop.org/rubocop/cops_layout.html#layoutfirstmethodargumentlinebreak
 Layout/FirstMethodArgumentLineBreak:
   Enabled: true
