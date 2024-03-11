@@ -57,6 +57,11 @@ Layout/LineLength:
     - \bdef [A-Z]?[a-z0-9_]+[!?]?(?:\(.*\))? = .*(?!end)$
 
 # https://docs.rubocop.org/rubocop/cops_layout.html#layoutmultilinemethoddefinitionbracelayout
+Layout/MultilineArrayLineBreaks:
+  Enabled: true
+  AllowMultilineFinalElement: true
+
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutmultilinemethoddefinitionbracelayout
 Layout/MultilineMethodDefinitionBraceLayout:
   Enabled: true
   EnforcedStyle: new_line
