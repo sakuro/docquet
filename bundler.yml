@@ -1,3 +1,7 @@
+# https://docs.rubocop.org/rubocop/cops_bundler.html#bundlerduplicatedgroup
+Bundler/DuplicatedGroup:
+  Enabled: true
+
 # https://docs.rubocop.org/rubocop/cops_bundler.html#bundlerduplicatedgem
 Bundler/DuplicatedGem:
   Enabled: true
