@@ -12,11 +12,10 @@ file rubocop_yml do |t|
   File.read(readme).lines.each do |line|
     if !flag && /```yaml/ =~ line
       flag = true
-      indent = /\A#{line.scan(/\A +/).first}/
     elsif flag && /```/ =~ line
       flag = false
     elsif flag
-      lines << line.sub(indent, '')
+      lines << line
     end
   end
   File.write(t.name, ERB.new(lines.join).result)

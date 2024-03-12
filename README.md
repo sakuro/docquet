@@ -9,35 +9,35 @@
 
 You can generate `.rubocop.yml` by running: `rake -f .rubocop/Rakefile`.
 
-    ```yaml
-    inherit_from:
-      - .rubocop/bundler.yml
-      - .rubocop/gemspec.yml
-      - .rubocop/layout.yml
-      - .rubocop/lint.yml
-      - .rubocop/metrics.yml
-      - .rubocop/naming.yml
-      - .rubocop/performance.yml
-      - .rubocop/rspec.yml
-      - .rubocop/security.yml
-      - .rubocop/style.yml
-      - .rubocop_todo.yml
+```yaml
+inherit_from:
+  - .rubocop/bundler.yml
+  - .rubocop/gemspec.yml
+  - .rubocop/layout.yml
+  - .rubocop/lint.yml
+  - .rubocop/metrics.yml
+  - .rubocop/naming.yml
+  - .rubocop/performance.yml
+  - .rubocop/rspec.yml
+  - .rubocop/security.yml
+  - .rubocop/style.yml
+  - .rubocop_todo.yml
 
-    require:
-      - rubocop-performance
-      - rubocop-rake
-      - rubocop-rspec
+require:
+  - rubocop-performance
+  - rubocop-rake
+  - rubocop-rspec
 
-    AllCops:
-      EnabledByDefault: true
-      TargetRubyVersion: <%= RUBY_VERSION.split(".")[0,2].join(".") %>
-      Exclude:
-        - bin/**/*
-        - vendor/**/*
-        - spec/spec_helper.rb
-        - spec/support/rspec.rb
-        - "*.gemspec"
-    ```
+AllCops:
+  EnabledByDefault: true
+  TargetRubyVersion: <%= RUBY_VERSION.split(".")[0,2].join(".") %>
+  Exclude:
+    - bin/**/*
+    - vendor/**/*
+    - spec/spec_helper.rb
+    - spec/support/rspec.rb
+    - "*.gemspec"
+```
 
 # Cop Documentation
 
