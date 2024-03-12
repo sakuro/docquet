@@ -9,3 +9,7 @@ Naming/FileName:
 # https://docs.rubocop.org/rubocop/cops_naming.html#namingmethodparametername
 Naming/MethodParameterName:
   Enabled: true
+
+# https://docs.rubocop.org/rubocop/cops_naming.html#namingrescuedexceptionsvariablename
+Naming/RescuedExceptionsVariableName:
+  Enabled: false
