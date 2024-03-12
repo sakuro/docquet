@@ -15,6 +15,15 @@ RSpec/BeNil:
   Enabled: true
   EnforcedStyle: be_nil
 
+# https://docs.rubocop.org/rubocop-rspec/cops_rspec_capybara.html#rspeccapybarafeaturemethods
+RSpec/Capybara/FeatureMethods:
+  Enabled: true
+  EnabledMethods:
+    - background
+    - feature
+    - given
+    - scenario
+
 # https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspeccontainexactly
 RSpec/ContainExactly:
   Enabled: true
