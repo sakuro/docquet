@@ -7,7 +7,6 @@ task default: rubocop_yml
 file rubocop_yml do |t|
   readme = File.join(File.dirname(Rake.application.rakefile), "README.md")
   flag = false
-  indent = nil
   lines = []
   File.read(readme).lines.each do |line|
     if !flag && /```yaml/ =~ line
