@@ -27,7 +27,7 @@
 
     AllCops:
       EnabledByDefault: true
-      TargetRubyVersion: 3.2
+      TargetRubyVersion: 3.3
       Exclude:
         - bin/**/*
         - vendor/**/*
