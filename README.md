@@ -6,6 +6,9 @@
     git submodule update --init
     ```
 2. Include config files (`*.yml`) under `.rubocop` from your `.rubocop.yml` by using `inherit_from` directive.
+
+You can generate `.rubocop.yml` by running: `rake -f .rubocop/Rakefile`.
+
     ```yaml
     inherit_from:
       - .rubocop/bundler.yml
@@ -27,7 +30,7 @@
 
     AllCops:
       EnabledByDefault: true
-      TargetRubyVersion: 3.3
+      TargetRubyVersion: <%= RUBY_VERSION.split(".")[0,2].join(".") %>
       Exclude:
         - bin/**/*
         - vendor/**/*
@@ -35,7 +38,6 @@
         - spec/support/rspec.rb
         - "*.gemspec"
     ```
-
 
 # Cop Documentation
 
