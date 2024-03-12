@@ -35,6 +35,11 @@ Layout/FirstMethodArgumentLineBreak:
   Enabled: true
   AllowMultilineFinalElement: true
 
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutmultilinemethodcallindentation
+Layout/MultilineMethodCallIndentation:
+  Enabled: true
+  EnforcedStyle: indented
+
 # https://docs.rubocop.org/rubocop/cops_layout.html#layouthashalignment
 Layout/HashAlignment:
   Enabled: false
