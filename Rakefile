@@ -1,11 +1,8 @@
 require "erb"
 
-rubocop_yml = ".rubocop.yml"
-rubocop_todo_yml = ".rubocop_todo.yml"
+task default: %w(.rubocop.yml .rubocop_todo.yml)
 
-task default: [rubocop_yml, rubocop_todo_yml]
-
-file rubocop_yml do |t|
+file ".rubocop.yml" do |t|
   readme = File.join(File.dirname(Rake.application.rakefile), "README.md")
   flag = false
   lines = []
@@ -21,6 +18,6 @@ file rubocop_yml do |t|
   File.write(t.name, ERB.new(lines.join).result)
 end
 
-file rubocop_todo_yml do |t|
+file ".rubocop_todo.yml" do |t|
   touch t.name
 end
