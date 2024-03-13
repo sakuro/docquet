@@ -4,18 +4,14 @@ task default: %w(.rubocop.yml .rubocop_todo.yml)
 
 file ".rubocop.yml" do |t|
   readme = File.join(File.dirname(Rake.application.rakefile), "README.md")
-  flag = false
-  lines = []
-  File.read(readme).lines.each do |line|
-    if !flag && /```yaml/ =~ line
-      flag = true
-    elsif flag && /```/ =~ line
-      flag = false
-    elsif flag
-      lines << line
-    end
-  end
-  File.write(t.name, ERB.new(lines.join).result)
+  content =
+    File.read(readme)
+      .each_line
+      .drop_while {|line| /\A```yaml/ !~ line }
+      .drop(1)
+      .take_while {|line| /\A```/ !~ line }
+      .join
+  File.write(t.name, ERB.new(content).result)
 end
 
 file ".rubocop_todo.yml" do |t|
