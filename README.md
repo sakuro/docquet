@@ -24,6 +24,8 @@ inherit_from:
   - .rubocop_todo.yml
 
 require:
+  - rubocop-capybara
+  - rubocop-factory_bot
   - rubocop-performance
   - rubocop-rake
   - rubocop-rspec
