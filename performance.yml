@@ -6,6 +6,10 @@ Performance/ArraySemiInfiniteRangeSlice:
 Performance/BlockGivenWithExplicitBlock:
   Enabled: true
 
+# https://docs.rubocop.org/rubocop-performance/cops_performance.html#performancemethodobjectasblock
+Performance/MethodObjectAsBlock:
+  Enabled: false
+
 # https://docs.rubocop.org/rubocop-performance/cops_performance.html#performanceredundantblockcall
 Performance/RedundantBlockCall:
   Enabled: true
