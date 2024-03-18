@@ -45,6 +45,11 @@ RSpec/ExpectChange:
   Enabled: true
   EnforcedStyle: method_call
 
+# DEPRECATED
+# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecfilepath
+RSpec/FilePath:
+  Enabled: false
+
 # https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspechookargument
 RSpec/HookArgument:
   Enabled: true
