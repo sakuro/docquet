@@ -1,3 +1,8 @@
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutargumentalignment
+Layout/ArgumentAlignment:
+  Enabled: true
+  EnforcedStyle: with_fixed_indentation
+
 # https://docs.rubocop.org/rubocop/cops_layout.html#layoutclassstructure
 Layout/ClassStructure:
   Enabled: true
@@ -32,6 +37,11 @@ Layout/FirstArrayElementLineBreak:
 
 # https://docs.rubocop.org/rubocop/cops_layout.html#layoutfirstmethodargumentlinebreak
 Layout/FirstMethodArgumentLineBreak:
+  Enabled: true
+  AllowMultilineFinalElement: true
+
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutmultilinemethodargumetlinebreaks
+Layout/MultilineMethodArgumentLineBreaks:
   Enabled: true
   AllowMultilineFinalElement: true
 
