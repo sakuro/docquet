@@ -1,27 +1,30 @@
 # Usage
 
-1. Add this repo as a submodule named `.rubocop`
+1. Add this repo as a submodule named `.rubocop.d`
     ```sh
-    git submodule add https://github.com/sakuro/rubocop-config .rubocop
-    git submodule update --init
+    git submodule add https://github.com/sakuro/rubocop-config .rubocop.d
     ```
-2. Include config files (`*.yml`) under `.rubocop` from your `.rubocop.yml` by using `inherit_from` directive.
+2. Include config files (`*.yml`) under `.rubocop.d` from your `.rubocop.yml` by using `inherit_from` directive.
 
-You can generate `.rubocop.yml` by running: `rake -f .rubocop/Rakefile`.
+You can generate `.rubocop.yml` by running: `rake -f .rubocop.d/Rakefile`.
 
 ```yaml
 inherit_from:
-  - .rubocop/bundler.yml
-  - .rubocop/gemspec.yml
-  - .rubocop/layout.yml
-  - .rubocop/lint.yml
-  - .rubocop/metrics.yml
-  - .rubocop/naming.yml
-  - .rubocop/performance.yml
-  - .rubocop/rspec.yml
-  - .rubocop/security.yml
-  - .rubocop/style.yml
+  - .rubocop.d/bundler.yml
+  - .rubocop.d/gemspec.yml
+  - .rubocop.d/layout.yml
+  - .rubocop.d/lint.yml
+  - .rubocop.d/metrics.yml
+  - .rubocop.d/naming.yml
+  - .rubocop.d/performance.yml
+  - .rubocop.d/rspec.yml
+  - .rubocop.d/security.yml
+  - .rubocop.d/style.yml
   - .rubocop_todo.yml
+
+inherit_mode:
+  merge:
+    - Exclude
 
 require:
   - rubocop-capybara
