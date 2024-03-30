@@ -18,6 +18,7 @@ inherit_from:
   - .rubocop.d/naming.yml
   - .rubocop.d/performance.yml
   - .rubocop.d/rspec.yml
+  - .rubocop.d/rspec_rails.yml
   - .rubocop.d/security.yml
   - .rubocop.d/style.yml
   - .rubocop_todo.yml

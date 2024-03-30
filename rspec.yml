@@ -81,10 +81,6 @@ RSpec/Pending:
 RSpec/PendingWithoutReason:
   Enabled: true
 
-# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecinferredspectype
-RSpec/Rails/InferredSpecType:
-  Enabled: false
-
 # https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecreceivemessages
 RSpec/ReceiveMessages:
   Enabled: true
