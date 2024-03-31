@@ -40,6 +40,15 @@ RSpec/DescribedClass:
 RSpec/EmptyLineAfterFinalLet:
   Enabled: true
 
+# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecexamplelength
+RSpec/ExampleLength:
+  Enabled: true
+  CountAsOne:
+    - array
+    - hash
+    - heredoc
+    - method_call
+
 # https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecexpectchange
 RSpec/ExpectChange:
   Enabled: true
