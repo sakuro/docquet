@@ -27,6 +27,11 @@ RSpec/ContextWording:
 RSpec/DescribedClass:
   Enabled: false
 
+# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecdialect
+RSpec/Dialect:
+  Enabled: false
+
+
 # https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecemptylineafterfinallet
 RSpec/EmptyLineAfterFinalLet:
   Enabled: true
@@ -45,10 +50,13 @@ RSpec/ExpectChange:
   Enabled: true
   EnforcedStyle: method_call
 
-# DEPRECATED
-# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecfilepath
-RSpec/FilePath:
-  Enabled: false
+# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecspecfilepathformat
+RSpec/SpecFilePathFormat:
+  Enabled: true
+
+# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecspecfilepathsuffix
+RSpec/SpecFilePathSuffix:
+  Enabled: true
 
 # https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspechookargument
 RSpec/HookArgument:
@@ -87,8 +95,4 @@ RSpec/ReceiveMessages:
 
 # https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecrepeatedexamplegroupbody
 RSpec/RepeatedExampleGroupBody:
-  Enabled: true
-
-# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecspecfilepathformat
-RSpec/SpecFilePathFormat:
   Enabled: true
