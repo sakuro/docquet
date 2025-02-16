@@ -1,42 +1,17 @@
-# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecalignleftletbrace
+inherit_from: default/rspec.yml
+
 RSpec/AlignLeftLetBrace:
   Enabled: false
 
-# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecalignrightletbrace
 RSpec/AlignRightLetBrace:
   Enabled: false
 
-# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecbeeq
-RSpec/BeEq:
-  Enabled: true
-
-# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecbenil
-RSpec/BeNil:
-  Enabled: true
-  EnforcedStyle: be_nil
-
-# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspeccontainexactly
-RSpec/ContainExactly:
-  Enabled: true
-
-# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspeccontextwording
-RSpec/ContextWording:
-  Enabled: false
-
-# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecdescribedclass
 RSpec/DescribedClass:
   Enabled: false
 
-# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecdialect
 RSpec/Dialect:
   Enabled: false
 
-
-# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecemptylineafterfinallet
-RSpec/EmptyLineAfterFinalLet:
-  Enabled: true
-
-# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecexamplelength
 RSpec/ExampleLength:
   Enabled: true
   CountAsOne:
@@ -45,54 +20,8 @@ RSpec/ExampleLength:
     - heredoc
     - method_call
 
-# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecexpectchange
-RSpec/ExpectChange:
-  Enabled: true
-  EnforcedStyle: method_call
-
-# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecspecfilepathformat
-RSpec/SpecFilePathFormat:
-  Enabled: true
-
-# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecspecfilepathsuffix
-RSpec/SpecFilePathSuffix:
-  Enabled: true
-
-# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspechookargument
-RSpec/HookArgument:
-  Enabled: true
-  EnforcedStyle: implicit
-
-# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecinstancevariable
-RSpec/InstanceVariable:
-  Enabled: true
-
-# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecletbeforeexamples
-RSpec/LetBeforeExamples:
-  Enabled: true
-
-# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecmultiplememoizedhelpers
 RSpec/MultipleMemoizedHelpers:
-  Enabled: true
   Max: 10
 
-# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecnottonot
-RSpec/NotToNot:
-  Enabled: true
-  EnforcedStyle: not_to
-
-# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecpending
 RSpec/Pending:
   Enabled: false
-
-# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecpendingwithoutreason
-RSpec/PendingWithoutReason:
-  Enabled: true
-
-# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecreceivemessages
-RSpec/ReceiveMessages:
-  Enabled: true
-
-# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecrepeatedexamplegroupbody
-RSpec/RepeatedExampleGroupBody:
-  Enabled: true

@@ -61,3 +61,13 @@ task split: %w[default.yml default] do |t|
     rm_f file
   end
 end
+
+task :inherit do
+  Dir["default/*.yml"].each do |file|
+    base = File.basename(file, ".yml")
+    touch "#{base}.yml"
+    content = File.read("#{base}.yml")
+    content.sub!(/\A/, "inherit_from: #{file}\n\n")
+    File.write("#{base}.yml", content)
+  end
+end

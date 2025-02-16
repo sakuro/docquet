@@ -27,7 +27,7 @@ Metrics/BlockLength:
   - refine
   AllowedPatterns: []
   Exclude:
-  - "/Users/sakuro/github.com/sakuro/rubocop-config/**/*.gemspec"
+  - "**/*.gemspec"
   - "**/*_spec.rb"
   - "**/spec/**/*"
   inherit_mode:

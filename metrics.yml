@@ -1,25 +1,9 @@
-# https://docs.rubocop.org/rubocop/cops_metrics.html#metricsabcsize
-Metrics/AbcSize:
-  Enabled: true
+inherit_from: default/metrics.yml
 
-# https://docs.rubocop.org/rubocop/cops_metrics.html#metricsblocklength
 Metrics/BlockLength:
-  Enabled: true
   AllowedMethods:
     - context
     - describe
+    - refine
     - shared_context
     - shared_examples
-
-# https://docs.rubocop.org/rubocop/cops_metrics.html#metricsclasslength
-Metrics/ClassLength:
-  Enabled: true
-
-# https://docs.rubocop.org/rubocop/cops_metrics.html#metricscyclomaticcomplexity
-Metrics/CyclomaticComplexity:
-  Enabled: true
-
-# https://docs.rubocop.org/rubocop/cops_metrics.html#metricsperceivedcomplexity
-Metrics/PerceivedComplexity:
-  Enabled: true
-

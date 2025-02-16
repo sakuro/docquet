@@ -1,7 +1,1 @@
-# https://docs.rubocop.org/rubocop/cops_security.html#securityiomethods
-Security/IoMethods:
-  Enabled: true
-
-# https://docs.rubocop.org/rubocop/cops_security.html#securityopen
-Security/Open:
-  Enabled: true
+inherit_from: default/security.yml
