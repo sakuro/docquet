@@ -62,6 +62,7 @@ task split: %w[default.yml default] do |t|
   end
 end
 
+desc "Insert inherit_from directive for inheriting counterpart in default/"
 task :inherit do
   Dir["default/*.yml"].each do |file|
     base = File.basename(file, ".yml")
