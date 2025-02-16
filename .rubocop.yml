@@ -1,0 +1,40 @@
+inherit_from:
+  - bundler.yml
+  - gemspec.yml
+  - layout.yml
+  - lint.yml
+  - metrics.yml
+  - naming.yml
+  - security.yml
+  - style.yml
+  - capybara.yml
+  - performance.yml
+  - rake.yml
+  - rspec.yml
+  - rspec_capybara.yml
+
+plugins:
+  - rubocop-performance
+  - rubocop-rake
+
+require:
+  - rubocop-capybara
+  - rubocop-i18n
+  - rubocop-rspec
+  - rubocop-sequel
+  - rubocop-thread_safety
+
+inherit_mode:
+  merge:
+    - Exclude
+
+AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  EnabledByDefault: true
+  ExtraDetails: true
+  Exclude:
+    - bin/**/*
+    - vendor/**/*
+  TargetRubyVersion: 3.4
+  UseCache: true
