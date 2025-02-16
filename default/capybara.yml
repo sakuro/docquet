@@ -1,0 +1,81 @@
+# Department 'Capybara' (9):
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybaraclicklinkorbuttonstyle
+Capybara/ClickLinkOrButtonStyle:
+  Description: Checks for methods of button or link clicks.
+  Enabled: true # was pending
+  VersionAdded: '2.19'
+  VersionChanged: '2.20'
+  EnforcedStyle: link_or_button
+  SupportedStyles:
+  - link_or_button
+  - strict
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/ClickLinkOrButtonStyle
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybaracurrentpathexpectation
+Capybara/CurrentPathExpectation:
+  Description: Checks that no expectations are set on Capybara's `current_path`.
+  Enabled: true
+  VersionAdded: '1.18'
+  VersionChanged: '2.0'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/CurrentPathExpectation
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybaramatchstyle
+Capybara/MatchStyle:
+  Description: Checks for usage of deprecated style methods.
+  Enabled: true # was pending
+  VersionAdded: '2.17'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/MatchStyle
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybaranegationmatcher
+Capybara/NegationMatcher:
+  Description: Enforces use of `have_no_*` or `not_to` for negated expectations.
+  Enabled: true # was pending
+  VersionAdded: '2.14'
+  VersionChanged: '2.20'
+  EnforcedStyle: have_no
+  SupportedStyles:
+  - have_no
+  - not_to
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/NegationMatcher
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybararedundantwithinfind
+Capybara/RedundantWithinFind:
+  Description: Checks for redundant `within find(...)` calls.
+  Enabled: true # was pending
+  VersionAdded: '2.20'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/RedundantWithinFind
+
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybaraspecificactions
+Capybara/SpecificActions:
+  Description: Checks for there is a more specific actions offered by Capybara.
+  Enabled: true # was pending
+  VersionAdded: '2.14'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/SpecificActions
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybaraspecificfinders
+Capybara/SpecificFinders:
+  Description: Checks if there is a more specific finder offered by Capybara.
+  Enabled: true # was pending
+  VersionAdded: '2.13'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/SpecificFinders
+
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybaraspecificmatcher
+Capybara/SpecificMatcher:
+  Description: Checks for there is a more specific matcher offered by Capybara.
+  Enabled: true # was pending
+  VersionAdded: '2.12'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/SpecificMatcher
+
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybaravisibilitymatcher
+Capybara/VisibilityMatcher:
+  Description: Checks for boolean visibility in Capybara finders.
+  Enabled: true
+  VersionAdded: '1.39'
+  VersionChanged: '2.0'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/VisibilityMatcher
+

@@ -1,0 +1,24 @@
+# Department 'Capybara/RSpec' (2):
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara_rspec.html#capybararspechaveselector
+Capybara/RSpec/HaveSelector:
+  Description: Use `have_css` or `have_xpath` instead of `have_selector`.
+  Enabled: true # was pending
+  DefaultSelector: css
+  VersionAdded: '2.19'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/RSpec/HaveSelector
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara_rspec.html#capybararspecpredicatematcher
+Capybara/RSpec/PredicateMatcher:
+  Description: Prefer using predicate matcher over using predicate method directly.
+  Enabled: true # was pending
+  Strict: true
+  EnforcedStyle: inflected
+  AllowedExplicitMatchers: []
+  SupportedStyles:
+  - inflected
+  - explicit
+  VersionAdded: '2.19'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/RSpec/PredicateMatcher
+

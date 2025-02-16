@@ -1,0 +1,43 @@
+# Department 'ThreadSafety' (6):
+# https://docs.rubocop.org/rubocop/cops_threadsafety.html#threadsafetyclassandmoduleattributes
+ThreadSafety/ClassAndModuleAttributes:
+  Description: Avoid mutating class and module attributes.
+  Enabled: true
+  ActiveSupportClassAttributeAllowed: false
+
+# https://docs.rubocop.org/rubocop/cops_threadsafety.html#threadsafetyclassinstancevariable
+ThreadSafety/ClassInstanceVariable:
+  Enabled: true
+
+# https://docs.rubocop.org/rubocop/cops_threadsafety.html#threadsafetydirchdir
+ThreadSafety/DirChdir:
+  Description: Avoid using `Dir.chdir` due to its process-wide effect.
+  Enabled: true
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_threadsafety.html#threadsafetymutableclassinstancevariable
+ThreadSafety/MutableClassInstanceVariable:
+  Description: Do not assign mutable objects to class instance variables.
+  Enabled: true
+  EnforcedStyle: literals
+  SafeAutoCorrect: false
+  SupportedStyles:
+  - literals
+  - strict
+
+# https://docs.rubocop.org/rubocop/cops_threadsafety.html#threadsafetynewthread
+ThreadSafety/NewThread:
+  Description: Avoid starting new threads. Let a framework like Sidekiq handle the threads.
+  Enabled: true
+
+# https://docs.rubocop.org/rubocop/cops_threadsafety.html#threadsafetyrackmiddlewareinstancevariable
+ThreadSafety/RackMiddlewareInstanceVariable:
+  Description: Avoid instance variables in Rack middleware.
+  Enabled: true
+  Include:
+  - app/middleware/**/*.rb
+  - lib/middleware/**/*.rb
+  - app/middlewares/**/*.rb
+  - lib/middlewares/**/*.rb
+  AllowedIdentifiers: []
+

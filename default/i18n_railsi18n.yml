@@ -1,0 +1,9 @@
+# Department 'I18n/RailsI18n' (2):
+# https://docs.rubocop.org/rubocop-i18n/cops_i18n_railsi18n.html#i18nrailsi18ndecoratestring
+I18n/RailsI18n/DecorateString:
+  Enabled: true
+
+# https://docs.rubocop.org/rubocop-i18n/cops_i18n_railsi18n.html#i18nrailsi18ndecoratestringformattingusinginterpolation
+I18n/RailsI18n/DecorateStringFormattingUsingInterpolation:
+  Enabled: true # was false
+
