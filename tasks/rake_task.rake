@@ -8,11 +8,11 @@ task :rake_task, :rake_file_path do
     require "rubocop/rake_task"
 
     RuboCop::RakeTask.prepend(Module.new do
-      def setup_subtasks(name, *args, &task_block)
+      def setup_subtasks(name, *, &task_block)
         super
         namespace name do
           desc "Regenerate RuboCop TODO file"
-          task(:regenerate_todo, *args) do |_, task_args|
+          task(:regenerate_todo, *) do |_, task_args|
             RakeFileUtils.verbose(verbose) do
               yield(*[self, task_args].slice(0, task_block.arity)) if task_block
               perform('--regenerate-todo')
