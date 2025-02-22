@@ -8,6 +8,7 @@ task :rake_task, :rake_file_path do
     require "rubocop/rake_task"
 
     RuboCop::RakeTask.prepend(Module.new do
+      # Additionally define rubocop:regenerate_todo task.
       def setup_subtasks(name, *, &task_block)
         super
         namespace name do
