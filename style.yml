@@ -27,12 +27,12 @@ Style/Copyright:
 
 Style/DisableCopsWithinSourceCodeDirective:
   AllowedCops:
-    - Lint/BinaryOperatorWithIdenticalOperands
-    - Metrics/CyclomaticComplexity
-    - Naming/AccessorMethodName
-    - RSpec/InstanceVariable
-    - RSpec/RepeatedExampleGroupBody
-    - Style/RedundantFetchBlock
+  - Lint/BinaryOperatorWithIdenticalOperands
+  - Metrics/CyclomaticComplexity
+  - Naming/AccessorMethodName
+  - RSpec/InstanceVariable
+  - RSpec/RepeatedExampleGroupBody
+  - Style/RedundantFetchBlock
 
 Style/EndlessMethod:
   EnforcedStyle: allow_single_line

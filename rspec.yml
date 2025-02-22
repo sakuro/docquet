@@ -15,10 +15,10 @@ RSpec/Dialect:
 RSpec/ExampleLength:
   Enabled: true
   CountAsOne:
-    - array
-    - hash
-    - heredoc
-    - method_call
+  - array
+  - hash
+  - heredoc
+  - method_call
 
 RSpec/MultipleMemoizedHelpers:
   Max: 10

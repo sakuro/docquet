@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 require "rake/clean"
-require "uri/https"
 
-CLEAN << "default.yml"
+CLEAN << FileList["build"]
 CLOBBER << FileList["default"]
 
-Dir["tasks/*.rake"].each {|file| load file }
+require "rubocop/rake_task"
+RuboCop::RakeTask.new
+
+Dir["#{__dir__}/tasks/*.rake"].each {|file| load file }

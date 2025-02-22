@@ -565,8 +565,8 @@ Style/Documentation:
   VersionAdded: '0.9'
   AllowedConstants: []
   Exclude:
-  - "/Users/sakuro/github.com/sakuro/rubocop-config/spec/**/*"
-  - "/Users/sakuro/github.com/sakuro/rubocop-config/test/**/*"
+  - "spec/**/*"
+  - "test/**/*"
 
 # https://docs.rubocop.org/rubocop/cops_style.html#styledocumentationmethod
 Style/DocumentationMethod:
@@ -575,8 +575,8 @@ Style/DocumentationMethod:
   VersionAdded: '0.43'
   AllowedMethods: []
   Exclude:
-  - "/Users/sakuro/github.com/sakuro/rubocop-config/spec/**/*"
-  - "/Users/sakuro/github.com/sakuro/rubocop-config/test/**/*"
+  - "spec/**/*"
+  - "test/**/*"
   RequireForNonPublicMethods: false
 
 # Supports --autocorrect
@@ -904,7 +904,7 @@ Style/FrozenStringLiteralComment:
   - never
   SafeAutoCorrect: false
   Exclude:
-  - "/Users/sakuro/github.com/sakuro/rubocop-config/**/*.arb"
+  - "**/*.arb"
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#styleglobalstdstream
@@ -1178,10 +1178,10 @@ Style/IpAddresses:
   AllowedAddresses:
   - "::"
   Exclude:
-  - "/Users/sakuro/github.com/sakuro/rubocop-config/**/*.gemfile"
-  - "/Users/sakuro/github.com/sakuro/rubocop-config/**/Gemfile"
-  - "/Users/sakuro/github.com/sakuro/rubocop-config/**/gems.rb"
-  - "/Users/sakuro/github.com/sakuro/rubocop-config/**/*.gemspec"
+  - "**/*.gemfile"
+  - "**/Gemfile"
+  - "**/gems.rb"
+  - "**/*.gemspec"
 
 # https://docs.rubocop.org/rubocop/cops_style.html#styleitassignment
 Style/ItAssignment:
@@ -1720,7 +1720,7 @@ Style/NumericPredicate:
   AllowedMethods: []
   AllowedPatterns: []
   Exclude:
-  - "/Users/sakuro/github.com/sakuro/rubocop-config/spec/**/*"
+  - "spec/**/*"
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#styleobjectthen
@@ -2058,7 +2058,9 @@ Style/RedundantFormat:
   Description: Checks for usages of `Kernel#format` or `Kernel#sprintf` with only a
     single argument.
   Enabled: true # was pending
+  SafeAutoCorrect: false
   VersionAdded: '1.72'
+  VersionChanged: '1.72'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#styleredundantfreeze

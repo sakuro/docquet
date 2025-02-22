@@ -74,7 +74,7 @@ Naming/FileName:
   VersionAdded: '0.50'
   VersionChanged: '1.23'
   Exclude:
-  - "/Users/sakuro/github.com/sakuro/rubocop-config/Rakefile.rb"
+  - "Rakefile.rb"
   ExpectMatchingDefinition: false
   CheckDefinitionPathHierarchy: true
   CheckDefinitionPathHierarchyRoots:
@@ -255,7 +255,7 @@ Naming/PredicateName:
   - define_singleton_method
   UseSorbetSigs: false
   Exclude:
-  - "/Users/sakuro/github.com/sakuro/rubocop-config/spec/**/*"
+  - "spec/**/*"
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_naming.html#namingrescuedexceptionsvariablename

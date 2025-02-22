@@ -1064,7 +1064,7 @@ Lint/TopLevelReturnWithArgument:
   Enabled: true
   VersionAdded: '0.89'
   Exclude:
-  - "/Users/sakuro/github.com/sakuro/rubocop-config/**/*.jb"
+  - "**/*.jb"
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_lint.html#linttrailingcommainattributedeclaration

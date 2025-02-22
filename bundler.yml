@@ -2,12 +2,12 @@ inherit_from: default/bundler.yml
 
 Bundler/GemComment:
   OnlyFor:
-    - restrictive_version_specifiers
-    - bitbucket
-    - gist
-    - git
-    - github
-    - source
+  - restrictive_version_specifiers
+  - bitbucket
+  - gist
+  - git
+  - github
+  - source
 
 Bundler/GemVersion:
   Enabled: false

@@ -5,20 +5,20 @@ Layout/ArgumentAlignment:
 
 Layout/ClassStructure:
   ExpectedOrder:
-    - module_inclusion
-    - constants
-    - association
-    - public_attribute_macros
-    - public_delegate
-    - macros
-    - public_class_methods
-    - initializer
-    - public_methods
-    - protected_attribute_macros
-    - protected_methods
-    - private_attribute_macros
-    - private_delegate
-    - private_methods
+  - module_inclusion
+  - constants
+  - association
+  - public_attribute_macros
+  - public_delegate
+  - macros
+  - public_class_methods
+  - initializer
+  - public_methods
+  - protected_attribute_macros
+  - protected_methods
+  - private_attribute_macros
+  - private_delegate
+  - private_methods
 
 Layout/FirstArrayElementLineBreak:
   AllowMultilineFinalElement: true
@@ -37,9 +37,9 @@ Layout/HashAlignment:
 
 Layout/LineLength:
   AllowedPatterns:
-    - expect
-    - (?:all|any|none|one)\?
-    - \bdef [A-Z]?[a-z0-9_]+[!?]?(?:\(.*\))? = .*(?!end)$
+  - expect
+  - (?:all|any|none|one)\?
+  - \bdef [A-Z]?[a-z0-9_]+[!?]?(?:\(.*\))? = .*(?!end)$
 
 Layout/MultilineArrayLineBreaks:
   AllowMultilineFinalElement: true
