@@ -16,7 +16,7 @@ task :rake_task, :rake_file_path do
           task(:regenerate_todo, *) do |_, task_args|
             RakeFileUtils.verbose(verbose) do
               yield(*[self, task_args].slice(0, task_block.arity)) if task_block
-              perform('--regenerate-todo')
+              perform("--regenerate-todo")
             end
           end
         end
