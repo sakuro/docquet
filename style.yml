@@ -59,6 +59,9 @@ Style/HashSyntax:
   EnforcedStyle: ruby19_no_mixed_keys
   EnforcedShorthandSyntax: always
 
+Style/IfUnlessModifier:
+  Enabled: false
+
 Style/InlineComment:
   Enabled: false
 
