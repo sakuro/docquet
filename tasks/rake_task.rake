@@ -1,25 +1,30 @@
 # frozen_string_literal: true
 
 desc "Generate a Rake task for RuboCop"
-task :rake_task, :rake_file_path do |_task, args|
-  output_path = args.rake_file_path || "lib/tasks/rubocop.rake"
+task :rake_task, :rake_file_path do
   content = <<~RAKE_TASK
-    require "rubocop/rake_task"
-    RuboCop::RakeTask.new
+    # frozen_string_literal: true
 
-    namespace :rubocop do
-      desc "Regenerate RuboCop TODO file"
-      RuboCop::RakeTask.new(:regenerate_todo) do |task|
-        task.options << "--regenerate-todo"
+    require "rubocop/rake_task"
+
+    RuboCop::RakeTask.prepend(Module.new do
+      def setup_subtasks(name, *args, &task_block)
+        super
+        namespace name do
+          desc "Regenerate RuboCop TODO file"
+          task(:regenerate_todo, *args) do |_, task_args|
+            RakeFileUtils.verbose(verbose) do
+              yield(*[self, task_args].slice(0, task_block.arity)) if task_block
+              perform('--regenerate-todo')
+            end
+          end
+        end
       end
-    end
+    end)
+
+    RuboCop::RakeTask.new
   RAKE_TASK
 
-  if File.exist?(output_path)
-    File.write(output_path, "\n#{content}", mode: "a")
-  else
-    mkdir_p File.dirname(output_path)
-    magic_comment = "# frozen_string_literal: true"
-    File.write(output_path, "#{magic_comment}\n\n#{content}")
-  end
+  mkdir_p "lib/tasks"
+  File.write("lib/tasks/rubocop.rake", content)
 end
