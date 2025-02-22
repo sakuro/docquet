@@ -1,57 +1,58 @@
-namespace :config do
-  plugins = %w[performance rake].sort
-  requires = %w[capybara i18n rspec rspec sequel thread_safety].sort
+# frozen_string_literal: true
 
-  desc "Generate default configuration with details"
-  file "default.yml" do |t|
-    options = %w[
-      --force-default-config
-      --display-cop-names
-      --extra-details
-      --display-style-guide
-      --show-cops
-    ].sort
+require "erb"
+require "rbconfig"
+require "stringio"
+require "yaml"
 
-    sh "bin/rubocop",
-      *options,
-      *plugins.flat_map {|plugin| %W[--plugin rubocop-#{plugin}] },
-      *requires.flat_map {|require| %W[--require rubocop-#{require}] },
-      out: t.name
-  end
+gems_departments = {
+  "rubocop" => %w[Bundler Gemspec Layout Lint Metrics Migration Naming Security Style],
+  "rubocop-capybara" => %w[Capybara Capybara/Rspec],
+  "rubocop-i18n" => %w[I18n/GetText I18n/RailsI18n],
+  "rubocop-rake" => %w[Rake],
+  "rubocop-rspec" => %w[RSpec],
+  "rubocop-sequel" => %w[Sequel],
+  "rubocop-thread_safety" => %w[ThreadSafety],
+  "rubocop-performance" => %w[Performance]
+}.freeze
 
-  directory "default"
+dot_rubocop_yml_template = <<~YAML
+  AllCops:
+    DisplayCopNames: true
+    DisplayStyleGuide: true
+    EnabledByDefault: true
+    Exclude:
+    - bin/**/*
+    - vendor/**/*
+    ExtraDetails: true
+    TargetRubyVersion: 0.0
+    UseCache: true
+  inherit_mode:
+    merge:
+    - Exclude
+  plugins: []
+  require: []
+  inherit_from: []
+YAML
 
-  desc "Split default configuration by department"
-  task split: %w[default.yml default] do |t|
-    sh "csplit", t.prerequisites[0], "/^# Department/", "{*}", "--prefix=default-"
-    Dir["default-*"].each do |file|
-      content = File.read(file)
+rubocop_gems = Gem::Specification.select { /\Arubocop-(?!ast$)/ =~ it.name }
+plugins, extensions = rubocop_gems.partition { it.metadata["default_lint_roller_plugin"] }
+plugin_names = plugins.map(&:name)
+extension_names = extensions.map(&:name)
+departments = gems_departments.slice("rubocop", *plugin_names, *extension_names).values.flatten
+departments.sort!
 
-      if /^# Department '(.+)' \(\d+\):$/ =~ content
-        department = $1
+desc "Generate RuboCop configuration"
+file ".rubocop.yml" do |t|
+  config = YAML.safe_load(dot_rubocop_yml_template)
+  config["AllCops"]["TargetRubyVersion"] = Float(RbConfig::CONFIG["RUBY_API_VERSION"])
+  config["plugins"] = plugin_names.sort
+  config["require"] = extension_names.sort
+  config["inherit_from"] = departments.map {|name|
+    (Pathname(__dir__) / ".." / "#{name.downcase.tr("/", "_")}.yml")
+  }.filter_map {|path| path.exist? && path.relative_path_from(Dir.pwd).to_s }
 
-        # Enable all cops
-        content.gsub!(/(?<=^  )Enabled: (false|pending)$/) { "Enabled: true # was #{$1}" }
-
-        # Insert link to RuboCop documentation
-        content.gsub!(%r{(?=^#{department}/(.+):$)}) do
-          cop_name = $1
-          gem_name =
-            if (plugins + requires).include?(department.downcase.sub(%r{/.*}, ""))
-              "rubocop-#{department.downcase.sub(%r{/.*}, "")}"
-            else
-              "rubocop"
-            end
-          path = "/#{gem_name}/cops_#{department.downcase.tr("/", "_")}.html"
-          fragment = "#{department}#{cop_name}".downcase.delete("/_")
-
-          "# #{URI::HTTPS.build(scheme: "https", host: "docs.rubocop.org", path:, fragment:)}\n"
-        end
-
-        file_name = "default/#{department.downcase.tr("/", "_")}.yml"
-        File.write(file_name, content)
-      end
-      rm_f file
-    end
-  end
+  out = StringIO.new
+  YAML.dump(config, out)
+  File.write(t.name, out.string)
 end
