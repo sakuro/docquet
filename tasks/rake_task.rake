@@ -10,10 +10,7 @@ task :rake_task, :rake_file_path do |_task, args|
     namespace :rubocop do
       desc "Regenerate RuboCop TODO file"
       RuboCop::RakeTask.new(:regenerate_todo) do |task|
-        task.options << "--auto-gen-config"
-        task.options << "--no-exclude-limit"
-        task.options << "--no-offense-counts"
-        task.options << "--no-auto-gen-timestamp"
+        task.options << "--regenerate-todo"
       end
     end
   RAKE_TASK
