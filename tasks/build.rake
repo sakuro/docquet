@@ -43,6 +43,9 @@ namespace :build do
       # Enable all cops
       content.gsub!(/(?<=^  )Enabled: (false|pending)$/) { "Enabled: true # was #{$1}" }
 
+      # Remove deprecated configuration
+      content.gsub!(/^\s+AllowOnlyRestArgument:.*\n/, "")
+
       # Insert link to RuboCop documentation
       content.gsub!(%r{(?=^#{department}/(.+):$)}) do
         cop_name = $1

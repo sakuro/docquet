@@ -67,7 +67,6 @@ Style/ArgumentsForwarding:
   Description: Use arguments forwarding.
   StyleGuide: "#arguments-forwarding"
   Enabled: true # was pending
-  AllowOnlyRestArgument: true
   UseAnonymousForwarding: true
   RedundantRestArgumentNames:
   - args
