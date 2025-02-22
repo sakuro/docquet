@@ -8,4 +8,9 @@ CLOBBER << FileList["default"]
 require "rubocop/rake_task"
 RuboCop::RakeTask.new
 
-Dir["#{__dir__}/tasks/*.rake"].each {|file| load file }
+if Dir.pwd == __dir__
+  load "tasks/build.rake"
+else
+  load "tasks/config.rake"
+  load "tasks/rake_file.rake"
+end
