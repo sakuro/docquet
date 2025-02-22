@@ -11,6 +11,6 @@ RuboCop::RakeTask.new
 if Dir.pwd == __dir__
   load "tasks/build.rake"
 else
-  load "tasks/config.rake"
-  load "tasks/rake_file.rake"
+  load File.join(__dir__, "tasks/config.rake")
+  load File.join(__dir__, "tasks/rake_task.rake")
 end
