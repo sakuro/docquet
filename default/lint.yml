@@ -797,7 +797,6 @@ Lint/RedundantRegexpQuantifiers:
 Lint/RedundantRequireStatement:
   Description: Checks for unnecessary `require` statement.
   Enabled: true
-  SafeAutoCorrect: false
   VersionAdded: '0.76'
   VersionChanged: '1.57'
 
