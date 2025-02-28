@@ -13,6 +13,7 @@ ThreadSafety/ClassInstanceVariable:
 ThreadSafety/DirChdir:
   Description: Avoid using `Dir.chdir` due to its process-wide effect.
   Enabled: true
+  AllowCallWithBlock: false
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_threadsafety.html#threadsafetymutableclassinstancevariable
