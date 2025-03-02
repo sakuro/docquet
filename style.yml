@@ -62,6 +62,9 @@ Style/HashSyntax:
 Style/IfUnlessModifier:
   Enabled: false
 
+Style/ImplicitRuntimeError:
+  Enabled: false
+
 Style/InlineComment:
   Enabled: false
 
@@ -99,6 +102,9 @@ Style/PercentLiteralDelimiters:
   Enabled: false
 
 Style/PerlBackrefs:
+  Enabled: false
+
+Style/RedundantException:
   Enabled: false
 
 Style/ReturnNil:
