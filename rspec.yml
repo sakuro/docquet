@@ -14,7 +14,8 @@ RSpec/ContextWording:
   - without
 
 RSpec/DescribedClass:
-  Enabled: false
+  Enabled: true
+  EnforcedStyle: explicit
 
 RSpec/Dialect:
   Enabled: false
