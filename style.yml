@@ -16,6 +16,9 @@ Style/BlockDelimiters:
   EnforcedStyle: semantic
   AllowBracesOnProceduralOneLiners: true
 
+Style/CaseEquality:
+  Enabled: false
+
 Style/CommandLiteral:
   EnforcedStyle: percent_x
 
