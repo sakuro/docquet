@@ -358,7 +358,6 @@ Lint/EmptyConditionalBody:
     a body.
   Enabled: true
   AutoCorrect: contextual
-  SafeAutoCorrect: false
   AllowComments: true
   VersionAdded: '0.89'
   VersionChanged: '1.61'
