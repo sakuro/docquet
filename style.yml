@@ -30,12 +30,17 @@ Style/Copyright:
 
 Style/DisableCopsWithinSourceCodeDirective:
   AllowedCops:
-  - Lint/BinaryOperatorWithIdenticalOperands
+  - Metrics/AbcSize
   - Metrics/CyclomaticComplexity
   - Naming/AccessorMethodName
+  - RSpec/ExampleLength
   - RSpec/InstanceVariable
+  - RSpec/MultipleExpectations
   - RSpec/RepeatedExampleGroupBody
+  - Style/HashEachMethods
+  - Style/RedandantEach
   - Style/RedundantFetchBlock
+  - ThreadSafety/NewThread
 
 Style/EndlessMethod:
   EnforcedStyle: allow_single_line
