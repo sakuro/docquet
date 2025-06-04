@@ -1,4 +1,4 @@
-# Department 'Lint' (150):
+# Department 'Lint' (152):
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintambiguousassignment
 Lint/AmbiguousAssignment:
   Description: Checks for mistyped shorthand assignments.
@@ -360,7 +360,7 @@ Lint/EmptyConditionalBody:
   AutoCorrect: contextual
   AllowComments: true
   VersionAdded: '0.89'
-  VersionChanged: '1.61'
+  VersionChanged: '1.73'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintemptyensure
@@ -398,7 +398,7 @@ Lint/EmptyInterpolation:
   Enabled: true
   AutoCorrect: contextual
   VersionAdded: '0.20'
-  VersionChanged: '1.61'
+  VersionChanged: '1.76'
 
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintemptywhen
 Lint/EmptyWhen:
@@ -531,7 +531,8 @@ Lint/InterpolationCheck:
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintitwithoutargumentsinblock
 Lint/ItWithoutArgumentsInBlock:
   Description: Checks uses of `it` calls without arguments in block.
-  Reference: https://bugs.ruby-lang.org/issues/18980
+  References:
+  - https://bugs.ruby-lang.org/issues/18980
   Enabled: true # was pending
   VersionAdded: '1.59'
 
@@ -542,10 +543,12 @@ Lint/LambdaWithoutLiteralBlock:
   Enabled: true # was pending
   VersionAdded: '1.8'
 
+# Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintliteralascondition
 Lint/LiteralAsCondition:
   Description: Checks of literals used in conditions.
   Enabled: true
+  AutoCorrect: contextual
   VersionAdded: '0.51'
 
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintliteralassignmentincondition
@@ -797,7 +800,7 @@ Lint/RedundantRequireStatement:
   Description: Checks for unnecessary `require` statement.
   Enabled: true
   VersionAdded: '0.76'
-  VersionChanged: '1.57'
+  VersionChanged: '1.73'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintredundantsafenavigation
@@ -988,8 +991,9 @@ Lint/ShadowedException:
 Lint/ShadowingOuterLocalVariable:
   Description: Do not use the same name as outer local variable for block arguments
     or block local variables.
-  Enabled: true
+  Enabled: true # was false
   VersionAdded: '0.9'
+  VersionChanged: '1.76'
 
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintsharedmutabledefault
 Lint/SharedMutableDefault:
@@ -1213,6 +1217,16 @@ Lint/UselessConstantScoping:
   Enabled: true # was pending
   VersionAdded: '1.72'
 
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_lint.html#lintuselessdefaultvalueargument
+Lint/UselessDefaultValueArgument:
+  Description: Checks for usage of `fetch` or `Array.new` with default value argument
+    and block.
+  Enabled: true # was pending
+  VersionAdded: '1.76'
+  Safe: false
+  AllowedReceivers: []
+
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintuselessdefined
 Lint/UselessDefined:
   Description: Checks for calls to `defined?` with strings and symbols. The result of
@@ -1243,6 +1257,12 @@ Lint/UselessNumericOperation:
   Description: Checks for useless numeric operations.
   Enabled: true # was pending
   VersionAdded: '1.66'
+
+# https://docs.rubocop.org/rubocop/cops_lint.html#lintuselessor
+Lint/UselessOr:
+  Description: Checks for useless OR expressions.
+  Enabled: true # was pending
+  VersionAdded: '1.76'
 
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintuselessrescue
 Lint/UselessRescue:

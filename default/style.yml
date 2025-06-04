@@ -1,4 +1,4 @@
-# Department 'Style' (275):
+# Department 'Style' (280):
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#styleaccessmodifierdeclarations
 Style/AccessModifierDeclarations:
@@ -96,7 +96,8 @@ Style/ArrayCoercion:
 # https://docs.rubocop.org/rubocop/cops_style.html#stylearrayfirstlast
 Style/ArrayFirstLast:
   Description: Use `arr.first` and `arr.last` instead of `arr[0]` and `arr[-1]`.
-  Reference: "#first-and-last"
+  References:
+  - "#first-and-last"
   Enabled: true # was false
   VersionAdded: '1.58'
   Safe: false
@@ -267,8 +268,19 @@ Style/ClassAndModuleChildren:
   SafeAutoCorrect: false
   Enabled: true
   VersionAdded: '0.19'
+  VersionChanged: '1.74'
   EnforcedStyle: nested
   SupportedStyles:
+  - nested
+  - compact
+  EnforcedStyleForClasses:
+  SupportedStylesForClasses:
+  -
+  - nested
+  - compact
+  EnforcedStyleForModules:
+  SupportedStylesForModules:
+  -
   - nested
   - compact
 
@@ -434,6 +446,16 @@ Style/CommentedKeyword:
   SafeAutoCorrect: false
   VersionAdded: '0.51'
   VersionChanged: '1.19'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylecomparablebetween
+Style/ComparableBetween:
+  Description: Enforces the use of `Comparable#between?` instead of logical comparison.
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.74'
+  VersionChanged: '1.75'
+  StyleGuide: "#ranges-or-between"
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#stylecomparableclamp
@@ -684,6 +706,18 @@ Style/EmptyMethod:
   - expanded
 
 # Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleemptystringinsideinterpolation
+Style/EmptyStringInsideInterpolation:
+  Description: Checks for empty strings being assigned inside string interpolation.
+  StyleGuide: "#empty-strings-in-interpolation"
+  Enabled: true # was pending
+  EnforcedStyle: trailing_conditional
+  SupportedStyles:
+  - trailing_conditional
+  - ternary
+  VersionAdded: '1.76'
+
+# Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#styleencoding
 Style/Encoding:
   Description: Use UTF-8 as the source file encoding.
@@ -713,6 +747,8 @@ Style/EndlessMethod:
   - allow_single_line
   - allow_always
   - disallow
+  - require_single_line
+  - require_always
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#styleenvhome
@@ -780,7 +816,7 @@ Style/ExponentialNotation:
 # https://docs.rubocop.org/rubocop/cops_style.html#stylefetchenvvar
 Style/FetchEnvVar:
   Description: Suggests `ENV.fetch` for the replacement of `ENV[]`.
-  Reference:
+  References:
   - https://rubystyle.guide/#hash-fetch-defaults
   Enabled: true # was pending
   VersionAdded: '1.28'
@@ -832,7 +868,8 @@ Style/FileWrite:
 Style/FloatDivision:
   Description: For performing float division, coerce one side only.
   StyleGuide: "#float-division"
-  Reference: https://blog.rubystyle.guide/ruby/2019/06/21/float-division.html
+  References:
+  - https://blog.rubystyle.guide/ruby/2019/06/21/float-division.html
   Enabled: true
   VersionAdded: '0.72'
   VersionChanged: '1.9'
@@ -883,8 +920,9 @@ Style/FormatStringToken:
   - template
   - unannotated
   MaxUnannotatedPlaceholdersAllowed: 1
+  Mode: aggressive
   VersionAdded: '0.49'
-  VersionChanged: '1.0'
+  VersionChanged: '1.74'
   AllowedMethods: []
   AllowedPatterns: []
 
@@ -918,7 +956,8 @@ Style/GlobalStdStream:
 Style/GlobalVars:
   Description: Do not introduce global variables.
   StyleGuide: "#instance-vars"
-  Reference: https://www.zenspider.com/ruby/quickref.html
+  References:
+  - https://www.zenspider.com/ruby/quickref.html
   Enabled: true
   VersionAdded: '0.13'
   AllowedVariables: []
@@ -979,6 +1018,14 @@ Style/HashExcept:
   Safe: false
   VersionAdded: '1.7'
   VersionChanged: '1.39'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylehashfetchchain
+Style/HashFetchChain:
+  Description: Use `Hash#dig` instead of chained `fetch` calls.
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.75'
 
 # https://docs.rubocop.org/rubocop/cops_style.html#stylehashlikecase
 Style/HashLikeCase:
@@ -1187,6 +1234,21 @@ Style/ItAssignment:
   Description: Checks for assignment to `it` inside a block.
   Enabled: true # was pending
   VersionAdded: '1.70'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleitblockparameter
+Style/ItBlockParameter:
+  Description: Checks for blocks with one argument where `it` block parameter can be
+    used.
+  Enabled: true # was pending
+  EnforcedStyle: allow_single_line
+  SupportedStyles:
+  - allow_single_line
+  - only_numbered_parameters
+  - always
+  - disallow
+  VersionAdded: '1.75'
+  VersionChanged: '1.76'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#stylekeywordargumentsmerging
@@ -1614,9 +1676,10 @@ Style/Next:
   StyleGuide: "#no-nested-conditionals"
   Enabled: true
   VersionAdded: '0.22'
-  VersionChanged: '0.35'
+  VersionChanged: '1.75'
   EnforcedStyle: skip_modifier_ifs
   MinBodyLength: 3
+  AllowConsecutiveConditionals: false
   SupportedStyles:
   - skip_modifier_ifs
   - always
@@ -1748,7 +1811,7 @@ Style/OneLineConditional:
 Style/OpenStructUse:
   Description: Avoid using OpenStruct. As of Ruby 3.0, use is officially discouraged
     due to performance, version compatibility, and potential security issues.
-  Reference:
+  References:
   - https://docs.ruby-lang.org/en/3.0.0/OpenStruct.html#class-OpenStruct-label-Caveats
   Enabled: true # was pending
   Safe: false
@@ -1945,6 +2008,14 @@ Style/RedundantArrayConstructor:
   VersionAdded: '1.52'
 
 # Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantarrayflatten
+Style/RedundantArrayFlatten:
+  Description: Checks for redundant calls of `Array#flatten`.
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.76'
+
+# Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#styleredundantassignment
 Style/RedundantAssignment:
   Description: Checks for redundant assignment before returning.
@@ -1973,6 +2044,9 @@ Style/RedundantCondition:
   Description: Checks for unnecessary conditional expressions.
   Enabled: true
   VersionAdded: '0.76'
+  VersionChanged: '1.73'
+  AllowedMethods:
+  - nonzero?
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#styleredundantconditional
@@ -2025,7 +2099,8 @@ Style/RedundantFetchBlock:
   Description: Use `fetch(key, value)` instead of `fetch(key) { value }` when value
     has Numeric, Rational, Complex, Symbol or String type, `false`, `true`, `nil` or
     is a constant.
-  Reference: https://github.com/fastruby/fast-ruby#hashfetch-with-argument-vs-hashfetch--block-code
+  References:
+  - https://github.com/fastruby/fast-ruby#hashfetch-with-argument-vs-hashfetch--block-code
   Enabled: true
   Safe: false
   SafeForConstants: false
@@ -2311,7 +2386,8 @@ Style/SafeNavigationChainLength:
 # https://docs.rubocop.org/rubocop/cops_style.html#stylesample
 Style/Sample:
   Description: Use `sample` instead of `shuffle.first`, `shuffle.last`, and `shuffle[Integer]`.
-  Reference: https://github.com/fastruby/fast-ruby#arrayshufflefirst-vs-arraysample-code
+  References:
+  - https://github.com/fastruby/fast-ruby#arrayshufflefirst-vs-arraysample-code
   Enabled: true
   VersionAdded: '0.30'
 
@@ -2691,6 +2767,7 @@ Style/TrailingCommaInArrayLiteral:
   SupportedStylesForMultiline:
   - comma
   - consistent_comma
+  - diff_comma
   - no_comma
 
 # Supports --autocorrect
@@ -2710,6 +2787,7 @@ Style/TrailingCommaInHashLiteral:
   SupportedStylesForMultiline:
   - comma
   - consistent_comma
+  - diff_comma
   - no_comma
   VersionAdded: '0.53'
 
@@ -2848,7 +2926,8 @@ Style/YAMLFileRead:
 # https://docs.rubocop.org/rubocop/cops_style.html#styleyodacondition
 Style/YodaCondition:
   Description: Forbid or enforce yoda conditions.
-  Reference: https://en.wikipedia.org/wiki/Yoda_conditions
+  References:
+  - https://en.wikipedia.org/wiki/Yoda_conditions
   Enabled: true
   EnforcedStyle: forbid_for_all_comparison_operators
   SupportedStyles:

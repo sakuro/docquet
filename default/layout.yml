@@ -215,7 +215,7 @@ Layout/EmptyLineAfterMultilineCondition:
   Description: Enforces empty line after multiline condition.
   Enabled: true # was false
   VersionAdded: '0.90'
-  Reference:
+  References:
   - https://github.com/airbnb/ruby#multiline-if-newline
 
 # Supports --autocorrect
@@ -252,7 +252,7 @@ Layout/EmptyLinesAroundAccessModifier:
   SupportedStyles:
   - around
   - only_before
-  Reference:
+  References:
   - https://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html#follow-the-coding-conventions
 
 # Supports --autocorrect
@@ -524,7 +524,7 @@ Layout/IndentationConsistency:
   SupportedStyles:
   - normal
   - indented_internal_methods
-  Reference:
+  References:
   - https://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html#follow-the-coding-conventions
 
 # Supports --autocorrect

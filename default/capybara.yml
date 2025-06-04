@@ -1,10 +1,17 @@
-# Department 'Capybara' (9):
+# Department 'Capybara' (12):
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybaraambiguousclick
+Capybara/AmbiguousClick:
+  Description: Specify the exact target to click on.
+  Enabled: true # was false
+  VersionAdded: '2.22'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/AmbiguousClick
+
 # https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybaraclicklinkorbuttonstyle
 Capybara/ClickLinkOrButtonStyle:
   Description: Checks for methods of button or link clicks.
-  Enabled: true # was pending
+  Enabled: true # was false
   VersionAdded: '2.19'
-  VersionChanged: '2.20'
+  VersionChanged: '2.22'
   EnforcedStyle: link_or_button
   SupportedStyles:
   - link_or_button
@@ -19,6 +26,14 @@ Capybara/CurrentPathExpectation:
   VersionAdded: '1.18'
   VersionChanged: '2.0'
   Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/CurrentPathExpectation
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybarafindallfirst
+Capybara/FindAllFirst:
+  Description: Enforces use of `first` instead of `all` with `first` or `[0]`.
+  Enabled: true # was pending
+  VersionAdded: '2.22'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/FindAllFirst
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybaramatchstyle
@@ -40,6 +55,13 @@ Capybara/NegationMatcher:
   - have_no
   - not_to
   Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/NegationMatcher
+
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybaranegationmatcheraftervisit
+Capybara/NegationMatcherAfterVisit:
+  Description: Do not allow negative matchers to be used immediately after `visit`.
+  Enabled: true # was pending
+  VersionAdded: '2.22'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/NegationMatcherAfterVisit
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybararedundantwithinfind

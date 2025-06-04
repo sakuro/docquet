@@ -1,4 +1,4 @@
-# Department 'Naming' (18):
+# Department 'Naming' (19):
 # https://docs.rubocop.org/rubocop/cops_naming.html#namingaccessormethodname
 Naming/AccessorMethodName:
   Description: Check the naming of accessor methods for get_/set_.
@@ -200,11 +200,16 @@ Naming/MethodName:
   StyleGuide: "#snake-case-symbols-methods-vars"
   Enabled: true
   VersionAdded: '0.50'
+  VersionChanged: '1.75'
   EnforcedStyle: snake_case
   SupportedStyles:
   - snake_case
   - camelCase
   AllowedPatterns: []
+  ForbiddenIdentifiers:
+  - __id__
+  - __send__
+  ForbiddenPatterns: []
 
 # https://docs.rubocop.org/rubocop/cops_naming.html#namingmethodparametername
 Naming/MethodParameterName:
@@ -233,21 +238,33 @@ Naming/MethodParameterName:
   - to
   ForbiddenNames: []
 
-# https://docs.rubocop.org/rubocop/cops_naming.html#namingpredicatename
-Naming/PredicateName:
-  Description: Check the names of predicate methods.
+# https://docs.rubocop.org/rubocop/cops_naming.html#namingpredicatemethod
+Naming/PredicateMethod:
+  Description: Checks that predicate methods end with `?` and non-predicate methods
+    do not.
+  Enabled: true # was pending
+  VersionAdded: '1.76'
+  Mode: conservative
+  AllowedMethods:
+  - call
+
+# https://docs.rubocop.org/rubocop/cops_naming.html#namingpredicateprefix
+Naming/PredicatePrefix:
+  Description: Predicate method names should not be prefixed and end with a `?`.
   StyleGuide: "#bool-methods-qmark"
   Enabled: true
   VersionAdded: '0.50'
-  VersionChanged: '0.77'
+  VersionChanged: '1.75'
   NamePrefix:
   - is_
   - has_
   - have_
+  - does_
   ForbiddenPrefixes:
   - is_
   - has_
   - have_
+  - does_
   AllowedMethods:
   - is_a?
   MethodDefinitionMacros:
@@ -272,13 +289,15 @@ Naming/VariableName:
   StyleGuide: "#snake-case-symbols-methods-vars"
   Enabled: true
   VersionAdded: '0.50'
-  VersionChanged: '1.8'
+  VersionChanged: '1.73'
   EnforcedStyle: snake_case
   SupportedStyles:
   - snake_case
   - camelCase
   AllowedIdentifiers: []
   AllowedPatterns: []
+  ForbiddenIdentifiers: []
+  ForbiddenPatterns: []
 
 # https://docs.rubocop.org/rubocop/cops_naming.html#namingvariablenumber
 Naming/VariableNumber:
@@ -295,6 +314,8 @@ Naming/VariableNumber:
   CheckMethodNames: true
   CheckSymbols: true
   AllowedIdentifiers:
+  - TLS1_1
+  - TLS1_2
   - capture3
   - iso8601
   - rfc1123_date

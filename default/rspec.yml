@@ -1,4 +1,4 @@
-# Department 'RSpec' (110):
+# Department 'RSpec' (111):
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecalignleftletbrace
 RSpec/AlignLeftLetBrace:
@@ -498,6 +498,14 @@ RSpec/ImplicitSubject:
   VersionAdded: '1.29'
   VersionChanged: '2.13'
   Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/ImplicitSubject
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecincludeexamples
+RSpec/IncludeExamples:
+  Description: Checks for usage of `include_examples`.
+  Enabled: true # was pending
+  VersionAdded: '3.6'
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/IncludeExamples
 
 # https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecindexedlet
 RSpec/IndexedLet:

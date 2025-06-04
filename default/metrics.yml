@@ -3,7 +3,7 @@
 Metrics/AbcSize:
   Description: A calculated magnitude based on number of assignments, branches, and
     conditions.
-  Reference:
+  References:
   - http://c2.com/cgi/wiki?AbcMetric
   - https://en.wikipedia.org/wiki/ABC_Software_Metric
   Enabled: true

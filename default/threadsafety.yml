@@ -7,6 +7,7 @@ ThreadSafety/ClassAndModuleAttributes:
 
 # https://docs.rubocop.org/rubocop/cops_threadsafety.html#threadsafetyclassinstancevariable
 ThreadSafety/ClassInstanceVariable:
+  Description: Avoid class instance variables.
   Enabled: true
 
 # https://docs.rubocop.org/rubocop/cops_threadsafety.html#threadsafetydirchdir
