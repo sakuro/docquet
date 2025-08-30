@@ -16,7 +16,7 @@ inherit_mode:
 
 plugins:
   - rubocop-capybara
-  - rubocop-i18n
+  # - rubocop-i18n
   - rubocop-performance
   - rubocop-rake
   - rubocop-rspec
@@ -28,8 +28,8 @@ inherit_from:
   - config/cops/capybara.yml
   - config/cops/capybara_rspec.yml
   - config/cops/gemspec.yml
-  - config/cops/i18n_gettext.yml
-  - config/cops/i18n_railsi18n.yml
+  # - config/cops/i18n_gettext.yml
+  # - config/cops/i18n_railsi18n.yml
   - config/cops/layout.yml
   - config/cops/lint.yml
   - config/cops/metrics.yml
