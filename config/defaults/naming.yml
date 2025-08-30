@@ -1,7 +1,7 @@
 # Department 'Naming' (19):
 # https://docs.rubocop.org/rubocop/cops_naming.html#namingaccessormethodname
 Naming/AccessorMethodName:
-  Description: Check the naming of accessor methods for get_/set_.
+  Description: Checks the naming of accessor methods for get_/set_.
   StyleGuide: "#accessor_mutator_method_names"
   Enabled: true
   VersionAdded: '0.50'
@@ -244,9 +244,14 @@ Naming/PredicateMethod:
     do not.
   Enabled: true # was pending
   VersionAdded: '1.76'
+  VersionChanged: '1.78'
   Mode: conservative
   AllowedMethods:
   - call
+  AllowedPatterns: []
+  AllowBangMethods: false
+  WaywardPredicates:
+  - nonzero?
 
 # https://docs.rubocop.org/rubocop/cops_naming.html#namingpredicateprefix
 Naming/PredicatePrefix:

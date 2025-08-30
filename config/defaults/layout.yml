@@ -1,8 +1,8 @@
-# Department 'Layout' (99):
+# Department 'Layout' (100):
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_layout.html#layoutaccessmodifierindentation
 Layout/AccessModifierIndentation:
-  Description: Check indentation of private/protected visibility modifiers.
+  Description: Checks indentation of private/protected visibility modifiers.
   StyleGuide: "#indent-public-private-protected"
   Enabled: true
   VersionAdded: '0.49'
@@ -240,6 +240,14 @@ Layout/EmptyLines:
   StyleGuide: "#two-or-more-empty-lines"
   Enabled: true
   VersionAdded: '0.49'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptylinesaftermoduleinclusion
+Layout/EmptyLinesAfterModuleInclusion:
+  Description: Keeps track of empty lines after module inclusion methods.
+  StyleGuide: "#empty-lines-after-module-inclusion"
+  Enabled: true # was pending
+  VersionAdded: '1.79'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptylinesaroundaccessmodifier
@@ -574,7 +582,7 @@ Layout/LeadingCommentSpace:
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_layout.html#layoutleadingemptylines
 Layout/LeadingEmptyLines:
-  Description: Check for unnecessary blank lines at the beginning of a file.
+  Description: Checks for unnecessary blank lines at the beginning of a file.
   Enabled: true
   VersionAdded: '0.57'
   VersionChanged: '0.77'
@@ -627,6 +635,7 @@ Layout/LineLength:
   Max: 120
   AllowHeredoc: true
   AllowURI: true
+  AllowQualifiedName: true
   URISchemes:
   - http
   - https
@@ -659,7 +668,7 @@ Layout/MultilineArrayLineBreaks:
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_layout.html#layoutmultilineassignmentlayout
 Layout/MultilineAssignmentLayout:
-  Description: Check for a newline after the assignment operator in multi-line assignments.
+  Description: Checks for a newline after the assignment operator in multi-line assignments.
   StyleGuide: "#indent-conditional-assignment"
   Enabled: true # was false
   VersionAdded: '0.49'

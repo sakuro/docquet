@@ -89,7 +89,7 @@ Lint/BinaryOperatorWithIdenticalOperands:
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintbooleansymbol
 Lint/BooleanSymbol:
-  Description: Check for `:true` and `:false` symbols.
+  Description: Checks for `:true` and `:false` symbols.
   Enabled: true
   SafeAutoCorrect: false
   VersionAdded: '0.50'
@@ -128,7 +128,7 @@ Lint/ConstantReassignment:
 
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintconstantresolution
 Lint/ConstantResolution:
-  Description: Check that constants are fully qualified with `::`.
+  Description: Checks that constants are fully qualified with `::`.
   Enabled: true # was false
   VersionAdded: '0.86'
   Only: []
@@ -142,7 +142,7 @@ Lint/CopDirectiveSyntax:
 
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintdebugger
 Lint/Debugger:
-  Description: Check for debugger calls.
+  Description: Checks for debugger calls.
   Enabled: true
   VersionAdded: '0.14'
   VersionChanged: '1.63'
@@ -193,7 +193,7 @@ Lint/Debugger:
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintdeprecatedclassmethods
 Lint/DeprecatedClassMethods:
-  Description: Check for deprecated class method calls.
+  Description: Checks for deprecated class method calls.
   Enabled: true
   VersionAdded: '0.19'
 
@@ -268,7 +268,7 @@ Lint/DuplicateElsifCondition:
 
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintduplicatehashkey
 Lint/DuplicateHashKey:
-  Description: Check for duplicate keys in hash literals.
+  Description: Checks for duplicate keys in hash literals.
   Enabled: true
   VersionAdded: '0.34'
   VersionChanged: '0.77'
@@ -276,7 +276,7 @@ Lint/DuplicateHashKey:
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintduplicatemagiccomment
 Lint/DuplicateMagicComment:
-  Description: Check for duplicated magic comments.
+  Description: Checks for duplicated magic comments.
   Enabled: true # was pending
   VersionAdded: '1.37'
 
@@ -288,7 +288,7 @@ Lint/DuplicateMatchPattern:
 
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintduplicatemethods
 Lint/DuplicateMethods:
-  Description: Check for duplicate method definitions.
+  Description: Checks for duplicate method definitions.
   Enabled: true
   VersionAdded: '0.29'
 
@@ -302,7 +302,7 @@ Lint/DuplicateRegexpCharacterClassElement:
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintduplicaterequire
 Lint/DuplicateRequire:
-  Description: Check for duplicate `require`s and `require_relative`s.
+  Description: Checks for duplicate `require`s and `require_relative`s.
   Enabled: true
   SafeAutoCorrect: false
   VersionAdded: '0.90'
@@ -323,14 +323,14 @@ Lint/DuplicateSetElement:
 
 # https://docs.rubocop.org/rubocop/cops_lint.html#linteachwithobjectargument
 Lint/EachWithObjectArgument:
-  Description: Check for immutable argument given to each_with_object.
+  Description: Checks for immutable argument given to each_with_object.
   Enabled: true
   VersionAdded: '0.31'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintelselayout
 Lint/ElseLayout:
-  Description: Check for odd code arrangement in an else block.
+  Description: Checks for odd code arrangement in an else block.
   Enabled: true
   VersionAdded: '0.17'
   VersionChanged: '1.2'
@@ -808,6 +808,7 @@ Lint/RedundantSafeNavigation:
   Description: Checks for redundant safe navigation calls.
   Enabled: true
   VersionAdded: '0.93'
+  VersionChanged: '1.79'
   AllowedMethods:
   - instance_of?
   - kind_of?
@@ -815,6 +816,12 @@ Lint/RedundantSafeNavigation:
   - eql?
   - respond_to?
   - equal?
+  InferNonNilReceiver: false
+  AdditionalNilMethods:
+  - present?
+  - blank?
+  - try
+  - try!
   Safe: false
 
 # Supports --autocorrect
@@ -966,6 +973,7 @@ Lint/SelfAssignment:
   Description: Checks for self-assignments.
   Enabled: true
   VersionAdded: '0.89'
+  AllowRBSInlineAnnotation: false
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintsendwithmixinargument

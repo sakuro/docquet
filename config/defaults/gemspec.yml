@@ -1,4 +1,4 @@
-# Department 'Gemspec' (9):
+# Department 'Gemspec' (10):
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_gemspec.html#gemspecaddruntimedependency
 Gemspec/AddRuntimeDependency:
@@ -8,6 +8,14 @@ Gemspec/AddRuntimeDependency:
   - https://github.com/rubygems/rubygems/issues/7799#issuecomment-2192720316
   Enabled: true # was pending
   VersionAdded: '1.65'
+  Include:
+  - "**/*.gemspec"
+
+# https://docs.rubocop.org/rubocop/cops_gemspec.html#gemspecattributeassignment
+Gemspec/AttributeAssignment:
+  Description: Use consistent style for Gemspec attributes assignment.
+  Enabled: true # was pending
+  VersionAdded: '1.77'
   Include:
   - "**/*.gemspec"
 
