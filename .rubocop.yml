@@ -1,41 +1,13 @@
----
+# RuboCop configuration for sakuro-rubocop-config gem development
+inherit_from: lib/rubocop_config/config/base.yml
+
 AllCops:
-  DisplayCopNames: true
-  DisplayStyleGuide: true
-  EnabledByDefault: true
-  Exclude:
-  - bin/**/*
-  - vendor/**/*
-  ExtraDetails: true
+  NewCops: enable
   TargetRubyVersion: 3.4
-  UseCache: true
-inherit_mode:
-  merge:
-  - Exclude
-plugins:
-- rubocop-capybara
-- rubocop-i18n
-- rubocop-performance
-- rubocop-rake
-- rubocop-rspec
-- rubocop-sequel
-- rubocop-thread_safety
-inherit_from:
-- bundler.yml
-- capybara.yml
-- capybara_rspec.yml
-- gemspec.yml
-- i18n_gettext.yml
-- i18n_railsi18n.yml
-- layout.yml
-- lint.yml
-- metrics.yml
-- migration.yml
-- naming.yml
-- performance.yml
-- rspec.yml
-- rake.yml
-- security.yml
-- sequel.yml
-- style.yml
-- threadsafety.yml
+  Exclude:
+    - vendor/**/*
+    - lib/rubocop_config/config/**/*  # Exclude generated config files
+
+# Project-specific settings for gem development
+Style/Documentation:
+  Enabled: false  # Skip documentation requirement for development

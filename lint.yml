@@ -1,7 +1,0 @@
-inherit_from: default/lint.yml
-
-Lint/ConstantResolution:
-  Enabled: false
-
-Lint/UnusedBlockArgument:
-  IgnoreEmptyBlocks: false
