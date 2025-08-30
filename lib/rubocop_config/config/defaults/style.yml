@@ -1,0 +1,2965 @@
+# Department 'Style' (280):
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleaccessmodifierdeclarations
+Style/AccessModifierDeclarations:
+  Description: Checks style of how access modifiers are used.
+  Enabled: true
+  VersionAdded: '0.57'
+  VersionChanged: '1.70'
+  EnforcedStyle: group
+  SupportedStyles:
+  - inline
+  - group
+  AllowModifiersOnSymbols: true
+  AllowModifiersOnAttrs: true
+  AllowModifiersOnAliasMethod: true
+  SafeAutoCorrect: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleaccessorgrouping
+Style/AccessorGrouping:
+  Description: Checks for grouping of accessors in `class` and `module` bodies.
+  Enabled: true
+  VersionAdded: '0.87'
+  EnforcedStyle: grouped
+  SupportedStyles:
+  - separated
+  - grouped
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylealias
+Style/Alias:
+  Description: Use alias instead of alias_method.
+  StyleGuide: "#alias-method-lexically"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.36'
+  EnforcedStyle: prefer_alias
+  SupportedStyles:
+  - prefer_alias
+  - prefer_alias_method
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleambiguousendlessmethoddefinition
+Style/AmbiguousEndlessMethodDefinition:
+  Description: Checks for endless methods inside operators of lower precedence.
+  StyleGuide: "#ambiguous-endless-method-defintions"
+  Enabled: true # was pending
+  VersionAdded: '1.68'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleandor
+Style/AndOr:
+  Description: Use &&/|| instead of and/or.
+  StyleGuide: "#no-and-or-or"
+  Enabled: true
+  SafeAutoCorrect: false
+  VersionAdded: '0.9'
+  VersionChanged: '1.21'
+  EnforcedStyle: conditionals
+  SupportedStyles:
+  - always
+  - conditionals
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleargumentsforwarding
+Style/ArgumentsForwarding:
+  Description: Use arguments forwarding.
+  StyleGuide: "#arguments-forwarding"
+  Enabled: true # was pending
+  UseAnonymousForwarding: true
+  RedundantRestArgumentNames:
+  - args
+  - arguments
+  RedundantKeywordRestArgumentNames:
+  - kwargs
+  - options
+  - opts
+  RedundantBlockArgumentNames:
+  - blk
+  - block
+  - proc
+  VersionAdded: '1.1'
+  VersionChanged: '1.58'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylearraycoercion
+Style/ArrayCoercion:
+  Description: Use Array() instead of explicit Array check or [*var], when dealing with
+    a variable you want to treat as an Array, but you're not certain it's an array.
+  StyleGuide: "#array-coercion"
+  Safe: false
+  Enabled: true # was false
+  VersionAdded: '0.88'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylearrayfirstlast
+Style/ArrayFirstLast:
+  Description: Use `arr.first` and `arr.last` instead of `arr[0]` and `arr[-1]`.
+  References:
+  - "#first-and-last"
+  Enabled: true # was false
+  VersionAdded: '1.58'
+  Safe: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylearrayintersect
+Style/ArrayIntersect:
+  Description: Use `array1.intersect?(array2)` instead of `(array1 & array2).any?`.
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.40'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylearrayjoin
+Style/ArrayJoin:
+  Description: Use Array#join instead of Array#*.
+  StyleGuide: "#array-join"
+  Enabled: true
+  VersionAdded: '0.20'
+  VersionChanged: '0.31'
+
+# https://docs.rubocop.org/rubocop/cops_style.html#styleasciicomments
+Style/AsciiComments:
+  Description: Use only ascii symbols in comments.
+  StyleGuide: "#english-comments"
+  Enabled: true # was false
+  VersionAdded: '0.9'
+  VersionChanged: '1.21'
+  AllowedChars:
+  - "©"
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleattr
+Style/Attr:
+  Description: Checks for uses of Module#attr.
+  StyleGuide: "#attr"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.12'
+
+# https://docs.rubocop.org/rubocop/cops_style.html#styleautoresourcecleanup
+Style/AutoResourceCleanup:
+  Description: Suggests the usage of an auto resource cleanup version of a method (if
+    available).
+  Enabled: true # was false
+  VersionAdded: '0.30'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylebarepercentliterals
+Style/BarePercentLiterals:
+  Description: Checks if usage of %() or %Q() matches configuration.
+  StyleGuide: "#percent-q-shorthand"
+  Enabled: true
+  VersionAdded: '0.25'
+  EnforcedStyle: bare_percent
+  SupportedStyles:
+  - percent_q
+  - bare_percent
+
+# https://docs.rubocop.org/rubocop/cops_style.html#stylebeginblock
+Style/BeginBlock:
+  Description: Avoid the use of BEGIN blocks.
+  StyleGuide: "#no-BEGIN-blocks"
+  Enabled: true
+  VersionAdded: '0.9'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylebisectedattraccessor
+Style/BisectedAttrAccessor:
+  Description: Checks for places where `attr_reader` and `attr_writer` for the same
+    method can be combined into single `attr_accessor`.
+  Enabled: true
+  VersionAdded: '0.87'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylebitwisepredicate
+Style/BitwisePredicate:
+  Description: Prefer bitwise predicate methods over direct comparison operations.
+  StyleGuide: "#bitwise-predicate-methods"
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.68'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleblockcomments
+Style/BlockComments:
+  Description: Do not use block comments.
+  StyleGuide: "#no-block-comments"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.23'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleblockdelimiters
+Style/BlockDelimiters:
+  Description: Avoid using {...} for multi-line blocks (multiline chaining is always
+    ugly). Prefer {...} over do...end for single-line blocks.
+  StyleGuide: "#single-line-blocks"
+  Enabled: true
+  VersionAdded: '0.30'
+  VersionChanged: '0.35'
+  EnforcedStyle: line_count_based
+  SupportedStyles:
+  - line_count_based
+  - semantic
+  - braces_for_chaining
+  - always_braces
+  ProceduralMethods:
+  - benchmark
+  - bm
+  - bmbm
+  - create
+  - each_with_object
+  - measure
+  - new
+  - realtime
+  - tap
+  - with_object
+  FunctionalMethods:
+  - let
+  - let!
+  - subject
+  - watch
+  AllowedMethods:
+  - lambda
+  - proc
+  - it
+  AllowedPatterns: []
+  AllowBracesOnProceduralOneLiners: false
+  BracesRequiredMethods: []
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylecaseequality
+Style/CaseEquality:
+  Description: Avoid explicit use of the case equality operator(===).
+  StyleGuide: "#no-case-equality"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.89'
+  AllowOnConstant: false
+  AllowOnSelfClass: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylecaselikeif
+Style/CaseLikeIf:
+  Description: Identifies places where `if-elsif` constructions can be replaced with
+    `case-when`.
+  StyleGuide: "#case-vs-if-else"
+  Enabled: true
+  Safe: false
+  VersionAdded: '0.88'
+  VersionChanged: '1.48'
+  MinBranchesCount: 3
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylecharacterliteral
+Style/CharacterLiteral:
+  Description: Checks for uses of character literals.
+  StyleGuide: "#no-character-literals"
+  Enabled: true
+  VersionAdded: '0.9'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleclassandmodulechildren
+Style/ClassAndModuleChildren:
+  Description: Checks style of children classes and modules.
+  StyleGuide: "#namespace-definition"
+  SafeAutoCorrect: false
+  Enabled: true
+  VersionAdded: '0.19'
+  VersionChanged: '1.74'
+  EnforcedStyle: nested
+  SupportedStyles:
+  - nested
+  - compact
+  EnforcedStyleForClasses:
+  SupportedStylesForClasses:
+  -
+  - nested
+  - compact
+  EnforcedStyleForModules:
+  SupportedStylesForModules:
+  -
+  - nested
+  - compact
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleclasscheck
+Style/ClassCheck:
+  Description: Enforces consistent use of `Object#is_a?` or `Object#kind_of?`.
+  StyleGuide: "#is-a-vs-kind-of"
+  Enabled: true
+  VersionAdded: '0.24'
+  EnforcedStyle: is_a?
+  SupportedStyles:
+  - is_a?
+  - kind_of?
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleclassequalitycomparison
+Style/ClassEqualityComparison:
+  Description: Enforces the use of `Object#instance_of?` instead of class comparison
+    for equality.
+  StyleGuide: "#instance-of-vs-class-comparison"
+  Enabled: true
+  SafeAutoCorrect: false
+  VersionAdded: '0.93'
+  VersionChanged: '1.57'
+  AllowedMethods:
+  - "=="
+  - equal?
+  - eql?
+  AllowedPatterns: []
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleclassmethods
+Style/ClassMethods:
+  Description: Use self when defining module/class methods.
+  StyleGuide: "#def-self-class-methods"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.20'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleclassmethodsdefinitions
+Style/ClassMethodsDefinitions:
+  Description: Enforces using `def self.method_name` or `class << self` to define class
+    methods.
+  StyleGuide: "#def-self-class-methods"
+  Enabled: true # was false
+  VersionAdded: '0.89'
+  EnforcedStyle: def_self
+  SupportedStyles:
+  - def_self
+  - self_class
+
+# https://docs.rubocop.org/rubocop/cops_style.html#styleclassvars
+Style/ClassVars:
+  Description: Avoid the use of class variables.
+  StyleGuide: "#no-class-vars"
+  Enabled: true
+  VersionAdded: '0.13'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylecollectioncompact
+Style/CollectionCompact:
+  Description: Use `{Array,Hash}#{compact,compact!}` instead of custom logic to reject
+    nils.
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.2'
+  VersionChanged: '1.3'
+  AllowedReceivers: []
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylecollectionmethods
+Style/CollectionMethods:
+  Description: Preferred collection methods.
+  StyleGuide: "#map-find-select-reduce-include-size"
+  Enabled: true # was false
+  VersionAdded: '0.9'
+  VersionChanged: '1.7'
+  Safe: false
+  PreferredMethods:
+    collect: map
+    collect!: map!
+    collect_concat: flat_map
+    inject: reduce
+    detect: find
+    find_all: select
+    member?: include?
+  MethodsAcceptingSymbol:
+  - inject
+  - reduce
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylecolonmethodcall
+Style/ColonMethodCall:
+  Description: 'Do not use :: for method call.'
+  StyleGuide: "#double-colons"
+  Enabled: true
+  VersionAdded: '0.9'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylecolonmethoddefinition
+Style/ColonMethodDefinition:
+  Description: 'Do not use :: for defining class methods.'
+  StyleGuide: "#colon-method-definition"
+  Enabled: true
+  VersionAdded: '0.52'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylecombinabledefined
+Style/CombinableDefined:
+  Description: Checks successive `defined?` calls that can be combined into a single
+    call.
+  Enabled: true # was pending
+  VersionAdded: '1.68'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylecombinableloops
+Style/CombinableLoops:
+  Description: Checks for places where multiple consecutive loops over the same data
+    can be combined into a single loop.
+  Enabled: true
+  Safe: false
+  VersionAdded: '0.90'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylecommandliteral
+Style/CommandLiteral:
+  Description: Use `` or %x around command literals.
+  StyleGuide: "#percent-x"
+  Enabled: true
+  VersionAdded: '0.30'
+  EnforcedStyle: backticks
+  SupportedStyles:
+  - backticks
+  - percent_x
+  - mixed
+  AllowInnerBackticks: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylecommentannotation
+Style/CommentAnnotation:
+  Description: Checks formatting of special comments (TODO, FIXME, OPTIMIZE, HACK, REVIEW,
+    NOTE).
+  StyleGuide: "#annotate-keywords"
+  Enabled: true
+  VersionAdded: '0.10'
+  VersionChanged: '1.20'
+  Keywords:
+  - TODO
+  - FIXME
+  - OPTIMIZE
+  - HACK
+  - REVIEW
+  - NOTE
+  RequireColon: true
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylecommentedkeyword
+Style/CommentedKeyword:
+  Description: Do not place comments on the same line as certain keywords.
+  Enabled: true
+  SafeAutoCorrect: false
+  VersionAdded: '0.51'
+  VersionChanged: '1.19'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylecomparablebetween
+Style/ComparableBetween:
+  Description: Enforces the use of `Comparable#between?` instead of logical comparison.
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.74'
+  VersionChanged: '1.75'
+  StyleGuide: "#ranges-or-between"
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylecomparableclamp
+Style/ComparableClamp:
+  Description: Enforces the use of `Comparable#clamp` instead of comparison by minimum
+    and maximum.
+  Enabled: true # was pending
+  VersionAdded: '1.44'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleconcatarrayliterals
+Style/ConcatArrayLiterals:
+  Description: Enforces the use of `Array#push(item)` instead of `Array#concat([item])`
+    to avoid redundant array literals.
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.41'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleconditionalassignment
+Style/ConditionalAssignment:
+  Description: Use the return value of `if` and `case` statements for assignment to
+    a variable and variable comparison instead of assigning that variable inside of
+    each branch.
+  Enabled: true
+  VersionAdded: '0.36'
+  VersionChanged: '0.47'
+  EnforcedStyle: assign_to_condition
+  SupportedStyles:
+  - assign_to_condition
+  - assign_inside_condition
+  SingleLineConditionsOnly: true
+  IncludeTernaryExpressions: true
+
+# https://docs.rubocop.org/rubocop/cops_style.html#styleconstantvisibility
+Style/ConstantVisibility:
+  Description: Check that class- and module constants have visibility declarations.
+  Enabled: true # was false
+  VersionAdded: '0.66'
+  VersionChanged: '1.10'
+  IgnoreModules: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylecopyright
+Style/Copyright:
+  Description: Include a copyright notice in each file before any code.
+  Enabled: true # was false
+  VersionAdded: '0.30'
+  Notice: "^Copyright (\\(c\\) )?2[0-9]{3} .+"
+  AutocorrectNotice: ''
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styledatainheritance
+Style/DataInheritance:
+  Description: Checks for inheritance from Data.define.
+  StyleGuide: "#no-extend-data-define"
+  Enabled: true # was pending
+  SafeAutoCorrect: false
+  VersionAdded: '1.49'
+  VersionChanged: '1.51'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styledatetime
+Style/DateTime:
+  Description: Use Time over DateTime.
+  StyleGuide: "#date-time"
+  Enabled: true # was false
+  VersionAdded: '0.51'
+  VersionChanged: '0.92'
+  SafeAutoCorrect: false
+  AllowCoercion: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styledefwithparentheses
+Style/DefWithParentheses:
+  Description: Use def with parentheses when there are arguments.
+  StyleGuide: "#method-parens"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.12'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styledigchain
+Style/DigChain:
+  Description: Use `dig` with multiple parameters instead of chaining multiple calls.
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.69'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styledir
+Style/Dir:
+  Description: Use the `__dir__` method to retrieve the canonicalized absolute path
+    to the current file.
+  Enabled: true
+  VersionAdded: '0.50'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styledirempty
+Style/DirEmpty:
+  Description: Prefer to use `Dir.empty?('path/to/dir')` when checking if a directory
+    is empty.
+  Enabled: true # was pending
+  VersionAdded: '1.48'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styledisablecopswithinsourcecodedirective
+Style/DisableCopsWithinSourceCodeDirective:
+  Description: Forbids disabling/enabling cops within source code.
+  Enabled: true # was false
+  VersionAdded: '0.82'
+  VersionChanged: '1.9'
+  AllowedCops: []
+
+# https://docs.rubocop.org/rubocop/cops_style.html#styledocumentdynamicevaldefinition
+Style/DocumentDynamicEvalDefinition:
+  Description: When using `class_eval` (or other `eval`) with string interpolation,
+    add a comment block showing its appearance if interpolated.
+  StyleGuide: "#eval-comment-docs"
+  Enabled: true # was pending
+  VersionAdded: '1.1'
+  VersionChanged: '1.3'
+
+# https://docs.rubocop.org/rubocop/cops_style.html#styledocumentation
+Style/Documentation:
+  Description: Document classes and non-namespace modules.
+  Enabled: true
+  VersionAdded: '0.9'
+  AllowedConstants: []
+  Exclude:
+  - "spec/**/*"
+  - "test/**/*"
+
+# https://docs.rubocop.org/rubocop/cops_style.html#styledocumentationmethod
+Style/DocumentationMethod:
+  Description: Checks for missing documentation comment for public methods.
+  Enabled: true # was false
+  VersionAdded: '0.43'
+  AllowedMethods: []
+  Exclude:
+  - "spec/**/*"
+  - "test/**/*"
+  RequireForNonPublicMethods: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styledoublecopdisabledirective
+Style/DoubleCopDisableDirective:
+  Description: Checks for double rubocop:disable comments on a single line.
+  Enabled: true
+  VersionAdded: '0.73'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styledoublenegation
+Style/DoubleNegation:
+  Description: Checks for uses of double negation (!!).
+  StyleGuide: "#no-bang-bang"
+  Enabled: true
+  VersionAdded: '0.19'
+  VersionChanged: '1.2'
+  EnforcedStyle: allowed_in_returns
+  SafeAutoCorrect: false
+  SupportedStyles:
+  - allowed_in_returns
+  - forbidden
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleeachforsimpleloop
+Style/EachForSimpleLoop:
+  Description: Use `Integer#times` for a simple loop which iterates a fixed number of
+    times.
+  Enabled: true
+  VersionAdded: '0.41'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleeachwithobject
+Style/EachWithObject:
+  Description: Prefer `each_with_object` over `inject` or `reduce`.
+  Enabled: true
+  VersionAdded: '0.22'
+  VersionChanged: '0.42'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleemptyblockparameter
+Style/EmptyBlockParameter:
+  Description: Omit pipes for empty block parameters.
+  Enabled: true
+  VersionAdded: '0.52'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleemptycasecondition
+Style/EmptyCaseCondition:
+  Description: Avoid empty condition in case statements.
+  Enabled: true
+  VersionAdded: '0.40'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleemptyelse
+Style/EmptyElse:
+  Description: Avoid empty else-clauses.
+  Enabled: true
+  AutoCorrect: contextual
+  VersionAdded: '0.28'
+  VersionChanged: '1.61'
+  EnforcedStyle: both
+  SupportedStyles:
+  - empty
+  - nil
+  - both
+  AllowComments: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleemptyheredoc
+Style/EmptyHeredoc:
+  Description: Checks for using empty heredoc to reduce redundancy.
+  Enabled: true # was pending
+  AutoCorrect: contextual
+  VersionAdded: '1.32'
+  VersionChanged: '1.61'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleemptylambdaparameter
+Style/EmptyLambdaParameter:
+  Description: Omit parens for empty lambda parameters.
+  Enabled: true
+  VersionAdded: '0.52'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleemptyliteral
+Style/EmptyLiteral:
+  Description: Prefer literals to Array.new/Hash.new/String.new.
+  StyleGuide: "#literal-array-hash"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.12'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleemptymethod
+Style/EmptyMethod:
+  Description: Checks the formatting of empty method definitions.
+  StyleGuide: "#no-single-line-methods"
+  Enabled: true
+  AutoCorrect: contextual
+  VersionAdded: '0.46'
+  VersionChanged: '1.61'
+  EnforcedStyle: compact
+  SupportedStyles:
+  - compact
+  - expanded
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleemptystringinsideinterpolation
+Style/EmptyStringInsideInterpolation:
+  Description: Checks for empty strings being assigned inside string interpolation.
+  StyleGuide: "#empty-strings-in-interpolation"
+  Enabled: true # was pending
+  EnforcedStyle: trailing_conditional
+  SupportedStyles:
+  - trailing_conditional
+  - ternary
+  VersionAdded: '1.76'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleencoding
+Style/Encoding:
+  Description: Use UTF-8 as the source file encoding.
+  StyleGuide: "#utf-8"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.50'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleendblock
+Style/EndBlock:
+  Description: Avoid the use of END blocks.
+  StyleGuide: "#no-END-blocks"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.81'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleendlessmethod
+Style/EndlessMethod:
+  Description: Avoid the use of multi-lined endless method definitions.
+  StyleGuide: "#endless-methods"
+  Enabled: true # was pending
+  VersionAdded: '1.8'
+  EnforcedStyle: allow_single_line
+  SupportedStyles:
+  - allow_single_line
+  - allow_always
+  - disallow
+  - require_single_line
+  - require_always
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleenvhome
+Style/EnvHome:
+  Description: Checks for consistent usage of `ENV['HOME']`.
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.29'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleevalwithlocation
+Style/EvalWithLocation:
+  Description: Pass `__FILE__` and `__LINE__` to `eval` method, as they are used by
+    backtraces.
+  Enabled: true
+  VersionAdded: '0.52'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleevenodd
+Style/EvenOdd:
+  Description: Favor the use of `Integer#even?` && `Integer#odd?`.
+  StyleGuide: "#predicate-methods"
+  Enabled: true
+  VersionAdded: '0.12'
+  VersionChanged: '0.29'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleexactregexpmatch
+Style/ExactRegexpMatch:
+  Description: Checks for exact regexp match inside Regexp literals.
+  Enabled: true # was pending
+  VersionAdded: '1.51'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleexpandpatharguments
+Style/ExpandPathArguments:
+  Description: Use `expand_path(__dir__)` instead of `expand_path('..', __FILE__)`.
+  Enabled: true
+  VersionAdded: '0.53'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleexplicitblockargument
+Style/ExplicitBlockArgument:
+  Description: Consider using explicit block argument to avoid writing block literal
+    that just passes its arguments to another block.
+  StyleGuide: "#block-argument"
+  Enabled: true
+  VersionAdded: '0.89'
+  VersionChanged: '1.8'
+
+# https://docs.rubocop.org/rubocop/cops_style.html#styleexponentialnotation
+Style/ExponentialNotation:
+  Description: When using exponential notation, favor a mantissa between 1 (inclusive)
+    and 10 (exclusive).
+  StyleGuide: "#exponential-notation"
+  Enabled: true
+  VersionAdded: '0.82'
+  EnforcedStyle: scientific
+  SupportedStyles:
+  - scientific
+  - engineering
+  - integral
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylefetchenvvar
+Style/FetchEnvVar:
+  Description: Suggests `ENV.fetch` for the replacement of `ENV[]`.
+  References:
+  - https://rubystyle.guide/#hash-fetch-defaults
+  Enabled: true # was pending
+  VersionAdded: '1.28'
+  AllowedVars: []
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylefileempty
+Style/FileEmpty:
+  Description: Prefer to use `File.empty?('path/to/file')` when checking if a file is
+    empty.
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.48'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylefilenull
+Style/FileNull:
+  Description: Use `File::NULL` instead of hardcoding "dev/null".
+  Enabled: true # was pending
+  SafeAutoCorrect: false
+  VersionAdded: '1.69'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylefileread
+Style/FileRead:
+  Description: Favor `File.(bin)read` convenience methods.
+  StyleGuide: "#file-read"
+  Enabled: true # was pending
+  VersionAdded: '1.24'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylefiletouch
+Style/FileTouch:
+  Description: Favor `FileUtils.touch` for touching files.
+  Enabled: true # was pending
+  VersionAdded: '1.69'
+  SafeAutoCorrect: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylefilewrite
+Style/FileWrite:
+  Description: Favor `File.(bin)write` convenience methods.
+  StyleGuide: "#file-write"
+  Enabled: true # was pending
+  VersionAdded: '1.24'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylefloatdivision
+Style/FloatDivision:
+  Description: For performing float division, coerce one side only.
+  StyleGuide: "#float-division"
+  References:
+  - https://blog.rubystyle.guide/ruby/2019/06/21/float-division.html
+  Enabled: true
+  VersionAdded: '0.72'
+  VersionChanged: '1.9'
+  Safe: false
+  EnforcedStyle: single_coerce
+  SupportedStyles:
+  - left_coerce
+  - right_coerce
+  - single_coerce
+  - fdiv
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylefor
+Style/For:
+  Description: Checks use of for or each in multiline loops.
+  StyleGuide: "#no-for-loops"
+  Enabled: true
+  SafeAutoCorrect: false
+  VersionAdded: '0.13'
+  VersionChanged: '1.26'
+  EnforcedStyle: each
+  SupportedStyles:
+  - each
+  - for
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleformatstring
+Style/FormatString:
+  Description: Enforce the use of Kernel#sprintf, Kernel#format or String#%.
+  StyleGuide: "#sprintf"
+  Enabled: true
+  VersionAdded: '0.19'
+  VersionChanged: '0.49'
+  EnforcedStyle: format
+  SupportedStyles:
+  - format
+  - sprintf
+  - percent
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleformatstringtoken
+Style/FormatStringToken:
+  Description: Use a consistent style for format string tokens.
+  Enabled: true
+  EnforcedStyle: annotated
+  SupportedStyles:
+  - annotated
+  - template
+  - unannotated
+  MaxUnannotatedPlaceholdersAllowed: 1
+  Mode: aggressive
+  VersionAdded: '0.49'
+  VersionChanged: '1.74'
+  AllowedMethods: []
+  AllowedPatterns: []
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylefrozenstringliteralcomment
+Style/FrozenStringLiteralComment:
+  Description: Add the frozen_string_literal comment to the top of files to help transition
+    to frozen string literals by default.
+  Enabled: true
+  VersionAdded: '0.36'
+  VersionChanged: '0.79'
+  EnforcedStyle: always
+  SupportedStyles:
+  - always
+  - always_true
+  - never
+  SafeAutoCorrect: false
+  Exclude:
+  - "**/*.arb"
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleglobalstdstream
+Style/GlobalStdStream:
+  Description: Enforces the use of `$stdout/$stderr/$stdin` instead of `STDOUT/STDERR/STDIN`.
+  StyleGuide: "#global-stdout"
+  Enabled: true
+  VersionAdded: '0.89'
+  SafeAutoCorrect: false
+
+# https://docs.rubocop.org/rubocop/cops_style.html#styleglobalvars
+Style/GlobalVars:
+  Description: Do not introduce global variables.
+  StyleGuide: "#instance-vars"
+  References:
+  - https://www.zenspider.com/ruby/quickref.html
+  Enabled: true
+  VersionAdded: '0.13'
+  AllowedVariables: []
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleguardclause
+Style/GuardClause:
+  Description: Check for conditionals that can be replaced with guard clauses.
+  StyleGuide: "#no-nested-conditionals"
+  Enabled: true
+  VersionAdded: '0.20'
+  VersionChanged: '1.31'
+  MinBodyLength: 1
+  AllowConsecutiveConditionals: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylehashaslastarrayitem
+Style/HashAsLastArrayItem:
+  Description: Checks for presence or absence of braces around hash literal as a last
+    array item depending on configuration.
+  StyleGuide: "#hash-literal-as-last-array-item"
+  Enabled: true
+  VersionAdded: '0.88'
+  EnforcedStyle: braces
+  SupportedStyles:
+  - braces
+  - no_braces
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylehashconversion
+Style/HashConversion:
+  Description: Avoid Hash[] in favor of ary.to_h or literal hashes.
+  StyleGuide: "#avoid-hash-constructor"
+  Enabled: true # was pending
+  SafeAutoCorrect: false
+  VersionAdded: '1.10'
+  VersionChanged: '1.55'
+  AllowSplatArgument: true
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylehasheachmethods
+Style/HashEachMethods:
+  Description: Use Hash#each_key and Hash#each_value.
+  StyleGuide: "#hash-each"
+  Enabled: true
+  Safe: false
+  VersionAdded: '0.80'
+  VersionChanged: '1.16'
+  AllowedReceivers:
+  - Thread.current
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylehashexcept
+Style/HashExcept:
+  Description: Checks for usages of `Hash#reject`, `Hash#select`, and `Hash#filter`
+    methods that can be replaced with `Hash#except` method.
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.7'
+  VersionChanged: '1.39'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylehashfetchchain
+Style/HashFetchChain:
+  Description: Use `Hash#dig` instead of chained `fetch` calls.
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.75'
+
+# https://docs.rubocop.org/rubocop/cops_style.html#stylehashlikecase
+Style/HashLikeCase:
+  Description: Checks for places where `case-when` represents a simple 1:1 mapping and
+    can be replaced with a hash lookup.
+  Enabled: true
+  VersionAdded: '0.88'
+  MinBranchesCount: 3
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylehashslice
+Style/HashSlice:
+  Description: Checks for usages of `Hash#reject`, `Hash#select`, and `Hash#filter`
+    methods that can be replaced with `Hash#slice` method.
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.71'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylehashsyntax
+Style/HashSyntax:
+  Description: 'Prefer Ruby 1.9 hash syntax { a: 1, b: 2 } over 1.8 syntax { :a => 1,
+    :b => 2 }.'
+  StyleGuide: "#hash-literals"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '1.67'
+  EnforcedStyle: ruby19
+  SupportedStyles:
+  - ruby19
+  - hash_rockets
+  - no_mixed_keys
+  - ruby19_no_mixed_keys
+  EnforcedShorthandSyntax: either
+  SupportedShorthandSyntax:
+  - always
+  - never
+  - either
+  - consistent
+  - either_consistent
+  UseHashRocketsWithSymbolValues: false
+  PreferHashRocketsForNonAlnumEndingSymbols: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylehashtransformkeys
+Style/HashTransformKeys:
+  Description: Prefer `transform_keys` over `each_with_object`, `map`, or `to_h`.
+  Enabled: true
+  VersionAdded: '0.80'
+  VersionChanged: '0.90'
+  Safe: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylehashtransformvalues
+Style/HashTransformValues:
+  Description: Prefer `transform_values` over `each_with_object`, `map`, or `to_h`.
+  Enabled: true
+  VersionAdded: '0.80'
+  VersionChanged: '0.90'
+  Safe: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleidenticalconditionalbranches
+Style/IdenticalConditionalBranches:
+  Description: Checks that conditional statements do not have an identical line at the
+    end of each branch, which can validly be moved out of the conditional.
+  Enabled: true
+  SafeAutoCorrect: false
+  VersionAdded: '0.36'
+  VersionChanged: '1.19'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleifinsideelse
+Style/IfInsideElse:
+  Description: Finds if nodes inside else, which can be converted to elsif.
+  Enabled: true
+  AllowIfModifier: false
+  VersionAdded: '0.36'
+  VersionChanged: '1.3'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleifunlessmodifier
+Style/IfUnlessModifier:
+  Description: Favor modifier if/unless usage when you have a single-line body.
+  StyleGuide: "#if-as-a-modifier"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.30'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleifunlessmodifierofifunless
+Style/IfUnlessModifierOfIfUnless:
+  Description: Avoid modifier if/unless usage on conditionals.
+  Enabled: true
+  VersionAdded: '0.39'
+  VersionChanged: '0.87'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleifwithbooleanliteralbranches
+Style/IfWithBooleanLiteralBranches:
+  Description: Checks for redundant `if` with boolean literal branches.
+  Enabled: true # was pending
+  VersionAdded: '1.9'
+  SafeAutoCorrect: false
+  AllowedMethods:
+  - nonzero?
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleifwithsemicolon
+Style/IfWithSemicolon:
+  Description: Do not use if x; .... Use the ternary operator instead.
+  StyleGuide: "#no-semicolon-ifs"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.83'
+
+# https://docs.rubocop.org/rubocop/cops_style.html#styleimplicitruntimeerror
+Style/ImplicitRuntimeError:
+  Description: Use `raise` or `fail` with an explicit exception class and message, rather
+    than just a message.
+  Enabled: true # was false
+  VersionAdded: '0.41'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleinpatternthen
+Style/InPatternThen:
+  Description: Checks for `in;` uses in `case` expressions.
+  StyleGuide: "#no-in-pattern-semicolons"
+  Enabled: true # was pending
+  VersionAdded: '1.16'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleinfiniteloop
+Style/InfiniteLoop:
+  Description: Use Kernel#loop for infinite loops. This cop is unsafe if the body may
+    raise a `StopIteration` exception.
+  Safe: false
+  StyleGuide: "#infinite-loop"
+  Enabled: true
+  VersionAdded: '0.26'
+  VersionChanged: '0.61'
+
+# https://docs.rubocop.org/rubocop/cops_style.html#styleinlinecomment
+Style/InlineComment:
+  Description: Avoid trailing inline comments.
+  Enabled: true # was false
+  VersionAdded: '0.23'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleinversemethods
+Style/InverseMethods:
+  Description: Use the inverse method instead of `!.method` if an inverse method is
+    defined.
+  Enabled: true
+  Safe: false
+  VersionAdded: '0.48'
+  InverseMethods:
+    :any?: :none?
+    :even?: :odd?
+    :==: :!=
+    :=~: :!~
+    :<: :>=
+    :>: :<=
+  InverseBlocks:
+    :select: :reject
+    :select!: :reject!
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleinvertibleunlesscondition
+Style/InvertibleUnlessCondition:
+  Description: Favor `if` with inverted condition over `unless`.
+  Enabled: true # was false
+  Safe: false
+  VersionAdded: '1.44'
+  VersionChanged: '1.50'
+  InverseMethods:
+    :!=: :==
+    :>: :<=
+    :<=: :>
+    :<: :>=
+    :>=: :<
+    :!~: :=~
+    :zero?: :nonzero?
+    :nonzero?: :zero?
+    :any?: :none?
+    :none?: :any?
+    :even?: :odd?
+    :odd?: :even?
+
+# https://docs.rubocop.org/rubocop/cops_style.html#styleipaddresses
+Style/IpAddresses:
+  Description: Don't include literal IP addresses in code.
+  Enabled: true # was false
+  VersionAdded: '0.58'
+  VersionChanged: '0.91'
+  AllowedAddresses:
+  - "::"
+  Exclude:
+  - "**/*.gemfile"
+  - "**/Gemfile"
+  - "**/gems.rb"
+  - "**/*.gemspec"
+
+# https://docs.rubocop.org/rubocop/cops_style.html#styleitassignment
+Style/ItAssignment:
+  Description: Checks for assignment to `it` inside a block.
+  Enabled: true # was pending
+  VersionAdded: '1.70'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleitblockparameter
+Style/ItBlockParameter:
+  Description: Checks for blocks with one argument where `it` block parameter can be
+    used.
+  Enabled: true # was pending
+  EnforcedStyle: allow_single_line
+  SupportedStyles:
+  - allow_single_line
+  - only_numbered_parameters
+  - always
+  - disallow
+  VersionAdded: '1.75'
+  VersionChanged: '1.76'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylekeywordargumentsmerging
+Style/KeywordArgumentsMerging:
+  Description: When passing an existing hash as keyword arguments, provide additional
+    arguments directly rather than using `merge`.
+  StyleGuide: "#merging-keyword-arguments"
+  Enabled: true # was pending
+  VersionAdded: '1.68'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylekeywordparametersorder
+Style/KeywordParametersOrder:
+  Description: Enforces that optional keyword parameters are placed at the end of the
+    parameters list.
+  StyleGuide: "#keyword-parameters-order"
+  Enabled: true
+  VersionAdded: '0.90'
+  VersionChanged: '1.7'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylelambda
+Style/Lambda:
+  Description: Use the new lambda literal syntax for single-line blocks.
+  StyleGuide: "#lambda-multi-line"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.40'
+  EnforcedStyle: line_count_dependent
+  SupportedStyles:
+  - line_count_dependent
+  - lambda
+  - literal
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylelambdacall
+Style/LambdaCall:
+  Description: Use lambda.call(...) instead of lambda.(...).
+  StyleGuide: "#proc-call"
+  Enabled: true
+  VersionAdded: '0.13'
+  VersionChanged: '0.14'
+  EnforcedStyle: call
+  SupportedStyles:
+  - call
+  - braces
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylelineendconcatenation
+Style/LineEndConcatenation:
+  Description: Use \ instead of + or << to concatenate two string literals at line end.
+  Enabled: true
+  SafeAutoCorrect: false
+  VersionAdded: '0.18'
+  VersionChanged: '0.64'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemagiccommentformat
+Style/MagicCommentFormat:
+  Description: Use a consistent style for magic comments.
+  Enabled: true # was pending
+  VersionAdded: '1.35'
+  EnforcedStyle: snake_case
+  SupportedStyles:
+  - snake_case
+  - kebab_case
+  DirectiveCapitalization: lowercase
+  ValueCapitalization:
+  SupportedCapitalizations:
+  - lowercase
+  - uppercase
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemapcompactwithconditionalblock
+Style/MapCompactWithConditionalBlock:
+  Description: Prefer `select` or `reject` over `map { ... }.compact`.
+  Enabled: true # was pending
+  VersionAdded: '1.30'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemapintoarray
+Style/MapIntoArray:
+  Description: Checks for usages of `each` with `<<`, `push`, or `append` which can
+    be replaced by `map`.
+  StyleGuide: "#functional-code"
+  Enabled: true # was pending
+  VersionAdded: '1.63'
+  VersionChanged: '1.67'
+  Safe: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemaptohash
+Style/MapToHash:
+  Description: Prefer `to_h` with a block over `map.to_h`.
+  Enabled: true # was pending
+  VersionAdded: '1.24'
+  Safe: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemaptoset
+Style/MapToSet:
+  Description: Prefer `to_set` with a block over `map.to_set`.
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.42'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemethodcallwithargsparentheses
+Style/MethodCallWithArgsParentheses:
+  Description: Use parentheses for method calls with arguments.
+  StyleGuide: "#method-invocation-parens"
+  Enabled: true # was false
+  VersionAdded: '0.47'
+  VersionChanged: '1.7'
+  IgnoreMacros: true
+  AllowedMethods: []
+  AllowedPatterns: []
+  IncludedMacros: []
+  AllowParenthesesInMultilineCall: false
+  AllowParenthesesInChaining: false
+  AllowParenthesesInCamelCaseMethod: false
+  AllowParenthesesInStringInterpolation: false
+  EnforcedStyle: require_parentheses
+  SupportedStyles:
+  - require_parentheses
+  - omit_parentheses
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemethodcallwithoutargsparentheses
+Style/MethodCallWithoutArgsParentheses:
+  Description: Do not use parentheses for method calls with no arguments.
+  StyleGuide: "#method-invocation-parens"
+  Enabled: true
+  AllowedMethods: []
+  AllowedPatterns: []
+  VersionAdded: '0.47'
+  VersionChanged: '0.55'
+
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemethodcalledondoendblock
+Style/MethodCalledOnDoEndBlock:
+  Description: Avoid chaining a method call on a do...end block.
+  StyleGuide: "#single-line-blocks"
+  Enabled: true # was false
+  VersionAdded: '0.14'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemethoddefparentheses
+Style/MethodDefParentheses:
+  Description: Checks if the method definitions have or don't have parentheses.
+  StyleGuide: "#method-parens"
+  Enabled: true
+  VersionAdded: '0.16'
+  VersionChanged: '1.7'
+  EnforcedStyle: require_parentheses
+  SupportedStyles:
+  - require_parentheses
+  - require_no_parentheses
+  - require_no_parentheses_except_multiline
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleminmax
+Style/MinMax:
+  Description: Use `Enumerable#minmax` instead of `Enumerable#min` and `Enumerable#max`
+    in conjunction.
+  Enabled: true
+  VersionAdded: '0.50'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleminmaxcomparison
+Style/MinMaxComparison:
+  Description: Enforces the use of `max` or `min` instead of comparison for greater
+    or less.
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.42'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemissingelse
+Style/MissingElse:
+  Description: Require if/case expressions to have an else branches. If enabled, it
+    is recommended that Style/UnlessElse and Style/EmptyElse be enabled. This will conflict
+    with Style/EmptyElse if Style/EmptyElse is configured to style "both".
+  Enabled: true # was false
+  VersionAdded: '0.30'
+  VersionChanged: '0.38'
+  EnforcedStyle: both
+  SupportedStyles:
+  - if
+  - case
+  - both
+
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemissingrespondtomissing
+Style/MissingRespondToMissing:
+  Description: Checks if `method_missing` is implemented without implementing `respond_to_missing`.
+  StyleGuide: "#no-method-missing"
+  Enabled: true
+  VersionAdded: '0.56'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemixingrouping
+Style/MixinGrouping:
+  Description: Checks for grouping of mixins in `class` and `module` bodies.
+  StyleGuide: "#mixin-grouping"
+  Enabled: true
+  VersionAdded: '0.48'
+  VersionChanged: '0.49'
+  EnforcedStyle: separated
+  SupportedStyles:
+  - separated
+  - grouped
+
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemixinusage
+Style/MixinUsage:
+  Description: Checks that `include`, `extend` and `prepend` exists at the top level.
+  Enabled: true
+  VersionAdded: '0.51'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemodulefunction
+Style/ModuleFunction:
+  Description: Checks for usage of `extend self` in modules.
+  StyleGuide: "#module-function"
+  Enabled: true
+  VersionAdded: '0.11'
+  VersionChanged: '0.65'
+  EnforcedStyle: module_function
+  SupportedStyles:
+  - module_function
+  - extend_self
+  - forbidden
+  Autocorrect: false
+  SafeAutoCorrect: false
+
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemultilineblockchain
+Style/MultilineBlockChain:
+  Description: Avoid multi-line chains of blocks.
+  StyleGuide: "#single-line-blocks"
+  Enabled: true
+  VersionAdded: '0.13'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemultilineifmodifier
+Style/MultilineIfModifier:
+  Description: Only use if/unless modifiers on single line statements.
+  StyleGuide: "#no-multiline-if-modifiers"
+  Enabled: true
+  VersionAdded: '0.45'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemultilineifthen
+Style/MultilineIfThen:
+  Description: Do not use then for multi-line if/unless.
+  StyleGuide: "#no-then"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.26'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemultilineinpatternthen
+Style/MultilineInPatternThen:
+  Description: Do not use `then` for multi-line `in` statement.
+  StyleGuide: "#no-then"
+  Enabled: true # was pending
+  VersionAdded: '1.16'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemultilinememoization
+Style/MultilineMemoization:
+  Description: Wrap multiline memoizations in a `begin` and `end` block.
+  Enabled: true
+  VersionAdded: '0.44'
+  VersionChanged: '0.48'
+  EnforcedStyle: keyword
+  SupportedStyles:
+  - keyword
+  - braces
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemultilinemethodsignature
+Style/MultilineMethodSignature:
+  Description: Avoid multi-line method signatures.
+  Enabled: true # was false
+  VersionAdded: '0.59'
+  VersionChanged: '1.7'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemultilineternaryoperator
+Style/MultilineTernaryOperator:
+  Description: 'Avoid multi-line ?: (the ternary operator); use if/unless instead.'
+  StyleGuide: "#no-multiline-ternary"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.86'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemultilinewhenthen
+Style/MultilineWhenThen:
+  Description: Do not use then for multi-line when statement.
+  StyleGuide: "#no-then"
+  Enabled: true
+  VersionAdded: '0.73'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemultiplecomparison
+Style/MultipleComparison:
+  Description: Avoid comparing a variable with multiple items in a conditional, use
+    Array#include? instead.
+  Enabled: true
+  VersionAdded: '0.49'
+  VersionChanged: '1.1'
+  AllowMethodComparison: true
+  ComparisonsThreshold: 2
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemutableconstant
+Style/MutableConstant:
+  Description: Do not assign mutable objects to constants.
+  Enabled: true
+  VersionAdded: '0.34'
+  VersionChanged: '1.8'
+  SafeAutoCorrect: false
+  EnforcedStyle: literals
+  SupportedStyles:
+  - literals
+  - strict
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylenegatedif
+Style/NegatedIf:
+  Description: Favor unless over if for negative conditions (or control flow or).
+  StyleGuide: "#unless-for-negatives"
+  Enabled: true
+  VersionAdded: '0.20'
+  VersionChanged: '0.48'
+  EnforcedStyle: both
+  SupportedStyles:
+  - both
+  - prefix
+  - postfix
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylenegatedifelsecondition
+Style/NegatedIfElseCondition:
+  Description: Checks for uses of `if-else` and ternary operators with a negated condition
+    which can be simplified by inverting condition and swapping branches.
+  Enabled: true # was pending
+  VersionAdded: '1.2'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylenegatedunless
+Style/NegatedUnless:
+  Description: Favor if over unless for negative conditions.
+  StyleGuide: "#if-for-negatives"
+  Enabled: true
+  VersionAdded: '0.69'
+  EnforcedStyle: both
+  SupportedStyles:
+  - both
+  - prefix
+  - postfix
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylenegatedwhile
+Style/NegatedWhile:
+  Description: Favor until over while for negative conditions.
+  StyleGuide: "#until-for-negatives"
+  Enabled: true
+  VersionAdded: '0.20'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylenestedfiledirname
+Style/NestedFileDirname:
+  Description: Checks for nested `File.dirname`.
+  Enabled: true # was pending
+  VersionAdded: '1.26'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylenestedmodifier
+Style/NestedModifier:
+  Description: Avoid using nested modifiers.
+  StyleGuide: "#no-nested-modifiers"
+  Enabled: true
+  VersionAdded: '0.35'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylenestedparenthesizedcalls
+Style/NestedParenthesizedCalls:
+  Description: Parenthesize method calls which are nested inside the argument list of
+    another parenthesized method call.
+  Enabled: true
+  VersionAdded: '0.36'
+  VersionChanged: '0.77'
+  AllowedMethods:
+  - be
+  - be_a
+  - be_an
+  - be_between
+  - be_falsey
+  - be_kind_of
+  - be_instance_of
+  - be_truthy
+  - be_within
+  - eq
+  - eql
+  - end_with
+  - include
+  - match
+  - raise_error
+  - respond_to
+  - start_with
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylenestedternaryoperator
+Style/NestedTernaryOperator:
+  Description: Use one expression per branch in a ternary operator.
+  StyleGuide: "#no-nested-ternary"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.86'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylenext
+Style/Next:
+  Description: Use `next` to skip iteration instead of a condition at the end.
+  StyleGuide: "#no-nested-conditionals"
+  Enabled: true
+  VersionAdded: '0.22'
+  VersionChanged: '1.75'
+  EnforcedStyle: skip_modifier_ifs
+  MinBodyLength: 3
+  AllowConsecutiveConditionals: false
+  SupportedStyles:
+  - skip_modifier_ifs
+  - always
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylenilcomparison
+Style/NilComparison:
+  Description: Prefer x.nil? to x == nil.
+  StyleGuide: "#predicate-methods"
+  Enabled: true
+  VersionAdded: '0.12'
+  VersionChanged: '0.59'
+  EnforcedStyle: predicate
+  SupportedStyles:
+  - predicate
+  - comparison
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylenillambda
+Style/NilLambda:
+  Description: Prefer `-> {}` to `-> { nil }`.
+  Enabled: true # was pending
+  VersionAdded: '1.3'
+  VersionChanged: '1.15'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylenonnilcheck
+Style/NonNilCheck:
+  Description: Checks for redundant nil checks.
+  StyleGuide: "#no-non-nil-checks"
+  Enabled: true
+  VersionAdded: '0.20'
+  VersionChanged: '0.22'
+  IncludeSemanticChanges: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylenot
+Style/Not:
+  Description: Use ! instead of not.
+  StyleGuide: "#bang-not-not"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.20'
+
+# https://docs.rubocop.org/rubocop/cops_style.html#stylenumberedparameters
+Style/NumberedParameters:
+  Description: Restrict the usage of numbered parameters.
+  Enabled: true # was pending
+  VersionAdded: '1.22'
+  EnforcedStyle: allow_single_line
+  SupportedStyles:
+  - allow_single_line
+  - disallow
+
+# https://docs.rubocop.org/rubocop/cops_style.html#stylenumberedparameterslimit
+Style/NumberedParametersLimit:
+  Description: Avoid excessive numbered params in a single block.
+  Enabled: true # was pending
+  VersionAdded: '1.22'
+  Max: 1
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylenumericliteralprefix
+Style/NumericLiteralPrefix:
+  Description: Use smallcase prefixes for numeric literals.
+  StyleGuide: "#numeric-literal-prefixes"
+  Enabled: true
+  VersionAdded: '0.41'
+  EnforcedOctalStyle: zero_with_o
+  SupportedOctalStyles:
+  - zero_with_o
+  - zero_only
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylenumericliterals
+Style/NumericLiterals:
+  Description: Add underscores to large numeric literals to improve their readability.
+  StyleGuide: "#underscores-in-numerics"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.48'
+  MinDigits: 5
+  Strict: false
+  AllowedNumbers: []
+  AllowedPatterns: []
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylenumericpredicate
+Style/NumericPredicate:
+  Description: Checks for the use of predicate- or comparison methods for numeric comparisons.
+  StyleGuide: "#predicate-methods"
+  Safe: false
+  Enabled: true
+  VersionAdded: '0.42'
+  VersionChanged: '0.59'
+  EnforcedStyle: predicate
+  SupportedStyles:
+  - predicate
+  - comparison
+  AllowedMethods: []
+  AllowedPatterns: []
+  Exclude:
+  - "spec/**/*"
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleobjectthen
+Style/ObjectThen:
+  Description: Enforces the use of consistent method names `Object#yield_self` or `Object#then`.
+  StyleGuide: "#object-yield-self-vs-object-then"
+  Enabled: true # was pending
+  VersionAdded: '1.28'
+  EnforcedStyle: then
+  SupportedStyles:
+  - then
+  - yield_self
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleonelineconditional
+Style/OneLineConditional:
+  Description: Favor the ternary operator (?:) or multi-line constructs over single-line
+    if/then/else/end constructs.
+  StyleGuide: "#ternary-operator"
+  Enabled: true
+  AlwaysCorrectToMultiline: false
+  VersionAdded: '0.9'
+  VersionChanged: '0.90'
+
+# https://docs.rubocop.org/rubocop/cops_style.html#styleopenstructuse
+Style/OpenStructUse:
+  Description: Avoid using OpenStruct. As of Ruby 3.0, use is officially discouraged
+    due to performance, version compatibility, and potential security issues.
+  References:
+  - https://docs.ruby-lang.org/en/3.0.0/OpenStruct.html#class-OpenStruct-label-Caveats
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.23'
+  VersionChanged: '1.51'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleoperatormethodcall
+Style/OperatorMethodCall:
+  Description: Checks for redundant dot before operator method call.
+  StyleGuide: "#operator-method-call"
+  Enabled: true # was pending
+  VersionAdded: '1.37'
+
+# https://docs.rubocop.org/rubocop/cops_style.html#styleoptionhash
+Style/OptionHash:
+  Description: Don't use option hashes when you can use keyword arguments.
+  StyleGuide: "#keyword-arguments-vs-option-hashes"
+  Enabled: true # was false
+  VersionAdded: '0.33'
+  VersionChanged: '0.34'
+  SuspiciousParamNames:
+  - options
+  - opts
+  - args
+  - params
+  - parameters
+  Allowlist: []
+
+# https://docs.rubocop.org/rubocop/cops_style.html#styleoptionalarguments
+Style/OptionalArguments:
+  Description: Checks for optional arguments that do not appear at the end of the argument
+    list.
+  StyleGuide: "#optional-arguments"
+  Enabled: true
+  Safe: false
+  VersionAdded: '0.33'
+  VersionChanged: '0.83'
+
+# https://docs.rubocop.org/rubocop/cops_style.html#styleoptionalbooleanparameter
+Style/OptionalBooleanParameter:
+  Description: Use keyword arguments when defining method with boolean argument.
+  StyleGuide: "#boolean-keyword-arguments"
+  Enabled: true
+  Safe: false
+  VersionAdded: '0.89'
+  AllowedMethods:
+  - respond_to_missing?
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleorassignment
+Style/OrAssignment:
+  Description: Recommend usage of double pipe equals (||=) where applicable.
+  StyleGuide: "#double-pipe-for-uninit"
+  Enabled: true
+  VersionAdded: '0.50'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleparallelassignment
+Style/ParallelAssignment:
+  Description: Check for simple usages of parallel assignment. It will only warn when
+    the number of variables matches on both sides of the assignment.
+  StyleGuide: "#parallel-assignment"
+  Enabled: true
+  VersionAdded: '0.32'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleparenthesesaroundcondition
+Style/ParenthesesAroundCondition:
+  Description: Don't use parentheses around the condition of an if/unless/while.
+  StyleGuide: "#no-parens-around-condition"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.56'
+  AllowSafeAssignment: true
+  AllowInMultilineConditions: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylepercentliteraldelimiters
+Style/PercentLiteralDelimiters:
+  Description: Use `%`-literal delimiters consistently.
+  StyleGuide: "#percent-literal-braces"
+  Enabled: true
+  VersionAdded: '0.19'
+  PreferredDelimiters:
+    default: "()"
+    "%i": "[]"
+    "%I": "[]"
+    "%r": "{}"
+    "%w": "[]"
+    "%W": "[]"
+  VersionChanged: '0.48'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylepercentqliterals
+Style/PercentQLiterals:
+  Description: Checks if uses of %Q/%q match the configured preference.
+  Enabled: true
+  VersionAdded: '0.25'
+  EnforcedStyle: lower_case_q
+  SupportedStyles:
+  - lower_case_q
+  - upper_case_q
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleperlbackrefs
+Style/PerlBackrefs:
+  Description: Avoid Perl-style regex back references.
+  StyleGuide: "#no-perl-regexp-last-matchers"
+  Enabled: true
+  VersionAdded: '0.13'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylepreferredhashmethods
+Style/PreferredHashMethods:
+  Description: Checks use of `has_key?` and `has_value?` Hash methods.
+  StyleGuide: "#hash-key"
+  Enabled: true
+  Safe: false
+  VersionAdded: '0.41'
+  VersionChanged: '0.70'
+  EnforcedStyle: short
+  SupportedStyles:
+  - short
+  - verbose
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleproc
+Style/Proc:
+  Description: Use proc instead of Proc.new.
+  StyleGuide: "#proc"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.18'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylequotedsymbols
+Style/QuotedSymbols:
+  Description: Use a consistent style for quoted symbols.
+  Enabled: true # was pending
+  VersionAdded: '1.16'
+  EnforcedStyle: same_as_string_literals
+  SupportedStyles:
+  - same_as_string_literals
+  - single_quotes
+  - double_quotes
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleraiseargs
+Style/RaiseArgs:
+  Description: Checks the arguments passed to raise/fail.
+  StyleGuide: "#exception-class-messages"
+  Enabled: true
+  Safe: false
+  VersionAdded: '0.14'
+  VersionChanged: '1.61'
+  EnforcedStyle: exploded
+  SupportedStyles:
+  - compact
+  - exploded
+  AllowedCompactTypes: []
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylerandomwithoffset
+Style/RandomWithOffset:
+  Description: Prefer to use ranges when generating random numbers instead of integers
+    with offsets.
+  StyleGuide: "#random-numbers"
+  Enabled: true
+  VersionAdded: '0.52'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantargument
+Style/RedundantArgument:
+  Description: Check for a redundant argument passed to certain methods.
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.4'
+  VersionChanged: '1.55'
+  Methods:
+    join: ''
+    sum: 0
+    exit: true
+    exit!: false
+    split: " "
+    chomp: "\n"
+    chomp!: "\n"
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantarrayconstructor
+Style/RedundantArrayConstructor:
+  Description: Checks for the instantiation of array using redundant `Array` constructor.
+  Enabled: true # was pending
+  VersionAdded: '1.52'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantarrayflatten
+Style/RedundantArrayFlatten:
+  Description: Checks for redundant calls of `Array#flatten`.
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.76'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantassignment
+Style/RedundantAssignment:
+  Description: Checks for redundant assignment before returning.
+  Enabled: true
+  VersionAdded: '0.87'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantbegin
+Style/RedundantBegin:
+  Description: Don't use begin blocks when they are not needed.
+  StyleGuide: "#begin-implicit"
+  Enabled: true
+  VersionAdded: '0.10'
+  VersionChanged: '0.21'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantcapitalw
+Style/RedundantCapitalW:
+  Description: Checks for %W when interpolation is not needed.
+  Enabled: true
+  VersionAdded: '0.76'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantcondition
+Style/RedundantCondition:
+  Description: Checks for unnecessary conditional expressions.
+  Enabled: true
+  VersionAdded: '0.76'
+  VersionChanged: '1.73'
+  AllowedMethods:
+  - nonzero?
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantconditional
+Style/RedundantConditional:
+  Description: Don't return true/false from a conditional.
+  Enabled: true
+  VersionAdded: '0.50'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantconstantbase
+Style/RedundantConstantBase:
+  Description: Avoid redundant `::` prefix on constant.
+  Enabled: true # was pending
+  VersionAdded: '1.40'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantcurrentdirectoryinpath
+Style/RedundantCurrentDirectoryInPath:
+  Description: Checks for a redundant current directory in a path given to `require_relative`.
+  Enabled: true # was pending
+  VersionAdded: '1.53'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantdoublesplathashbraces
+Style/RedundantDoubleSplatHashBraces:
+  Description: Checks for redundant uses of double splat hash braces.
+  Enabled: true # was pending
+  VersionAdded: '1.41'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundanteach
+Style/RedundantEach:
+  Description: Checks for redundant `each`.
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.38'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantexception
+Style/RedundantException:
+  Description: Checks for an obsolete RuntimeException argument in raise/fail.
+  StyleGuide: "#no-explicit-runtimeerror"
+  Enabled: true
+  VersionAdded: '0.14'
+  VersionChanged: '0.29'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantfetchblock
+Style/RedundantFetchBlock:
+  Description: Use `fetch(key, value)` instead of `fetch(key) { value }` when value
+    has Numeric, Rational, Complex, Symbol or String type, `false`, `true`, `nil` or
+    is a constant.
+  References:
+  - https://github.com/fastruby/fast-ruby#hashfetch-with-argument-vs-hashfetch--block-code
+  Enabled: true
+  Safe: false
+  SafeForConstants: false
+  VersionAdded: '0.86'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantfileextensioninrequire
+Style/RedundantFileExtensionInRequire:
+  Description: Checks for the presence of superfluous `.rb` extension in the filename
+    provided to `require` and `require_relative`.
+  StyleGuide: "#no-explicit-rb-to-require"
+  Enabled: true
+  VersionAdded: '0.88'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantfilterchain
+Style/RedundantFilterChain:
+  Description: Identifies usages of `any?`, `empty?`, `none?` or `one?` predicate methods
+    chained to `select`/`filter`/`find_all` and change them to use predicate method
+    instead.
+  Enabled: true # was pending
+  SafeAutoCorrect: false
+  VersionAdded: '1.52'
+  VersionChanged: '1.57'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantformat
+Style/RedundantFormat:
+  Description: Checks for usages of `Kernel#format` or `Kernel#sprintf` with only a
+    single argument.
+  Enabled: true # was pending
+  SafeAutoCorrect: false
+  VersionAdded: '1.72'
+  VersionChanged: '1.72'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantfreeze
+Style/RedundantFreeze:
+  Description: Checks usages of Object#freeze on immutable objects.
+  Enabled: true
+  VersionAdded: '0.34'
+  VersionChanged: '0.66'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantheredocdelimiterquotes
+Style/RedundantHeredocDelimiterQuotes:
+  Description: Checks for redundant heredoc delimiter quotes.
+  Enabled: true # was pending
+  VersionAdded: '1.45'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantinitialize
+Style/RedundantInitialize:
+  Description: Checks for redundant `initialize` methods.
+  Enabled: true # was pending
+  AutoCorrect: contextual
+  Safe: false
+  AllowComments: true
+  VersionAdded: '1.27'
+  VersionChanged: '1.61'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantinterpolation
+Style/RedundantInterpolation:
+  Description: Checks for strings that are just an interpolated expression.
+  Enabled: true
+  SafeAutoCorrect: false
+  VersionAdded: '0.76'
+  VersionChanged: '1.30'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantinterpolationunfreeze
+Style/RedundantInterpolationUnfreeze:
+  Description: Checks for redundant unfreezing of interpolated strings.
+  Enabled: true # was pending
+  VersionAdded: '1.66'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantlinecontinuation
+Style/RedundantLineContinuation:
+  Description: Check for redundant line continuation.
+  Enabled: true # was pending
+  VersionAdded: '1.49'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantparentheses
+Style/RedundantParentheses:
+  Description: Checks for parentheses that seem not to serve any purpose.
+  Enabled: true
+  VersionAdded: '0.36'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantpercentq
+Style/RedundantPercentQ:
+  Description: Checks for %q/%Q when single quotes or double quotes would do.
+  StyleGuide: "#percent-q"
+  Enabled: true
+  VersionAdded: '0.76'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantregexpargument
+Style/RedundantRegexpArgument:
+  Description: Identifies places where argument can be replaced from a deterministic
+    regexp to a string.
+  Enabled: true # was pending
+  VersionAdded: '1.53'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantregexpcharacterclass
+Style/RedundantRegexpCharacterClass:
+  Description: Checks for unnecessary single-element Regexp character classes.
+  Enabled: true
+  VersionAdded: '0.85'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantregexpconstructor
+Style/RedundantRegexpConstructor:
+  Description: Checks for the instantiation of regexp using redundant `Regexp.new` or
+    `Regexp.compile`.
+  Enabled: true # was pending
+  VersionAdded: '1.52'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantregexpescape
+Style/RedundantRegexpEscape:
+  Description: Checks for redundant escapes in Regexps.
+  Enabled: true
+  VersionAdded: '0.85'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantreturn
+Style/RedundantReturn:
+  Description: Don't use return where it's not required.
+  StyleGuide: "#no-explicit-return"
+  Enabled: true
+  VersionAdded: '0.10'
+  VersionChanged: '0.14'
+  AllowMultipleReturnValues: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantself
+Style/RedundantSelf:
+  Description: Don't use self where it's not needed.
+  StyleGuide: "#no-self-unless-required"
+  Enabled: true
+  VersionAdded: '0.10'
+  VersionChanged: '0.13'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantselfassignment
+Style/RedundantSelfAssignment:
+  Description: Checks for places where redundant assignments are made for in place modification
+    methods.
+  Enabled: true
+  Safe: false
+  VersionAdded: '0.90'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantselfassignmentbranch
+Style/RedundantSelfAssignmentBranch:
+  Description: Checks for places where conditional branch makes redundant self-assignment.
+  Enabled: true # was pending
+  VersionAdded: '1.19'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantsort
+Style/RedundantSort:
+  Description: Use `min` instead of `sort.first`, `max_by` instead of `sort_by...last`,
+    etc.
+  Enabled: true
+  VersionAdded: '0.76'
+  VersionChanged: '1.22'
+  Safe: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantsortby
+Style/RedundantSortBy:
+  Description: Use `sort` instead of `sort_by { |x| x }`.
+  Enabled: true
+  VersionAdded: '0.36'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantstringescape
+Style/RedundantStringEscape:
+  Description: Checks for redundant escapes in string literals.
+  Enabled: true # was pending
+  VersionAdded: '1.37'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleregexpliteral
+Style/RegexpLiteral:
+  Description: Use / or %r around regular expressions.
+  StyleGuide: "#percent-r"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.30'
+  EnforcedStyle: slashes
+  SupportedStyles:
+  - slashes
+  - percent_r
+  - mixed
+  AllowInnerSlashes: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylerequireorder
+Style/RequireOrder:
+  Description: Sort `require` and `require_relative` in alphabetical order.
+  Enabled: true # was false
+  SafeAutoCorrect: false
+  VersionAdded: '1.40'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylerescuemodifier
+Style/RescueModifier:
+  Description: Avoid using rescue in its modifier form.
+  StyleGuide: "#no-rescue-modifiers"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.34'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylerescuestandarderror
+Style/RescueStandardError:
+  Description: Avoid rescuing without specifying an error class.
+  Enabled: true
+  VersionAdded: '0.52'
+  EnforcedStyle: explicit
+  SupportedStyles:
+  - implicit
+  - explicit
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylereturnnil
+Style/ReturnNil:
+  Description: Use return instead of return nil.
+  Enabled: true # was false
+  EnforcedStyle: return
+  SupportedStyles:
+  - return
+  - return_nil
+  VersionAdded: '0.50'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylereturnnilinpredicatemethoddefinition
+Style/ReturnNilInPredicateMethodDefinition:
+  Description: Checks if uses of `return` or `return nil` in predicate method definition.
+  StyleGuide: "#bool-methods-qmark"
+  Enabled: true # was pending
+  SafeAutoCorrect: false
+  AllowedMethods: []
+  AllowedPatterns: []
+  VersionAdded: '1.53'
+  VersionChanged: '1.67'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylesafenavigation
+Style/SafeNavigation:
+  Description: Transforms usages of a method call safeguarded by a check for the existence
+    of the object to safe navigation (`&.`). Autocorrection is unsafe as it assumes
+    the object will be `nil` or truthy, but never `false`.
+  Enabled: true
+  VersionAdded: '0.43'
+  VersionChanged: '1.67'
+  ConvertCodeThatCanStartToReturnNil: false
+  AllowedMethods:
+  - present?
+  - blank?
+  - presence
+  - try
+  - try!
+  SafeAutoCorrect: false
+  MaxChainLength: 2
+
+# https://docs.rubocop.org/rubocop/cops_style.html#stylesafenavigationchainlength
+Style/SafeNavigationChainLength:
+  Description: Enforces safe navigation chains length to not exceed the configured maximum.
+  StyleGuide: "#safe-navigation"
+  Enabled: true # was pending
+  VersionAdded: '1.68'
+  Max: 2
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylesample
+Style/Sample:
+  Description: Use `sample` instead of `shuffle.first`, `shuffle.last`, and `shuffle[Integer]`.
+  References:
+  - https://github.com/fastruby/fast-ruby#arrayshufflefirst-vs-arraysample-code
+  Enabled: true
+  VersionAdded: '0.30'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleselectbyregexp
+Style/SelectByRegexp:
+  Description: Prefer grep/grep_v to select/reject with a regexp match.
+  Enabled: true # was pending
+  SafeAutoCorrect: false
+  VersionAdded: '1.22'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleselfassignment
+Style/SelfAssignment:
+  Description: Checks for places where self-assignment shorthand should have been used.
+  StyleGuide: "#self-assignment"
+  Enabled: true
+  VersionAdded: '0.19'
+  VersionChanged: '0.29'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylesemicolon
+Style/Semicolon:
+  Description: Don't use semicolons to terminate expressions.
+  StyleGuide: "#no-semicolon"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.19'
+  AllowAsExpressionSeparator: false
+
+# https://docs.rubocop.org/rubocop/cops_style.html#stylesend
+Style/Send:
+  Description: Prefer `Object#__send__` or `Object#public_send` to `send`, as `send`
+    may overlap with existing methods.
+  StyleGuide: "#prefer-public-send"
+  Enabled: true # was false
+  VersionAdded: '0.33'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylesendwithliteralmethodname
+Style/SendWithLiteralMethodName:
+  Description: Detects the use of the `public_send` method with a static method name
+    argument.
+  Enabled: true # was pending
+  Safe: false
+  AllowSend: true
+  VersionAdded: '1.64'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylesignalexception
+Style/SignalException:
+  Description: Checks for proper usage of fail and raise.
+  StyleGuide: "#prefer-raise-over-fail"
+  Enabled: true
+  VersionAdded: '0.11'
+  VersionChanged: '0.37'
+  EnforcedStyle: only_raise
+  SupportedStyles:
+  - only_raise
+  - only_fail
+  - semantic
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylesingleargumentdig
+Style/SingleArgumentDig:
+  Description: Avoid using single argument dig method.
+  Enabled: true
+  VersionAdded: '0.89'
+  Safe: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylesinglelineblockparams
+Style/SingleLineBlockParams:
+  Description: Enforces the names of some block params.
+  Enabled: true # was false
+  VersionAdded: '0.16'
+  VersionChanged: '1.6'
+  Methods:
+  - reduce:
+    - acc
+    - elem
+  - inject:
+    - acc
+    - elem
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylesinglelinedoendblock
+Style/SingleLineDoEndBlock:
+  Description: Checks for single-line `do`...`end` blocks.
+  StyleGuide: "#single-line-do-end-block"
+  Enabled: true # was pending
+  VersionAdded: '1.57'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylesinglelinemethods
+Style/SingleLineMethods:
+  Description: Avoid single-line methods.
+  StyleGuide: "#no-single-line-methods"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '1.8'
+  AllowIfMethodIsEmpty: true
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleslicingwithrange
+Style/SlicingWithRange:
+  Description: Checks array slicing is done with redundant, endless, and beginless ranges
+    when suitable.
+  StyleGuide: "#slicing-with-ranges"
+  Enabled: true
+  VersionAdded: '0.83'
+  Safe: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylesolenestedconditional
+Style/SoleNestedConditional:
+  Description: Finds sole nested conditional nodes which can be merged into outer conditional
+    node.
+  Enabled: true
+  VersionAdded: '0.89'
+  VersionChanged: '1.5'
+  AllowModifier: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylespecialglobalvars
+Style/SpecialGlobalVars:
+  Description: Avoid Perl-style global variables.
+  StyleGuide: "#no-cryptic-perlisms"
+  Enabled: true
+  VersionAdded: '0.13'
+  VersionChanged: '0.36'
+  SafeAutoCorrect: false
+  RequireEnglish: true
+  EnforcedStyle: use_english_names
+  SupportedStyles:
+  - use_perl_names
+  - use_english_names
+  - use_builtin_english_names
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylestabbylambdaparentheses
+Style/StabbyLambdaParentheses:
+  Description: Check for the usage of parentheses around stabby lambda arguments.
+  StyleGuide: "#stabby-lambda-with-args"
+  Enabled: true
+  VersionAdded: '0.35'
+  EnforcedStyle: require_parentheses
+  SupportedStyles:
+  - require_parentheses
+  - require_no_parentheses
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylestaticclass
+Style/StaticClass:
+  Description: Prefer modules to classes with only class methods.
+  StyleGuide: "#modules-vs-classes"
+  Enabled: true # was false
+  Safe: false
+  VersionAdded: '1.3'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylestderrputs
+Style/StderrPuts:
+  Description: Use `warn` instead of `$stderr.puts`.
+  StyleGuide: "#warn"
+  Enabled: true
+  VersionAdded: '0.51'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylestringchars
+Style/StringChars:
+  Description: Checks for uses of `String#split` with empty string or regexp literal
+    argument.
+  StyleGuide: "#string-chars"
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.12'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylestringconcatenation
+Style/StringConcatenation:
+  Description: Checks for places where string concatenation can be replaced with string
+    interpolation.
+  StyleGuide: "#string-interpolation"
+  Enabled: true
+  Safe: false
+  VersionAdded: '0.89'
+  VersionChanged: '1.18'
+  Mode: aggressive
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylestringhashkeys
+Style/StringHashKeys:
+  Description: Prefer symbols instead of strings as hash keys.
+  StyleGuide: "#symbols-as-keys"
+  Enabled: true # was false
+  VersionAdded: '0.52'
+  VersionChanged: '0.75'
+  Safe: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylestringliterals
+Style/StringLiterals:
+  Description: Checks if uses of quotes match the configured preference.
+  StyleGuide: "#consistent-string-literals"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.36'
+  EnforcedStyle: single_quotes
+  SupportedStyles:
+  - single_quotes
+  - double_quotes
+  ConsistentQuotesInMultiline: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylestringliteralsininterpolation
+Style/StringLiteralsInInterpolation:
+  Description: Checks if uses of quotes inside expressions in interpolated strings match
+    the configured preference.
+  Enabled: true
+  VersionAdded: '0.27'
+  EnforcedStyle: single_quotes
+  SupportedStyles:
+  - single_quotes
+  - double_quotes
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylestringmethods
+Style/StringMethods:
+  Description: Checks if configured preferred methods are used over non-preferred.
+  Enabled: true # was false
+  VersionAdded: '0.34'
+  VersionChanged: '0.34'
+  PreferredMethods:
+    intern: to_sym
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylestrip
+Style/Strip:
+  Description: Use `strip` instead of `lstrip.rstrip`.
+  Enabled: true
+  VersionAdded: '0.36'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylestructinheritance
+Style/StructInheritance:
+  Description: Checks for inheritance from Struct.new.
+  StyleGuide: "#no-extend-struct-new"
+  Enabled: true
+  SafeAutoCorrect: false
+  VersionAdded: '0.29'
+  VersionChanged: '1.20'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylesuperarguments
+Style/SuperArguments:
+  Description: Call `super` without arguments and parentheses when the signature is
+    identical.
+  Enabled: true # was pending
+  VersionAdded: '1.64'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylesuperwithargsparentheses
+Style/SuperWithArgsParentheses:
+  Description: Use parentheses for `super` with arguments.
+  StyleGuide: "#super-with-args"
+  Enabled: true # was pending
+  VersionAdded: '1.58'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleswapvalues
+Style/SwapValues:
+  Description: Enforces the use of shorthand-style swapping of 2 variables.
+  StyleGuide: "#values-swapping"
+  Enabled: true # was pending
+  VersionAdded: '1.1'
+  SafeAutoCorrect: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylesymbolarray
+Style/SymbolArray:
+  Description: Use %i or %I for arrays of symbols.
+  StyleGuide: "#percent-i"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.49'
+  EnforcedStyle: percent
+  MinSize: 2
+  SupportedStyles:
+  - percent
+  - brackets
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylesymbolliteral
+Style/SymbolLiteral:
+  Description: Use plain symbols instead of string symbols when possible.
+  Enabled: true
+  VersionAdded: '0.30'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylesymbolproc
+Style/SymbolProc:
+  Description: Use symbols as procs instead of blocks when possible.
+  Enabled: true
+  Safe: false
+  VersionAdded: '0.26'
+  VersionChanged: '1.64'
+  AllowMethodsWithArguments: false
+  AllowedMethods:
+  - define_method
+  AllowedPatterns: []
+  AllowComments: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleternaryparentheses
+Style/TernaryParentheses:
+  Description: Checks for use of parentheses around ternary conditions.
+  Enabled: true
+  VersionAdded: '0.42'
+  VersionChanged: '0.46'
+  EnforcedStyle: require_no_parentheses
+  SupportedStyles:
+  - require_parentheses
+  - require_no_parentheses
+  - require_parentheses_when_complex
+  AllowSafeAssignment: true
+
+# https://docs.rubocop.org/rubocop/cops_style.html#styletoplevelmethoddefinition
+Style/TopLevelMethodDefinition:
+  Description: Looks for top-level method definitions.
+  StyleGuide: "#top-level-methods"
+  Enabled: true # was false
+  VersionAdded: '1.15'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styletrailingbodyonclass
+Style/TrailingBodyOnClass:
+  Description: Class body goes below class statement.
+  Enabled: true
+  VersionAdded: '0.53'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styletrailingbodyonmethoddefinition
+Style/TrailingBodyOnMethodDefinition:
+  Description: Method body goes below definition.
+  Enabled: true
+  VersionAdded: '0.52'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styletrailingbodyonmodule
+Style/TrailingBodyOnModule:
+  Description: Module body goes below module statement.
+  Enabled: true
+  VersionAdded: '0.53'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styletrailingcommainarguments
+Style/TrailingCommaInArguments:
+  Description: Checks for trailing comma in argument lists.
+  StyleGuide: "#no-trailing-params-comma"
+  Enabled: true
+  VersionAdded: '0.36'
+  EnforcedStyleForMultiline: no_comma
+  SupportedStylesForMultiline:
+  - comma
+  - consistent_comma
+  - no_comma
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styletrailingcommainarrayliteral
+Style/TrailingCommaInArrayLiteral:
+  Description: Checks for trailing comma in array literals.
+  StyleGuide: "#no-trailing-array-commas"
+  Enabled: true
+  VersionAdded: '0.53'
+  EnforcedStyleForMultiline: no_comma
+  SupportedStylesForMultiline:
+  - comma
+  - consistent_comma
+  - diff_comma
+  - no_comma
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styletrailingcommainblockargs
+Style/TrailingCommaInBlockArgs:
+  Description: Checks for useless trailing commas in block arguments.
+  Enabled: true # was false
+  Safe: false
+  VersionAdded: '0.81'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styletrailingcommainhashliteral
+Style/TrailingCommaInHashLiteral:
+  Description: Checks for trailing comma in hash literals.
+  Enabled: true
+  EnforcedStyleForMultiline: no_comma
+  SupportedStylesForMultiline:
+  - comma
+  - consistent_comma
+  - diff_comma
+  - no_comma
+  VersionAdded: '0.53'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styletrailingmethodendstatement
+Style/TrailingMethodEndStatement:
+  Description: Checks for trailing end statement on line of method body.
+  Enabled: true
+  VersionAdded: '0.52'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styletrailingunderscorevariable
+Style/TrailingUnderscoreVariable:
+  Description: Checks for the usage of unneeded trailing underscores at the end of parallel
+    variable assignment.
+  AllowNamedUnderscoreVariables: true
+  Enabled: true
+  VersionAdded: '0.31'
+  VersionChanged: '0.35'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styletrivialaccessors
+Style/TrivialAccessors:
+  Description: Prefer attr_* methods to trivial readers/writers.
+  StyleGuide: "#attr_family"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '1.15'
+  ExactNameMatch: true
+  AllowPredicates: true
+  AllowDSLWriters: true
+  IgnoreClassMethods: false
+  AllowedMethods:
+  - to_ary
+  - to_a
+  - to_c
+  - to_enum
+  - to_h
+  - to_hash
+  - to_i
+  - to_int
+  - to_io
+  - to_open
+  - to_path
+  - to_proc
+  - to_r
+  - to_regexp
+  - to_str
+  - to_s
+  - to_sym
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleunlesselse
+Style/UnlessElse:
+  Description: Do not use unless with else. Rewrite these with the positive case first.
+  StyleGuide: "#no-else-with-unless"
+  Enabled: true
+  VersionAdded: '0.9'
+
+# https://docs.rubocop.org/rubocop/cops_style.html#styleunlesslogicaloperators
+Style/UnlessLogicalOperators:
+  Description: Checks for use of logical operators in an unless condition.
+  Enabled: true # was false
+  VersionAdded: '1.11'
+  EnforcedStyle: forbid_mixed_logical_operators
+  SupportedStyles:
+  - forbid_mixed_logical_operators
+  - forbid_logical_operators
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleunpackfirst
+Style/UnpackFirst:
+  Description: Checks for accessing the first element of `String#unpack` instead of
+    using `unpack1`.
+  Enabled: true
+  VersionAdded: '0.54'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylevariableinterpolation
+Style/VariableInterpolation:
+  Description: Don't interpolate global, instance and class variables directly in strings.
+  StyleGuide: "#curlies-interpolate"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.20'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylewhenthen
+Style/WhenThen:
+  Description: Use when x then ... for one-line cases.
+  StyleGuide: "#no-when-semicolons"
+  Enabled: true
+  VersionAdded: '0.9'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylewhileuntildo
+Style/WhileUntilDo:
+  Description: Checks for redundant do after while or until.
+  StyleGuide: "#no-multiline-while-do"
+  Enabled: true
+  VersionAdded: '0.9'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylewhileuntilmodifier
+Style/WhileUntilModifier:
+  Description: Favor modifier while/until usage when you have a single-line body.
+  StyleGuide: "#while-as-a-modifier"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.30'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylewordarray
+Style/WordArray:
+  Description: Use %w or %W for arrays of words.
+  StyleGuide: "#percent-w"
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '1.19'
+  EnforcedStyle: percent
+  SupportedStyles:
+  - percent
+  - brackets
+  MinSize: 2
+  WordRegex: !ruby/regexp /\A(?:\p{Word}|\p{Word}-\p{Word}|\n|\t)+\z/
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleyamlfileread
+Style/YAMLFileRead:
+  Description: Checks for the use of `YAML.load`, `YAML.safe_load`, and `YAML.parse`
+    with `File.read` argument.
+  Enabled: true # was pending
+  VersionAdded: '1.53'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleyodacondition
+Style/YodaCondition:
+  Description: Forbid or enforce yoda conditions.
+  References:
+  - https://en.wikipedia.org/wiki/Yoda_conditions
+  Enabled: true
+  EnforcedStyle: forbid_for_all_comparison_operators
+  SupportedStyles:
+  - forbid_for_all_comparison_operators
+  - forbid_for_equality_operators_only
+  - require_for_all_comparison_operators
+  - require_for_equality_operators_only
+  Safe: false
+  VersionAdded: '0.49'
+  VersionChanged: '0.75'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleyodaexpression
+Style/YodaExpression:
+  Description: Forbid the use of yoda expressions.
+  Enabled: true # was false
+  Safe: false
+  VersionAdded: '1.42'
+  VersionChanged: '1.43'
+  SupportedOperators:
+  - "*"
+  - "+"
+  - "&"
+  - "|"
+  - "^"
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylezerolengthpredicate
+Style/ZeroLengthPredicate:
+  Description: 'Use #empty? when testing for objects of length 0.'
+  Enabled: true
+  Safe: false
+  VersionAdded: '0.37'
+  VersionChanged: '0.39'
+

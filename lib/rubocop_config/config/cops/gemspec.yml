@@ -1,0 +1,4 @@
+inherit_from: ../defaults/gemspec.yml
+
+Gemspec/OrderedDependencies:
+  ConsiderPunctuation: true

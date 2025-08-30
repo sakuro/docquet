@@ -1,0 +1,1112 @@
+# Department 'Layout' (99):
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutaccessmodifierindentation
+Layout/AccessModifierIndentation:
+  Description: Check indentation of private/protected visibility modifiers.
+  StyleGuide: "#indent-public-private-protected"
+  Enabled: true
+  VersionAdded: '0.49'
+  EnforcedStyle: indent
+  SupportedStyles:
+  - outdent
+  - indent
+  IndentationWidth:
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutargumentalignment
+Layout/ArgumentAlignment:
+  Description: Align the arguments of a method call if they span more than one line.
+  StyleGuide: "#no-double-indent"
+  Enabled: true
+  VersionAdded: '0.68'
+  VersionChanged: '0.77'
+  EnforcedStyle: with_first_argument
+  SupportedStyles:
+  - with_first_argument
+  - with_fixed_indentation
+  IndentationWidth:
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutarrayalignment
+Layout/ArrayAlignment:
+  Description: Align the elements of an array literal if they span more than one line.
+  StyleGuide: "#no-double-indent"
+  Enabled: true
+  VersionAdded: '0.49'
+  VersionChanged: '0.77'
+  EnforcedStyle: with_first_element
+  SupportedStyles:
+  - with_first_element
+  - with_fixed_indentation
+  IndentationWidth:
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutassignmentindentation
+Layout/AssignmentIndentation:
+  Description: Checks the indentation of the first line of the right-hand-side of a
+    multi-line assignment.
+  Enabled: true
+  VersionAdded: '0.49'
+  VersionChanged: '1.45'
+  IndentationWidth:
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutbeginendalignment
+Layout/BeginEndAlignment:
+  Description: Align ends corresponding to begins correctly.
+  Enabled: true
+  VersionAdded: '0.91'
+  EnforcedStyleAlignWith: start_of_line
+  SupportedStylesAlignWith:
+  - start_of_line
+  - begin
+  Severity: warning
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutblockalignment
+Layout/BlockAlignment:
+  Description: Align block ends correctly.
+  Enabled: true
+  VersionAdded: '0.53'
+  EnforcedStyleAlignWith: either
+  SupportedStylesAlignWith:
+  - either
+  - start_of_block
+  - start_of_line
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutblockendnewline
+Layout/BlockEndNewline:
+  Description: Put end statement of multiline block on its own line.
+  Enabled: true
+  VersionAdded: '0.49'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutcaseindentation
+Layout/CaseIndentation:
+  Description: Indentation of when in a case/(when|in)/[else/]end.
+  StyleGuide: "#indent-when-to-case"
+  Enabled: true
+  VersionAdded: '0.49'
+  VersionChanged: '1.16'
+  EnforcedStyle: case
+  SupportedStyles:
+  - case
+  - end
+  IndentOneStep: false
+  IndentationWidth:
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutclassstructure
+Layout/ClassStructure:
+  Description: Enforces a configured order of definitions within a class body.
+  StyleGuide: "#consistent-classes"
+  Enabled: true # was false
+  SafeAutoCorrect: false
+  VersionAdded: '0.52'
+  VersionChanged: '1.53'
+  Categories:
+    module_inclusion:
+    - include
+    - prepend
+    - extend
+  ExpectedOrder:
+  - module_inclusion
+  - constants
+  - public_class_methods
+  - initializer
+  - public_methods
+  - protected_methods
+  - private_methods
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutclosingheredocindentation
+Layout/ClosingHeredocIndentation:
+  Description: Checks the indentation of here document closings.
+  Enabled: true
+  VersionAdded: '0.57'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutclosingparenthesisindentation
+Layout/ClosingParenthesisIndentation:
+  Description: Checks the indentation of hanging closing parentheses.
+  Enabled: true
+  VersionAdded: '0.49'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutcommentindentation
+Layout/CommentIndentation:
+  Description: Indentation of comments.
+  Enabled: true
+  AllowForAlignment: false
+  VersionAdded: '0.49'
+  VersionChanged: '1.24'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutconditionposition
+Layout/ConditionPosition:
+  Description: Checks for condition placed in a confusing position relative to the keyword.
+  StyleGuide: "#same-line-condition"
+  Enabled: true
+  VersionAdded: '0.53'
+  VersionChanged: '0.83'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutdefendalignment
+Layout/DefEndAlignment:
+  Description: Align ends corresponding to defs correctly.
+  Enabled: true
+  VersionAdded: '0.53'
+  EnforcedStyleAlignWith: start_of_line
+  SupportedStylesAlignWith:
+  - start_of_line
+  - def
+  Severity: warning
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutdotposition
+Layout/DotPosition:
+  Description: Checks the position of the dot in multi-line method calls.
+  StyleGuide: "#consistent-multi-line-chains"
+  Enabled: true
+  VersionAdded: '0.49'
+  EnforcedStyle: leading
+  SupportedStyles:
+  - leading
+  - trailing
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutelsealignment
+Layout/ElseAlignment:
+  Description: Align elses and elsifs correctly.
+  Enabled: true
+  VersionAdded: '0.49'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptycomment
+Layout/EmptyComment:
+  Description: Checks empty comment.
+  Enabled: true
+  AutoCorrect: contextual
+  VersionAdded: '0.53'
+  VersionChanged: '1.61'
+  AllowBorderComment: true
+  AllowMarginComment: true
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptylineafterguardclause
+Layout/EmptyLineAfterGuardClause:
+  Description: Add empty line after guard clause.
+  Enabled: true
+  VersionAdded: '0.56'
+  VersionChanged: '0.59'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptylineaftermagiccomment
+Layout/EmptyLineAfterMagicComment:
+  Description: Add an empty line after magic comments to separate them from code.
+  StyleGuide: "#separate-magic-comments-from-code"
+  Enabled: true
+  VersionAdded: '0.49'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptylineaftermultilinecondition
+Layout/EmptyLineAfterMultilineCondition:
+  Description: Enforces empty line after multiline condition.
+  Enabled: true # was false
+  VersionAdded: '0.90'
+  References:
+  - https://github.com/airbnb/ruby#multiline-if-newline
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptylinebetweendefs
+Layout/EmptyLineBetweenDefs:
+  Description: Use empty lines between class/module/method defs.
+  StyleGuide: "#empty-lines-between-methods"
+  Enabled: true
+  VersionAdded: '0.49'
+  VersionChanged: '1.23'
+  EmptyLineBetweenMethodDefs: true
+  EmptyLineBetweenClassDefs: true
+  EmptyLineBetweenModuleDefs: true
+  DefLikeMacros: []
+  AllowAdjacentOneLineDefs: true
+  NumberOfEmptyLines: 1
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptylines
+Layout/EmptyLines:
+  Description: Don't use several empty lines in a row.
+  StyleGuide: "#two-or-more-empty-lines"
+  Enabled: true
+  VersionAdded: '0.49'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptylinesaroundaccessmodifier
+Layout/EmptyLinesAroundAccessModifier:
+  Description: Keep blank lines around access modifiers.
+  StyleGuide: "#empty-lines-around-access-modifier"
+  Enabled: true
+  VersionAdded: '0.49'
+  EnforcedStyle: around
+  SupportedStyles:
+  - around
+  - only_before
+  References:
+  - https://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html#follow-the-coding-conventions
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptylinesaroundarguments
+Layout/EmptyLinesAroundArguments:
+  Description: Keeps track of empty lines around method arguments.
+  Enabled: true
+  VersionAdded: '0.52'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptylinesaroundattributeaccessor
+Layout/EmptyLinesAroundAttributeAccessor:
+  Description: Keep blank lines around attribute accessors.
+  StyleGuide: "#empty-lines-around-attribute-accessor"
+  Enabled: true
+  VersionAdded: '0.83'
+  VersionChanged: '0.84'
+  AllowAliasSyntax: true
+  AllowedMethods:
+  - alias_method
+  - public
+  - protected
+  - private
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptylinesaroundbeginbody
+Layout/EmptyLinesAroundBeginBody:
+  Description: Keeps track of empty lines around begin-end bodies.
+  StyleGuide: "#empty-lines-around-bodies"
+  Enabled: true
+  VersionAdded: '0.49'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptylinesaroundblockbody
+Layout/EmptyLinesAroundBlockBody:
+  Description: Keeps track of empty lines around block bodies.
+  StyleGuide: "#empty-lines-around-bodies"
+  Enabled: true
+  VersionAdded: '0.49'
+  EnforcedStyle: no_empty_lines
+  SupportedStyles:
+  - empty_lines
+  - no_empty_lines
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptylinesaroundclassbody
+Layout/EmptyLinesAroundClassBody:
+  Description: Keeps track of empty lines around class bodies.
+  StyleGuide: "#empty-lines-around-bodies"
+  Enabled: true
+  VersionAdded: '0.49'
+  VersionChanged: '0.53'
+  EnforcedStyle: no_empty_lines
+  SupportedStyles:
+  - empty_lines
+  - empty_lines_except_namespace
+  - empty_lines_special
+  - no_empty_lines
+  - beginning_only
+  - ending_only
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptylinesaroundexceptionhandlingkeywords
+Layout/EmptyLinesAroundExceptionHandlingKeywords:
+  Description: Keeps track of empty lines around exception handling keywords.
+  StyleGuide: "#empty-lines-around-bodies"
+  Enabled: true
+  VersionAdded: '0.49'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptylinesaroundmethodbody
+Layout/EmptyLinesAroundMethodBody:
+  Description: Keeps track of empty lines around method bodies.
+  StyleGuide: "#empty-lines-around-bodies"
+  Enabled: true
+  VersionAdded: '0.49'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptylinesaroundmodulebody
+Layout/EmptyLinesAroundModuleBody:
+  Description: Keeps track of empty lines around module bodies.
+  StyleGuide: "#empty-lines-around-bodies"
+  Enabled: true
+  VersionAdded: '0.49'
+  EnforcedStyle: no_empty_lines
+  SupportedStyles:
+  - empty_lines
+  - empty_lines_except_namespace
+  - empty_lines_special
+  - no_empty_lines
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutendalignment
+Layout/EndAlignment:
+  Description: Align ends correctly.
+  Enabled: true
+  VersionAdded: '0.53'
+  EnforcedStyleAlignWith: keyword
+  SupportedStylesAlignWith:
+  - keyword
+  - variable
+  - start_of_line
+  Severity: warning
+
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutendofline
+Layout/EndOfLine:
+  Description: Use Unix-style line endings.
+  StyleGuide: "#crlf"
+  Enabled: true
+  VersionAdded: '0.49'
+  EnforcedStyle: native
+  SupportedStyles:
+  - native
+  - lf
+  - crlf
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutextraspacing
+Layout/ExtraSpacing:
+  Description: Do not use unnecessary spacing.
+  Enabled: true
+  VersionAdded: '0.49'
+  AllowForAlignment: true
+  AllowBeforeTrailingComments: false
+  ForceEqualSignAlignment: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutfirstargumentindentation
+Layout/FirstArgumentIndentation:
+  Description: Checks the indentation of the first argument in a method call.
+  Enabled: true
+  VersionAdded: '0.68'
+  VersionChanged: '0.77'
+  EnforcedStyle: special_for_inner_method_call_in_parentheses
+  SupportedStyles:
+  - consistent
+  - consistent_relative_to_receiver
+  - special_for_inner_method_call
+  - special_for_inner_method_call_in_parentheses
+  IndentationWidth:
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutfirstarrayelementindentation
+Layout/FirstArrayElementIndentation:
+  Description: Checks the indentation of the first element in an array literal.
+  Enabled: true
+  VersionAdded: '0.68'
+  VersionChanged: '0.77'
+  EnforcedStyle: special_inside_parentheses
+  SupportedStyles:
+  - special_inside_parentheses
+  - consistent
+  - align_brackets
+  IndentationWidth:
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutfirstarrayelementlinebreak
+Layout/FirstArrayElementLineBreak:
+  Description: Checks for a line break before the first element in a multi-line array.
+  Enabled: true # was false
+  VersionAdded: '0.49'
+  AllowMultilineFinalElement: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutfirsthashelementindentation
+Layout/FirstHashElementIndentation:
+  Description: Checks the indentation of the first key in a hash literal.
+  Enabled: true
+  VersionAdded: '0.68'
+  VersionChanged: '0.77'
+  EnforcedStyle: special_inside_parentheses
+  SupportedStyles:
+  - special_inside_parentheses
+  - consistent
+  - align_braces
+  IndentationWidth:
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutfirsthashelementlinebreak
+Layout/FirstHashElementLineBreak:
+  Description: Checks for a line break before the first element in a multi-line hash.
+  Enabled: true # was false
+  VersionAdded: '0.49'
+  AllowMultilineFinalElement: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutfirstmethodargumentlinebreak
+Layout/FirstMethodArgumentLineBreak:
+  Description: Checks for a line break before the first argument in a multi-line method
+    call.
+  Enabled: true # was false
+  VersionAdded: '0.49'
+  AllowMultilineFinalElement: false
+  AllowedMethods: []
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutfirstmethodparameterlinebreak
+Layout/FirstMethodParameterLineBreak:
+  Description: Checks for a line break before the first parameter in a multi-line method
+    parameter definition.
+  Enabled: true # was false
+  VersionAdded: '0.49'
+  AllowMultilineFinalElement: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutfirstparameterindentation
+Layout/FirstParameterIndentation:
+  Description: Checks the indentation of the first parameter in a method definition.
+  Enabled: true
+  VersionAdded: '0.49'
+  VersionChanged: '0.77'
+  EnforcedStyle: consistent
+  SupportedStyles:
+  - consistent
+  - align_parentheses
+  IndentationWidth:
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layouthashalignment
+Layout/HashAlignment:
+  Description: Align the elements of a hash literal if they span more than one line.
+  Enabled: true
+  AllowMultipleStyles: true
+  VersionAdded: '0.49'
+  VersionChanged: '1.16'
+  EnforcedHashRocketStyle: key
+  SupportedHashRocketStyles:
+  - key
+  - separator
+  - table
+  EnforcedColonStyle: key
+  SupportedColonStyles:
+  - key
+  - separator
+  - table
+  EnforcedLastArgumentHashStyle: always_inspect
+  SupportedLastArgumentHashStyles:
+  - always_inspect
+  - always_ignore
+  - ignore_implicit
+  - ignore_explicit
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutheredocargumentclosingparenthesis
+Layout/HeredocArgumentClosingParenthesis:
+  Description: Checks for the placement of the closing parenthesis in a method call
+    that passes a HEREDOC string as an argument.
+  Enabled: true # was false
+  StyleGuide: "#heredoc-argument-closing-parentheses"
+  VersionAdded: '0.68'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutheredocindentation
+Layout/HeredocIndentation:
+  Description: Checks the indentation of the here document bodies.
+  StyleGuide: "#squiggly-heredocs"
+  Enabled: true
+  VersionAdded: '0.49'
+  VersionChanged: '0.85'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutindentationconsistency
+Layout/IndentationConsistency:
+  Description: Keep indentation straight.
+  StyleGuide: "#spaces-indentation"
+  Enabled: true
+  VersionAdded: '0.49'
+  EnforcedStyle: normal
+  SupportedStyles:
+  - normal
+  - indented_internal_methods
+  References:
+  - https://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html#follow-the-coding-conventions
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutindentationstyle
+Layout/IndentationStyle:
+  Description: Consistent indentation either with tabs only or spaces only.
+  StyleGuide: "#spaces-indentation"
+  Enabled: true
+  VersionAdded: '0.49'
+  VersionChanged: '0.82'
+  IndentationWidth:
+  EnforcedStyle: spaces
+  SupportedStyles:
+  - spaces
+  - tabs
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutindentationwidth
+Layout/IndentationWidth:
+  Description: Use 2 spaces for indentation.
+  StyleGuide: "#spaces-indentation"
+  Enabled: true
+  VersionAdded: '0.49'
+  Width: 2
+  AllowedPatterns: []
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutinitialindentation
+Layout/InitialIndentation:
+  Description: Checks the indentation of the first non-blank non-comment line in a file.
+  Enabled: true
+  VersionAdded: '0.49'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutleadingcommentspace
+Layout/LeadingCommentSpace:
+  Description: Comments should start with a space.
+  StyleGuide: "#hash-space"
+  Enabled: true
+  VersionAdded: '0.49'
+  VersionChanged: '0.73'
+  AllowDoxygenCommentStyle: false
+  AllowGemfileRubyComment: false
+  AllowRBSInlineAnnotation: false
+  AllowSteepAnnotation: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutleadingemptylines
+Layout/LeadingEmptyLines:
+  Description: Check for unnecessary blank lines at the beginning of a file.
+  Enabled: true
+  VersionAdded: '0.57'
+  VersionChanged: '0.77'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutlinecontinuationleadingspace
+Layout/LineContinuationLeadingSpace:
+  Description: Use trailing spaces instead of leading spaces in strings broken over
+    multiple lines (by a backslash).
+  Enabled: true # was pending
+  VersionAdded: '1.31'
+  VersionChanged: '1.45'
+  EnforcedStyle: trailing
+  SupportedStyles:
+  - leading
+  - trailing
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutlinecontinuationspacing
+Layout/LineContinuationSpacing:
+  Description: Checks the spacing in front of backslash in line continuations.
+  Enabled: true # was pending
+  VersionAdded: '1.31'
+  EnforcedStyle: space
+  SupportedStyles:
+  - space
+  - no_space
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutlineendstringconcatenationindentation
+Layout/LineEndStringConcatenationIndentation:
+  Description: Checks the indentation of the next line after a line that ends with a
+    string literal and a backslash.
+  Enabled: true # was pending
+  VersionAdded: '1.18'
+  EnforcedStyle: aligned
+  SupportedStyles:
+  - aligned
+  - indented
+  IndentationWidth:
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutlinelength
+Layout/LineLength:
+  Description: Checks that line length does not exceed the configured limit.
+  StyleGuide: "#max-line-length"
+  Enabled: true
+  VersionAdded: '0.25'
+  VersionChanged: '1.69'
+  Max: 120
+  AllowHeredoc: true
+  AllowURI: true
+  URISchemes:
+  - http
+  - https
+  IgnoreCopDirectives: true
+  AllowedPatterns: []
+  SplitStrings: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutmultilinearraybracelayout
+Layout/MultilineArrayBraceLayout:
+  Description: Checks that the closing brace in an array literal is either on the same
+    line as the last array element, or a new line.
+  Enabled: true
+  VersionAdded: '0.49'
+  EnforcedStyle: symmetrical
+  SupportedStyles:
+  - symmetrical
+  - new_line
+  - same_line
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutmultilinearraylinebreaks
+Layout/MultilineArrayLineBreaks:
+  Description: Checks that each item in a multi-line array literal starts on a separate
+    line.
+  Enabled: true # was false
+  VersionAdded: '0.67'
+  AllowMultilineFinalElement: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutmultilineassignmentlayout
+Layout/MultilineAssignmentLayout:
+  Description: Check for a newline after the assignment operator in multi-line assignments.
+  StyleGuide: "#indent-conditional-assignment"
+  Enabled: true # was false
+  VersionAdded: '0.49'
+  SupportedTypes:
+  - block
+  - case
+  - class
+  - if
+  - kwbegin
+  - module
+  EnforcedStyle: new_line
+  SupportedStyles:
+  - same_line
+  - new_line
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutmultilineblocklayout
+Layout/MultilineBlockLayout:
+  Description: Ensures newlines after multiline block do statements.
+  Enabled: true
+  VersionAdded: '0.49'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutmultilinehashbracelayout
+Layout/MultilineHashBraceLayout:
+  Description: Checks that the closing brace in a hash literal is either on the same
+    line as the last hash element, or a new line.
+  Enabled: true
+  VersionAdded: '0.49'
+  EnforcedStyle: symmetrical
+  SupportedStyles:
+  - symmetrical
+  - new_line
+  - same_line
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutmultilinehashkeylinebreaks
+Layout/MultilineHashKeyLineBreaks:
+  Description: Checks that each item in a multi-line hash literal starts on a separate
+    line.
+  Enabled: true # was false
+  VersionAdded: '0.67'
+  AllowMultilineFinalElement: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutmultilinemethodargumentlinebreaks
+Layout/MultilineMethodArgumentLineBreaks:
+  Description: Checks that each argument in a multi-line method call starts on a separate
+    line.
+  Enabled: true # was false
+  VersionAdded: '0.67'
+  AllowMultilineFinalElement: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutmultilinemethodcallbracelayout
+Layout/MultilineMethodCallBraceLayout:
+  Description: Checks that the closing brace in a method call is either on the same
+    line as the last method argument, or a new line.
+  Enabled: true
+  VersionAdded: '0.49'
+  EnforcedStyle: symmetrical
+  SupportedStyles:
+  - symmetrical
+  - new_line
+  - same_line
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutmultilinemethodcallindentation
+Layout/MultilineMethodCallIndentation:
+  Description: Checks indentation of method calls with the dot operator that span more
+    than one line.
+  Enabled: true
+  VersionAdded: '0.49'
+  EnforcedStyle: aligned
+  SupportedStyles:
+  - aligned
+  - indented
+  - indented_relative_to_receiver
+  IndentationWidth:
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutmultilinemethoddefinitionbracelayout
+Layout/MultilineMethodDefinitionBraceLayout:
+  Description: Checks that the closing brace in a method definition is either on the
+    same line as the last method parameter, or a new line.
+  Enabled: true
+  VersionAdded: '0.49'
+  EnforcedStyle: symmetrical
+  SupportedStyles:
+  - symmetrical
+  - new_line
+  - same_line
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutmultilinemethodparameterlinebreaks
+Layout/MultilineMethodParameterLineBreaks:
+  Description: Checks that each parameter in a multi-line method definition starts on
+    a separate line.
+  Enabled: true # was false
+  VersionAdded: '1.32'
+  AllowMultilineFinalElement: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutmultilineoperationindentation
+Layout/MultilineOperationIndentation:
+  Description: Checks indentation of binary operations that span more than one line.
+  Enabled: true
+  VersionAdded: '0.49'
+  EnforcedStyle: aligned
+  SupportedStyles:
+  - aligned
+  - indented
+  IndentationWidth:
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutparameteralignment
+Layout/ParameterAlignment:
+  Description: Align the parameters of a method definition if they span more than one
+    line.
+  StyleGuide: "#no-double-indent"
+  Enabled: true
+  VersionAdded: '0.49'
+  VersionChanged: '0.77'
+  EnforcedStyle: with_first_parameter
+  SupportedStyles:
+  - with_first_parameter
+  - with_fixed_indentation
+  IndentationWidth:
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutredundantlinebreak
+Layout/RedundantLineBreak:
+  Description: Do not break up an expression into multiple lines when it fits on a single
+    line.
+  Enabled: true # was false
+  InspectBlocks: false
+  VersionAdded: '1.13'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutrescueensurealignment
+Layout/RescueEnsureAlignment:
+  Description: Align rescues and ensures correctly.
+  Enabled: true
+  VersionAdded: '0.49'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutsinglelineblockchain
+Layout/SingleLineBlockChain:
+  Description: Put method call on a separate line if chained to a single line block.
+  Enabled: true # was false
+  VersionAdded: '1.14'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspaceaftercolon
+Layout/SpaceAfterColon:
+  Description: Use spaces after colons.
+  StyleGuide: "#spaces-operators"
+  Enabled: true
+  VersionAdded: '0.49'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspaceaftercomma
+Layout/SpaceAfterComma:
+  Description: Use spaces after commas.
+  StyleGuide: "#spaces-operators"
+  Enabled: true
+  VersionAdded: '0.49'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspaceaftermethodname
+Layout/SpaceAfterMethodName:
+  Description: Do not put a space between a method name and the opening parenthesis
+    in a method definition.
+  StyleGuide: "#parens-no-spaces"
+  Enabled: true
+  VersionAdded: '0.49'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspaceafternot
+Layout/SpaceAfterNot:
+  Description: Tracks redundant space after the ! operator.
+  StyleGuide: "#no-space-bang"
+  Enabled: true
+  VersionAdded: '0.49'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspaceaftersemicolon
+Layout/SpaceAfterSemicolon:
+  Description: Use spaces after semicolons.
+  StyleGuide: "#spaces-operators"
+  Enabled: true
+  VersionAdded: '0.49'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspacearoundblockparameters
+Layout/SpaceAroundBlockParameters:
+  Description: Checks the spacing inside and after block parameters pipes.
+  Enabled: true
+  VersionAdded: '0.49'
+  EnforcedStyleInsidePipes: no_space
+  SupportedStylesInsidePipes:
+  - space
+  - no_space
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspacearoundequalsinparameterdefault
+Layout/SpaceAroundEqualsInParameterDefault:
+  Description: Checks that the equals signs in parameter default assignments have or
+    don't have surrounding space depending on configuration.
+  StyleGuide: "#spaces-around-equals"
+  Enabled: true
+  VersionAdded: '0.49'
+  EnforcedStyle: space
+  SupportedStyles:
+  - space
+  - no_space
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspacearoundkeyword
+Layout/SpaceAroundKeyword:
+  Description: Use a space around keywords if appropriate.
+  Enabled: true
+  VersionAdded: '0.49'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspacearoundmethodcalloperator
+Layout/SpaceAroundMethodCallOperator:
+  Description: Checks method call operators to not have spaces around them.
+  Enabled: true
+  VersionAdded: '0.82'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspacearoundoperators
+Layout/SpaceAroundOperators:
+  Description: Use a single space around operators.
+  StyleGuide: "#spaces-operators"
+  Enabled: true
+  VersionAdded: '0.49'
+  AllowForAlignment: true
+  EnforcedStyleForExponentOperator: no_space
+  SupportedStylesForExponentOperator:
+  - space
+  - no_space
+  EnforcedStyleForRationalLiterals: no_space
+  SupportedStylesForRationalLiterals:
+  - space
+  - no_space
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspacebeforeblockbraces
+Layout/SpaceBeforeBlockBraces:
+  Description: Checks that the left block brace has or doesn't have space before it.
+  Enabled: true
+  VersionAdded: '0.49'
+  EnforcedStyle: space
+  SupportedStyles:
+  - space
+  - no_space
+  EnforcedStyleForEmptyBraces: space
+  SupportedStylesForEmptyBraces:
+  - space
+  - no_space
+  VersionChanged: '0.52'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspacebeforebrackets
+Layout/SpaceBeforeBrackets:
+  Description: Checks for receiver with a space before the opening brackets.
+  StyleGuide: "#space-in-brackets-access"
+  Enabled: true # was pending
+  VersionAdded: '1.7'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspacebeforecomma
+Layout/SpaceBeforeComma:
+  Description: No spaces before commas.
+  Enabled: true
+  VersionAdded: '0.49'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspacebeforecomment
+Layout/SpaceBeforeComment:
+  Description: Checks for missing space between code and a comment on the same line.
+  Enabled: true
+  VersionAdded: '0.49'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspacebeforefirstarg
+Layout/SpaceBeforeFirstArg:
+  Description: Checks that exactly one space is used between a method name and the first
+    argument for method calls without parentheses.
+  Enabled: true
+  VersionAdded: '0.49'
+  AllowForAlignment: true
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspacebeforesemicolon
+Layout/SpaceBeforeSemicolon:
+  Description: No spaces before semicolons.
+  Enabled: true
+  VersionAdded: '0.49'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspaceinlambdaliteral
+Layout/SpaceInLambdaLiteral:
+  Description: Checks for spaces in lambda literals.
+  Enabled: true
+  VersionAdded: '0.49'
+  EnforcedStyle: require_no_space
+  SupportedStyles:
+  - require_no_space
+  - require_space
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspaceinsidearrayliteralbrackets
+Layout/SpaceInsideArrayLiteralBrackets:
+  Description: Checks the spacing inside array literal brackets.
+  Enabled: true
+  VersionAdded: '0.52'
+  EnforcedStyle: no_space
+  SupportedStyles:
+  - space
+  - no_space
+  - compact
+  EnforcedStyleForEmptyBrackets: no_space
+  SupportedStylesForEmptyBrackets:
+  - space
+  - no_space
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspaceinsidearraypercentliteral
+Layout/SpaceInsideArrayPercentLiteral:
+  Description: No unnecessary additional spaces between elements in %i/%w literals.
+  Enabled: true
+  VersionAdded: '0.49'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspaceinsideblockbraces
+Layout/SpaceInsideBlockBraces:
+  Description: Checks that block braces have or don't have surrounding space. For blocks
+    taking parameters, checks that the left brace has or doesn't have trailing space.
+  Enabled: true
+  VersionAdded: '0.49'
+  EnforcedStyle: space
+  SupportedStyles:
+  - space
+  - no_space
+  EnforcedStyleForEmptyBraces: no_space
+  SupportedStylesForEmptyBraces:
+  - space
+  - no_space
+  SpaceBeforeBlockParameters: true
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspaceinsidehashliteralbraces
+Layout/SpaceInsideHashLiteralBraces:
+  Description: Use spaces inside hash literal braces - or don't.
+  StyleGuide: "#spaces-braces"
+  Enabled: true
+  VersionAdded: '0.49'
+  EnforcedStyle: space
+  SupportedStyles:
+  - space
+  - no_space
+  - compact
+  EnforcedStyleForEmptyBraces: no_space
+  SupportedStylesForEmptyBraces:
+  - space
+  - no_space
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspaceinsideparens
+Layout/SpaceInsideParens:
+  Description: No spaces after ( or before ).
+  StyleGuide: "#spaces-braces"
+  Enabled: true
+  VersionAdded: '0.49'
+  VersionChanged: '1.22'
+  EnforcedStyle: no_space
+  SupportedStyles:
+  - space
+  - compact
+  - no_space
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspaceinsidepercentliteraldelimiters
+Layout/SpaceInsidePercentLiteralDelimiters:
+  Description: No unnecessary spaces inside delimiters of %i/%w/%x literals.
+  Enabled: true
+  VersionAdded: '0.49'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspaceinsiderangeliteral
+Layout/SpaceInsideRangeLiteral:
+  Description: No spaces inside range literals.
+  StyleGuide: "#no-space-inside-range-literals"
+  Enabled: true
+  VersionAdded: '0.49'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspaceinsidereferencebrackets
+Layout/SpaceInsideReferenceBrackets:
+  Description: Checks the spacing inside referential brackets.
+  Enabled: true
+  VersionAdded: '0.52'
+  VersionChanged: '0.53'
+  EnforcedStyle: no_space
+  SupportedStyles:
+  - space
+  - no_space
+  EnforcedStyleForEmptyBrackets: no_space
+  SupportedStylesForEmptyBrackets:
+  - space
+  - no_space
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutspaceinsidestringinterpolation
+Layout/SpaceInsideStringInterpolation:
+  Description: Checks for padding/surrounding spaces inside string interpolation.
+  StyleGuide: "#string-interpolation"
+  Enabled: true
+  VersionAdded: '0.49'
+  EnforcedStyle: no_space
+  SupportedStyles:
+  - space
+  - no_space
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layouttrailingemptylines
+Layout/TrailingEmptyLines:
+  Description: Checks trailing blank lines and final newline.
+  StyleGuide: "#newline-eof"
+  Enabled: true
+  VersionAdded: '0.49'
+  VersionChanged: '0.77'
+  EnforcedStyle: final_newline
+  SupportedStyles:
+  - final_newline
+  - final_blank_line
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_layout.html#layouttrailingwhitespace
+Layout/TrailingWhitespace:
+  Description: Avoid trailing whitespace.
+  StyleGuide: "#no-trailing-whitespace"
+  Enabled: true
+  VersionAdded: '0.49'
+  VersionChanged: '1.0'
+  AllowInHeredoc: false
+

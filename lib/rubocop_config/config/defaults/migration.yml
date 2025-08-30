@@ -1,0 +1,9 @@
+# Department 'Migration' (1):
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_migration.html#migrationdepartmentname
+Migration/DepartmentName:
+  Description: Check that cop names in rubocop:disable (etc) comments are given with
+    department name.
+  Enabled: true
+  VersionAdded: '0.75'
+

@@ -1,0 +1,41 @@
+---
+AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  EnabledByDefault: true
+  Exclude:
+  - bin/**/*
+  - vendor/**/*
+  ExtraDetails: true
+  TargetRubyVersion: 3.4
+  UseCache: true
+inherit_mode:
+  merge:
+  - Exclude
+plugins:
+- rubocop-capybara
+- rubocop-i18n
+- rubocop-performance
+- rubocop-rake
+- rubocop-rspec
+- rubocop-sequel
+- rubocop-thread_safety
+inherit_from:
+- cops/bundler.yml
+- cops/capybara.yml
+- cops/capybara_rspec.yml
+- cops/gemspec.yml
+- cops/i18n_gettext.yml
+- cops/i18n_railsi18n.yml
+- cops/layout.yml
+- cops/lint.yml
+- cops/metrics.yml
+- cops/migration.yml
+- cops/naming.yml
+- cops/performance.yml
+- cops/rspec.yml
+- cops/rake.yml
+- cops/security.yml
+- cops/sequel.yml
+- cops/style.yml
+- cops/threadsafety.yml

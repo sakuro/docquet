@@ -1,0 +1,18 @@
+inherit_gem:
+<% if @departments %>
+  sakuro-rubocop-config:
+<% @departments.each do |dept| %>
+    - config/cops/<%= dept.downcase %>.yml
+<% end %>
+<% else %>
+  sakuro-rubocop-config: config/base.yml
+<% end %>
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: <%= detected_ruby_version %>
+
+# Project-specific settings can be added here
+# Example:
+# Style/Documentation:
+#   Enabled: false
