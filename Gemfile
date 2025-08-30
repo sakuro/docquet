@@ -23,5 +23,6 @@ group :development do
   gem "irb"
   gem "repl_type_completor"
 
-  gem "rake"
+  gem "rake", "~> 13.0" # Task automation framework
+  gem "rspec", "~> 3.0" # Testing framework
 end

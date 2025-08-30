@@ -3,7 +3,7 @@ PATH
   specs:
     sakuro-rubocop-config (0.1.0)
       dry-cli (~> 1.0)
-      erb
+      erb (>= 2.2)
       rubocop (>= 1.0)
 
 GEM
@@ -112,7 +112,7 @@ PLATFORMS
 DEPENDENCIES
   dry-inflector
   irb
-  rake (~> 13.0, >= 0)
+  rake (~> 13.0)
   repl_type_completor
   rspec (~> 3.0)
   rubocop
