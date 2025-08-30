@@ -25,7 +25,7 @@ module RubocopConfig
       end
 
       private def template_path(filename)
-        File.join(File.dirname(File.dirname(File.dirname(__dir__))), "templates", filename)
+        File.join(File.dirname(__dir__, 3), "templates", filename)
       end
 
       private def detect_rubocop_plugins
@@ -33,12 +33,12 @@ module RubocopConfig
           /\Arubocop-(?!ast\z)/ =~ spec.name &&
             spec.metadata["default_lint_roller_plugin"]
         }
-        rubocop_gems.map {|spec| spec.name.sub(/\Arubocop-/, '') }
+        rubocop_gems.map {|spec| spec.name.sub(/\Arubocop-/, "") }
       end
 
       private def detect_available_config_files
-        gem_config_dir = File.join(File.dirname(File.dirname(File.dirname(__dir__))), "config", "cops")
-        Dir.glob("#{gem_config_dir}/*.yml").map {|path| File.basename(path, '.yml') }
+        gem_config_dir = File.join(File.dirname(__dir__, 3), "config", "cops")
+        Dir.glob("#{gem_config_dir}/*.yml").map {|path| File.basename(path, ".yml") }
       end
 
       private def get_filtered_config_files
@@ -62,7 +62,7 @@ module RubocopConfig
       private def extract_department_from_config(config)
         # Convert config file name to department
         # "capybara_rspec" → "capybara", "i18n_gettext" → "i18n"
-        config.split('_').first
+        config.split("_").first
       end
     end
   end

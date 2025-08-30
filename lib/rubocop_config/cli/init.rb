@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative "base"
 require_relative "../generators/rubocop_yml_generator"
+require_relative "base"
 
 module RubocopConfig
   module CLI
@@ -35,10 +35,10 @@ module RubocopConfig
         existing_files << ".rubocop.yml" if File.exist?(".rubocop.yml")
         existing_files << ".rubocop_todo.yml" if File.exist?(".rubocop_todo.yml")
 
-        if existing_files.any? && !force
-          puts "Error: Files already exist: #{existing_files.join(', ')}. Use --force to overwrite."
-          exit 1
-        end
+        return if existing_files.none? || force
+
+        puts "Error: Files already exist: #{existing_files.join(", ")}. Use --force to overwrite."
+        exit 1
       end
 
       private def create_empty_todo_file

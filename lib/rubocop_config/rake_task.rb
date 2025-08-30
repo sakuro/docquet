@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-require "rake/tasklib"
 require "dry-inflector"
+require "fileutils"
+require "rake/tasklib"
 require "rubocop"
 require "rubocop-capybara"
 require "rubocop-i18n"
@@ -12,7 +13,6 @@ require "rubocop-sequel"
 require "rubocop-thread_safety"
 require "uri"
 require "yaml"
-require "fileutils"
 
 module RubocopConfig
   class RakeTask < Rake::TaskLib
@@ -95,7 +95,7 @@ module RubocopConfig
       ]
 
       puts "Running: #{cmd.join(" ")}"
-      content = `#{cmd.join(" ")} 2>/dev/null`
+      content = %x(#{cmd.join(" ")} 2>/dev/null)
 
       if $?.success?
         processed_content = post_process_config(content, department, gem_name, base)
@@ -119,10 +119,10 @@ module RubocopConfig
         puts "Checking #{cops_file}..."
 
         cops_content = File.read(cops_file)
-        unless cops_content.include?("inherit_from: ../defaults/#{base_name}")
-          puts "  Warning: #{cops_file} may need inherit_from update"
-        else
+        if cops_content.include?("inherit_from: ../defaults/#{base_name}")
           puts "  ✓ Inheritance looks good"
+        else
+          puts "  Warning: #{cops_file} may need inherit_from update"
         end
       end
     end
@@ -142,7 +142,7 @@ module RubocopConfig
 
     private def post_process_config(content, department, gem_name, base)
       # Count cops in this department
-      cop_count = content.scan(/^#{Regexp.escape(department)}\//).length
+      cop_count = content.scan(%r{^#{Regexp.escape(department)}/}).length
 
       # Add department header
       header = "# Department '#{department}' (#{cop_count}):\n"
