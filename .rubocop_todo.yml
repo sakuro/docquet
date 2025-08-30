@@ -96,17 +96,6 @@ Style/DocumentationMethod:
     - 'lib/rubocop_config/cli/regenerate_todo.rb'
     - 'lib/rubocop_config/generators/rubocop_yml_generator.rb'
 
-# This cop supports safe autocorrection (--autocorrect).
-Style/SuperArguments:
-  Exclude:
-    - 'lib/rubocop_config/rake_task.rb'
-
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: AllowNamedUnderscoreVariables.
-Style/TrailingUnderscoreVariable:
-  Exclude:
-    - 'lib/rubocop_config/rake_task.rb'
-
 # Configuration parameters: AllowCallWithBlock.
 ThreadSafety/DirChdir:
   Exclude:
