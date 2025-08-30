@@ -13,14 +13,13 @@ inherit_mode:
   merge:
   - Exclude
 plugins:
+- rubocop-capybara
 - rubocop-i18n
 - rubocop-performance
 - rubocop-rake
 - rubocop-rspec
-- rubocop-thread_safety
-require:
-- rubocop-capybara
 - rubocop-sequel
+- rubocop-thread_safety
 inherit_from:
 - bundler.yml
 - capybara.yml
