@@ -6,7 +6,7 @@ module RubocopConfig
   module CLI
     class RegenerateTodo < Base
       desc "Regenerate .rubocop_todo.yml"
-      
+
       def call(**)
         unless rubocop_yml_exists?
           puts "Error: .rubocop.yml not found. Run 'rubocop-config init' first."
@@ -14,7 +14,7 @@ module RubocopConfig
         end
 
         command = build_command
-        
+
         puts "Running: #{command}"
         if system(command)
           puts <<~MESSAGE

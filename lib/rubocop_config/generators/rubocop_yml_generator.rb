@@ -29,28 +29,28 @@ module RubocopConfig
       end
 
       private def detect_rubocop_plugins
-        rubocop_gems = Gem::Specification.select { |spec| 
-          /\Arubocop-(?!ast\z)/ =~ spec.name && 
-          spec.metadata["default_lint_roller_plugin"] 
+        rubocop_gems = Gem::Specification.select {|spec|
+          /\Arubocop-(?!ast\z)/ =~ spec.name &&
+            spec.metadata["default_lint_roller_plugin"]
         }
-        rubocop_gems.map { |spec| spec.name.sub(/\Arubocop-/, '') }
+        rubocop_gems.map {|spec| spec.name.sub(/\Arubocop-/, '') }
       end
-      
+
       private def detect_available_config_files
         gem_config_dir = File.join(File.dirname(File.dirname(File.dirname(__dir__))), "config", "cops")
-        Dir.glob("#{gem_config_dir}/*.yml").map { |path| File.basename(path, '.yml') }
+        Dir.glob("#{gem_config_dir}/*.yml").map {|path| File.basename(path, '.yml') }
       end
-      
+
       private def get_filtered_config_files
         available_configs = detect_available_config_files
         core_departments = %w[style layout lint metrics security gemspec bundler naming]
-        
+
         available_configs.select do |config|
           # Extract department name from config file name
           department = extract_department_from_config(config)
-          
+
           if core_departments.include?(department.downcase)
-            true  # Core departments are always included
+            true # Core departments are always included
           else
             # Check if corresponding plugin is detected
             plugin_name = department.downcase
@@ -58,13 +58,12 @@ module RubocopConfig
           end
         end
       end
-      
+
       private def extract_department_from_config(config)
         # Convert config file name to department
         # "capybara_rspec" → "capybara", "i18n_gettext" → "i18n"
         config.split('_').first
       end
-
     end
   end
 end
