@@ -65,16 +65,6 @@ Metrics/MethodLength:
     - 'lib/rubocop_config/generators/rubocop_yml_generator.rb'
     - 'lib/rubocop_config/rake_task.rb'
 
-Performance/ChainArrayAllocation:
-  Exclude:
-    - 'lib/rubocop_config/rake_task.rb'
-
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: SafeMultiline.
-Performance/DeletePrefix:
-  Exclude:
-    - 'lib/rubocop_config/generators/rubocop_yml_generator.rb'
-
 # Configuration parameters: AllowedConstants.
 Style/Documentation:
   Exclude:

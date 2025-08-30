@@ -33,7 +33,7 @@ module RubocopConfig
           /\Arubocop-(?!ast\z)/ =~ spec.name &&
             spec.metadata["default_lint_roller_plugin"]
         }
-        rubocop_gems.map {|spec| spec.name.sub(/\Arubocop-/, "") }
+        rubocop_gems.map {|spec| spec.name.delete_prefix("rubocop-") }
       end
 
       private def detect_available_config_files
