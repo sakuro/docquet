@@ -65,10 +65,6 @@ Metrics/MethodLength:
     - 'lib/rubocop_config/generators/rubocop_yml_generator.rb'
     - 'lib/rubocop_config/rake_task.rb'
 
-Naming/AccessorMethodName:
-  Exclude:
-    - 'lib/rubocop_config/generators/rubocop_yml_generator.rb'
-
 Performance/ChainArrayAllocation:
   Exclude:
     - 'lib/rubocop_config/rake_task.rb'

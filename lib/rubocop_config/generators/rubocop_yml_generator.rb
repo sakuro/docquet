@@ -7,7 +7,7 @@ module RubocopConfig
     class RubocopYmlGenerator
       def initialize
         @detected_plugins = detect_rubocop_plugins
-        @filtered_configs = get_filtered_config_files
+        @filtered_configs = filtered_config_files
       end
 
       def generate
@@ -41,7 +41,7 @@ module RubocopConfig
         Dir.glob("#{gem_config_dir}/*.yml").map {|path| File.basename(path, ".yml") }
       end
 
-      private def get_filtered_config_files
+      private def filtered_config_files
         available_configs = detect_available_config_files
         core_departments = %w[style layout lint metrics security gemspec bundler naming]
 
