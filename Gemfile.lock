@@ -1,8 +1,18 @@
+PATH
+  remote: .
+  specs:
+    sakuro-rubocop-config (0.1.0)
+      dry-cli (~> 1.0)
+      erb
+      rubocop (>= 1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.3)
     date (3.4.1)
+    diff-lcs (1.6.2)
+    dry-cli (1.3.0)
     dry-inflector (1.2.0)
     erb (5.0.2)
     io-console (0.8.1)
@@ -39,6 +49,19 @@ GEM
     repl_type_completor (0.1.11)
       prism (~> 1.0)
       rbs (>= 2.7.0, < 4.0.0)
+    rspec (3.13.1)
+      rspec-core (~> 3.13.0)
+      rspec-expectations (~> 3.13.0)
+      rspec-mocks (~> 3.13.0)
+    rspec-core (3.13.5)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.5)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.5)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-support (3.13.5)
     rubocop (1.80.1)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
@@ -89,8 +112,9 @@ PLATFORMS
 DEPENDENCIES
   dry-inflector
   irb
-  rake
+  rake (~> 13.0, >= 0)
   repl_type_completor
+  rspec (~> 3.0)
   rubocop
   rubocop-capybara
   rubocop-i18n
@@ -99,6 +123,7 @@ DEPENDENCIES
   rubocop-rspec
   rubocop-sequel
   rubocop-thread_safety
+  sakuro-rubocop-config!
 
 BUNDLED WITH
    2.7.1

@@ -2,6 +2,8 @@
 
 source "https://rubygems.org"
 
+gemspec
+
 gem "rubocop"
 gem "rubocop-capybara"
 # gem "rubocop-factory_bot"

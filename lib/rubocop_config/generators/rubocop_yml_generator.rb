@@ -15,9 +15,7 @@ module RubocopConfig
         File.write(".rubocop.yml", content)
       end
 
-      private
-
-      def detected_ruby_version
+      private def detected_ruby_version
         # Detect from .ruby-version or Gemfile
         if File.exist?(".ruby-version")
           File.read(".ruby-version").strip
@@ -26,11 +24,11 @@ module RubocopConfig
         end
       end
 
-      def template_path(filename)
+      private def template_path(filename)
         File.join(File.dirname(File.dirname(File.dirname(__dir__))), "templates", filename)
       end
 
-      def detect_rubocop_plugins
+      private def detect_rubocop_plugins
         rubocop_gems = Gem::Specification.select { |spec| 
           /\Arubocop-(?!ast\z)/ =~ spec.name && 
           spec.metadata["default_lint_roller_plugin"] 
@@ -38,12 +36,12 @@ module RubocopConfig
         rubocop_gems.map { |spec| spec.name.sub(/\Arubocop-/, '') }
       end
       
-      def detect_available_config_files
+      private def detect_available_config_files
         gem_config_dir = File.join(File.dirname(File.dirname(File.dirname(__dir__))), "config", "cops")
         Dir.glob("#{gem_config_dir}/*.yml").map { |path| File.basename(path, '.yml') }
       end
       
-      def get_filtered_config_files
+      private def get_filtered_config_files
         available_configs = detect_available_config_files
         core_departments = %w[style layout lint metrics security gemspec bundler naming]
         
@@ -61,7 +59,7 @@ module RubocopConfig
         end
       end
       
-      def extract_department_from_config(config)
+      private def extract_department_from_config(config)
         # Convert config file name to department
         # "capybara_rspec" → "capybara", "i18n_gettext" → "i18n"
         config.split('_').first

@@ -32,9 +32,7 @@ module RubocopConfig
       define_tasks
     end
     
-    private
-    
-    def define_tasks
+    private def define_tasks
       desc "Create defaults directory"
       directory "config/defaults"
       
@@ -67,7 +65,7 @@ module RubocopConfig
       end
     end
     
-    def generate_all_default_configs
+    private def generate_all_default_configs
       @departments.each do |department|
         base = department.downcase.tr("/", "_")
         target_file = "config/defaults/#{base}.yml"
@@ -75,7 +73,7 @@ module RubocopConfig
       end
     end
     
-    def generate_default_config(department, target_file)
+    private def generate_default_config(department, target_file)
       puts "Generating #{department} configuration..."
       
       base = department.downcase.tr("/", "_")
@@ -109,7 +107,7 @@ module RubocopConfig
       end
     end
     
-    def check_cops_configurations
+    private def check_cops_configurations
       puts "Checking cops configurations..."
       
       Dir["config/defaults/*.yml"].each do |default_file|
@@ -129,7 +127,7 @@ module RubocopConfig
       end
     end
     
-    def regenerate_all
+    private def regenerate_all
       puts "Cleaning existing defaults..."
       FileUtils.rm_rf("config/defaults")
       
@@ -142,7 +140,7 @@ module RubocopConfig
       puts "✓ Configuration regeneration complete!"
     end
     
-    def post_process_config(content, department, gem_name, base)
+    private def post_process_config(content, department, gem_name, base)
       # Count cops in this department
       cop_count = content.scan(/^#{Regexp.escape(department)}\//).length
       

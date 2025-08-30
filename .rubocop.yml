@@ -1,13 +1,47 @@
-# RuboCop configuration for sakuro-rubocop-config gem development
-inherit_from: config/base.yml
-
 AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  EnabledByDefault: true
+  Exclude:
+    - bin/**/*
+    - vendor/**/*
+  ExtraDetails: true
   NewCops: enable
   TargetRubyVersion: 3.4
-  Exclude:
-    - vendor/**/*
-    - config/**/*  # Exclude generated config files
+  UseCache: true
 
-# Project-specific settings for gem development
-Style/Documentation:
-  Enabled: false  # Skip documentation requirement for development
+inherit_mode:
+  merge:
+    - Exclude
+
+plugins:
+  - rubocop-capybara
+  - rubocop-i18n
+  - rubocop-performance
+  - rubocop-rake
+  - rubocop-rspec
+  - rubocop-sequel
+  - rubocop-thread_safety
+
+inherit_from:
+  - config/cops/bundler.yml
+  - config/cops/capybara.yml
+  - config/cops/capybara_rspec.yml
+  - config/cops/gemspec.yml
+  - config/cops/i18n_gettext.yml
+  - config/cops/i18n_railsi18n.yml
+  - config/cops/layout.yml
+  - config/cops/lint.yml
+  - config/cops/metrics.yml
+  - config/cops/migration.yml
+  - config/cops/naming.yml
+  - config/cops/performance.yml
+  - config/cops/rake.yml
+  - config/cops/rspec.yml
+  - config/cops/security.yml
+  - config/cops/sequel.yml
+  - config/cops/style.yml
+  - config/cops/threadsafety.yml
+  - .rubocop_todo.yml
+
+# Project-specific settings can be added here
