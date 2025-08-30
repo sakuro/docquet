@@ -1,12 +1,12 @@
 # RuboCop configuration for sakuro-rubocop-config gem development
-inherit_from: lib/rubocop_config/config/base.yml
+inherit_from: config/base.yml
 
 AllCops:
   NewCops: enable
   TargetRubyVersion: 3.4
   Exclude:
     - vendor/**/*
-    - lib/rubocop_config/config/**/*  # Exclude generated config files
+    - config/**/*  # Exclude generated config files
 
 # Project-specific settings for gem development
 Style/Documentation:

@@ -3,7 +3,7 @@
 require "rake/clean"
 
 CLEAN << FileList["build"]
-CLOBBER << FileList["lib/rubocop_config/config/defaults"]
+CLOBBER << FileList["config/defaults"]
 
 require "rubocop/rake_task"
 RuboCop::RakeTask.new

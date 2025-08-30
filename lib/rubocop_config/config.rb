@@ -40,7 +40,7 @@ module RubocopConfig
     private
     
     def self.gem_config_path(*paths)
-      File.join(__dir__, "config", *paths)
+      File.join(File.dirname(File.dirname(__dir__)), "config", *paths)
     end
   end
 end

@@ -52,10 +52,10 @@ namespace :gem do
   departments.uniq!
 
   desc "Generate all gem configuration files"
-  task :config => "lib/rubocop_config/config/defaults"
+  task :config => "config/defaults"
 
   desc "Create defaults directory"
-  directory "lib/rubocop_config/config/defaults"
+  directory "config/defaults"
 
   # 部門別直接生成タスク
   departments.each do |department|
@@ -63,10 +63,10 @@ namespace :gem do
     gem_name = "rubocop-#{department.downcase.sub(%r{/.*}, "")}"
     gem_name = "rubocop" unless plugin_names.include?(gem_name) || extension_names.include?(gem_name)
     
-    target_file = "lib/rubocop_config/config/defaults/#{base}.yml"
+    target_file = "config/defaults/#{base}.yml"
     
     desc "Generate configuration for #{department}"
-    file target_file => "lib/rubocop_config/config/defaults" do |t|
+    file target_file => "config/defaults" do |t|
       puts "Generating #{department} configuration..."
       
       # 部門別直接生成
@@ -109,9 +109,9 @@ namespace :gem do
   task :update_cops => "gem:config" do
     puts "Updating cops configurations..."
     
-    Dir["lib/rubocop_config/config/defaults/*.yml"].each do |default_file|
+    Dir["config/defaults/*.yml"].each do |default_file|
       base_name = File.basename(default_file)
-      cops_file = "lib/rubocop_config/config/cops/#{base_name}"
+      cops_file = "config/cops/#{base_name}"
       
       next unless File.exist?(cops_file)
       
@@ -130,7 +130,7 @@ namespace :gem do
   desc "Clean and regenerate all configuration files"
   task :regenerate do
     puts "Cleaning existing defaults..."
-    FileUtils.rm_rf("lib/rubocop_config/config/defaults")
+    FileUtils.rm_rf("config/defaults")
     
     puts "Regenerating all configurations..."
     Rake::Task["gem:config"].invoke
