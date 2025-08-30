@@ -3,4 +3,4 @@
 
 require_relative "../lib/rubocop_config"
 
-RubocopConfig::CLI.call
+Dry::CLI.new(RubocopConfig::Commands).call

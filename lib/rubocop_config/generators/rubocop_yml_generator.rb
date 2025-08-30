@@ -1,39 +1,72 @@
 # frozen_string_literal: true
 
 require "erb"
-require_relative "../config"
 
 module RubocopConfig
   module Generators
     class RubocopYmlGenerator
-      def initialize(departments: nil)
-        @departments = departments
+      def initialize
+        @detected_plugins = detect_rubocop_plugins
+        @filtered_configs = get_filtered_config_files
       end
 
       def generate
-        template_path = Config.template_path("rubocop.yml.erb")
-        content = ERB.new(File.read(template_path)).result(binding)
+        content = ERB.new(File.read(template_path("rubocop.yml.erb")), trim_mode: "-").result(binding)
         File.write(".rubocop.yml", content)
       end
 
       private
 
       def detected_ruby_version
-        # .ruby-version や Gemfile から検出
+        # Detect from .ruby-version or Gemfile
         if File.exist?(".ruby-version")
           File.read(".ruby-version").strip
         else
-          RUBY_VERSION[/\d+\.\d+/]
+          RUBY_VERSION[/\A\d+\.\d+/]
         end
       end
 
-      def inherit_config
-        if @departments
-          @departments.map { |dep| "cops/#{dep.downcase}.yml" }
-        else
-          "base.yml"
+      def template_path(filename)
+        File.join(File.dirname(File.dirname(File.dirname(__dir__))), "templates", filename)
+      end
+
+      def detect_rubocop_plugins
+        rubocop_gems = Gem::Specification.select { |spec| 
+          /\Arubocop-(?!ast\z)/ =~ spec.name && 
+          spec.metadata["default_lint_roller_plugin"] 
+        }
+        rubocop_gems.map { |spec| spec.name.sub(/\Arubocop-/, '') }
+      end
+      
+      def detect_available_config_files
+        gem_config_dir = File.join(File.dirname(File.dirname(File.dirname(__dir__))), "config", "cops")
+        Dir.glob("#{gem_config_dir}/*.yml").map { |path| File.basename(path, '.yml') }
+      end
+      
+      def get_filtered_config_files
+        available_configs = detect_available_config_files
+        core_departments = %w[style layout lint metrics security gemspec bundler naming]
+        
+        available_configs.select do |config|
+          # Extract department name from config file name
+          department = extract_department_from_config(config)
+          
+          if core_departments.include?(department.downcase)
+            true  # Core departments are always included
+          else
+            # Check if corresponding plugin is detected
+            plugin_name = department.downcase
+            @detected_plugins.include?(plugin_name)
+          end
         end
       end
+      
+      def extract_department_from_config(config)
+        # Convert config file name to department
+        # "capybara_rspec" → "capybara", "i18n_gettext" → "i18n"
+        config.split('_').first
+      end
+
     end
   end
 end

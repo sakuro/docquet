@@ -27,7 +27,6 @@ module RubocopConfig
       rubocop_gems = Gem::Specification.select { /\Arubocop-(?!ast$)/ =~ it.name }
       plugins, extensions = rubocop_gems.partition { it.metadata["default_lint_roller_plugin"] }
       @plugin_names = plugins.map(&:name)
-      @extension_names = extensions.map(&:name)
       @departments = RuboCop::Cop::Registry.global.map { |c| c.department.to_s }.sort.uniq
       
       define_tasks
@@ -81,7 +80,7 @@ module RubocopConfig
       
       base = department.downcase.tr("/", "_")
       gem_name = "rubocop-#{department.downcase.sub(%r{/.*}, "")}"
-      gem_name = "rubocop" unless @plugin_names.include?(gem_name) || @extension_names.include?(gem_name)
+      gem_name = "rubocop" unless @plugin_names.include?(gem_name)
       
       options = [
         "--show-cops=#{department}/*",
@@ -94,8 +93,7 @@ module RubocopConfig
       cmd = [
         "bin/rubocop",
         *options,
-        *@plugin_names.sort.flat_map { %W[--plugin #{it}] },
-        *@extension_names.sort.flat_map { %W[--require #{it}] }
+        *@plugin_names.sort.flat_map { %W[--plugin #{it}] }
       ]
       
       puts "Running: #{cmd.join(" ")}"

@@ -11,6 +11,4 @@ module RubocopConfig
     register "init", CLI::Init
     register "regenerate-todo", CLI::RegenerateTodo
   end
-
-  CLI = Dry::CLI.new(Commands)
 end
