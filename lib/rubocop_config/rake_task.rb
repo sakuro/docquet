@@ -17,6 +17,7 @@ require "yaml"
 module RubocopConfig
   class RakeTask < Rake::TaskLib
     def initialize
+      super()
       @inflector = Dry::Inflector.new do |inflections|
         inflections.acronym("RSpec")
         inflections.acronym("GetText")
@@ -25,7 +26,7 @@ module RubocopConfig
       end
 
       rubocop_gems = Gem::Specification.select { /\Arubocop-(?!ast$)/ =~ it.name }
-      plugins, extensions = rubocop_gems.partition { it.metadata["default_lint_roller_plugin"] }
+      plugins, _ = rubocop_gems.partition { it.metadata["default_lint_roller_plugin"] }
       @plugin_names = plugins.map(&:name)
       @departments = RuboCop::Cop::Registry.global.map {|c| c.department.to_s }.sort.uniq
 
