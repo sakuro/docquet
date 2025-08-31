@@ -41,19 +41,20 @@ module RubocopConfig
       directory "config/defaults"
 
       desc "Generate default configuration files"
-      task generate_defaults: "config/defaults" do
-        generate_all_default_configs
-      end
+      task generate_defaults: "config/defaults"
 
       desc "Check cops configuration inheritance"
       task check_cops: :generate_defaults do
         check_cops_configurations
       end
 
-      desc "Clean and regenerate all configuration files"
-      task :regenerate do
-        regenerate_all
+      desc "Clean existing default configuration files"
+      task :clean_defaults do
+        FileUtils.rm_rf("config/defaults")
       end
+
+      desc "Clean and regenerate all configuration files"
+      task regenerate: %i[clean_defaults generate_defaults check_cops]
 
       # 部門別ファイル生成タスク
       @departments.each do |department|
@@ -66,14 +67,6 @@ module RubocopConfig
         end
 
         task generate_defaults: target_file
-      end
-    end
-
-    private def generate_all_default_configs
-      @departments.each do |department|
-        base = department.downcase.tr("/", "_")
-        target_file = "config/defaults/#{base}.yml"
-        generate_default_config(department, target_file)
       end
     end
 
@@ -130,19 +123,6 @@ module RubocopConfig
           puts "  Warning: #{cops_file} may need inherit_from update"
         end
       end
-    end
-
-    private def regenerate_all
-      puts "Cleaning existing defaults..."
-      FileUtils.rm_rf("config/defaults")
-
-      puts "Regenerating all configurations..."
-      Rake::Task[:generate_defaults].invoke
-
-      puts "Checking cops configurations..."
-      Rake::Task[:check_cops].invoke
-
-      puts "✓ Configuration regeneration complete!"
     end
   end
 end
