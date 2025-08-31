@@ -36,3 +36,10 @@ Style/DocumentationMethod:
     - 'lib/rubocop_config/cli/regenerate_todo.rb'
     - 'lib/rubocop_config/config_processor.rb'
     - 'lib/rubocop_config/generators/rubocop_yml_generator.rb'
+
+# This cop supports safe autocorrection (--autocorrect).
+# Configuration parameters: Max, AllowHeredoc, AllowURI, AllowQualifiedName, URISchemes, IgnoreCopDirectives, AllowedPatterns, SplitStrings.
+# URISchemes: http, https
+Layout/LineLength:
+  Exclude:
+    - 'lib/rubocop_config/rake_task.rb'

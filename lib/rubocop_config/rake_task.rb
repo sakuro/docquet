@@ -77,19 +77,9 @@ module RubocopConfig
       gem_name = "rubocop-#{department.downcase.sub(%r{/.*}, "")}"
       gem_name = "rubocop" unless @plugin_gem_names.include?(gem_name)
 
-      options = [
-        "--show-cops=#{department}/*",
-        "--force-default-config",
-        "--display-cop-names",
-        "--extra-details",
-        "--display-style-guide"
-      ]
+      options = %W[--show-cops=#{department}/* --force-default-config --display-cop-names --extra-details --display-style-guide]
 
-      cmd = [
-        "bin/rubocop",
-        *options,
-        *@plugin_gem_names.sort.flat_map { %W[--plugin #{it}] }
-      ]
+      cmd = ["bin/rubocop", *options, *@plugin_gem_names.sort.flat_map { %W[--plugin #{it}] }]
 
       puts "Running: #{cmd.join(" ")}"
       content = %x(#{cmd.join(" ")} 2>/dev/null)
