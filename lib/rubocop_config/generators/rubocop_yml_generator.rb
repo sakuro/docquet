@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "dry-inflector"
 require "erb"
 require_relative "../plugin_detector"
 
@@ -7,7 +8,13 @@ module RubocopConfig
   module Generators
     class RubocopYmlGenerator
       def initialize
+        @inflector = Dry::Inflector.new do |inflections|
+          inflections.acronym("RSpec")
+          inflections.acronym("GetText")
+          inflections.acronym("RailsI18n")
+        end
         @detected_plugin_names = PluginDetector.detect_plugin_names
+        @detected_plugins = @detected_plugin_names # For template compatibility
         @filtered_configs = filtered_config_files
       end
 
@@ -42,19 +49,35 @@ module RubocopConfig
           # Extract department name from config file name
           department = extract_department_from_config(config)
 
-          if core_departments.include?(department.downcase)
+          if core_departments.include?(@inflector.underscore(department))
             true # Core departments are always included
           else
             # Check if corresponding plugin is detected
-            plugin_name = department.downcase
+            plugin_name = @inflector.underscore(department)
             @detected_plugin_names.include?(plugin_name)
           end
         end
       end
 
       private def extract_department_from_config(config)
-        # Convert config file name to department
-        # "capybara_rspec" → "capybara", "i18n_gettext" → "i18n"
+        # Extract department name from the corresponding defaults file
+        cops_file = File.join(File.dirname(__dir__, 3), "config", "cops", "#{config}.yml")
+        
+        if File.exist?(cops_file)
+          cops_content = File.read(cops_file)
+          if cops_content =~ /inherit_from:\s*\.\.\/defaults\/(.+)\.yml/
+            defaults_file = File.join(File.dirname(__dir__, 3), "config", "defaults", "#{$1}.yml")
+            
+            if File.exist?(defaults_file)
+              defaults_content = File.read(defaults_file)
+              if defaults_content =~ /^# Department '(.+)'/
+                return $1
+              end
+            end
+          end
+        end
+        
+        # Fallback: use the simple split method
         config.split("_").first
       end
     end

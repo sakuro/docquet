@@ -41,7 +41,7 @@ inherit_from:
   - config/cops/security.yml
   # - config/cops/sequel.yml
   - config/cops/style.yml
-  # - config/cops/threadsafety.yml
+  # - config/cops/thread_safety.yml
   - .rubocop_todo.yml
 
 # Project-specific settings can be added here

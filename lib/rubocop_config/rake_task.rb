@@ -24,7 +24,6 @@ module RubocopConfig
         inflections.acronym("RSpec")
         inflections.acronym("GetText")
         inflections.acronym("RailsI18n")
-        inflections.acronym("ThreadSafety")
       end
 
       @plugin_gem_names = PluginDetector.detect_plugin_gem_names
@@ -58,7 +57,7 @@ module RubocopConfig
 
       # 部門別ファイル生成タスク
       @departments.each do |department|
-        base = department.downcase.tr("/", "_")
+        base = @inflector.underscore(department).tr("/", "_")
         target_file = "config/defaults/#{base}.yml"
 
         desc "Generate configuration for #{department}"
@@ -73,8 +72,9 @@ module RubocopConfig
     private def generate_default_config(department, target_file)
       puts "Generating #{department} configuration..."
 
-      base = department.downcase.tr("/", "_")
-      gem_name = "rubocop-#{department.downcase.sub(%r{/.*}, "")}"
+      base = @inflector.underscore(department).tr("/", "_")
+      plugin_name = @inflector.underscore(department.sub(%r{/.*}, ""))
+      gem_name = "rubocop-#{plugin_name}"
       gem_name = "rubocop" unless @plugin_gem_names.include?(gem_name)
 
       options = %W[--show-cops=#{department}/* --force-default-config --display-cop-names --extra-details --display-style-guide]
