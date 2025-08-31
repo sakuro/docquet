@@ -15,8 +15,7 @@ module RubocopConfig
     #
     # @return [Array<String>] plugin gem names (e.g., ["rubocop-performance", "rubocop-rspec"])
     module_function def detect_plugin_gem_names
-      rubocop_gems = Gem::Specification.select { /\Arubocop-(?!ast\z)/ =~ it.name }
-      plugins = rubocop_gems.select { it.metadata["default_lint_roller_plugin"] }
+      plugins = Gem::Specification.select { /\ARuboCop::.*::Plugin\z/ =~ it.metadata["default_lint_roller_plugin"] }
       plugins.map(&:name)
     end
 
