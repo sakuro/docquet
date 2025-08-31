@@ -87,7 +87,7 @@ RSpec.describe RubocopConfig::PluginDetector do
     end
 
     it "filters gems using RuboCop plugin metadata pattern" do
-      expect(Gem::Specification).to receive(:select) do |&block|
+      allow(Gem::Specification).to receive(:select) do |&block|
         # Test that the block correctly identifies RuboCop plugins by metadata
         expect(block.call(mock_performance_spec)).to be_truthy  # Has RuboCop::Performance::Plugin
         expect(block.call(mock_rspec_spec)).to be_truthy        # Has RuboCop::RSpec::Plugin
@@ -98,6 +98,8 @@ RSpec.describe RubocopConfig::PluginDetector do
       end
 
       described_class.detect_plugin_gem_names
+
+      expect(Gem::Specification).to have_received(:select)
     end
   end
 

@@ -99,9 +99,11 @@ RSpec.describe RubocopConfig::RakeTask do
         "--plugin", "rubocop-rspec"
       ].join(" ")
 
-      expect(rake_task).to receive(:`).with("#{expected_cmd} 2>/dev/null")
+      allow(rake_task).to receive(:`).with("#{expected_cmd} 2>/dev/null")
 
       rake_task.send(:generate_default_config, department, target_file)
+      
+      expect(rake_task).to have_received(:`).with("#{expected_cmd} 2>/dev/null")
     end
 
 

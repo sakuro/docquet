@@ -185,9 +185,11 @@ RSpec.describe RubocopConfig::CLI::Init do
 
   describe "#show_completion_message" do
     it "displays completion message" do
-      expect(init_command).to receive(:puts).with(/RuboCop setup complete/)
+      allow(init_command).to receive(:puts).with(/RuboCop setup complete/)
 
       init_command.send(:show_completion_message)
+      
+      expect(init_command).to have_received(:puts).with(/RuboCop setup complete/)
     end
   end
 end

@@ -35,9 +35,11 @@ RSpec.describe RubocopConfig::CLI::RegenerateTodo do
         end
 
         it "calculates file hash before and after" do
-          expect(regenerate_command).to receive(:calculate_file_hash).with(".rubocop_todo.yml").twice
+          allow(regenerate_command).to receive(:calculate_file_hash).with(".rubocop_todo.yml").and_return("mock_hash")
 
           regenerate_command.call
+          
+          expect(regenerate_command).to have_received(:calculate_file_hash).with(".rubocop_todo.yml").twice
         end
 
         context "when TODO file is unchanged" do
@@ -47,9 +49,11 @@ RSpec.describe RubocopConfig::CLI::RegenerateTodo do
           end
 
           it "reports no changes" do
-            expect(regenerate_command).to receive(:puts).with(/TODO file unchanged/)
+            allow(regenerate_command).to receive(:puts).with(/TODO file unchanged/)
 
             regenerate_command.call
+            
+            expect(regenerate_command).to have_received(:puts).with(/TODO file unchanged/)
           end
         end
 
@@ -60,9 +64,11 @@ RSpec.describe RubocopConfig::CLI::RegenerateTodo do
           end
 
           it "reports changes" do
-            expect(regenerate_command).to receive(:puts).with(/TODO file was updated/)
+            allow(regenerate_command).to receive(:puts).with(/TODO file was updated/)
 
             regenerate_command.call
+            
+            expect(regenerate_command).to have_received(:puts).with(/TODO file was updated/)
           end
         end
       end
