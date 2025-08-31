@@ -15,18 +15,18 @@ inherit_mode:
     - Exclude
 
 plugins:
-  - rubocop-capybara
+  # - rubocop-capybara
   # - rubocop-i18n
   - rubocop-performance
   - rubocop-rake
   - rubocop-rspec
-  - rubocop-sequel
+  # - rubocop-sequel
   # - rubocop-thread_safety
 
 inherit_from:
   - config/cops/bundler.yml
-  - config/cops/capybara.yml
-  - config/cops/capybara_rspec.yml
+  # - config/cops/capybara.yml
+  # - config/cops/capybara_rspec.yml
   - config/cops/gemspec.yml
   # - config/cops/i18n_gettext.yml
   # - config/cops/i18n_railsi18n.yml
@@ -39,7 +39,7 @@ inherit_from:
   - config/cops/rake.yml
   - config/cops/rspec.yml
   - config/cops/security.yml
-  - config/cops/sequel.yml
+  # - config/cops/sequel.yml
   - config/cops/style.yml
   # - config/cops/threadsafety.yml
   - .rubocop_todo.yml
