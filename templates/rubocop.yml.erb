@@ -14,9 +14,9 @@ inherit_mode:
   merge:
     - Exclude
 
-<% unless @detected_plugins.empty? -%>
+<% unless @detected_plugin_names.empty? -%>
 plugins:
-<% @detected_plugins.each do |plugin| -%>
+<% @detected_plugin_names.each do |plugin| -%>
   - rubocop-<%= plugin %>
 <% end -%>
 

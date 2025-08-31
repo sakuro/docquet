@@ -14,7 +14,6 @@ module RubocopConfig
           inflections.acronym("RailsI18n")
         end
         @detected_plugin_names = PluginDetector.detect_plugin_names
-        @detected_plugins = @detected_plugin_names # For template compatibility
         @filtered_configs = filtered_config_files
       end
 
