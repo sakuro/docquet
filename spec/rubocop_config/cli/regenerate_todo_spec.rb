@@ -1,16 +1,14 @@
 # frozen_string_literal: true
 
 RSpec.describe RubocopConfig::CLI::RegenerateTodo do
-  let(:regenerate_command) { described_class.new }
+  let(:regenerate_command) { RubocopConfig::CLI::RegenerateTodo.new }
 
   before do
     # Mock file operations
-    allow(File).to receive(:exist?).and_return(true)
-    allow(File).to receive(:read).and_return("mock file content")
+    allow(File).to receive_messages(exist?: true, read: "mock file content")
     allow(regenerate_command).to receive(:puts)
     allow(regenerate_command).to receive(:exit)
-    allow(regenerate_command).to receive(:system).and_return(true)
-    allow(regenerate_command).to receive(:rubocop_yml_exists?).and_return(true)
+    allow(regenerate_command).to receive_messages(system: true, rubocop_yml_exists?: true)
 
     # Mock Digest for hash calculation
     allow(Digest::SHA256).to receive(:hexdigest).and_return("mock_hash")
@@ -38,7 +36,7 @@ RSpec.describe RubocopConfig::CLI::RegenerateTodo do
           allow(regenerate_command).to receive(:calculate_file_hash).with(".rubocop_todo.yml").and_return("mock_hash")
 
           regenerate_command.call
-          
+
           expect(regenerate_command).to have_received(:calculate_file_hash).with(".rubocop_todo.yml").twice
         end
 
@@ -52,7 +50,7 @@ RSpec.describe RubocopConfig::CLI::RegenerateTodo do
             allow(regenerate_command).to receive(:puts).with(/TODO file unchanged/)
 
             regenerate_command.call
-            
+
             expect(regenerate_command).to have_received(:puts).with(/TODO file unchanged/)
           end
         end
@@ -67,7 +65,7 @@ RSpec.describe RubocopConfig::CLI::RegenerateTodo do
             allow(regenerate_command).to receive(:puts).with(/TODO file was updated/)
 
             regenerate_command.call
-            
+
             expect(regenerate_command).to have_received(:puts).with(/TODO file was updated/)
           end
         end

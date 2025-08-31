@@ -9,14 +9,14 @@ RSpec.describe RubocopConfig::RakeTask do
 
     # Mock plugin detection
     allow(RubocopConfig::PluginDetector).to receive(:detect_plugin_gem_names)
-      .and_return(["rubocop-performance", "rubocop-rspec"])
+      .and_return(%w[rubocop-performance rubocop-rspec])
 
-    # Mock RuboCop cop registry  
+    # Mock RuboCop cop registry
     mock_registry = double("Registry")
     allow(RuboCop::Cop::Registry).to receive(:global).and_return(mock_registry)
 
     # Mock the map method to return department names (as strings, sorted and unique)
-    allow(mock_registry).to receive(:map).and_return(["Layout", "Performance", "RSpec", "Style"])
+    allow(mock_registry).to receive(:map).and_return(%w[Layout Performance RSpec Style])
 
     # Mock FileUtils to prevent actual file operations
     allow(FileUtils).to receive(:rm_rf)
@@ -24,18 +24,17 @@ RSpec.describe RubocopConfig::RakeTask do
 
     # Mock File operations
     allow(File).to receive(:write)
-    allow(File).to receive(:exist?).and_return(false)
-    allow(File).to receive(:read).and_return("")
+    allow(File).to receive_messages(exist?: false, read: "")
 
     # Mock puts to prevent output during tests
-    allow_any_instance_of(described_class).to receive(:puts)
+    allow_any_instance_of(RubocopConfig::RakeTask).to receive(:puts)
 
     # Create test directory structure
     create_test_config_structure
   end
 
   describe "#initialize" do
-    let(:rake_task) { described_class.new }
+    let(:rake_task) { RubocopConfig::RakeTask.new }
 
     it "creates an inflector with custom acronyms" do
       expect(rake_task.instance_variable_get(:@inflector)).to be_a(Dry::Inflector)
@@ -43,7 +42,7 @@ RSpec.describe RubocopConfig::RakeTask do
 
     it "detects plugin gem names" do
       plugin_gem_names = rake_task.instance_variable_get(:@plugin_gem_names)
-      expect(plugin_gem_names).to eq(["rubocop-performance", "rubocop-rspec"])
+      expect(plugin_gem_names).to eq(%w[rubocop-performance rubocop-rspec])
     end
 
     it "extracts departments from RuboCop registry" do
@@ -53,7 +52,7 @@ RSpec.describe RubocopConfig::RakeTask do
   end
 
   describe "#generate_default_config" do
-    let(:rake_task) { described_class.new }
+    let(:rake_task) { RubocopConfig::RakeTask.new }
     let(:department) { "Style" }
     let(:target_file) { "config/defaults/style.yml" }
     let(:mock_processor) { instance_double(RubocopConfig::ConfigProcessor) }
@@ -63,14 +62,16 @@ RSpec.describe RubocopConfig::RakeTask do
       allow(mock_processor).to receive(:process).and_return("processed content")
 
       # Mock successful command execution
-      allow(rake_task).to receive(:`).and_return("raw rubocop output")
-      allow(rake_task).to receive(:$?).and_return(instance_double(Process::Status, success?: true))
+      allow(rake_task).to receive_messages(
+        "`": "raw rubocop output",
+        "$?": instance_double(Process::Status, success?: true)
+      )
     end
 
     it "generates configuration for the specified department" do
       rake_task.send(:generate_default_config, department, target_file)
 
-      expect(RubocopConfig::ConfigProcessor).to have_received(:new).with(["rubocop-performance", "rubocop-rspec"])
+      expect(RubocopConfig::ConfigProcessor).to have_received(:new).with(%w[rubocop-performance rubocop-rspec])
       expect(mock_processor).to have_received(:process).with("raw rubocop output", "Style", "rubocop", "style")
       expect(File).to have_received(:write).with(target_file, "processed content")
     end
@@ -91,21 +92,22 @@ RSpec.describe RubocopConfig::RakeTask do
       expected_cmd = [
         "bin/rubocop",
         "--show-cops=Style/*",
-        "--force-default-config", 
+        "--force-default-config",
         "--display-cop-names",
         "--extra-details",
         "--display-style-guide",
-        "--plugin", "rubocop-performance",
-        "--plugin", "rubocop-rspec"
+        "--plugin",
+        "rubocop-performance",
+        "--plugin",
+        "rubocop-rspec"
       ].join(" ")
 
       allow(rake_task).to receive(:`).with("#{expected_cmd} 2>/dev/null")
 
       rake_task.send(:generate_default_config, department, target_file)
-      
+
       expect(rake_task).to have_received(:`).with("#{expected_cmd} 2>/dev/null")
     end
-
 
     context "with complex department names" do
       it "handles RSpec department correctly" do
@@ -126,7 +128,7 @@ RSpec.describe RubocopConfig::RakeTask do
   end
 
   describe "#check_cops_configurations" do
-    let(:rake_task) { described_class.new }
+    let(:rake_task) { RubocopConfig::RakeTask.new }
 
     before do
       allow(Dir).to receive(:[]).with("config/defaults/*.yml")
@@ -172,7 +174,7 @@ RSpec.describe RubocopConfig::RakeTask do
   end
 
   describe "inflector integration" do
-    let(:rake_task) { described_class.new }
+    let(:rake_task) { RubocopConfig::RakeTask.new }
 
     it "correctly transforms department names to file names" do
       inflector = rake_task.instance_variable_get(:@inflector)
@@ -190,11 +192,11 @@ RSpec.describe RubocopConfig::RakeTask do
   end
 
   describe "plugin gem name handling" do
-    let(:rake_task) { described_class.new }
+    let(:rake_task) { RubocopConfig::RakeTask.new }
 
     it "uses correct gem names for known plugins" do
       plugin_gem_names = rake_task.instance_variable_get(:@plugin_gem_names)
-      
+
       expect(plugin_gem_names.include?("rubocop-performance")).to be true
       expect(plugin_gem_names.include?("rubocop-rspec")).to be true
     end
@@ -206,11 +208,11 @@ RSpec.describe RubocopConfig::RakeTask do
       plugin_name = inflector.underscore(department.sub(%r{/.*}, ""))
       gem_name = "rubocop-#{plugin_name}"
       plugin_gem_names = rake_task.instance_variable_get(:@plugin_gem_names)
-      
+
       unless plugin_gem_names.include?(gem_name)
         gem_name = "rubocop"
       end
-      
+
       expect(gem_name).to eq("rubocop")
     end
   end

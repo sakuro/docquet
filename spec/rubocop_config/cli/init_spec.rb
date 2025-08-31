@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe RubocopConfig::CLI::Init do
-  let(:init_command) { described_class.new }
+  let(:init_command) { RubocopConfig::CLI::Init.new }
   let(:mock_generator) { instance_double(RubocopConfig::Generators::RubocopYmlGenerator) }
 
   before do
@@ -188,7 +188,7 @@ RSpec.describe RubocopConfig::CLI::Init do
       allow(init_command).to receive(:puts).with(/RuboCop setup complete/)
 
       init_command.send(:show_completion_message)
-      
+
       expect(init_command).to have_received(:puts).with(/RuboCop setup complete/)
     end
   end

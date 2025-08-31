@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 RSpec.describe RubocopConfig::ConfigProcessor do
-  let(:plugin_names) { ["performance", "rspec", "thread_safety"] }
-  let(:processor) { described_class.new(plugin_names) }
+  let(:plugin_names) { %w[performance rspec thread_safety] }
+  let(:processor) { RubocopConfig::ConfigProcessor.new(plugin_names) }
 
   describe "#initialize" do
     it "stores plugin names" do
-      processor = described_class.new(plugin_names)
+      processor = RubocopConfig::ConfigProcessor.new(plugin_names)
       expect(processor.instance_variable_get(:@plugin_names)).to eq(plugin_names)
     end
   end
@@ -28,11 +28,11 @@ RSpec.describe RubocopConfig::ConfigProcessor do
 
       # Should have department header
       expect(result).to start_with("# Department 'Style' (2):")
-      
+
       # Should have enabled all cops
       expect(result).to include("Enabled: true # was false")
       expect(result).to include("Enabled: true # was pending")
-      
+
       # Should have documentation links
       expect(result).to include("https://docs.rubocop.org/rubocop/cops_style.html#styleaccessorgrouping")
       expect(result).to include("https://docs.rubocop.org/rubocop/cops_style.html#stylealias")
@@ -53,22 +53,22 @@ RSpec.describe RubocopConfig::ConfigProcessor do
         Style/Alias:
           Description: 'Use alias_method instead of alias.'
           Enabled: pending
-          AllowOnlyRestArgument: false  
+          AllowOnlyRestArgument: false#{"  "}
       YAML
 
       result = processor.process(content, department, gem_name, base)
 
       # Check department header
       expect(result).to start_with("# Department 'Style' (2):")
-      
+
       # Check documentation links added
       expect(result).to include("# https://docs.rubocop.org/rubocop/cops_style.html#styleaccessorgrouping\n")
       expect(result).to include("# https://docs.rubocop.org/rubocop/cops_style.html#stylealias\n")
-      
+
       # Check enabled cops
       expect(result).to include("Enabled: true # was false")
       expect(result).to include("Enabled: true # was pending")
-      
+
       # Check deprecated config removed
       expect(result).not_to include("AllowOnlyRestArgument")
     end
@@ -220,7 +220,7 @@ RSpec.describe RubocopConfig::ConfigProcessor do
       YAML
 
       result = processor.send(:add_documentation_links, content, "Style", "rubocop", "style")
-      
+
       expect(result).to include("# https://docs.rubocop.org/rubocop/cops_style.html#styleaccessorgrouping")
       expect(result).to include("# https://docs.rubocop.org/rubocop/cops_style.html#stylealias")
     end
@@ -232,11 +232,10 @@ RSpec.describe RubocopConfig::ConfigProcessor do
       YAML
 
       result = processor.send(:add_documentation_links, content, "Performance", "rubocop-performance", "performance")
-      
+
       expected_url = "# https://docs.rubocop.org/rubocop-performance/cops_performance.html#performancearraysemiinfiniterangeslice"
       expect(result).to include(expected_url)
     end
-
 
     it "handles empty content" do
       result = processor.send(:add_documentation_links, "", "Style", "rubocop", "style")
@@ -252,7 +251,7 @@ RSpec.describe RubocopConfig::ConfigProcessor do
       YAML
 
       result = processor.send(:add_documentation_links, content, "Style", "rubocop", "style")
-      
+
       # Should have the link before the cop definition
       lines = result.lines
       expect(lines[0]).to include("# https://docs.rubocop.org")
@@ -279,9 +278,9 @@ RSpec.describe RubocopConfig::ConfigProcessor do
       YAML
 
       result = processor.send(:normalize_paths, content)
-      
+
       expect(result).to include("- app/**/*.rb")
-      expect(result).to include("- lib/**/*.rb") 
+      expect(result).to include("- lib/**/*.rb")
       expect(result).to include("- spec/**/*")
       expect(result).not_to include("/home/user/project/")
     end
@@ -295,7 +294,7 @@ RSpec.describe RubocopConfig::ConfigProcessor do
       YAML
 
       result = processor.send(:normalize_paths, content)
-      
+
       expect(result).to include("- /other/path/file.rb")
       expect(result).to include("- relative/path.rb")
     end
@@ -315,25 +314,25 @@ RSpec.describe RubocopConfig::ConfigProcessor do
   describe "#remove_trailing_whitespace" do
     it "removes trailing spaces from lines" do
       content = <<~CONTENT
-        Line with trailing spaces   
-        Another line with spaces     
+        Line with trailing spaces#{"   "}
+        Another line with spaces#{"     "}
         Clean line
         Line with tabs\t\t
       CONTENT
 
       result = processor.send(:remove_trailing_whitespace, content)
-      
+
       lines = result.lines
       expect(lines[0]).to end_with("spaces\n")
       expect(lines[1]).to end_with("spaces\n")
       expect(lines[2]).to end_with("line\n")
-      expect(lines[3]).to end_with("tabs\t\t\n")  # Tabs are preserved, only spaces removed
+      expect(lines[3]).to end_with("tabs\t\t\n") # Tabs are preserved, only spaces removed
     end
 
     it "handles empty lines and lines with only whitespace" do
       content = "Line 1\n   \n\nLine 4   \n"
       result = processor.send(:remove_trailing_whitespace, content)
-      
+
       expect(result).to eq("Line 1\n\n\nLine 4\n")
     end
 

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe RubocopConfig::CLI::Base do
-  let(:base_instance) { described_class.new }
+  let(:base_instance) { RubocopConfig::CLI::Base.new }
 
   before do
     # Mock system calls to prevent actual execution

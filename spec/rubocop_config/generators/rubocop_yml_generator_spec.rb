@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe RubocopConfig::Generators::RubocopYmlGenerator do
-  let(:generator) { described_class.new }
+  let(:generator) { RubocopConfig::Generators::RubocopYmlGenerator.new }
   let(:config_dir) { File.join(File.dirname(__dir__, 4), "config", "cops") }
   let(:defaults_dir) { File.join(File.dirname(__dir__, 4), "config", "defaults") }
   let(:template_dir) { File.join(File.dirname(__dir__, 4), "templates") }
@@ -9,23 +9,23 @@ RSpec.describe RubocopConfig::Generators::RubocopYmlGenerator do
   before do
     # Create test directory structure
     create_test_config_structure
-    
+
     # Create mock config files
     create_test_file("config/cops/style.yml", "inherit_from: ../defaults/style.yml\n")
     create_test_file("config/cops/layout.yml", "inherit_from: ../defaults/layout.yml\n")
     create_test_file("config/cops/performance.yml", "inherit_from: ../defaults/performance.yml\n")
     create_test_file("config/cops/rspec.yml", "inherit_from: ../defaults/rspec.yml\n")
-    
+
     # Create mock defaults files with department headers
     create_test_file("config/defaults/style.yml", "# Department 'Style' (20):\n")
     create_test_file("config/defaults/layout.yml", "# Department 'Layout' (15):\n")
     create_test_file("config/defaults/performance.yml", "# Department 'Performance' (10):\n")
     create_test_file("config/defaults/rspec.yml", "# Department 'RSpec' (8):\n")
-    
+
     # Create template file
     create_test_file("templates/rubocop.yml.erb", <<~ERB)
       TargetRubyVersion: <%= detected_ruby_version %>
-      
+
       inherit_from:
       <% @filtered_configs.each do |config| -%>
         - config/cops/<%= config %>.yml
@@ -34,10 +34,10 @@ RSpec.describe RubocopConfig::Generators::RubocopYmlGenerator do
 
     # Mock plugin detector
     allow(RubocopConfig::PluginDetector).to receive(:detect_plugin_names)
-      .and_return(["performance", "rspec"])
-      
+      .and_return(%w[performance rspec])
+
     # Mock file paths to use local test structure
-    allow_any_instance_of(described_class).to receive(:template_path) do |_, filename|
+    allow_any_instance_of(RubocopConfig::Generators::RubocopYmlGenerator).to receive(:template_path) do |_, filename|
       File.join("templates", filename)
     end
   end
@@ -49,13 +49,13 @@ RSpec.describe RubocopConfig::Generators::RubocopYmlGenerator do
 
     it "detects plugin names" do
       detected_plugins = generator.instance_variable_get(:@detected_plugin_names)
-      expect(detected_plugins).to eq(["performance", "rspec"])
+      expect(detected_plugins).to eq(%w[performance rspec])
     end
 
     it "filters config files based on available plugins" do
       filtered_configs = generator.instance_variable_get(:@filtered_configs)
       expect(filtered_configs).to include("style")
-      expect(filtered_configs).to include("layout") 
+      expect(filtered_configs).to include("layout")
       expect(filtered_configs).to include("performance")
       expect(filtered_configs).to include("rspec")
     end
@@ -68,10 +68,10 @@ RSpec.describe RubocopConfig::Generators::RubocopYmlGenerator do
 
     it "generates .rubocop.yml file with correct content" do
       generator.generate
-      
+
       expect(File.exist?(".rubocop.yml")).to be true
       content = File.read(".rubocop.yml")
-      
+
       expect(content).to include("TargetRubyVersion: 3.1.0")
       expect(content).to include("inherit_from:")
       expect(content).to include("- config/cops/style.yml")
@@ -83,7 +83,7 @@ RSpec.describe RubocopConfig::Generators::RubocopYmlGenerator do
     it "overwrites existing .rubocop.yml file" do
       File.write(".rubocop.yml", "old content")
       generator.generate
-      
+
       content = File.read(".rubocop.yml")
       expect(content).not_to include("old content")
       expect(content).to include("TargetRubyVersion:")
@@ -120,17 +120,17 @@ RSpec.describe RubocopConfig::Generators::RubocopYmlGenerator do
   describe "#detect_available_config_files" do
     it "returns list of yml files from config/cops directory" do
       config_files = generator.send(:detect_available_config_files)
-      
+
       expect(config_files).to be_an(Array)
       expect(config_files).to include("style")
-      expect(config_files).to include("layout") 
+      expect(config_files).to include("layout")
       expect(config_files).to include("performance")
       expect(config_files).to include("rspec")
     end
 
     it "returns basenames without extension" do
       config_files = generator.send(:detect_available_config_files)
-      
+
       config_files.each do |config|
         expect(config).not_to end_with(".yml")
       end
@@ -141,19 +141,19 @@ RSpec.describe RubocopConfig::Generators::RubocopYmlGenerator do
     context "with detected plugins" do
       before do
         allow(RubocopConfig::PluginDetector).to receive(:detect_plugin_names)
-          .and_return(["performance", "rspec"])
+          .and_return(%w[performance rspec])
       end
 
       it "includes core departments" do
         filtered_configs = generator.send(:filtered_config_files)
-        
+
         expect(filtered_configs).to include("style")
         expect(filtered_configs).to include("layout")
       end
 
       it "includes detected plugin departments" do
         filtered_configs = generator.send(:filtered_config_files)
-        
+
         expect(filtered_configs).to include("performance")
         expect(filtered_configs).to include("rspec")
       end
@@ -166,9 +166,9 @@ RSpec.describe RubocopConfig::Generators::RubocopYmlGenerator do
       end
 
       it "includes only core departments" do
-        new_generator = described_class.new
+        new_generator = RubocopConfig::Generators::RubocopYmlGenerator.new
         filtered_configs = new_generator.send(:filtered_config_files)
-        
+
         expect(filtered_configs).to include("style")
         expect(filtered_configs).to include("layout")
         expect(filtered_configs).not_to include("performance")
@@ -180,15 +180,15 @@ RSpec.describe RubocopConfig::Generators::RubocopYmlGenerator do
       before do
         create_test_file("config/cops/unknown_plugin.yml", "inherit_from: ../defaults/unknown_plugin.yml\n")
         create_test_file("config/defaults/unknown_plugin.yml", "# Department 'UnknownPlugin' (5):\n")
-        
+
         allow(RubocopConfig::PluginDetector).to receive(:detect_plugin_names)
           .and_return(["performance"])
       end
 
       it "filters correctly based on detection" do
-        new_generator = described_class.new
+        new_generator = RubocopConfig::Generators::RubocopYmlGenerator.new
         filtered_configs = new_generator.send(:filtered_config_files)
-        
+
         expect(filtered_configs).to include("style")
         expect(filtered_configs).to include("performance")
         expect(filtered_configs).not_to include("rspec")
@@ -247,7 +247,7 @@ RSpec.describe RubocopConfig::Generators::RubocopYmlGenerator do
       it "handles underscored names correctly" do
         create_test_file("config/cops/thread_safety.yml", "inherit_from: ../defaults/thread_safety.yml\n")
         create_test_file("config/defaults/thread_safety.yml", "# Department 'ThreadSafety' (3):\n")
-        
+
         department = generator.send(:extract_department_from_config, "thread_safety")
         expect(department).to eq("ThreadSafety")
       end
@@ -257,9 +257,9 @@ RSpec.describe RubocopConfig::Generators::RubocopYmlGenerator do
   describe "integration with inflector" do
     it "properly handles acronym inflection" do
       inflector = generator.instance_variable_get(:@inflector)
-      
+
       expect(inflector.underscore("RSpec")).to eq("rspec")
-      expect(inflector.underscore("GetText")).to eq("gettext") 
+      expect(inflector.underscore("GetText")).to eq("gettext")
       expect(inflector.underscore("RailsI18n")).to eq("railsi18n")
     end
 
@@ -267,7 +267,7 @@ RSpec.describe RubocopConfig::Generators::RubocopYmlGenerator do
       # Since the test environment doesn't have actual config files,
       # we just verify the core departments are included
       filtered_configs = generator.send(:filtered_config_files)
-      
+
       expect(filtered_configs).to include("style")
       expect(filtered_configs).to include("layout")
     end
