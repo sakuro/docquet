@@ -16,7 +16,7 @@ require "rubocop"
 ].each do |plugin|
   require plugin
 rescue LoadError
-  # プラグインが利用できない場合は静かにスキップ
+  # Skip silently if the plugin is not available
 end
 require "uri"
 require "yaml"
@@ -59,7 +59,7 @@ module Docquet
       desc "Clean and regenerate all configuration files"
       task regenerate: %i[clean_defaults generate_defaults check_cops]
 
-      # 部門別ファイル生成タスク
+      # Department-specific file generation tasks
       @departments.each do |department|
         base = @inflector.underscore(department).tr("/", "_")
         target_file = "config/defaults/#{base}.yml"
