@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 require "erb"
+require_relative "../plugin_detector"
 
 module RubocopConfig
   module Generators
     class RubocopYmlGenerator
       def initialize
-        @detected_plugins = detect_rubocop_plugins
+        @detected_plugins = PluginDetector.detect_plugin_names
         @filtered_configs = filtered_config_files
       end
 
@@ -26,14 +27,6 @@ module RubocopConfig
 
       private def template_path(filename)
         File.join(File.dirname(__dir__, 3), "templates", filename)
-      end
-
-      private def detect_rubocop_plugins
-        rubocop_gems = Gem::Specification.select {|spec|
-          /\Arubocop-(?!ast\z)/ =~ spec.name &&
-            spec.metadata["default_lint_roller_plugin"]
-        }
-        rubocop_gems.map {|spec| spec.name.delete_prefix("rubocop-") }
       end
 
       private def detect_available_config_files

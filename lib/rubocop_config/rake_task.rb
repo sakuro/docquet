@@ -13,6 +13,8 @@ require "rubocop-sequel"
 require "rubocop-thread_safety"
 require "uri"
 require "yaml"
+require_relative "config_processor"
+require_relative "plugin_detector"
 
 module RubocopConfig
   class RakeTask < Rake::TaskLib
@@ -25,9 +27,7 @@ module RubocopConfig
         inflections.acronym("ThreadSafety")
       end
 
-      rubocop_gems = Gem::Specification.select { /\Arubocop-(?!ast$)/ =~ it.name }
-      plugins = rubocop_gems.select { it.metadata["default_lint_roller_plugin"] }
-      @plugin_names = plugins.map(&:name)
+      @plugin_names = PluginDetector.detect_rubocop_plugins
       departments = RuboCop::Cop::Registry.global.map {|c| c.department.to_s }
       departments.sort!
       departments.uniq!
@@ -102,7 +102,8 @@ module RubocopConfig
       content = %x(#{cmd.join(" ")} 2>/dev/null)
 
       if $?.success?
-        processed_content = post_process_config(content, department, gem_name, base)
+        processor = ConfigProcessor.new(@plugin_names)
+        processed_content = processor.process(content, department, gem_name, base)
         File.write(target_file, processed_content)
         puts "✓ Generated #{target_file}"
       else
@@ -142,38 +143,6 @@ module RubocopConfig
       Rake::Task[:check_cops].invoke
 
       puts "✓ Configuration regeneration complete!"
-    end
-
-    private def post_process_config(content, department, gem_name, base)
-      # Count cops in this department
-      cop_count = content.scan(%r{^#{Regexp.escape(department)}/}).length
-
-      # Add department header
-      header = "# Department '#{department}' (#{cop_count}):\n"
-      content = header + content
-
-      # Enable all cops (false/pending -> true)
-      content.gsub!(/(?<=^  )Enabled: (false|pending)$/) { "Enabled: true # was #{$1}" }
-
-      # Remove deprecated configuration
-      content.gsub!(/^\s+AllowOnlyRestArgument:.*\n/, "")
-
-      # Insert link to RuboCop documentation
-      content.gsub!(%r{(?=^#{department}/(.+):$)}) do
-        cop_name = $1
-        path = "/#{gem_name}/cops_#{base}.html"
-        fragment = "#{department}#{cop_name}".downcase.delete("/_")
-
-        "# #{URI::HTTPS.build(scheme: "https", host: "docs.rubocop.org", path:, fragment:)}\n"
-      end
-
-      # Replace absolute path with relative path
-      content.gsub!("#{Dir.pwd}/", "")
-
-      # Remove trailing whitespace
-      content.gsub!(/ +$/, "")
-
-      content
     end
   end
 end
