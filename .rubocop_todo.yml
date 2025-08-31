@@ -11,6 +11,11 @@ Metrics/AbcSize:
   Exclude:
     - 'lib/rubocop_config/rake_task.rb'
 
+# Configuration parameters: CountBlocks, CountModifierForms, Max.
+Metrics/BlockNesting:
+  Exclude:
+    - 'lib/rubocop_config/generators/rubocop_yml_generator.rb'
+
 # Configuration parameters: CountComments, Max, CountAsOne, AllowedMethods, AllowedPatterns.
 Metrics/MethodLength:
   Exclude:

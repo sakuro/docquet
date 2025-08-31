@@ -62,12 +62,12 @@ module RubocopConfig
       private def extract_department_from_config(config)
         # Extract department name from the corresponding defaults file
         cops_file = File.join(File.dirname(__dir__, 3), "config", "cops", "#{config}.yml")
-        
+
         if File.exist?(cops_file)
           cops_content = File.read(cops_file)
-          if cops_content =~ /inherit_from:\s*\.\.\/defaults\/(.+)\.yml/
+          if cops_content =~ %r{inherit_from:\s*\.\./defaults/(.+)\.yml}
             defaults_file = File.join(File.dirname(__dir__, 3), "config", "defaults", "#{$1}.yml")
-            
+
             if File.exist?(defaults_file)
               defaults_content = File.read(defaults_file)
               if defaults_content =~ /^# Department '(.+)'/
@@ -76,7 +76,7 @@ module RubocopConfig
             end
           end
         end
-        
+
         # Fallback: use the simple split method
         config.split("_").first
       end
