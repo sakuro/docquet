@@ -79,7 +79,7 @@ module RubocopConfig
 
       options = %W[--show-cops=#{department}/* --force-default-config --display-cop-names --extra-details --display-style-guide]
 
-      cmd = ["bin/rubocop", *options, *@plugin_gem_names.sort.flat_map { %W[--plugin #{it}] }]
+      cmd = ["bin/rubocop", *options, *@plugin_gem_names.sort.flat_map {|name| %W[--plugin #{name}] }]
 
       puts "Running: #{cmd.join(" ")}"
       content = %x(#{cmd.join(" ")} 2>/dev/null)

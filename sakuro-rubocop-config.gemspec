@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description   = "Provides opinionated RuboCop configurations and CLI tools for easy setup and maintenance"
   spec.homepage      = "https://github.com/sakuro/rubocop-config"
   spec.license       = "MIT"
-  spec.required_ruby_version = ">= 3.4.0"
+  spec.required_ruby_version = ">= 3.2.9"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = spec.homepage
