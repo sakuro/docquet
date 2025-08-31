@@ -31,9 +31,7 @@ module RubocopConfig
       end
 
       private def check_existing_files(force)
-        existing_files = []
-        existing_files << ".rubocop.yml" if File.exist?(".rubocop.yml")
-        existing_files << ".rubocop_todo.yml" if File.exist?(".rubocop_todo.yml")
+        existing_files = %w[.rubocop.yml .rubocop_todo.yml].select {|file| File.exist?(file) }
 
         return if existing_files.none? || force
 
