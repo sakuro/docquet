@@ -3,13 +3,21 @@
 require "fileutils"
 require "rake/tasklib"
 require "rubocop"
-require "rubocop-capybara"
-require "rubocop-i18n"
-require "rubocop-performance"
-require "rubocop-rake"
-require "rubocop-rspec"
-require "rubocop-sequel"
-require "rubocop-thread_safety"
+
+# プラグインの条件付き読み込み
+%w[
+  rubocop-capybara
+  rubocop-i18n
+  rubocop-performance
+  rubocop-rake
+  rubocop-rspec
+  rubocop-sequel
+  rubocop-thread_safety
+].each do |plugin|
+  require plugin
+rescue LoadError
+  # プラグインが利用できない場合は静かにスキップ
+end
 require "uri"
 require "yaml"
 require_relative "config_processor"
