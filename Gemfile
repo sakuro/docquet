@@ -18,8 +18,6 @@ gem "rubocop-sequel"
 gem "rubocop-thread_safety"
 
 group :development do
-  gem "dry-inflector"
-
   gem "irb"
   gem "repl_type_completor"
 
