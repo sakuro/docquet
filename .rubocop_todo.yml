@@ -28,6 +28,13 @@ RSpec/AnyInstance:
     - 'spec/rubocop_config/generators/rubocop_yml_generator_spec.rb'
     - 'spec/rubocop_config/rake_task_spec.rb'
 
+# This cop supports unsafe autocorrection (--autocorrect-all).
+# Configuration parameters: SkipBlocks, EnforcedStyle, OnlyStaticConstants.
+# SupportedStyles: described_class, explicit
+RSpec/DescribedClass:
+  Exclude:
+    - 'spec/rubocop_config/inflector_spec.rb'
+
 # Configuration parameters: Max, CountAsOne.
 RSpec/ExampleLength:
   Exclude:
@@ -43,6 +50,7 @@ RSpec/MultipleExpectations:
     - 'spec/rubocop_config/cli/regenerate_todo_spec.rb'
     - 'spec/rubocop_config/config_processor_spec.rb'
     - 'spec/rubocop_config/generators/rubocop_yml_generator_spec.rb'
+    - 'spec/rubocop_config/inflector_spec.rb'
     - 'spec/rubocop_config/plugin_detector_spec.rb'
     - 'spec/rubocop_config/rake_task_spec.rb'
 

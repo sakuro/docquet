@@ -1,18 +1,14 @@
 # frozen_string_literal: true
 
-require "dry-inflector"
 require "erb"
+require_relative "../inflector"
 require_relative "../plugin_detector"
 
 module RubocopConfig
   module Generators
     class RubocopYmlGenerator
       def initialize
-        @inflector = Dry::Inflector.new do |inflections|
-          inflections.acronym("RSpec")
-          inflections.acronym("GetText")
-          inflections.acronym("RailsI18n")
-        end
+        @inflector = Inflector.instance
         @detected_plugin_names = PluginDetector.detect_plugin_names
         @filtered_configs = filtered_config_files
       end

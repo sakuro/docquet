@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "dry-inflector"
 require "fileutils"
 require "rake/tasklib"
 require "rubocop"
@@ -14,17 +13,14 @@ require "rubocop-thread_safety"
 require "uri"
 require "yaml"
 require_relative "config_processor"
+require_relative "inflector"
 require_relative "plugin_detector"
 
 module RubocopConfig
   class RakeTask < Rake::TaskLib
     def initialize
       super
-      @inflector = Dry::Inflector.new do |inflections|
-        inflections.acronym("RSpec")
-        inflections.acronym("GetText")
-        inflections.acronym("RailsI18n")
-      end
+      @inflector = Inflector.instance
 
       @plugin_gem_names = PluginDetector.detect_plugin_gem_names
       departments = RuboCop::Cop::Registry.global.map {|c| c.department.to_s }
