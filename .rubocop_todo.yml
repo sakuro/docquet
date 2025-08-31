@@ -39,8 +39,3 @@ Style/DocumentationMethod:
     - 'lib/rubocop_config/cli/init.rb'
     - 'lib/rubocop_config/cli/regenerate_todo.rb'
     - 'lib/rubocop_config/generators/rubocop_yml_generator.rb'
-
-# Configuration parameters: AllowCallWithBlock.
-ThreadSafety/DirChdir:
-  Exclude:
-    - 'sakuro-rubocop-config.gemspec'

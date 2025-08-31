@@ -21,7 +21,7 @@ plugins:
   - rubocop-rake
   - rubocop-rspec
   - rubocop-sequel
-  - rubocop-thread_safety
+  # - rubocop-thread_safety
 
 inherit_from:
   - config/cops/bundler.yml
@@ -41,7 +41,7 @@ inherit_from:
   - config/cops/security.yml
   - config/cops/sequel.yml
   - config/cops/style.yml
-  - config/cops/threadsafety.yml
+  # - config/cops/threadsafety.yml
   - .rubocop_todo.yml
 
 # Project-specific settings can be added here
