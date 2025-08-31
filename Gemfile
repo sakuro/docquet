@@ -23,4 +23,5 @@ group :development do
 
   gem "rake", "~> 13.0" # Task automation framework
   gem "rspec", "~> 3.0" # Testing framework
+  gem "simplecov", "~> 0.22" # Code coverage analysis
 end

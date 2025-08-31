@@ -1,5 +1,12 @@
 # frozen_string_literal: true
 
+require "simplecov"
+SimpleCov.start do
+  add_filter "/spec/"
+  add_filter "/vendor/"
+  track_files "lib/**/*.rb"
+end
+
 require "bundler/setup"
 require "fileutils"
 require "rubocop_config"

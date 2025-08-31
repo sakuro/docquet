@@ -2,6 +2,7 @@
 
 require "rake/clean"
 
+CLEAN.include("coverage", ".rspec_status")
 CLOBBER << FileList["config/defaults"]
 
 require "rubocop/rake_task"
