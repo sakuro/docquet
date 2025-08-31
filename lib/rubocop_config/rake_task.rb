@@ -26,7 +26,7 @@ module RubocopConfig
       end
 
       rubocop_gems = Gem::Specification.select { /\Arubocop-(?!ast$)/ =~ it.name }
-      plugins, = rubocop_gems.partition { it.metadata["default_lint_roller_plugin"] }
+      plugins = rubocop_gems.select { it.metadata["default_lint_roller_plugin"] }
       @plugin_names = plugins.map(&:name)
       departments = RuboCop::Cop::Registry.global.map {|c| c.department.to_s }
       departments.sort!
