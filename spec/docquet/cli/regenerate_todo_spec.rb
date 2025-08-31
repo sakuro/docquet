@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-RSpec.describe RubocopConfig::CLI::RegenerateTodo do
-  let(:regenerate_command) { RubocopConfig::CLI::RegenerateTodo.new }
+RSpec.describe Docquet::CLI::RegenerateTodo do
+  let(:regenerate_command) { Docquet::CLI::RegenerateTodo.new }
 
   before do
     # Mock file operations

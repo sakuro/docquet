@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe RubocopConfig::CLI::Init do
-  let(:init_command) { RubocopConfig::CLI::Init.new }
-  let(:mock_generator) { instance_double(RubocopConfig::Generators::RubocopYmlGenerator) }
+RSpec.describe Docquet::CLI::Init do
+  let(:init_command) { Docquet::CLI::Init.new }
+  let(:mock_generator) { instance_double(Docquet::Generators::RubocopYmlGenerator) }
 
   before do
     # Mock file operations
@@ -13,7 +13,7 @@ RSpec.describe RubocopConfig::CLI::Init do
     allow(init_command).to receive(:system).and_return(true)
 
     # Mock generator
-    allow(RubocopConfig::Generators::RubocopYmlGenerator).to receive(:new).and_return(mock_generator)
+    allow(Docquet::Generators::RubocopYmlGenerator).to receive(:new).and_return(mock_generator)
     allow(mock_generator).to receive(:generate)
   end
 
@@ -23,7 +23,7 @@ RSpec.describe RubocopConfig::CLI::Init do
         init_command.call
 
         expect(File).to have_received(:write).with(".rubocop_todo.yml", anything)
-        expect(RubocopConfig::Generators::RubocopYmlGenerator).to have_received(:new)
+        expect(Docquet::Generators::RubocopYmlGenerator).to have_received(:new)
         expect(mock_generator).to have_received(:generate)
         expect(init_command).to have_received(:system).with(/rubocop.*--regenerate-todo/)
       end

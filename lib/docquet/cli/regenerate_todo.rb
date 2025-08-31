@@ -3,14 +3,14 @@
 require "digest"
 require_relative "base"
 
-module RubocopConfig
+module Docquet
   module CLI
     class RegenerateTodo < Base
       desc "Regenerate .rubocop_todo.yml"
 
       def call(**)
         unless rubocop_yml_exists?
-          puts "Error: .rubocop.yml not found. Run 'rubocop-config init' first."
+          puts "Error: .rubocop.yml not found. Run 'docquet init' first."
           exit 1
         end
 

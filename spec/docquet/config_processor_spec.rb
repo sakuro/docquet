@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-RSpec.describe RubocopConfig::ConfigProcessor do
+RSpec.describe Docquet::ConfigProcessor do
   let(:plugin_names) { %w[performance rspec thread_safety] }
-  let(:processor) { RubocopConfig::ConfigProcessor.new(plugin_names) }
+  let(:processor) { Docquet::ConfigProcessor.new(plugin_names) }
 
   describe "#initialize" do
     it "stores plugin names" do
-      processor = RubocopConfig::ConfigProcessor.new(plugin_names)
+      processor = Docquet::ConfigProcessor.new(plugin_names)
       expect(processor.instance_variable_get(:@plugin_names)).to eq(plugin_names)
     end
   end

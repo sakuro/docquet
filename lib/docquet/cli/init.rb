@@ -3,7 +3,7 @@
 require_relative "../generators/rubocop_yml_generator"
 require_relative "base"
 
-module RubocopConfig
+module Docquet
   module CLI
     class Init < Base
       desc "Initialize RuboCop configuration and generate TODO file"
@@ -69,7 +69,7 @@ module RubocopConfig
 
           Next steps:
             1. Review .rubocop_todo.yml and gradually fix violations
-            2. Use 'rubocop-config regenerate-todo' for future updates
+            2. Use 'docquet regenerate-todo' for future updates
             3. Run 'bundle exec rubocop' to check your code
         MESSAGE
       end

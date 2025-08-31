@@ -9,88 +9,88 @@
 # Configuration parameters: AllowedMethods, AllowedPatterns, CountRepeatedAttributes, Max.
 Metrics/AbcSize:
   Exclude:
-    - 'lib/rubocop_config/rake_task.rb'
+    - 'lib/docquet/rake_task.rb'
 
 # Configuration parameters: CountBlocks, CountModifierForms, Max.
 Metrics/BlockNesting:
   Exclude:
-    - 'lib/rubocop_config/generators/rubocop_yml_generator.rb'
+    - 'lib/docquet/generators/rubocop_yml_generator.rb'
 
 # Configuration parameters: CountComments, Max, CountAsOne, AllowedMethods, AllowedPatterns.
 Metrics/MethodLength:
   Exclude:
-    - 'lib/rubocop_config/cli/regenerate_todo.rb'
-    - 'lib/rubocop_config/generators/rubocop_yml_generator.rb'
-    - 'lib/rubocop_config/rake_task.rb'
+    - 'lib/docquet/cli/regenerate_todo.rb'
+    - 'lib/docquet/generators/rubocop_yml_generator.rb'
+    - 'lib/docquet/rake_task.rb'
 
 RSpec/AnyInstance:
   Exclude:
-    - 'spec/rubocop_config/generators/rubocop_yml_generator_spec.rb'
-    - 'spec/rubocop_config/rake_task_spec.rb'
+    - 'spec/docquet/generators/rubocop_yml_generator_spec.rb'
+    - 'spec/docquet/rake_task_spec.rb'
 
 # This cop supports unsafe autocorrection (--autocorrect-all).
 # Configuration parameters: SkipBlocks, EnforcedStyle, OnlyStaticConstants.
 # SupportedStyles: described_class, explicit
 RSpec/DescribedClass:
   Exclude:
-    - 'spec/rubocop_config/inflector_spec.rb'
+    - 'spec/docquet/inflector_spec.rb'
 
 # Configuration parameters: Max, CountAsOne.
 RSpec/ExampleLength:
   Exclude:
-    - 'spec/rubocop_config/config_processor_spec.rb'
-    - 'spec/rubocop_config/generators/rubocop_yml_generator_spec.rb'
-    - 'spec/rubocop_config/plugin_detector_spec.rb'
-    - 'spec/rubocop_config/rake_task_spec.rb'
+    - 'spec/docquet/config_processor_spec.rb'
+    - 'spec/docquet/generators/rubocop_yml_generator_spec.rb'
+    - 'spec/docquet/plugin_detector_spec.rb'
+    - 'spec/docquet/rake_task_spec.rb'
 
 # Configuration parameters: Max.
 RSpec/MultipleExpectations:
   Exclude:
-    - 'spec/rubocop_config/cli/init_spec.rb'
-    - 'spec/rubocop_config/cli/regenerate_todo_spec.rb'
-    - 'spec/rubocop_config/config_processor_spec.rb'
-    - 'spec/rubocop_config/generators/rubocop_yml_generator_spec.rb'
-    - 'spec/rubocop_config/inflector_spec.rb'
-    - 'spec/rubocop_config/plugin_detector_spec.rb'
-    - 'spec/rubocop_config/rake_task_spec.rb'
+    - 'spec/docquet/cli/init_spec.rb'
+    - 'spec/docquet/cli/regenerate_todo_spec.rb'
+    - 'spec/docquet/config_processor_spec.rb'
+    - 'spec/docquet/generators/rubocop_yml_generator_spec.rb'
+    - 'spec/docquet/inflector_spec.rb'
+    - 'spec/docquet/plugin_detector_spec.rb'
+    - 'spec/docquet/rake_task_spec.rb'
 
 # Configuration parameters: Max, AllowedGroups.
 RSpec/NestedGroups:
   Exclude:
-    - 'spec/rubocop_config/cli/regenerate_todo_spec.rb'
+    - 'spec/docquet/cli/regenerate_todo_spec.rb'
 
 # Configuration parameters: IgnoreNameless, IgnoreSymbolicNames.
 RSpec/VerifiedDoubles:
   Exclude:
-    - 'spec/rubocop_config/rake_task_spec.rb'
+    - 'spec/docquet/rake_task_spec.rb'
 
 # Configuration parameters: AllowedConstants.
 Style/Documentation:
   Exclude:
-    - 'lib/rubocop_config/cli.rb'
-    - 'lib/rubocop_config/cli/base.rb'
-    - 'lib/rubocop_config/cli/init.rb'
-    - 'lib/rubocop_config/cli/regenerate_todo.rb'
-    - 'lib/rubocop_config/config_processor.rb'
-    - 'lib/rubocop_config/generators/rubocop_yml_generator.rb'
-    - 'lib/rubocop_config/rake_task.rb'
+    - 'lib/docquet/cli.rb'
+    - 'lib/docquet/cli/base.rb'
+    - 'lib/docquet/cli/init.rb'
+    - 'lib/docquet/cli/regenerate_todo.rb'
+    - 'lib/docquet/config_processor.rb'
+    - 'lib/docquet/generators/rubocop_yml_generator.rb'
+    - 'lib/docquet/rake_task.rb'
 
 # Configuration parameters: AllowedMethods, RequireForNonPublicMethods.
 Style/DocumentationMethod:
   Exclude:
-    - 'lib/rubocop_config/cli/init.rb'
-    - 'lib/rubocop_config/cli/regenerate_todo.rb'
-    - 'lib/rubocop_config/config_processor.rb'
-    - 'lib/rubocop_config/generators/rubocop_yml_generator.rb'
+    - 'lib/docquet/cli/init.rb'
+    - 'lib/docquet/cli/regenerate_todo.rb'
+    - 'lib/docquet/config_processor.rb'
+    - 'lib/docquet/generators/rubocop_yml_generator.rb'
 
 Style/Send:
   Exclude:
-    - 'spec/rubocop_config/cli/base_spec.rb'
-    - 'spec/rubocop_config/cli/init_spec.rb'
-    - 'spec/rubocop_config/cli/regenerate_todo_spec.rb'
-    - 'spec/rubocop_config/config_processor_spec.rb'
-    - 'spec/rubocop_config/generators/rubocop_yml_generator_spec.rb'
-    - 'spec/rubocop_config/rake_task_spec.rb'
+    - 'spec/docquet/cli/base_spec.rb'
+    - 'spec/docquet/cli/init_spec.rb'
+    - 'spec/docquet/cli/regenerate_todo_spec.rb'
+    - 'spec/docquet/config_processor_spec.rb'
+    - 'spec/docquet/generators/rubocop_yml_generator_spec.rb'
+    - 'spec/docquet/rake_task_spec.rb'
 
 Style/TopLevelMethodDefinition:
   Exclude:
@@ -101,5 +101,5 @@ Style/TopLevelMethodDefinition:
 # URISchemes: http, https
 Layout/LineLength:
   Exclude:
-    - 'lib/rubocop_config/rake_task.rb'
-    - 'spec/rubocop_config/cli/init_spec.rb'
+    - 'lib/docquet/rake_task.rb'
+    - 'spec/docquet/cli/init_spec.rb'

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe RubocopConfig::Inflector do
+RSpec.describe Docquet::Inflector do
   describe ".instance" do
     it "returns a Dry::Inflector instance" do
       expect(described_class.instance).to be_a(Dry::Inflector)

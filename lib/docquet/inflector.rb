@@ -2,7 +2,7 @@
 
 require "dry/inflector"
 
-module RubocopConfig
+module Docquet
   # Provides a centralized inflector with consistent acronym rules.
   #
   # This module ensures all classes use the same inflection rules,
