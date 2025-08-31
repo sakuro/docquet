@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-require_relative "lib/rubocop_config/version"
+require_relative "lib/docquet/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "sakuro-rubocop-config"
-  spec.version       = RubocopConfig::VERSION
+  spec.name          = "docquet"
+  spec.version       = Docquet::VERSION
   spec.authors       = ["OZAWA Sakuro"]
   spec.email         = ["10973+sakuro@users.noreply.github.com"]
 
   spec.summary       = "Standardized RuboCop configuration with CLI tools"
   spec.description   = "Provides opinionated RuboCop configurations and CLI tools for easy setup and maintenance"
-  spec.homepage      = "https://github.com/sakuro/rubocop-config"
+  spec.homepage      = "https://github.com/sakuro/docquet"
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 3.2.9"
 

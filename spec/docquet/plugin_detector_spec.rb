@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe RubocopConfig::PluginDetector do
+RSpec.describe Docquet::PluginDetector do
   let(:mock_performance_spec) do
     instance_double(
       Gem::Specification,
@@ -75,7 +75,7 @@ RSpec.describe RubocopConfig::PluginDetector do
 
   describe ".detect_plugin_gem_names" do
     it "returns an array of plugin gem names" do
-      result = RubocopConfig::PluginDetector.detect_plugin_gem_names
+      result = Docquet::PluginDetector.detect_plugin_gem_names
 
       expect(result).to be_an(Array)
       expect(result).to all(be_a(String))
@@ -83,7 +83,7 @@ RSpec.describe RubocopConfig::PluginDetector do
     end
 
     it "includes gems with default_lint_roller_plugin metadata" do
-      result = RubocopConfig::PluginDetector.detect_plugin_gem_names
+      result = Docquet::PluginDetector.detect_plugin_gem_names
 
       expect(result).to include("rubocop-performance")
       expect(result).to include("rubocop-rspec")
@@ -91,7 +91,7 @@ RSpec.describe RubocopConfig::PluginDetector do
     end
 
     it "excludes gems without RuboCop plugin metadata pattern" do
-      result = RubocopConfig::PluginDetector.detect_plugin_gem_names
+      result = Docquet::PluginDetector.detect_plugin_gem_names
 
       # These don't match RuboCop::.*::Plugin pattern
       expect(result).not_to include("rubocop-ast")      # No metadata
@@ -111,7 +111,7 @@ RSpec.describe RubocopConfig::PluginDetector do
         all_rubocop_specs.select(&block)
       end
 
-      RubocopConfig::PluginDetector.detect_plugin_gem_names
+      Docquet::PluginDetector.detect_plugin_gem_names
 
       expect(Gem::Specification).to have_received(:select)
     end
@@ -119,7 +119,7 @@ RSpec.describe RubocopConfig::PluginDetector do
 
   describe ".detect_plugin_names" do
     it "returns plugin names without rubocop- prefix" do
-      result = RubocopConfig::PluginDetector.detect_plugin_names
+      result = Docquet::PluginDetector.detect_plugin_names
 
       expect(result).to be_an(Array)
       expect(result).to all(be_a(String))
@@ -127,7 +127,7 @@ RSpec.describe RubocopConfig::PluginDetector do
     end
 
     it "strips rubocop- prefix from gem names" do
-      result = RubocopConfig::PluginDetector.detect_plugin_names
+      result = Docquet::PluginDetector.detect_plugin_names
 
       expect(result).to include("performance")
       expect(result).to include("rspec")
@@ -135,8 +135,8 @@ RSpec.describe RubocopConfig::PluginDetector do
     end
 
     it "corresponds to detect_plugin_gem_names without prefix" do
-      gem_names = RubocopConfig::PluginDetector.detect_plugin_gem_names
-      plugin_names = RubocopConfig::PluginDetector.detect_plugin_names
+      gem_names = Docquet::PluginDetector.detect_plugin_gem_names
+      plugin_names = Docquet::PluginDetector.detect_plugin_names
 
       expected_names = gem_names.map {|name| name.delete_prefix("rubocop-") }
       expect(plugin_names).to eq(expected_names)

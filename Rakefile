@@ -8,8 +8,8 @@ CLOBBER << FileList["config/defaults"]
 require "rubocop/rake_task"
 RuboCop::RakeTask.new
 
-require_relative "lib/rubocop_config/rake_task"
+require_relative "lib/docquet/rake_task"
 
-namespace :rubocop_config do
-  RubocopConfig::RakeTask.new
+namespace :docquet do
+  Docquet::RakeTask.new
 end

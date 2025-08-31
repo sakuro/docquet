@@ -4,7 +4,7 @@ require "erb"
 require_relative "../inflector"
 require_relative "../plugin_detector"
 
-module RubocopConfig
+module Docquet
   module Generators
     class RubocopYmlGenerator
       def initialize

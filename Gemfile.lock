@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    sakuro-rubocop-config (0.1.0)
+    docquet (0.1.0)
       dry-cli (~> 1.0)
       dry-inflector (~> 1.0)
       erb (>= 2.2)
@@ -118,6 +118,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  docquet!
   irb
   rake (~> 13.0)
   repl_type_completor
@@ -130,7 +131,6 @@ DEPENDENCIES
   rubocop-rspec
   rubocop-sequel
   rubocop-thread_safety
-  sakuro-rubocop-config!
   simplecov (~> 0.22)
 
 BUNDLED WITH

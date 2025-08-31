@@ -2,7 +2,7 @@
 
 require "dry/cli"
 
-module RubocopConfig
+module Docquet
   module CLI
     class Base < Dry::CLI::Command
       private def rubocop_yml_exists?

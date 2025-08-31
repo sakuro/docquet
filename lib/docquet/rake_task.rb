@@ -24,7 +24,7 @@ require_relative "config_processor"
 require_relative "inflector"
 require_relative "plugin_detector"
 
-module RubocopConfig
+module Docquet
   class RakeTask < Rake::TaskLib
     def initialize
       super

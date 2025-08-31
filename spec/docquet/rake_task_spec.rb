@@ -2,13 +2,13 @@
 
 require "rake"
 
-RSpec.describe RubocopConfig::RakeTask do
+RSpec.describe Docquet::RakeTask do
   before do
     # Clear existing tasks
     Rake.application.clear
 
     # Mock plugin detection
-    allow(RubocopConfig::PluginDetector).to receive(:detect_plugin_gem_names)
+    allow(Docquet::PluginDetector).to receive(:detect_plugin_gem_names)
       .and_return(%w[rubocop-performance rubocop-rspec])
 
     # Mock RuboCop cop registry
@@ -27,14 +27,14 @@ RSpec.describe RubocopConfig::RakeTask do
     allow(File).to receive_messages(exist?: false, read: "")
 
     # Mock puts to prevent output during tests
-    allow_any_instance_of(RubocopConfig::RakeTask).to receive(:puts)
+    allow_any_instance_of(Docquet::RakeTask).to receive(:puts)
 
     # Create test directory structure
     create_test_config_structure
   end
 
   describe "#initialize" do
-    let(:rake_task) { RubocopConfig::RakeTask.new }
+    let(:rake_task) { Docquet::RakeTask.new }
 
     it "creates an inflector with custom acronyms" do
       expect(rake_task.instance_variable_get(:@inflector)).to be_a(Dry::Inflector)
@@ -52,13 +52,13 @@ RSpec.describe RubocopConfig::RakeTask do
   end
 
   describe "#generate_default_config" do
-    let(:rake_task) { RubocopConfig::RakeTask.new }
+    let(:rake_task) { Docquet::RakeTask.new }
     let(:department) { "Style" }
     let(:target_file) { "config/defaults/style.yml" }
-    let(:mock_processor) { instance_double(RubocopConfig::ConfigProcessor) }
+    let(:mock_processor) { instance_double(Docquet::ConfigProcessor) }
 
     before do
-      allow(RubocopConfig::ConfigProcessor).to receive(:new).and_return(mock_processor)
+      allow(Docquet::ConfigProcessor).to receive(:new).and_return(mock_processor)
       allow(mock_processor).to receive(:process).and_return("processed content")
 
       # Mock successful command execution
@@ -71,7 +71,7 @@ RSpec.describe RubocopConfig::RakeTask do
     it "generates configuration for the specified department" do
       rake_task.send(:generate_default_config, department, target_file)
 
-      expect(RubocopConfig::ConfigProcessor).to have_received(:new).with(%w[rubocop-performance rubocop-rspec])
+      expect(Docquet::ConfigProcessor).to have_received(:new).with(%w[rubocop-performance rubocop-rspec])
       expect(mock_processor).to have_received(:process).with("raw rubocop output", "Style", "rubocop", "style")
       expect(File).to have_received(:write).with(target_file, "processed content")
     end
@@ -128,7 +128,7 @@ RSpec.describe RubocopConfig::RakeTask do
   end
 
   describe "#check_cops_configurations" do
-    let(:rake_task) { RubocopConfig::RakeTask.new }
+    let(:rake_task) { Docquet::RakeTask.new }
 
     before do
       allow(Dir).to receive(:[]).with("config/defaults/*.yml")
@@ -174,7 +174,7 @@ RSpec.describe RubocopConfig::RakeTask do
   end
 
   describe "inflector integration" do
-    let(:rake_task) { RubocopConfig::RakeTask.new }
+    let(:rake_task) { Docquet::RakeTask.new }
 
     it "correctly transforms department names to file names" do
       inflector = rake_task.instance_variable_get(:@inflector)
@@ -192,7 +192,7 @@ RSpec.describe RubocopConfig::RakeTask do
   end
 
   describe "plugin gem name handling" do
-    let(:rake_task) { RubocopConfig::RakeTask.new }
+    let(:rake_task) { Docquet::RakeTask.new }
 
     it "uses correct gem names for known plugins" do
       plugin_gem_names = rake_task.instance_variable_get(:@plugin_gem_names)

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-RSpec.describe RubocopConfig::Generators::RubocopYmlGenerator do
-  let(:generator) { RubocopConfig::Generators::RubocopYmlGenerator.new }
+RSpec.describe Docquet::Generators::RubocopYmlGenerator do
+  let(:generator) { Docquet::Generators::RubocopYmlGenerator.new }
   let(:config_dir) { File.join(File.dirname(__dir__, 4), "config", "cops") }
   let(:defaults_dir) { File.join(File.dirname(__dir__, 4), "config", "defaults") }
   let(:template_dir) { File.join(File.dirname(__dir__, 4), "templates") }
@@ -33,11 +33,11 @@ RSpec.describe RubocopConfig::Generators::RubocopYmlGenerator do
     ERB
 
     # Mock plugin detector
-    allow(RubocopConfig::PluginDetector).to receive(:detect_plugin_names)
+    allow(Docquet::PluginDetector).to receive(:detect_plugin_names)
       .and_return(%w[performance rspec])
 
     # Mock file paths to use local test structure
-    allow_any_instance_of(RubocopConfig::Generators::RubocopYmlGenerator).to receive(:template_path) do |_, filename|
+    allow_any_instance_of(Docquet::Generators::RubocopYmlGenerator).to receive(:template_path) do |_, filename|
       File.join("templates", filename)
     end
   end
@@ -140,7 +140,7 @@ RSpec.describe RubocopConfig::Generators::RubocopYmlGenerator do
   describe "#filtered_config_files" do
     context "with detected plugins" do
       before do
-        allow(RubocopConfig::PluginDetector).to receive(:detect_plugin_names)
+        allow(Docquet::PluginDetector).to receive(:detect_plugin_names)
           .and_return(%w[performance rspec])
       end
 
@@ -161,12 +161,12 @@ RSpec.describe RubocopConfig::Generators::RubocopYmlGenerator do
 
     context "without detected plugins" do
       before do
-        allow(RubocopConfig::PluginDetector).to receive(:detect_plugin_names)
+        allow(Docquet::PluginDetector).to receive(:detect_plugin_names)
           .and_return([])
       end
 
       it "includes only core departments" do
-        new_generator = RubocopConfig::Generators::RubocopYmlGenerator.new
+        new_generator = Docquet::Generators::RubocopYmlGenerator.new
         filtered_configs = new_generator.send(:filtered_config_files)
 
         expect(filtered_configs).to include("style")
@@ -181,12 +181,12 @@ RSpec.describe RubocopConfig::Generators::RubocopYmlGenerator do
         create_test_file("config/cops/unknown_plugin.yml", "inherit_from: ../defaults/unknown_plugin.yml\n")
         create_test_file("config/defaults/unknown_plugin.yml", "# Department 'UnknownPlugin' (5):\n")
 
-        allow(RubocopConfig::PluginDetector).to receive(:detect_plugin_names)
+        allow(Docquet::PluginDetector).to receive(:detect_plugin_names)
           .and_return(["performance"])
       end
 
       it "filters correctly based on detection" do
-        new_generator = RubocopConfig::Generators::RubocopYmlGenerator.new
+        new_generator = Docquet::Generators::RubocopYmlGenerator.new
         filtered_configs = new_generator.send(:filtered_config_files)
 
         expect(filtered_configs).to include("style")

@@ -1,4 +1,4 @@
-# RuboCop Config
+# Docquet
 
 A standardized RuboCop configuration gem that automatically detects available RuboCop plugins and generates appropriate configurations with CLI tools for easy setup and maintenance.
 
@@ -15,13 +15,13 @@ A standardized RuboCop configuration gem that automatically detects available Ru
 ### As a Gem
 
 ```bash
-gem install sakuro-rubocop-config
+gem install docquet
 ```
 
 Or add it to your Gemfile:
 
 ```ruby
-gem "sakuro-rubocop-config", require: false
+gem "docquet", require: false
 ```
 
 ## Usage
@@ -31,7 +31,7 @@ gem "sakuro-rubocop-config", require: false
 Run the initialization command in your project root:
 
 ```bash
-rubocop-config init
+docquet init
 ```
 
 This command will:
@@ -42,7 +42,7 @@ This command will:
 To overwrite existing files:
 
 ```bash
-rubocop-config init --force
+docquet init --force
 ```
 
 ### Update TODO File
@@ -50,7 +50,7 @@ rubocop-config init --force
 When you've fixed some violations and want to regenerate the TODO file:
 
 ```bash
-rubocop-config regenerate-todo
+docquet regenerate-todo
 ```
 
 This command will:
@@ -129,7 +129,7 @@ bundle exec rubocop
 ### Regenerating TODO File
 
 ```bash
-./exe/rubocop-config regenerate-todo
+./exe/docquet regenerate-todo
 ```
 
 ## Documentation Links

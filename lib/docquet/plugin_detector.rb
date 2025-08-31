@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module RubocopConfig
+module Docquet
   # Detects available RuboCop plugins and provides consistent naming.
   #
   # Terminology:

@@ -4,7 +4,7 @@ require "dry/cli"
 require_relative "cli/init"
 require_relative "cli/regenerate_todo"
 
-module RubocopConfig
+module Docquet
   module Commands
     extend Dry::CLI::Registry
 

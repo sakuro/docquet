@@ -8,8 +8,8 @@ SimpleCov.start do
 end
 
 require "bundler/setup"
+require "docquet"
 require "fileutils"
-require "rubocop_config"
 require "tmpdir"
 
 RSpec.configure do |config|

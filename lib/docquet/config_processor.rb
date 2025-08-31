@@ -2,7 +2,7 @@
 
 require "uri"
 
-module RubocopConfig
+module Docquet
   class ConfigProcessor
     def initialize(plugin_names)
       @plugin_names = plugin_names
