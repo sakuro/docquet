@@ -1,0 +1,79 @@
+inherit_from: ../defaults/layout.yml
+
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/ClassStructure:
+  ExpectedOrder:
+  - module_inclusion
+  - constants
+  - association
+  - public_attribute_macros
+  - public_delegate
+  - macros
+  - public_class_methods
+  - initializer
+  - public_methods
+  - protected_attribute_macros
+  - protected_methods
+  - private_attribute_macros
+  - private_delegate
+  - private_methods
+
+Layout/FirstArrayElementLineBreak:
+  AllowMultilineFinalElement: true
+
+Layout/FirstMethodArgumentLineBreak:
+  AllowMultilineFinalElement: true
+
+Layout/MultilineMethodArgumentLineBreaks:
+  AllowMultilineFinalElement: true
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/HashAlignment:
+  Enabled: false
+
+Layout/LineLength:
+  AllowedPatterns:
+  - expect
+  - (?:all|any|none|one)\?
+  - \bdef [A-Z]?[a-z0-9_]+[!?]?(?:\(.*\))? = .*(?!end)$
+
+Layout/MultilineArrayLineBreaks:
+  AllowMultilineFinalElement: true
+
+Layout/MultilineMethodDefinitionBraceLayout:
+  EnforcedStyle: new_line
+
+Layout/MultilineAssignmentLayout:
+  Enabled: false
+
+Layout/RedundantLineBreak:
+  Enabled: false
+
+Layout/SingleLineBlockChain:
+  Enabled: false
+
+Layout/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: no_space
+
+Layout/SpaceAroundOperators:
+  AllowForAlignment: false
+
+Layout/SpaceBeforeFirstArg:
+  AllowForAlignment: false
+
+Layout/SpaceInsideArrayLiteralBrackets:
+  EnforcedStyle: no_space
+  EnforcedStyleForEmptyBrackets: no_space
+
+Layout/SpaceInsideBlockBraces:
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBraces: no_space
+  SpaceBeforeBlockParameters: false
+
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+  EnforcedStyleForEmptyBraces: no_space

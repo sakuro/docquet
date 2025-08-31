@@ -1,0 +1,35 @@
+AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  EnabledByDefault: true
+  Exclude:
+    - bin/**/*
+    - vendor/**/*
+  ExtraDetails: true
+  NewCops: enable
+  TargetRubyVersion: <%= detected_ruby_version %>
+  UseCache: true
+
+inherit_mode:
+  merge:
+    - Exclude
+
+<% unless @detected_plugin_names.empty? -%>
+plugins:
+<% @detected_plugin_names.each do |plugin| -%>
+  - rubocop-<%= plugin %>
+<% end -%>
+
+<% end -%>
+inherit_gem:
+  sakuro-rubocop-config:
+<% @filtered_configs.each do |config| -%>
+    - config/cops/<%= config %>.yml
+<% end -%>
+
+inherit_from: .rubocop_todo.yml
+
+# Project-specific settings can be added here
+# Example:
+# Style/Documentation:
+#   Enabled: false

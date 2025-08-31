@@ -1,0 +1,7 @@
+inherit_from: ../defaults/performance.yml
+
+Performance/ArraySemiInfiniteRangeSlice:
+  Enabled: false
+
+Performance/MethodObjectAsBlock:
+  Enabled: false

@@ -1,0 +1,4 @@
+inherit_from: ../defaults/naming.yml
+
+Naming/InclusiveLanguage:
+  Enabled: false

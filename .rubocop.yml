@@ -1,42 +1,47 @@
----
 AllCops:
   DisplayCopNames: true
   DisplayStyleGuide: true
   EnabledByDefault: true
   Exclude:
-  - bin/**/*
-  - vendor/**/*
+    - bin/**/*
+    - vendor/**/*
   ExtraDetails: true
-  TargetRubyVersion: 3.4
+  NewCops: enable
+  TargetRubyVersion: 3.2
   UseCache: true
+
 inherit_mode:
   merge:
-  - Exclude
+    - Exclude
+
 plugins:
-- rubocop-i18n
-- rubocop-performance
-- rubocop-rake
-- rubocop-rspec
-- rubocop-thread_safety
-require:
-- rubocop-capybara
-- rubocop-sequel
+  # - rubocop-capybara
+  # - rubocop-i18n
+  - rubocop-performance
+  - rubocop-rake
+  - rubocop-rspec
+  # - rubocop-sequel
+  # - rubocop-thread_safety
+
 inherit_from:
-- bundler.yml
-- capybara.yml
-- capybara_rspec.yml
-- gemspec.yml
-- i18n_gettext.yml
-- i18n_railsi18n.yml
-- layout.yml
-- lint.yml
-- metrics.yml
-- migration.yml
-- naming.yml
-- performance.yml
-- rspec.yml
-- rake.yml
-- security.yml
-- sequel.yml
-- style.yml
-- threadsafety.yml
+  - config/cops/bundler.yml
+  # - config/cops/capybara.yml
+  # - config/cops/capybara_rspec.yml
+  - config/cops/gemspec.yml
+  # - config/cops/i18n_gettext.yml
+  # - config/cops/i18n_railsi18n.yml
+  - config/cops/layout.yml
+  - config/cops/lint.yml
+  - config/cops/metrics.yml
+  - config/cops/migration.yml
+  - config/cops/naming.yml
+  - config/cops/performance.yml
+  - config/cops/rake.yml
+  - config/cops/rspec.yml
+  - config/cops/security.yml
+  # - config/cops/sequel.yml
+  - config/cops/style.yml
+  # - config/cops/thread_safety.yml
+  - .rubocop_todo.yml
+
+# Project-specific settings can be added here

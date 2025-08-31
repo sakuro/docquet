@@ -1,0 +1,153 @@
+inherit_from: ../defaults/style.yml
+
+Style/AccessorGrouping:
+  EnforcedStyle: separated
+
+Style/AccessModifierDeclarations:
+  EnforcedStyle: inline
+
+Style/ArrayFirstLast:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/BlockDelimiters:
+  EnforcedStyle: semantic
+  AllowBracesOnProceduralOneLiners: true
+
+Style/CaseEquality:
+  Enabled: false
+
+Style/CommandLiteral:
+  EnforcedStyle: percent_x
+
+Style/ConstantVisibility:
+  IgnoreModules: true
+
+Style/Copyright:
+  Enabled: false
+
+Style/DisableCopsWithinSourceCodeDirective:
+  AllowedCops:
+  - Metrics/AbcSize
+  - Metrics/CyclomaticComplexity
+  - Naming/AccessorMethodName
+  - RSpec/ExampleLength
+  - RSpec/InstanceVariable
+  - RSpec/MultipleExpectations
+  - RSpec/RepeatedExampleGroupBody
+  - Style/HashEachMethods
+  - Style/RedandantEach
+  - Style/RedundantFetchBlock
+  - ThreadSafety/NewThread
+
+Style/EndlessMethod:
+  EnforcedStyle: allow_single_line
+
+Style/ExplicitBlockArgument:
+  Enabled: false
+
+Style/FetchEnvVar:
+  AllowedVars: []
+
+Style/FormatString:
+  EnforcedStyle: percent
+
+Style/FormatStringToken:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: always_true
+
+Style/HashConversion:
+  Enabled: false
+
+Style/HashSyntax:
+  EnforcedStyle: ruby19_no_mixed_keys
+  EnforcedShorthandSyntax: always
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/ImplicitRuntimeError:
+  Enabled: true
+
+Style/InlineComment:
+  Enabled: false
+
+Style/Lambda:
+  EnforcedStyle: literal
+
+Style/MethodCallWithArgsParentheses:
+  Enabled: false
+
+Style/MissingElse:
+  EnforcedStyle: case
+
+Style/MultilineBlockChain:
+  Enabled: false
+
+Style/MultipleComparison:
+  Enabled: false
+
+Style/NegatedWhile:
+  Enabled: true
+
+Style/Not:
+  Enabled: false
+
+Style/NumericLiteralPrefix:
+  EnforcedOctalStyle: zero_only
+
+Style/NumericLiterals:
+  MinDigits: 6
+
+Style/NumericPredicate:
+ Enabled: false
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Style/PerlBackrefs:
+  Enabled: false
+
+Style/RedundantException:
+  Enabled: false
+
+Style/ReturnNil:
+  Enabled: false
+
+Style/RescueStandardError:
+  EnforcedStyle: implicit
+
+Style/Semicolon:
+  AllowAsExpressionSeparator: true
+
+Style/SpecialGlobalVars:
+  Enabled: false
+
+Style/StringConcatenation:
+  Mode: conservative
+
+Style/StringHashKeys:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+
+Style/SymbolArray:
+  Enabled: true
+  EnforcedStyle: percent
+
+Style/YodaCondition:
+  EnforcedStyle: forbid_for_equality_operators_only
+
+Style/YodaExpression:
+  Enabled: false
+
+Style/ZeroLengthPredicate:
+  Enabled: false

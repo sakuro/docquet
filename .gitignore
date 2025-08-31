@@ -1,1 +1,2 @@
-build/
+.rspec_status
+coverage/

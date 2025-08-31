@@ -1,0 +1,2 @@
+inherit_from: ../defaults/i18n_gettext.yml
+

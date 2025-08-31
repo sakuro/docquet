@@ -1,0 +1,19 @@
+inherit_from: ../defaults/bundler.yml
+
+Bundler/GemComment:
+  OnlyFor:
+  - restrictive_version_specifiers
+  - bitbucket
+  - gist
+  - git
+  - github
+  - source
+
+Bundler/GemVersion:
+  Enabled: false
+
+Bundler/InsecureProtocolSource:
+ AllowHttpProtocol: false
+
+Bundler/OrderedGems:
+  ConsiderPunctuation: true

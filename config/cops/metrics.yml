@@ -1,0 +1,11 @@
+inherit_from: ../defaults/metrics.yml
+
+Metrics/BlockLength:
+  AllowedMethods:
+  - context
+  - describe
+  - file
+  - namespace
+  - refine
+  - shared_context
+  - shared_examples
