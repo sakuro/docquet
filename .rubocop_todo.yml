@@ -27,7 +27,6 @@ Style/Documentation:
     - 'lib/rubocop_config/cli/regenerate_todo.rb'
     - 'lib/rubocop_config/config_processor.rb'
     - 'lib/rubocop_config/generators/rubocop_yml_generator.rb'
-    - 'lib/rubocop_config/plugin_detector.rb'
     - 'lib/rubocop_config/rake_task.rb'
 
 # Configuration parameters: AllowedMethods, RequireForNonPublicMethods.
@@ -37,4 +36,3 @@ Style/DocumentationMethod:
     - 'lib/rubocop_config/cli/regenerate_todo.rb'
     - 'lib/rubocop_config/config_processor.rb'
     - 'lib/rubocop_config/generators/rubocop_yml_generator.rb'
-    - 'lib/rubocop_config/plugin_detector.rb'

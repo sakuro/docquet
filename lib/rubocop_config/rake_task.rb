@@ -27,7 +27,7 @@ module RubocopConfig
         inflections.acronym("ThreadSafety")
       end
 
-      @plugin_names = PluginDetector.detect_rubocop_plugins
+      @plugin_gem_names = PluginDetector.detect_plugin_gem_names
       departments = RuboCop::Cop::Registry.global.map {|c| c.department.to_s }
       departments.sort!
       departments.uniq!
@@ -82,7 +82,7 @@ module RubocopConfig
 
       base = department.downcase.tr("/", "_")
       gem_name = "rubocop-#{department.downcase.sub(%r{/.*}, "")}"
-      gem_name = "rubocop" unless @plugin_names.include?(gem_name)
+      gem_name = "rubocop" unless @plugin_gem_names.include?(gem_name)
 
       options = [
         "--show-cops=#{department}/*",
@@ -95,14 +95,14 @@ module RubocopConfig
       cmd = [
         "bin/rubocop",
         *options,
-        *@plugin_names.sort.flat_map { %W[--plugin #{it}] }
+        *@plugin_gem_names.sort.flat_map { %W[--plugin #{it}] }
       ]
 
       puts "Running: #{cmd.join(" ")}"
       content = %x(#{cmd.join(" ")} 2>/dev/null)
 
       if $?.success?
-        processor = ConfigProcessor.new(@plugin_names)
+        processor = ConfigProcessor.new(@plugin_gem_names)
         processed_content = processor.process(content, department, gem_name, base)
         File.write(target_file, processed_content)
         puts "✓ Generated #{target_file}"

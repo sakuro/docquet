@@ -7,7 +7,7 @@ module RubocopConfig
   module Generators
     class RubocopYmlGenerator
       def initialize
-        @detected_plugins = PluginDetector.detect_plugin_names
+        @detected_plugin_names = PluginDetector.detect_plugin_names
         @filtered_configs = filtered_config_files
       end
 
@@ -47,7 +47,7 @@ module RubocopConfig
           else
             # Check if corresponding plugin is detected
             plugin_name = department.downcase
-            @detected_plugins.include?(plugin_name)
+            @detected_plugin_names.include?(plugin_name)
           end
         end
       end
