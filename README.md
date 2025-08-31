@@ -1,85 +1,165 @@
 # RuboCop Config
 
-This project provides a centralized RuboCop configuration to standardize code style across multiple Ruby projects. It's designed to be added as a Git submodule to maintain consistent coding standards.
+A standardized RuboCop configuration gem that automatically detects available RuboCop plugins and generates appropriate configurations with CLI tools for easy setup and maintenance.
 
-## Overview
+## Features
 
-- **Purpose**: Standardize and share RuboCop configurations across multiple Ruby projects
-- **Usage**: Add as a Git submodule to individual projects
-- **Supported Plugins**: 
-  - rubocop-capybara
-  - rubocop-i18n
-  - rubocop-performance
-  - rubocop-rake
-  - rubocop-rspec
-  - rubocop-sequel
-  - rubocop-thread_safety
+- **Automatic Plugin Detection**: Automatically detects installed RuboCop plugins and includes their configurations
+- **CLI Tools**: Easy-to-use commands for initialization and maintenance
+- **Comprehensive Coverage**: Supports all major RuboCop plugins out of the box
+- **Documentation Links**: Generated configurations include links to official documentation
+- **Incremental Setup**: Generates `.rubocop_todo.yml` for gradual adoption
 
-## Configuration Structure
+## Installation
 
-### Main Configuration
-- `.rubocop.yml`: Main configuration file that integrates all settings
+### As a Gem
 
-### Category-Specific Configurations
-- `bundler.yml`: Bundler-related rules
-- `capybara.yml`, `capybara_rspec.yml`: Capybara-related rules
-- `gemspec.yml`: Gemspec-related rules
-- `i18n_gettext.yml`, `i18n_railsi18n.yml`: Internationalization rules
-- `layout.yml`: Layout and formatting rules
-- `lint.yml`: Lint rules for potential bugs
-- `metrics.yml`: Code complexity metrics
-- `migration.yml`: Database migration rules
-- `naming.yml`: Naming convention rules
-- `performance.yml`: Performance optimization rules
-- `rake.yml`: Rake-related rules
-- `rspec.yml`: RSpec testing framework rules
-- `security.yml`: Security-related rules
-- `sequel.yml`: Sequel ORM rules
-- `style.yml`: Code style rules
-- `threadsafety.yml`: Thread safety rules
+```bash
+gem install sakuro-rubocop-config
+```
 
-### Default Settings
-The `default/` directory contains base configurations for each category. Customized configuration files inherit from these defaults and override specific settings.
+Or add it to your Gemfile:
+
+```ruby
+gem "sakuro-rubocop-config", require: false
+```
 
 ## Usage
 
-### 1. Add as a submodule
+### Initialize RuboCop Configuration
 
-```sh
-git submodule add https://github.com/sakuro/rubocop-config .rubocop.d
+Run the initialization command in your project root:
+
+```bash
+rubocop-config init
 ```
 
-### 2. Configure your project's .rubocop.yml
+This command will:
+1. Generate `.rubocop.yml` with configurations for detected plugins
+2. Create an initial `.rubocop_todo.yml` with existing violations
+3. Display next steps for gradual adoption
 
-#### Use all configurations
-```yaml
-inherit_from: .rubocop.d/.rubocop.yml
+To overwrite existing files:
+
+```bash
+rubocop-config init --force
 ```
 
-#### Use specific configurations only
+### Update TODO File
+
+When you've fixed some violations and want to regenerate the TODO file:
+
+```bash
+rubocop-config regenerate-todo
+```
+
+This command will:
+- Regenerate `.rubocop_todo.yml` with current violations
+- Show whether the TODO file changed
+- Provide feedback on progress
+
+## Supported RuboCop Plugins
+
+The gem automatically detects and configures the following plugins when installed:
+
+### Core RuboCop
+- **Bundler**: Bundler-related rules
+- **Gemspec**: Gemspec file rules  
+- **Layout**: Code formatting and layout rules
+- **Lint**: Rules for catching potential bugs
+- **Metrics**: Code complexity and size metrics
+- **Naming**: Naming convention rules
+- **Security**: Security-related rules
+- **Style**: General code style rules
+
+### Plugin Extensions
+- **rubocop-capybara**: Capybara testing framework rules
+- **rubocop-i18n**: Internationalization rules (GetText, Rails I18n)
+- **rubocop-performance**: Performance optimization rules
+- **rubocop-rake**: Rake task rules
+- **rubocop-rspec**: RSpec testing framework rules
+- **rubocop-sequel**: Sequel ORM rules
+- **rubocop-thread_safety**: Thread safety rules
+
+## Generated Configuration Structure
+
+The generated `.rubocop.yml` file includes:
+
 ```yaml
+TargetRubyVersion: 3.1  # Detected from .ruby-version or current Ruby
+
 inherit_from:
-  - .rubocop.d/style.yml
-  - .rubocop.d/layout.yml
-  - .rubocop.d/rspec.yml
+  - config/cops/style.yml        # Core style rules
+  - config/cops/layout.yml       # Core layout rules
+  - config/cops/performance.yml  # Performance rules (if plugin detected)
+  - config/cops/rspec.yml        # RSpec rules (if plugin detected)
+  # ... other detected plugins
 ```
-# Cop Documentation
 
-* rubocop core
-  * [Bundler](https://docs.rubocop.org/rubocop/cops_bundler.html)
-  * [Gemspec](https://docs.rubocop.org/rubocop/cops_gemspec.html)
-  * [Layout](https://docs.rubocop.org/rubocop/cops_layout.html)
-  * [Lint](https://docs.rubocop.org/rubocop/cops_lint.html)
-  * [Metrics](https://docs.rubocop.org/rubocop/cops_metrics.html)
-  * [Migration](https://docs.rubocop.org/rubocop/cops_migration.html)
-  * [Naming](https://docs.rubocop.org/rubocop/cops_naming.html)
-  * [Security](https://docs.rubocop.org/rubocop/cops_security.html)
-  * [Style](https://docs.rubocop.org/rubocop/cops_style.html)
-* rubocop-performance
-  * [Performance](https://docs.rubocop.org/rubocop-performance/cops_performance.html)
-* rubocop-rake
-* rubocop-rspec
-  * [Capybara](https://docs.rubocop.org/rubocop-rspec/cops_rspec_capybara.html)
-  * [FactoryBot](https://docs.rubocop.org/rubocop-rspec/cops_rspec_factorybot.html)
-  * [Rails](https://docs.rubocop.org/rubocop-rspec/cops_rspec_rails.html)
-  * [RSpec](https://docs.rubocop.org/rubocop-rspec/cops_rspec.html)
+Each configuration file includes:
+- Department-specific rules with counts
+- Links to official RuboCop documentation
+- Enabled cops with descriptive comments
+- Optimized settings for practical use
+
+## Configuration Philosophy
+
+This configuration aims to:
+
+1. **Enforce Consistency**: Standardize code style across projects
+2. **Promote Best Practices**: Enable rules that catch common issues
+3. **Provide Documentation**: Include links to understand each rule
+4. **Enable Gradual Adoption**: Use TODO files for incremental improvements
+5. **Stay Current**: Automatically adapt to installed plugin versions
+
+## Development
+
+### Running Tests
+
+```bash
+bundle exec rspec
+```
+
+### Running RuboCop
+
+```bash
+bundle exec rubocop
+```
+
+### Regenerating TODO File
+
+```bash
+./exe/rubocop-config regenerate-todo
+```
+
+## Documentation Links
+
+### Core RuboCop
+- [Bundler Cops](https://docs.rubocop.org/rubocop/cops_bundler.html)
+- [Gemspec Cops](https://docs.rubocop.org/rubocop/cops_gemspec.html)  
+- [Layout Cops](https://docs.rubocop.org/rubocop/cops_layout.html)
+- [Lint Cops](https://docs.rubocop.org/rubocop/cops_lint.html)
+- [Metrics Cops](https://docs.rubocop.org/rubocop/cops_metrics.html)
+- [Naming Cops](https://docs.rubocop.org/rubocop/cops_naming.html)
+- [Security Cops](https://docs.rubocop.org/rubocop/cops_security.html)
+- [Style Cops](https://docs.rubocop.org/rubocop/cops_style.html)
+
+### Plugin Extensions  
+- [Performance Cops](https://docs.rubocop.org/rubocop-performance/cops_performance.html)
+- [RSpec Cops](https://docs.rubocop.org/rubocop-rspec/cops_rspec.html)
+- [RSpec Capybara Cops](https://docs.rubocop.org/rubocop-rspec/cops_rspec_capybara.html)
+- [RSpec FactoryBot Cops](https://docs.rubocop.org/rubocop-rspec/cops_rspec_factorybot.html)  
+- [RSpec Rails Cops](https://docs.rubocop.org/rubocop-rspec/cops_rspec_rails.html)
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes with tests
+4. Run the test suite: `bundle exec rspec`  
+5. Run RuboCop: `bundle exec rubocop`
+6. Submit a pull request
+
+## License
+
+This gem is available as open source under the terms of the [MIT License](LICENSE).
