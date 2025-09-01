@@ -1,25 +1,30 @@
 # frozen_string_literal: true
 
+# Only load in docquet gem development environment
+unless File.exist?("docquet.gemspec")
+  warn "Warning: docquet/rake_task loaded outside of docquet project - skipping loading"
+  return
+end
+
+# Standard library and framework requires
 require "fileutils"
 require "rake/tasklib"
-require "rubocop"
-
-# プラグインの条件付き読み込み
-%w[
-  rubocop-capybara
-  rubocop-i18n
-  rubocop-performance
-  rubocop-rake
-  rubocop-rspec
-  rubocop-sequel
-  rubocop-thread_safety
-].each do |plugin|
-  require plugin
-rescue LoadError
-  # Skip silently if the plugin is not available
-end
 require "uri"
 require "yaml"
+
+# RuboCop core
+require "rubocop"
+
+# RuboCop plugins
+require "rubocop-capybara"
+require "rubocop-i18n"
+require "rubocop-performance"
+require "rubocop-rake"
+require "rubocop-rspec"
+require "rubocop-sequel"
+require "rubocop-thread_safety"
+
+# Local requires
 require_relative "config_processor"
 require_relative "inflector"
 require_relative "plugin_detector"

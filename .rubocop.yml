@@ -15,21 +15,21 @@ inherit_mode:
     - Exclude
 
 plugins:
-  # - rubocop-capybara
-  # - rubocop-i18n
+  - rubocop-capybara
+  - rubocop-i18n
   - rubocop-performance
   - rubocop-rake
   - rubocop-rspec
-  # - rubocop-sequel
-  # - rubocop-thread_safety
+  - rubocop-sequel
+  - rubocop-thread_safety
 
 inherit_from:
   - config/cops/bundler.yml
-  # - config/cops/capybara.yml
-  # - config/cops/capybara_rspec.yml
+  - config/cops/capybara.yml
+  - config/cops/capybara_rspec.yml
   - config/cops/gemspec.yml
-  # - config/cops/i18n_gettext.yml
-  # - config/cops/i18n_railsi18n.yml
+  - config/cops/i18n_gettext.yml
+  - config/cops/i18n_railsi18n.yml
   - config/cops/layout.yml
   - config/cops/lint.yml
   - config/cops/metrics.yml
@@ -39,9 +39,19 @@ inherit_from:
   - config/cops/rake.yml
   - config/cops/rspec.yml
   - config/cops/security.yml
-  # - config/cops/sequel.yml
+  - config/cops/sequel.yml
   - config/cops/style.yml
-  # - config/cops/thread_safety.yml
+  - config/cops/thread_safety.yml
   - .rubocop_todo.yml
 
-# Project-specific settings can be added here
+# Project-specific settings
+# Disable I18n cops as this project is not intended for internationalization
+I18n/GetText/DecorateString:
+  Enabled: false
+
+I18n/RailsI18n/DecorateString:
+  Enabled: false
+
+# Disable ThreadSafety cops as this is a CLI tool where thread safety is not a primary concern
+ThreadSafety:
+  Enabled: false
