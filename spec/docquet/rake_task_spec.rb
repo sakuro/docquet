@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "rake"
+require_relative "../../lib/docquet/rake_task"
 
 RSpec.describe Docquet::RakeTask do
   before do
