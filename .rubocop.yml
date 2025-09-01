@@ -44,4 +44,14 @@ inherit_from:
   - config/cops/thread_safety.yml
   - .rubocop_todo.yml
 
-# Project-specific settings can be added here
+# Project-specific settings
+# Disable I18n cops as this project is not intended for internationalization
+I18n/GetText/DecorateString:
+  Enabled: false
+
+I18n/RailsI18n/DecorateString:
+  Enabled: false
+
+# Disable ThreadSafety cops as this is a CLI tool where thread safety is not a primary concern
+ThreadSafety:
+  Enabled: false
