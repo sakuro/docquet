@@ -4,6 +4,13 @@ source "https://rubygems.org"
 
 gemspec
 
+group :development, :test do
+  gem "irb"
+  gem "repl_type_completor"
+
+  gem "rake"
+end
+
 group :development do
   gem "rubocop"
   gem "rubocop-capybara"
@@ -17,11 +24,9 @@ group :development do
   gem "rubocop-rake"
   gem "rubocop-sequel"
   gem "rubocop-thread_safety"
+end
 
-  gem "irb"
-  gem "repl_type_completor"
-
-  gem "rake", "~> 13.0" # Task automation framework
-  gem "rspec", "~> 3.0" # Testing framework
-  gem "simplecov", "~> 0.22" # Code coverage analysis
+group :test do
+  gem "rspec"
+  gem "simplecov"
 end

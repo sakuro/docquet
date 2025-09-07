@@ -120,9 +120,9 @@ PLATFORMS
 DEPENDENCIES
   docquet!
   irb
-  rake (~> 13.0)
+  rake
   repl_type_completor
-  rspec (~> 3.0)
+  rspec
   rubocop
   rubocop-capybara
   rubocop-i18n
@@ -131,7 +131,7 @@ DEPENDENCIES
   rubocop-rspec
   rubocop-sequel
   rubocop-thread_safety
-  simplecov (~> 0.22)
+  simplecov
 
 BUNDLED WITH
    2.7.1
