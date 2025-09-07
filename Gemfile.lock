@@ -6,6 +6,7 @@ PATH
       dry-inflector (~> 1.0)
       erb (>= 2.2)
       rubocop (>= 1.0)
+      zeitwerk (~> 2.6)
 
 GEM
   remote: https://rubygems.org/
@@ -112,6 +113,7 @@ GEM
     unicode-display_width (3.1.5)
       unicode-emoji (~> 4.0, >= 4.0.4)
     unicode-emoji (4.0.4)
+    zeitwerk (2.7.3)
 
 PLATFORMS
   arm64-darwin-24

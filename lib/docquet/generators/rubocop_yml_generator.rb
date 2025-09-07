@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
 require "erb"
-require_relative "../inflector"
-require_relative "../plugin_detector"
 
 module Docquet
   module Generators
-    class RubocopYmlGenerator
+    class RuboCopYMLGenerator
       def initialize
         @inflector = Inflector.instance
         @detected_plugin_names = PluginDetector.detect_plugin_names

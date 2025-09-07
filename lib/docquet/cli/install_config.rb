@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "../generators/rubocop_yml_generator"
-require_relative "base"
-
 module Docquet
   module CLI
     class InstallConfig < Base
@@ -21,7 +18,7 @@ module Docquet
 
         create_empty_todo_file
 
-        generator = Generators::RubocopYmlGenerator.new
+        generator = Generators::RuboCopYMLGenerator.new
         generator.generate
         puts "✓ Generated .rubocop.yml"
 

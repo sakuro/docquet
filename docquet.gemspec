@@ -34,4 +34,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "dry-inflector", "~> 1.0"
   spec.add_dependency "erb", ">= 2.2"
   spec.add_dependency "rubocop", ">= 1.0"
+  spec.add_dependency "zeitwerk", "~> 2.6"
 end

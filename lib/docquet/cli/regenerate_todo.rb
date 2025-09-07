@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "digest"
-require_relative "base"
 
 module Docquet
   module CLI
