@@ -2,7 +2,7 @@
 
 require_relative "docquet/cli"
 require_relative "docquet/cli/base"
-require_relative "docquet/cli/init"
+require_relative "docquet/cli/install_config"
 require_relative "docquet/cli/regenerate_todo"
 require_relative "docquet/config_processor"
 require_relative "docquet/generators/rubocop_yml_generator"

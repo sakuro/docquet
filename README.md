@@ -26,12 +26,12 @@ gem "docquet", require: false
 
 ## Usage
 
-### Initialize RuboCop Configuration
+### Install RuboCop Configuration
 
-Run the initialization command in your project root:
+Run the installation command in your project root:
 
 ```bash
-docquet init
+docquet install-config
 ```
 
 This command will:
@@ -42,7 +42,7 @@ This command will:
 To overwrite existing files:
 
 ```bash
-docquet init --force
+docquet install-config --force
 ```
 
 ### Update TODO File

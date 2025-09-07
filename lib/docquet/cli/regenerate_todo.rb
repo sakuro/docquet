@@ -10,7 +10,7 @@ module Docquet
 
       def call(**)
         unless rubocop_yml_exists?
-          puts "Error: .rubocop.yml not found. Run 'docquet init' first."
+          puts "Error: .rubocop.yml not found. Run 'docquet install-config' first."
           exit 1
         end
 

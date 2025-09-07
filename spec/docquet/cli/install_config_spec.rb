@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-RSpec.describe Docquet::CLI::Init do
-  let(:init_command) { Docquet::CLI::Init.new }
+RSpec.describe Docquet::CLI::InstallConfig do
+  let(:install_config_command) { Docquet::CLI::InstallConfig.new }
   let(:mock_generator) { instance_double(Docquet::Generators::RubocopYmlGenerator) }
 
   before do
     # Mock file operations
     allow(File).to receive(:exist?).and_return(false)
     allow(File).to receive(:write)
-    allow(init_command).to receive(:puts)
-    allow(init_command).to receive(:exit)
-    allow(init_command).to receive(:system).and_return(true)
+    allow(install_config_command).to receive(:puts)
+    allow(install_config_command).to receive(:exit)
+    allow(install_config_command).to receive(:system).and_return(true)
 
     # Mock generator
     allow(Docquet::Generators::RubocopYmlGenerator).to receive(:new).and_return(mock_generator)
@@ -20,16 +20,16 @@ RSpec.describe Docquet::CLI::Init do
   describe "#call" do
     context "with default options" do
       it "executes the initialization process successfully" do
-        init_command.call
+        install_config_command.call
 
         expect(File).to have_received(:write).with(".rubocop_todo.yml", anything)
         expect(Docquet::Generators::RubocopYmlGenerator).to have_received(:new)
         expect(mock_generator).to have_received(:generate)
-        expect(init_command).to have_received(:system).with(/rubocop.*--regenerate-todo/)
+        expect(install_config_command).to have_received(:system).with(/rubocop.*--regenerate-todo/)
       end
 
       it "creates empty TODO file first" do
-        init_command.call
+        install_config_command.call
 
         expect(File).to have_received(:write).with(
           ".rubocop_todo.yml",
@@ -38,7 +38,7 @@ RSpec.describe Docquet::CLI::Init do
       end
 
       it "generates .rubocop.yml using the generator" do
-        init_command.call
+        install_config_command.call
 
         expect(mock_generator).to have_received(:generate)
       end
@@ -46,9 +46,9 @@ RSpec.describe Docquet::CLI::Init do
       it "generates TODO file using rubocop command" do
         expected_command = /rubocop.*--regenerate-todo.*--no-exclude-limit.*--no-offense-counts.*--no-auto-gen-timestamp/
 
-        init_command.call
+        install_config_command.call
 
-        expect(init_command).to have_received(:system).with(expected_command)
+        expect(install_config_command).to have_received(:system).with(expected_command)
       end
     end
 
@@ -59,9 +59,9 @@ RSpec.describe Docquet::CLI::Init do
       end
 
       it "overwrites existing files" do
-        init_command.call(force: true)
+        install_config_command.call(force: true)
 
-        expect(init_command).not_to have_received(:exit)
+        expect(install_config_command).not_to have_received(:exit)
         expect(File).to have_received(:write)
         expect(mock_generator).to have_received(:generate)
       end
@@ -74,21 +74,21 @@ RSpec.describe Docquet::CLI::Init do
       end
 
       it "exits with error" do
-        init_command.call(force: false)
+        install_config_command.call(force: false)
 
-        expect(init_command).to have_received(:exit).with(1)
+        expect(install_config_command).to have_received(:exit).with(1)
       end
     end
 
     context "when TODO generation fails" do
       before do
-        allow(init_command).to receive(:system).and_return(false)
+        allow(install_config_command).to receive(:system).and_return(false)
       end
 
       it "exits with error" do
-        init_command.call
+        install_config_command.call
 
-        expect(init_command).to have_received(:exit).with(1)
+        expect(install_config_command).to have_received(:exit).with(1)
       end
     end
   end
@@ -100,9 +100,9 @@ RSpec.describe Docquet::CLI::Init do
       end
 
       it "does not exit" do
-        init_command.send(:check_existing_files, false)
+        install_config_command.send(:check_existing_files, false)
 
-        expect(init_command).not_to have_received(:exit)
+        expect(install_config_command).not_to have_received(:exit)
       end
     end
 
@@ -112,9 +112,9 @@ RSpec.describe Docquet::CLI::Init do
       end
 
       it "does not exit" do
-        init_command.send(:check_existing_files, true)
+        install_config_command.send(:check_existing_files, true)
 
-        expect(init_command).not_to have_received(:exit)
+        expect(install_config_command).not_to have_received(:exit)
       end
     end
 
@@ -125,16 +125,16 @@ RSpec.describe Docquet::CLI::Init do
       end
 
       it "exits with error message" do
-        init_command.send(:check_existing_files, false)
+        install_config_command.send(:check_existing_files, false)
 
-        expect(init_command).to have_received(:exit).with(1)
+        expect(install_config_command).to have_received(:exit).with(1)
       end
     end
   end
 
   describe "#create_empty_todo_file" do
     it "writes empty TODO file with correct content" do
-      init_command.send(:create_empty_todo_file)
+      install_config_command.send(:create_empty_todo_file)
 
       expected_content = <<~TODO
         # This file contains configuration to temporarily disable cops
@@ -148,36 +148,36 @@ RSpec.describe Docquet::CLI::Init do
   describe "#generate_todo_file" do
     context "when command succeeds" do
       before do
-        allow(init_command).to receive(:system).and_return(true)
+        allow(install_config_command).to receive(:system).and_return(true)
       end
 
       it "does not exit" do
-        init_command.send(:generate_todo_file)
+        install_config_command.send(:generate_todo_file)
 
-        expect(init_command).not_to have_received(:exit)
+        expect(install_config_command).not_to have_received(:exit)
       end
     end
 
     context "when command fails" do
       before do
-        allow(init_command).to receive(:system).and_return(false)
+        allow(install_config_command).to receive(:system).and_return(false)
       end
 
       it "exits with error" do
-        init_command.send(:generate_todo_file)
+        install_config_command.send(:generate_todo_file)
 
-        expect(init_command).to have_received(:exit).with(1)
+        expect(install_config_command).to have_received(:exit).with(1)
       end
     end
   end
 
   describe "#build_todo_command" do
     before do
-      allow(init_command).to receive(:rubocop_command).and_return("bundle exec rubocop")
+      allow(install_config_command).to receive(:rubocop_command).and_return("bundle exec rubocop")
     end
 
     it "builds correct command with all required options" do
-      command = init_command.send(:build_todo_command)
+      command = install_config_command.send(:build_todo_command)
 
       expect(command).to eq("bundle exec rubocop --regenerate-todo --no-exclude-limit --no-offense-counts --no-auto-gen-timestamp")
     end
@@ -185,11 +185,11 @@ RSpec.describe Docquet::CLI::Init do
 
   describe "#show_completion_message" do
     it "displays completion message" do
-      allow(init_command).to receive(:puts).with(/RuboCop setup complete/)
+      allow(install_config_command).to receive(:puts).with(/RuboCop setup complete/)
 
-      init_command.send(:show_completion_message)
+      install_config_command.send(:show_completion_message)
 
-      expect(init_command).to have_received(:puts).with(/RuboCop setup complete/)
+      expect(install_config_command).to have_received(:puts).with(/RuboCop setup complete/)
     end
   end
 end

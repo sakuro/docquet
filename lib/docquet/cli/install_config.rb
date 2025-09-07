@@ -5,8 +5,8 @@ require_relative "base"
 
 module Docquet
   module CLI
-    class Init < Base
-      desc "Initialize RuboCop configuration and generate TODO file"
+    class InstallConfig < Base
+      desc "Install RuboCop configuration and generate TODO file"
 
       option :force, type: :boolean, default: false, desc: "Overwrite existing files"
 
