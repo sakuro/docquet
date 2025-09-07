@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-RSpec.describe Docquet::Generators::RubocopYmlGenerator do
-  let(:generator) { Docquet::Generators::RubocopYmlGenerator.new }
+RSpec.describe Docquet::Generators::RuboCopYMLGenerator do
+  let(:generator) { Docquet::Generators::RuboCopYMLGenerator.new }
   let(:config_dir) { File.join(File.dirname(__dir__, 4), "config", "cops") }
   let(:defaults_dir) { File.join(File.dirname(__dir__, 4), "config", "defaults") }
   let(:template_dir) { File.join(File.dirname(__dir__, 4), "templates") }
@@ -37,7 +37,7 @@ RSpec.describe Docquet::Generators::RubocopYmlGenerator do
       .and_return(%w[performance rspec])
 
     # Mock file paths to use local test structure
-    allow_any_instance_of(Docquet::Generators::RubocopYmlGenerator).to receive(:template_path) do |_, filename|
+    allow_any_instance_of(Docquet::Generators::RuboCopYMLGenerator).to receive(:template_path) do |_, filename|
       File.join("templates", filename)
     end
   end
@@ -166,7 +166,7 @@ RSpec.describe Docquet::Generators::RubocopYmlGenerator do
       end
 
       it "includes only core departments" do
-        new_generator = Docquet::Generators::RubocopYmlGenerator.new
+        new_generator = Docquet::Generators::RuboCopYMLGenerator.new
         filtered_configs = new_generator.send(:filtered_config_files)
 
         expect(filtered_configs).to include("style")
@@ -186,7 +186,7 @@ RSpec.describe Docquet::Generators::RubocopYmlGenerator do
       end
 
       it "filters correctly based on detection" do
-        new_generator = Docquet::Generators::RubocopYmlGenerator.new
+        new_generator = Docquet::Generators::RuboCopYMLGenerator.new
         filtered_configs = new_generator.send(:filtered_config_files)
 
         expect(filtered_configs).to include("style")

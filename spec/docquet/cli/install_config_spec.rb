@@ -2,7 +2,7 @@
 
 RSpec.describe Docquet::CLI::InstallConfig do
   let(:install_config_command) { Docquet::CLI::InstallConfig.new }
-  let(:mock_generator) { instance_double(Docquet::Generators::RubocopYmlGenerator) }
+  let(:mock_generator) { instance_double(Docquet::Generators::RuboCopYMLGenerator) }
 
   before do
     # Mock file operations
@@ -13,7 +13,7 @@ RSpec.describe Docquet::CLI::InstallConfig do
     allow(install_config_command).to receive(:system).and_return(true)
 
     # Mock generator
-    allow(Docquet::Generators::RubocopYmlGenerator).to receive(:new).and_return(mock_generator)
+    allow(Docquet::Generators::RuboCopYMLGenerator).to receive(:new).and_return(mock_generator)
     allow(mock_generator).to receive(:generate)
   end
 
@@ -23,7 +23,7 @@ RSpec.describe Docquet::CLI::InstallConfig do
         install_config_command.call
 
         expect(File).to have_received(:write).with(".rubocop_todo.yml", anything)
-        expect(Docquet::Generators::RubocopYmlGenerator).to have_received(:new)
+        expect(Docquet::Generators::RuboCopYMLGenerator).to have_received(:new)
         expect(mock_generator).to have_received(:generate)
         expect(install_config_command).to have_received(:system).with(/rubocop.*--regenerate-todo/)
       end

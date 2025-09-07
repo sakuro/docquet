@@ -1,16 +1,17 @@
 # frozen_string_literal: true
 
-require_relative "docquet/cli"
-require_relative "docquet/cli/base"
-require_relative "docquet/cli/install_config"
-require_relative "docquet/cli/regenerate_todo"
-require_relative "docquet/config_processor"
-require_relative "docquet/generators/rubocop_yml_generator"
-require_relative "docquet/inflector"
-# Disabled to avoid loading all RuboCop plugins when using docquet command in other projects
-# require_relative "docquet/rake_task"
+require "zeitwerk"
 require_relative "docquet/version"
 
 module Docquet
   class Error < StandardError; end
+
+  loader = Zeitwerk::Loader.for_gem
+  loader.inflector.inflect(
+    "cli" => "CLI",
+    "rubocop_yml_generator" => "RuboCopYMLGenerator"
+  )
+  loader.ignore("#{__dir__}/docquet/version.rb")
+  loader.ignore("#{__dir__}/docquet/rake_task.rb")
+  loader.setup
 end

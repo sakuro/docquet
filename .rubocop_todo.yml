@@ -6,6 +6,13 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
+# This cop supports safe autocorrection (--autocorrect).
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: final_newline, final_blank_line
+Layout/TrailingEmptyLines:
+  Exclude:
+    - 'lib/docquet/commands.rb'
+
 # Configuration parameters: AllowedMethods, AllowedPatterns, CountRepeatedAttributes, Max.
 Metrics/AbcSize:
   Exclude:
@@ -59,6 +66,11 @@ RSpec/NestedGroups:
   Exclude:
     - 'spec/docquet/cli/regenerate_todo_spec.rb'
 
+# Configuration parameters: CustomTransform, IgnoreMethods, IgnoreMetadata.
+RSpec/SpecFilePathFormat:
+  Exclude:
+    - 'spec/docquet/generators/rubocop_yml_generator_spec.rb'
+
 # Configuration parameters: IgnoreNameless, IgnoreSymbolicNames.
 RSpec/VerifiedDoubles:
   Exclude:
@@ -67,10 +79,12 @@ RSpec/VerifiedDoubles:
 # Configuration parameters: AllowedConstants.
 Style/Documentation:
   Exclude:
+    - 'lib/docquet.rb'
     - 'lib/docquet/cli.rb'
     - 'lib/docquet/cli/base.rb'
     - 'lib/docquet/cli/install_config.rb'
     - 'lib/docquet/cli/regenerate_todo.rb'
+    - 'lib/docquet/commands.rb'
     - 'lib/docquet/config_processor.rb'
     - 'lib/docquet/generators/rubocop_yml_generator.rb'
     - 'lib/docquet/rake_task.rb'

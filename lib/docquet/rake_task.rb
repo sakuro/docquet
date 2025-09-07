@@ -24,10 +24,8 @@ require "rubocop-rspec"
 require "rubocop-sequel"
 require "rubocop-thread_safety"
 
-# Local requires
-require_relative "config_processor"
-require_relative "inflector"
-require_relative "plugin_detector"
+# Load docquet for zeitwerk autoloading
+require_relative "../docquet"
 
 module Docquet
   class RakeTask < Rake::TaskLib
