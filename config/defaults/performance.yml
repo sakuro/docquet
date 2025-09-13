@@ -72,7 +72,6 @@ Performance/Casecmp:
 Performance/ChainArrayAllocation:
   Description: Instead of chaining array methods that allocate new arrays, mutate an
     existing array.
-  Reference: https://twitter.com/schneems/status/1034123879978029057
   Enabled: true # was false
   VersionAdded: '0.59'
 
@@ -197,7 +196,7 @@ Performance/InefficientHashSearch:
 # https://docs.rubocop.org/rubocop-performance/cops_performance.html#performanceioreadlines
 Performance/IoReadlines:
   Description: Use `IO.each_line` (`IO#each_line`) instead of `IO.readlines` (`IO#readlines`).
-  Reference: https://docs.gitlab.com/ee/development/performance.html#reading-from-files-and-other-data-sources
+  Reference: https://docs.gitlab.com/development/performance/#reading-from-files-and-other-data-sources
   Enabled: true # was false
   VersionAdded: '1.7'
 
@@ -206,7 +205,7 @@ Performance/IoReadlines:
 Performance/MapCompact:
   Description: Use `filter_map` instead of `collection.map(&:do_something).compact`.
   Enabled: true # was pending
-  SafeAutoCorrect: false
+  Safe: false
   VersionAdded: '1.11'
 
 # https://docs.rubocop.org/rubocop-performance/cops_performance.html#performancemapmethodchain
@@ -404,7 +403,7 @@ Performance/StringReplacement:
 Performance/Sum:
   Description: Use `sum` instead of a custom array summation.
   SafeAutoCorrect: false
-  Reference: https://blog.bigbinary.com/2016/11/02/ruby-2-4-introduces-enumerable-sum.html
+  Reference: https://www.bigbinary.com/blog/ruby-2-4-introduces-enumerable-sum
   Enabled: true # was pending
   VersionAdded: '1.8'
   VersionChanged: '1.13'
