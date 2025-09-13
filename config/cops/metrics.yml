@@ -9,3 +9,6 @@ Metrics/BlockLength:
   - refine
   - shared_context
   - shared_examples
+
+Metrics/ParameterLists:
+  CountKeywordArgs: false

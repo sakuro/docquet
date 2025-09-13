@@ -1,2 +1,5 @@
 inherit_from: ../defaults/thread_safety.yml
 
+ThreadSafety/DirChdir:
+  AllowCallWithBlock: true
+

@@ -1,2 +1,5 @@
 inherit_from: ../defaults/rake.yml
 
+Rake/MethodDefinitionInTask:
+  Enabled: false
+

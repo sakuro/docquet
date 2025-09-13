@@ -31,5 +31,11 @@ RSpec/ExampleLength:
 RSpec/MultipleMemoizedHelpers:
   Max: 10
 
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Enabled: false
+
 RSpec/Pending:
   Enabled: false
