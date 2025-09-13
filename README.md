@@ -8,20 +8,29 @@ A standardized RuboCop configuration gem that automatically detects available Ru
 - **CLI Tools**: Easy-to-use commands for initialization and maintenance
 - **Comprehensive Coverage**: Supports all major RuboCop plugins out of the box
 - **Documentation Links**: Generated configurations include links to official documentation
+- **Smart Detection**: Uses gem metadata to automatically detect installed RuboCop plugins
 - **Incremental Setup**: Generates `.rubocop_todo.yml` for gradual adoption
 
 ## Installation
 
-### As a Gem
+Add it to your Gemfile:
+
+```ruby
+group :development do
+  gem "docquet", require: false
+end
+```
+
+Then run:
+
+```bash
+bundle install
+```
+
+Or install it as a standalone gem:
 
 ```bash
 gem install docquet
-```
-
-Or add it to your Gemfile:
-
-```ruby
-gem "docquet", require: false
 ```
 
 ## Usage
@@ -72,12 +81,13 @@ The gem automatically detects and configures the following plugins when installe
 - **Security**: Security-related rules
 - **Style**: General code style rules
 
-### Plugin Extensions
+### Plugin Extensions (Auto-detected)
 - **rubocop-capybara**: Capybara testing framework rules
 - **rubocop-i18n**: Internationalization rules (GetText, Rails I18n)
+- **rubocop-migration**: Database migration rules (for Rails applications)
 - **rubocop-performance**: Performance optimization rules
 - **rubocop-rake**: Rake task rules
-- **rubocop-rspec**: RSpec testing framework rules
+- **rubocop-rspec**: RSpec testing framework rules (including Capybara integration)
 - **rubocop-sequel**: Sequel ORM rules
 - **rubocop-thread_safety**: Thread safety rules
 
@@ -86,21 +96,41 @@ The gem automatically detects and configures the following plugins when installe
 The generated `.rubocop.yml` file includes:
 
 ```yaml
-TargetRubyVersion: 3.1  # Detected from .ruby-version or current Ruby
+AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  EnabledByDefault: true
+  Exclude:
+    - bin/**/*
+    - vendor/**/*
+  ExtraDetails: true
+  NewCops: enable
+  TargetRubyVersion: 3.2  # Detected from .ruby-version or current Ruby
+  UseCache: true
 
-inherit_from:
-  - config/cops/style.yml        # Core style rules
-  - config/cops/layout.yml       # Core layout rules
-  - config/cops/performance.yml  # Performance rules (if plugin detected)
-  - config/cops/rspec.yml        # RSpec rules (if plugin detected)
+plugins:
+  - rubocop-performance  # Auto-detected plugins
+  - rubocop-rspec
   # ... other detected plugins
+
+inherit_gem:
+  docquet:
+    - config/cops/style.yml        # Core style rules
+    - config/cops/layout.yml       # Core layout rules
+    - config/cops/performance.yml  # Performance rules (if plugin detected)
+    - config/cops/rspec.yml        # RSpec rules (if plugin detected)
+    # ... other detected plugins
+
+inherit_from: .rubocop_todo.yml
 ```
 
 Each configuration file includes:
-- Department-specific rules with counts
+- Department-specific rules
 - Links to official RuboCop documentation
-- Enabled cops with descriptive comments
+- Carefully curated cop configurations
 - Optimized settings for practical use
+
+The configuration uses `EnabledByDefault: true` for strict code quality enforcement with TODO file for gradual adoption.
 
 ## Configuration Philosophy
 
@@ -114,6 +144,12 @@ This configuration aims to:
 
 ## Development
 
+### Setup
+
+```bash
+bundle install
+```
+
 ### Running Tests
 
 ```bash
@@ -126,9 +162,13 @@ bundle exec rspec
 bundle exec rubocop
 ```
 
-### Regenerating TODO File
+### Testing CLI Commands
 
 ```bash
+# Test installation command
+./exe/docquet install-config
+
+# Test TODO regeneration
 ./exe/docquet regenerate-todo
 ```
 
