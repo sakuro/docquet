@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.9.0] - 2025-09-15
+
 ### Added
 - CLI tool with `install-config` and `regenerate-todo` commands
 - Automatic RuboCop plugin detection using gem metadata
