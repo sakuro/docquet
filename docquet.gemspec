@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description   = "Provides opinionated RuboCop configurations and CLI tools for easy setup and maintenance"
   spec.homepage      = "https://github.com/sakuro/docquet"
   spec.license       = "MIT"
-  spec.required_ruby_version = ">= 3.2.9"
+  spec.required_ruby_version = ">= 3.2"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = spec.homepage
@@ -21,9 +21,15 @@ Gem::Specification.new do |spec|
 
   # Specify which files should be added to the gem when it is released.
   spec.files = Dir.chdir(File.expand_path(__dir__)) {
-    %x(git ls-files -z).split("\x0").reject do |f|
-      (f == __FILE__) || f.match(%r{\A(?:(?:bin|test|spec|features)/|\.(?:git|travis|circleci)|appveyor)})
-    end
+    Dir[
+      "lib/**/*.rb",
+      "exe/*",
+      "config/**/*.yml",
+      "templates/**/*.erb",
+      "LICENSE",
+      "README.md",
+      "CHANGELOG.md"
+    ]
   }
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{\Aexe/}) {|f| File.basename(f) }
