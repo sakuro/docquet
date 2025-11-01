@@ -21,8 +21,9 @@ Performance/ArraySemiInfiniteRangeSlice:
 # https://docs.rubocop.org/rubocop-performance/cops_performance.html#performancebigdecimalwithnumericargument
 Performance/BigDecimalWithNumericArgument:
   Description: Convert numeric literal to string and pass it to `BigDecimal`.
-  Enabled: true # was pending
+  Enabled: true # was false
   VersionAdded: '1.7'
+  VersionChanged: '1.26'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop-performance/cops_performance.html#performancebindcall
