@@ -63,10 +63,8 @@ RSpec.describe Docquet::RakeTask do
       allow(mock_processor).to receive(:process).and_return("processed content")
 
       # Mock successful command execution
-      allow(rake_task).to receive_messages(
-        "`": "raw rubocop output",
-        "$?": instance_double(Process::Status, success?: true)
-      )
+      mock_status = instance_double(Process::Status, success?: true)
+      allow(Open3).to receive(:capture2e).and_return(["raw rubocop output", mock_status])
     end
 
     it "generates configuration for the specified department" do
@@ -101,13 +99,11 @@ RSpec.describe Docquet::RakeTask do
         "rubocop-performance",
         "--plugin",
         "rubocop-rspec"
-      ].join(" ")
-
-      allow(rake_task).to receive(:`).with("#{expected_cmd} 2>/dev/null")
+      ]
 
       rake_task.send(:generate_default_config, department, target_file)
 
-      expect(rake_task).to have_received(:`).with("#{expected_cmd} 2>/dev/null")
+      expect(Open3).to have_received(:capture2e).with(*expected_cmd)
     end
 
     context "with complex department names" do

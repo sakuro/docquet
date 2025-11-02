@@ -8,6 +8,7 @@ end
 
 # Standard library and framework requires
 require "fileutils"
+require "open3"
 require "rake/tasklib"
 require "uri"
 require "yaml"
@@ -89,9 +90,9 @@ module Docquet
       cmd = ["bin/rubocop", *options, *@plugin_gem_names.sort.flat_map {|name| %W[--plugin #{name}] }]
 
       puts "Running: #{cmd.join(" ")}"
-      content = %x(#{cmd.join(" ")} 2>/dev/null)
+      content, status = Open3.capture2e(*cmd)
 
-      if $?.success?
+      if status.success?
         processor = ConfigProcessor.new(@plugin_gem_names)
         processed_content = processor.process(content, department, gem_name, base)
         File.write(target_file, processed_content)
