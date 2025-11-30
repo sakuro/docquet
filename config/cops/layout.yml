@@ -20,8 +20,14 @@ Layout/ClassStructure:
   - private_delegate
   - private_methods
 
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
 Layout/FirstArrayElementLineBreak:
   AllowMultilineFinalElement: true
+
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
 
 Layout/FirstMethodArgumentLineBreak:
   AllowMultilineFinalElement: true
