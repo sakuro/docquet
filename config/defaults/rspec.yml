@@ -1,4 +1,4 @@
-# Department 'RSpec' (111):
+# Department 'RSpec' (112):
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecalignleftletbrace
 RSpec/AlignLeftLetBrace:
@@ -585,6 +585,13 @@ RSpec/LeakyConstantDeclaration:
   StyleGuide: https://rspec.rubystyle.guide/#declare-constants
   Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/LeakyConstantDeclaration
 
+# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecleakylocalvariable
+RSpec/LeakyLocalVariable:
+  Description: Checks for local variables from outer scopes used inside examples.
+  Enabled: true # was pending
+  VersionAdded: '3.8'
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/LeakyLocalVariable
+
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecletbeforeexamples
 RSpec/LetBeforeExamples:
@@ -968,7 +975,13 @@ RSpec/SpecFilePathFormat:
   IgnoreMethods: false
   IgnoreMetadata:
     type: routing
+  InflectorPath: "./config/initializers/inflections.rb"
+  SupportedInflectors:
+  - default
+  - active_support
+  EnforcedInflector: default
   VersionAdded: '2.24'
+  VersionChanged: '3.8'
   Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/SpecFilePathFormat
 
 # https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecspecfilepathsuffix
