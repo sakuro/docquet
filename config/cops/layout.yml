@@ -36,10 +36,7 @@ Layout/HashAlignment:
   Enabled: false
 
 Layout/LineLength:
-  AllowedPatterns:
-  - expect
-  - (?:all|any|none|one)\?
-  - \bdef [A-Z]?[a-z0-9_]+[!?]?(?:\(.*\))? = .*(?!end)$
+  Enabled: false
 
 Layout/MultilineArrayLineBreaks:
   AllowMultilineFinalElement: true

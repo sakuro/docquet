@@ -21,15 +21,10 @@ RSpec/Dialect:
   Enabled: false
 
 RSpec/ExampleLength:
-  Enabled: true
-  CountAsOne:
-  - array
-  - hash
-  - heredoc
-  - method_call
+  Enabled: false
 
 RSpec/MultipleMemoizedHelpers:
-  Max: 10
+  Enabled: false
 
 RSpec/MultipleExpectations:
   Enabled: false
