@@ -1,5 +1,12 @@
 ## [Unreleased]
 
+## [1.1.0] - 2025-11-30
+
+### Changed
+- Bump rubocop-rspec to 3.8.0
+- Disabled some length and complexity cops
+- Layout/FirstArrayElementIndentation and Layout/FirstHashElementIndentation now use "consistent" style
+
 ## [1.0.0] - 2025-11-02
 
 ### Added
