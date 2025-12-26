@@ -1266,11 +1266,15 @@ Lint/UselessNumericOperation:
   Enabled: true # was pending
   VersionAdded: '1.66'
 
+# Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintuselessor
 Lint/UselessOr:
   Description: Checks for useless OR expressions.
   Enabled: true # was pending
+  SafeAutoCorrect: false
+  AutoCorrect: contextual
   VersionAdded: '1.76'
+  VersionChanged: '1.82'
 
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintuselessrescue
 Lint/UselessRescue:

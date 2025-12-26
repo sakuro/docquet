@@ -631,7 +631,7 @@ Layout/LineLength:
   StyleGuide: "#max-line-length"
   Enabled: true
   VersionAdded: '0.25'
-  VersionChanged: '1.69'
+  VersionChanged: '1.82'
   Max: 120
   AllowHeredoc: true
   AllowURI: true
@@ -639,7 +639,8 @@ Layout/LineLength:
   URISchemes:
   - http
   - https
-  IgnoreCopDirectives: true
+  AllowRBSInlineAnnotation: false
+  AllowCopDirectives: true
   AllowedPatterns: []
   SplitStrings: false
 

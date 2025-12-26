@@ -1,4 +1,4 @@
-# Department 'Style' (282):
+# Department 'Style' (283):
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#styleaccessmodifierdeclarations
 Style/AccessModifierDeclarations:
@@ -43,7 +43,7 @@ Style/Alias:
 # https://docs.rubocop.org/rubocop/cops_style.html#styleambiguousendlessmethoddefinition
 Style/AmbiguousEndlessMethodDefinition:
   Description: Checks for endless methods inside operators of lower precedence.
-  StyleGuide: "#ambiguous-endless-method-defintions"
+  StyleGuide: "#ambiguous-endless-method-definitions"
   Enabled: true # was pending
   VersionAdded: '1.68'
 
@@ -240,9 +240,11 @@ Style/BlockDelimiters:
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#stylecaseequality
 Style/CaseEquality:
-  Description: Avoid explicit use of the case equality operator(===).
+  Description: Avoid explicit use of the case equality operator (`===`).
   StyleGuide: "#no-case-equality"
   Enabled: true
+  References:
+  - https://docs.rubocop.org/rubocop-performance/cops_performance.html#performanceregexpmatch
   VersionAdded: '0.9'
   VersionChanged: '0.89'
   AllowOnConstant: false
@@ -1386,6 +1388,7 @@ Style/MethodCallWithArgsParentheses:
   AllowedMethods: []
   AllowedPatterns: []
   IncludedMacros: []
+  IncludedMacroPatterns: []
   AllowParenthesesInMultilineCall: false
   AllowParenthesesInChaining: false
   AllowParenthesesInCamelCaseMethod: false
@@ -1500,6 +1503,14 @@ Style/ModuleFunction:
   - forbidden
   Autocorrect: false
   SafeAutoCorrect: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemodulememberexistencecheck
+Style/ModuleMemberExistenceCheck:
+  Description: Checks for usage of `Module` methods returning arrays that can be replaced
+    with equivalent predicates.
+  Enabled: true # was pending
+  VersionAdded: '1.82'
 
 # https://docs.rubocop.org/rubocop/cops_style.html#stylemultilineblockchain
 Style/MultilineBlockChain:
@@ -2015,6 +2026,7 @@ Style/RedundantArgument:
     sum: 0
     exit: true
     exit!: false
+    to_i: 10
     split: " "
     chomp: "\n"
     chomp!: "\n"
