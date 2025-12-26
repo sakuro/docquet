@@ -24,8 +24,9 @@ jobs:
     steps:
     - name: Extract version from branch name
       id: version
+      env:
+        BRANCH_NAME: ${{ github.head_ref }}
       run: |
-        BRANCH_NAME="${{ github.head_ref }}"
         VERSION=${BRANCH_NAME#release-v}
         echo "version=$VERSION" >> $GITHUB_OUTPUT
         echo "tag=v$VERSION" >> $GITHUB_OUTPUT
@@ -38,7 +39,7 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '3.2'
+        ruby-version: "3.2"
         bundler-cache: true
 
     - name: Build gem
