@@ -1,4 +1,4 @@
-# Department 'RSpec' (112):
+# Department 'RSpec' (113):
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecalignleftletbrace
 RSpec/AlignLeftLetBrace:
@@ -755,6 +755,16 @@ RSpec/NotToNot:
   - to_not
   VersionAdded: '1.4'
   Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/NotToNot
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecoutput
+RSpec/Output:
+  Description: Checks for the use of output calls like puts and print in specs.
+  Enabled: true # was pending
+  AutoCorrect: contextual
+  SafeAutoCorrect: false
+  VersionAdded: '3.9'
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Output
 
 # https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecoverwritingsetup
 RSpec/OverwritingSetup:
