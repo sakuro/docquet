@@ -5,5 +5,5 @@ I18n/RailsI18n/DecorateString:
 
 # https://docs.rubocop.org/rubocop-i18n/cops_i18n_railsi18n.html#i18nrailsi18ndecoratestringformattingusinginterpolation
 I18n/RailsI18n/DecorateStringFormattingUsingInterpolation:
-  Enabled: true # was false
+  Enabled: true
 

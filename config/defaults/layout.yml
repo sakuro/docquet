@@ -422,6 +422,7 @@ Layout/FirstArrayElementLineBreak:
   Description: Checks for a line break before the first element in a multi-line array.
   Enabled: true # was false
   VersionAdded: '0.49'
+  AllowImplicitArrayLiterals: false
   AllowMultilineFinalElement: false
 
 # Supports --autocorrect
@@ -557,6 +558,10 @@ Layout/IndentationWidth:
   Enabled: true
   VersionAdded: '0.49'
   Width: 2
+  EnforcedStyleAlignWith: start_of_line
+  SupportedStylesAlignWith:
+  - start_of_line
+  - relative_to_receiver
   AllowedPatterns: []
 
 # Supports --autocorrect

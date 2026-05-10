@@ -251,6 +251,7 @@ Naming/PredicateMethod:
   AllowedPatterns: []
   AllowBangMethods: false
   WaywardPredicates:
+  - infinite?
   - nonzero?
 
 # https://docs.rubocop.org/rubocop/cops_naming.html#namingpredicateprefix

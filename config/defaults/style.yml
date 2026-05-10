@@ -1,4 +1,4 @@
-# Department 'Style' (283):
+# Department 'Style' (298):
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#styleaccessmodifierdeclarations
 Style/AccessModifierDeclarations:
@@ -671,6 +671,20 @@ Style/EmptyCaseCondition:
   VersionAdded: '0.40'
 
 # Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleemptyclassdefinition
+Style/EmptyClassDefinition:
+  Description: Enforces consistent style for empty class definitions.
+  Enabled: true # was pending
+  VersionAdded: '1.84'
+  VersionChanged: '1.86'
+  EnforcedStyle: class_keyword
+  SupportedStyles:
+  - class_keyword
+  - class_new
+  - class_definition
+  AllowedParentClasses: []
+
+# Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#styleemptyelse
 Style/EmptyElse:
   Description: Avoid empty else-clauses.
@@ -858,6 +872,13 @@ Style/FileNull:
   Enabled: true # was pending
   SafeAutoCorrect: false
   VersionAdded: '1.69'
+
+# https://docs.rubocop.org/rubocop/cops_style.html#stylefileopen
+Style/FileOpen:
+  Description: Checks for `File.open` without a block, which can leak file descriptors.
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.85'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#stylefileread
@@ -1056,6 +1077,18 @@ Style/HashLikeCase:
   MinBranchesCount: 3
 
 # Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylehashlookupmethod
+Style/HashLookupMethod:
+  Description: Enforces the use of either `Hash#[]` or `Hash#fetch` for hash lookup.
+  Enabled: true # was false
+  Safe: false
+  VersionAdded: '1.84'
+  EnforcedStyle: brackets
+  SupportedStyles:
+  - brackets
+  - fetch
+
+# Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#stylehashslice
 Style/HashSlice:
   Description: Checks for usages of `Hash#reject`, `Hash#select`, and `Hash#filter`
@@ -1151,6 +1184,7 @@ Style/IfWithBooleanLiteralBranches:
   VersionAdded: '1.9'
   SafeAutoCorrect: false
   AllowedMethods:
+  - infinite?
   - nonzero?
 
 # Supports --autocorrect
@@ -1359,6 +1393,14 @@ Style/MapIntoArray:
   VersionAdded: '1.63'
   VersionChanged: '1.67'
   Safe: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylemapjoin
+Style/MapJoin:
+  Description: Checks for redundant `map(&:to_s)` before `join`.
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.85'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#stylemaptohash
@@ -1649,6 +1691,15 @@ Style/NegatedWhile:
   VersionAdded: '0.20'
 
 # Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylenegativearrayindex
+Style/NegativeArrayIndex:
+  Description: Use negative array indices instead of calculating array length minus
+    a value. Also handles range patterns with length calculations. Recognizes preserving
+    methods and their combinations, allowing safe replacement when the receiver matches.
+  Enabled: true # was pending
+  VersionAdded: '1.84'
+
+# Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#stylenestedfiledirname
 Style/NestedFileDirname:
   Description: Checks for nested `File.dirname`.
@@ -1826,6 +1877,17 @@ Style/ObjectThen:
   - then
   - yield_self
 
+# https://docs.rubocop.org/rubocop/cops_style.html#styleoneclassperfile
+Style/OneClassPerFile:
+  Description: Checks that each source file defines at most one top-level class or module.
+  Enabled: true # was pending
+  VersionAdded: '1.85'
+  VersionChanged: '1.86'
+  AllowedClasses: []
+  Exclude:
+  - "spec/**/*"
+  - "test/**/*"
+
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#styleonelineconditional
 Style/OneLineConditional:
@@ -1920,6 +1982,15 @@ Style/ParenthesesAroundCondition:
   AllowInMultilineConditions: false
 
 # Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylepartitioninsteadofdoubleselect
+Style/PartitionInsteadOfDoubleSelect:
+  Description: Checks for consecutive `select`/`filter`/`find_all` and `reject` calls
+    on the same receiver with the same block body.
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.85'
+
+# Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#stylepercentliteraldelimiters
 Style/PercentLiteralDelimiters:
   Description: Use `%`-literal delimiters consistently.
@@ -1953,6 +2024,14 @@ Style/PerlBackrefs:
   StyleGuide: "#no-perl-regexp-last-matchers"
   Enabled: true
   VersionAdded: '0.13'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylepredicatewithkind
+Style/PredicateWithKind:
+  Description: Prefer `any?(Klass)` to `any? { |x| x.is_a?(Klass) }`.
+  Enabled: true # was pending
+  SafeAutoCorrect: false
+  VersionAdded: '1.85'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#stylepreferredhashmethods
@@ -2012,6 +2091,15 @@ Style/RandomWithOffset:
   StyleGuide: "#random-numbers"
   Enabled: true
   VersionAdded: '0.52'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylereducetohash
+Style/ReduceToHash:
+  Description: Use `to_h { ... }` instead of `each_with_object`, `inject`, or `reduce`
+    to build a hash.
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.85'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#styleredundantargument
@@ -2077,6 +2165,7 @@ Style/RedundantCondition:
   VersionAdded: '0.76'
   VersionChanged: '1.73'
   AllowedMethods:
+  - infinite?
   - nonzero?
 
 # Supports --autocorrect
@@ -2217,6 +2306,13 @@ Style/RedundantLineContinuation:
   VersionAdded: '1.49'
 
 # Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantminmaxby
+Style/RedundantMinMaxBy:
+  Description: Identifies places where `max_by`/`min_by` can be replaced by `max`/`min`.
+  Enabled: true # was pending
+  VersionAdded: '1.85'
+
+# Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#styleredundantparentheses
 Style/RedundantParentheses:
   Description: Checks for parentheses that seem not to serve any purpose.
@@ -2321,6 +2417,15 @@ Style/RedundantStringEscape:
   VersionAdded: '1.37'
 
 # Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantstructkeywordinit
+Style/RedundantStructKeywordInit:
+  Description: Checks for redundant `keyword_init` option for `Struct.new`.
+  Enabled: true # was false
+  SafeAutoCorrect: false
+  VersionAdded: '1.85'
+  VersionChanged: '1.86'
+
+# Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#styleregexpliteral
 Style/RegexpLiteral:
   Description: Use / or %r around regular expressions.
@@ -2387,6 +2492,14 @@ Style/ReturnNilInPredicateMethodDefinition:
   VersionChanged: '1.67'
 
 # Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#stylereversefind
+Style/ReverseFind:
+  Description: Use `array.rfind` instead of `array.reverse.find`.
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.84'
+
+# Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#stylesafenavigation
 Style/SafeNavigation:
   Description: Transforms usages of a method call safeguarded by a check for the existence
@@ -2423,9 +2536,25 @@ Style/Sample:
   VersionAdded: '0.30'
 
 # Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleselectbykind
+Style/SelectByKind:
+  Description: Prefer grep/grep_v to select/reject/find/detect with a kind check.
+  Enabled: true # was pending
+  SafeAutoCorrect: false
+  VersionAdded: '1.85'
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styleselectbyrange
+Style/SelectByRange:
+  Description: Prefer grep/grep_v to select/reject/find/detect with a range check.
+  Enabled: true # was pending
+  SafeAutoCorrect: false
+  VersionAdded: '1.85'
+
+# Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#styleselectbyregexp
 Style/SelectByRegexp:
-  Description: Prefer grep/grep_v to select/reject with a regexp match.
+  Description: Prefer grep/grep_v to select/reject/find/detect with a regexp match.
   Enabled: true # was pending
   SafeAutoCorrect: false
   VersionAdded: '1.22'
@@ -2731,6 +2860,14 @@ Style/SymbolProc:
   - define_method
   AllowedPatterns: []
   AllowComments: false
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styletallymethod
+Style/TallyMethod:
+  Description: Prefer `Enumerable#tally` over manual counting patterns.
+  Enabled: true # was pending
+  Safe: false
+  VersionAdded: '1.85'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#styleternaryparentheses

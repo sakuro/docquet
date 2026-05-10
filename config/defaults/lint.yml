@@ -1,4 +1,4 @@
-# Department 'Lint' (152):
+# Department 'Lint' (154):
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintambiguousassignment
 Lint/AmbiguousAssignment:
   Description: Checks for mistyped shorthand assignments.
@@ -139,6 +139,12 @@ Lint/CopDirectiveSyntax:
   Description: Checks that `# rubocop:` directives are strictly formatted.
   Enabled: true # was pending
   VersionAdded: '1.72'
+
+# https://docs.rubocop.org/rubocop/cops_lint.html#lintdatadefineoverride
+Lint/DataDefineOverride:
+  Description: Disallow overriding the `Data` built-in methods via `Data.define`.
+  Enabled: true # was pending
+  VersionAdded: '1.85'
 
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintdebugger
 Lint/Debugger:
@@ -943,8 +949,9 @@ Lint/SafeNavigationConsistency:
     condition, consistent and appropriate safe navigation, without excess or deficiency,
     is used for all method calls on the same object.
   Enabled: true
+  SafeAutoCorrect: false
   VersionAdded: '0.55'
-  VersionChanged: '0.77'
+  VersionChanged: '1.85'
   AllowedMethods:
   - present?
   - blank?
@@ -1153,6 +1160,13 @@ Lint/UnreachableLoop:
   VersionChanged: '1.7'
   AllowedPatterns:
   - !ruby/regexp /(exactly|at_least|at_most)\(\d+\)\.times/
+
+# https://docs.rubocop.org/rubocop/cops_lint.html#lintunreachablepatternbranch
+Lint/UnreachablePatternBranch:
+  Description: Checks for unreachable `in` pattern branches after an unconditional catch-all
+    pattern.
+  Enabled: true # was pending
+  VersionAdded: '1.85'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintunusedblockargument

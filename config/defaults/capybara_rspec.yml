@@ -1,4 +1,21 @@
-# Department 'Capybara/RSpec' (2):
+# Department 'Capybara/RSpec' (9):
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara_rspec.html#capybararspeccurrentpathexpectation
+Capybara/RSpec/CurrentPathExpectation:
+  Description: Checks that no expectations are set on Capybara's `current_path`.
+  Enabled: true # was pending
+  VersionAdded: '1.18'
+  VersionChanged: '2.23'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/RSpec/CurrentPathExpectation
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara_rspec.html#capybararspechavecontent
+Capybara/RSpec/HaveContent:
+  Description: Checks for usage of `have_content` and `have_no_content`.
+  Enabled: true # was pending
+  VersionAdded: '2.23'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/RSpec/HaveContent
+
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop-capybara/cops_capybara_rspec.html#capybararspechaveselector
 Capybara/RSpec/HaveSelector:
@@ -7,6 +24,35 @@ Capybara/RSpec/HaveSelector:
   DefaultSelector: css
   VersionAdded: '2.19'
   Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/RSpec/HaveSelector
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara_rspec.html#capybararspecmatchstyle
+Capybara/RSpec/MatchStyle:
+  Description: Checks for usage of deprecated style methods in RSpec matchers.
+  Enabled: true # was pending
+  VersionAdded: '2.23'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/RSpec/MatchStyle
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara_rspec.html#capybararspecnegationmatcher
+Capybara/RSpec/NegationMatcher:
+  Description: Enforces use of `have_no_*` or `not_to` for negated expectations.
+  Enabled: true # was pending
+  VersionAdded: '2.14'
+  VersionChanged: '2.23'
+  EnforcedStyle: have_no
+  SupportedStyles:
+  - have_no
+  - not_to
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/RSpec/NegationMatcher
+
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara_rspec.html#capybararspecnegationmatcheraftervisit
+Capybara/RSpec/NegationMatcherAfterVisit:
+  Description: Do not allow negative matchers to be used immediately after `visit`.
+  Enabled: true # was pending
+  VersionAdded: '2.22'
+  VersionChanged: '2.23'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/RSpec/NegationMatcherAfterVisit
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop-capybara/cops_capybara_rspec.html#capybararspecpredicatematcher
@@ -21,4 +67,20 @@ Capybara/RSpec/PredicateMatcher:
   - explicit
   VersionAdded: '2.19'
   Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/RSpec/PredicateMatcher
+
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara_rspec.html#capybararspecspecificmatcher
+Capybara/RSpec/SpecificMatcher:
+  Description: Checks for there is a more specific matcher offered by Capybara.
+  Enabled: true # was pending
+  VersionAdded: '2.12'
+  VersionChanged: '2.23'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/RSpec/SpecificMatcher
+
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara_rspec.html#capybararspecvisibilitymatcher
+Capybara/RSpec/VisibilityMatcher:
+  Description: Checks for boolean visibility in Capybara finders.
+  Enabled: true # was pending
+  VersionAdded: '1.39'
+  VersionChanged: '2.23'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/RSpec/VisibilityMatcher
 
