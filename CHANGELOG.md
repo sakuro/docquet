@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Drop Ruby 3.2
+
 ## [1.2.0] - 2025-12-26
 - Bump rubocop to 1.82
 
