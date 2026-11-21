@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [1.4.0] - 2026-11-21
+
 ### Added
 - Add cops introduced up to rubocop 1.92, rubocop-capybara 3.1, rubocop-rspec 3.10 and rubocop-thread_safety 0.8 to the defaults (enabled unless disabled in `config/cops`)
 
