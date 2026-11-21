@@ -1,5 +1,15 @@
 ## [Unreleased]
 
+### Added
+- Add cops introduced up to rubocop 1.92, rubocop-capybara 3.1, rubocop-rspec 3.10 and rubocop-thread_safety 0.8 to the defaults (enabled unless disabled in `config/cops`)
+
+### Changed
+- Update cop defaults to rubocop 1.92, rubocop-capybara 3.1, rubocop-performance 1.27, rubocop-rspec 3.10 and rubocop-thread_safety 0.8
+- Rename the `Style/FetchEnvVar` parameter `AllowedVars` to `AllowedVariables`
+
+### Removed
+- Remove `Capybara/ClickLinkOrButtonStyle` (use `Capybara/AmbiguousClick`) and `Style/DoubleCopDisableDirective` (use `Lint/CopDirectiveSyntax`)
+
 ## [1.3.0] - 2026-05-10
 
 - Drop Ruby 3.2
