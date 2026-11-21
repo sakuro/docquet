@@ -1,8 +1,8 @@
 # Department 'Security' (7):
 # https://docs.rubocop.org/rubocop/cops_security.html#securitycompoundhash
 Security/CompoundHash:
-  Description: When overwriting Object#hash to combine values, prefer delegating to
-    Array#hash over writing a custom implementation.
+  Description: Checks for `hash` implementations that combine values manually instead
+    of delegating to `Array#hash`.
   Enabled: true # was pending
   Safe: false
   VersionAdded: '1.28'
@@ -10,7 +10,7 @@ Security/CompoundHash:
 
 # https://docs.rubocop.org/rubocop/cops_security.html#securityeval
 Security/Eval:
-  Description: The use of eval represents a serious security risk.
+  Description: Checks for the use of `Kernel#eval` and `Binding#eval` with dynamic arguments.
   Enabled: true
   VersionAdded: '0.47'
 
@@ -47,8 +47,7 @@ Security/MarshalLoad:
 
 # https://docs.rubocop.org/rubocop/cops_security.html#securityopen
 Security/Open:
-  Description: The use of `Kernel#open` and `URI.open` represent a serious security
-    risk.
+  Description: Checks for the use of `Kernel#open` and `URI.open` with dynamic data.
   Enabled: true
   VersionAdded: '0.53'
   VersionChanged: '1.0'

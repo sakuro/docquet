@@ -3,6 +3,7 @@
 Naming/AccessorMethodName:
   Description: Checks the naming of accessor methods for get_/set_.
   StyleGuide: "#accessor_mutator_method_names"
+  VersionChanged: '1.89'
   Enabled: true
   VersionAdded: '0.50'
 
@@ -18,7 +19,7 @@ Naming/AsciiIdentifiers:
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_naming.html#namingbinaryoperatorparametername
 Naming/BinaryOperatorParameterName:
-  Description: When defining binary operators, name the argument other.
+  Description: Checks that the sole parameter of binary operator methods is named `other`.
   StyleGuide: "#other-arg"
   Enabled: true
   VersionAdded: '0.50'
@@ -256,11 +257,12 @@ Naming/PredicateMethod:
 
 # https://docs.rubocop.org/rubocop/cops_naming.html#namingpredicateprefix
 Naming/PredicatePrefix:
-  Description: Predicate method names should not be prefixed and end with a `?`.
+  Description: Checks that predicate method names end with a question mark and do not
+    start with a forbidden prefix.
   StyleGuide: "#bool-methods-qmark"
   Enabled: true
   VersionAdded: '0.50'
-  VersionChanged: '1.75'
+  VersionChanged: '1.89'
   NamePrefix:
   - is_
   - has_

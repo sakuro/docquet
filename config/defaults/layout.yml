@@ -30,7 +30,7 @@ Layout/ArgumentAlignment:
 # https://docs.rubocop.org/rubocop/cops_layout.html#layoutarrayalignment
 Layout/ArrayAlignment:
   Description: Align the elements of an array literal if they span more than one line.
-  StyleGuide: "#no-double-indent"
+  StyleGuide: "#align-multiline-arrays"
   Enabled: true
   VersionAdded: '0.49'
   VersionChanged: '0.77'
@@ -84,7 +84,7 @@ Layout/BlockEndNewline:
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_layout.html#layoutcaseindentation
 Layout/CaseIndentation:
-  Description: Indentation of when in a case/(when|in)/[else/]end.
+  Description: Checks how the `when` and `in` clauses of a `case` expression are indented.
   StyleGuide: "#indent-when-to-case"
   Enabled: true
   VersionAdded: '0.49'
@@ -104,7 +104,7 @@ Layout/ClassStructure:
   Enabled: true # was false
   SafeAutoCorrect: false
   VersionAdded: '0.52'
-  VersionChanged: '1.53'
+  VersionChanged: '1.89'
   Categories:
     module_inclusion:
     - include
@@ -117,6 +117,7 @@ Layout/ClassStructure:
   - initializer
   - public_methods
   - protected_methods
+  - private_class_methods
   - private_methods
 
 # Supports --autocorrect
@@ -132,15 +133,18 @@ Layout/ClosingParenthesisIndentation:
   Description: Checks the indentation of hanging closing parentheses.
   Enabled: true
   VersionAdded: '0.49'
+  VersionChanged: '1.86'
+  IndentationWidth:
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_layout.html#layoutcommentindentation
 Layout/CommentIndentation:
-  Description: Indentation of comments.
+  Description: Checks the indentation of comments.
   Enabled: true
-  AllowForAlignment: false
   VersionAdded: '0.49'
-  VersionChanged: '1.24'
+  VersionChanged: '1.86'
+  AllowForAlignment: false
+  IndentationWidth:
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_layout.html#layoutconditionposition
@@ -208,6 +212,8 @@ Layout/EmptyLineAfterMagicComment:
   StyleGuide: "#separate-magic-comments-from-code"
   Enabled: true
   VersionAdded: '0.49'
+  VersionChanged: '1.91'
+  NumberOfEmptyLines: 1
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptylineaftermultilinecondition
@@ -484,9 +490,9 @@ Layout/FirstParameterIndentation:
 Layout/HashAlignment:
   Description: Align the elements of a hash literal if they span more than one line.
   Enabled: true
-  AllowMultipleStyles: true
   VersionAdded: '0.49'
   VersionChanged: '1.16'
+  AllowMultipleStyles: true
   EnforcedHashRocketStyle: key
   SupportedHashRocketStyles:
   - key
@@ -509,8 +515,8 @@ Layout/HashAlignment:
 Layout/HeredocArgumentClosingParenthesis:
   Description: Checks for the placement of the closing parenthesis in a method call
     that passes a HEREDOC string as an argument.
-  Enabled: true # was false
   StyleGuide: "#heredoc-argument-closing-parentheses"
+  Enabled: true # was false
   VersionAdded: '0.68'
 
 # Supports --autocorrect
@@ -583,6 +589,7 @@ Layout/LeadingCommentSpace:
   AllowGemfileRubyComment: false
   AllowRBSInlineAnnotation: false
   AllowSteepAnnotation: false
+  AllowYARDCommentBlockSeparator: false
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_layout.html#layoutleadingemptylines
@@ -913,6 +920,7 @@ Layout/SpaceAroundOperators:
   StyleGuide: "#spaces-operators"
   Enabled: true
   VersionAdded: '0.49'
+  VersionChanged: '1.90'
   AllowForAlignment: true
   EnforcedStyleForExponentOperator: no_space
   SupportedStylesForExponentOperator:
@@ -929,6 +937,7 @@ Layout/SpaceBeforeBlockBraces:
   Description: Checks that the left block brace has or doesn't have space before it.
   Enabled: true
   VersionAdded: '0.49'
+  VersionChanged: '0.52'
   EnforcedStyle: space
   SupportedStyles:
   - space
@@ -937,7 +946,6 @@ Layout/SpaceBeforeBlockBraces:
   SupportedStylesForEmptyBraces:
   - space
   - no_space
-  VersionChanged: '0.52'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_layout.html#layoutspacebeforebrackets

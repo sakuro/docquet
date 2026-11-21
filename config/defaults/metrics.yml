@@ -1,8 +1,8 @@
 # Department 'Metrics' (10):
 # https://docs.rubocop.org/rubocop/cops_metrics.html#metricsabcsize
 Metrics/AbcSize:
-  Description: A calculated magnitude based on number of assignments, branches, and
-    conditions.
+  Description: Checks that the ABC size of methods is not higher than the configured
+    maximum.
   References:
   - https://wiki.c2.com/?AbcMetric
   - https://en.wikipedia.org/wiki/ABC_Software_Metric
@@ -60,12 +60,13 @@ Metrics/CollectionLiteralLength:
   Description: Checks for `Array` or `Hash` literals with many entries.
   Enabled: true # was pending
   VersionAdded: '1.47'
-  LengthThreshold: 250
+  VersionChanged: '1.88'
+  Max: 250
 
 # https://docs.rubocop.org/rubocop/cops_metrics.html#metricscyclomaticcomplexity
 Metrics/CyclomaticComplexity:
-  Description: A complexity metric that is strongly correlated to the number of test
-    cases needed to validate a method.
+  Description: Checks that the cyclomatic complexity of methods is not higher than the
+    configured maximum.
   Enabled: true
   VersionAdded: '0.25'
   VersionChanged: '0.81'
@@ -109,10 +110,11 @@ Metrics/ParameterLists:
 
 # https://docs.rubocop.org/rubocop/cops_metrics.html#metricsperceivedcomplexity
 Metrics/PerceivedComplexity:
-  Description: A complexity metric geared towards measuring complexity for a human reader.
+  Description: Checks that the perceived complexity of methods is not higher than the
+    configured maximum.
   Enabled: true
   VersionAdded: '0.25'
-  VersionChanged: '0.81'
+  VersionChanged: '1.88'
   AllowedMethods: []
   AllowedPatterns: []
   Max: 8

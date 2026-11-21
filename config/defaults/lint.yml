@@ -1,4 +1,4 @@
-# Department 'Lint' (154):
+# Department 'Lint' (160):
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintambiguousassignment
 Lint/AmbiguousAssignment:
   Description: Checks for mistyped shorthand assignments.
@@ -12,7 +12,7 @@ Lint/AmbiguousBlockAssociation:
     without parentheses.
   Enabled: true
   VersionAdded: '0.48'
-  VersionChanged: '1.13'
+  VersionChanged: '1.89'
   AllowedMethods: []
   AllowedPatterns: []
 
@@ -51,6 +51,13 @@ Lint/AmbiguousRegexpLiteral:
   Enabled: true
   VersionAdded: '0.17'
   VersionChanged: '0.83'
+
+# https://docs.rubocop.org/rubocop/cops_lint.html#lintargumentmismatch
+Lint/ArgumentMismatch:
+  Description: Checks for calls that pass the wrong number of positional arguments to
+    a method, using the project index.
+  Enabled: true # was pending
+  VersionAdded: '1.90'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintarrayliteralinregexp
@@ -125,20 +132,24 @@ Lint/ConstantReassignment:
   Description: Checks for constant reassignments.
   Enabled: true # was pending
   VersionAdded: '1.70'
+  VersionChanged: '1.87'
 
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintconstantresolution
 Lint/ConstantResolution:
   Description: Checks that constants are fully qualified with `::`.
+  VersionChanged: '1.89'
   Enabled: true # was false
   VersionAdded: '0.86'
   Only: []
   Ignore: []
 
+# Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintcopdirectivesyntax
 Lint/CopDirectiveSyntax:
   Description: Checks that `# rubocop:` directives are strictly formatted.
-  Enabled: true # was pending
+  Enabled: true
   VersionAdded: '1.72'
+  VersionChanged: '1.91'
 
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintdatadefineoverride
 Lint/DataDefineOverride:
@@ -240,10 +251,18 @@ Lint/DeprecatedOpenSSLConstant:
   Enabled: true
   VersionAdded: '0.84'
 
+# https://docs.rubocop.org/rubocop/cops_lint.html#lintdeprecatedreference
+Lint/DeprecatedReference:
+  Description: Checks for references to methods and constants documented as deprecated
+    with a YARD `@deprecated` tag. Requires `AllCops/UseProjectIndex` to be enabled.
+  Enabled: true # was pending
+  VersionAdded: '1.89'
+
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintdisjunctiveassignmentinconstructor
 Lint/DisjunctiveAssignmentInConstructor:
   Description: In constructor, plain assignment is preferred over disjunctive.
+  StyleGuide: "#disjunctive-assignment-in-constructor"
   Enabled: true
   Safe: false
   VersionAdded: '0.62'
@@ -297,6 +316,10 @@ Lint/DuplicateMethods:
   Description: Checks for duplicate method definitions.
   Enabled: true
   VersionAdded: '0.29'
+  VersionChanged: '1.90'
+  DelegatingMethods:
+  - delegate
+  AllowedCrossFilePaths: []
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintduplicateregexpcharacterclasselement
@@ -364,9 +387,9 @@ Lint/EmptyConditionalBody:
     a body.
   Enabled: true
   AutoCorrect: contextual
-  AllowComments: true
   VersionAdded: '0.89'
   VersionChanged: '1.73'
+  AllowComments: true
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintemptyensure
@@ -410,9 +433,9 @@ Lint/EmptyInterpolation:
 Lint/EmptyWhen:
   Description: Checks for `when` branches with empty bodies.
   Enabled: true
-  AllowComments: true
   VersionAdded: '0.45'
   VersionChanged: '0.83'
+  AllowComments: true
 
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintensurereturn
 Lint/EnsureReturn:
@@ -451,7 +474,8 @@ Lint/FloatOutOfRange:
 
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintformatparametermismatch
 Lint/FormatParameterMismatch:
-  Description: The number of parameters to format/sprint must match the fields.
+  Description: Checks for a mismatch between the format fields and the arguments to
+    `format`/`sprintf`/`%`.
   Enabled: true
   VersionAdded: '0.33'
 
@@ -476,16 +500,16 @@ Lint/HashNewWithKeywordArgumentsAsDefault:
 Lint/HeredocMethodCallPosition:
   Description: Checks for the ordering of a method call where the receiver of the call
     is a HEREDOC.
-  Enabled: true # was false
   StyleGuide: "#heredoc-method-calls"
+  Enabled: true # was false
   VersionAdded: '0.68'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintidentitycomparison
 Lint/IdentityComparison:
   Description: Prefer `equal?` over `==` when comparing `object_id`.
-  Enabled: true
   StyleGuide: "#identity-comparison"
+  Enabled: true
   VersionAdded: '0.91'
 
 # Supports --autocorrect
@@ -519,7 +543,7 @@ Lint/InheritException:
   Enabled: true
   SafeAutoCorrect: false
   VersionAdded: '0.41'
-  VersionChanged: '1.26'
+  VersionChanged: '1.89'
   EnforcedStyle: standard_error
   SupportedStyles:
   - standard_error
@@ -582,21 +606,31 @@ Lint/Loop:
   VersionChanged: '1.3'
   Safe: false
 
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_lint.html#lintmisplacedmagiccomment
+Lint/MisplacedMagicComment:
+  Description: Checks for magic comments placed where Ruby silently ignores them.
+  StyleGuide: "#magic-comments-first"
+  Enabled: true # was pending
+  SafeAutoCorrect: false
+  VersionAdded: '1.91'
+
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintmissingcopenabledirective
 Lint/MissingCopEnableDirective:
   Description: Checks for a `# rubocop:enable` after `# rubocop:disable`.
   Enabled: true
   VersionAdded: '0.52'
-  MaximumRangeSize: .inf
+  VersionChanged: '1.90'
+  MaxRangeSize: .inf
 
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintmissingsuper
 Lint/MissingSuper:
   Description: Checks for the presence of constructors and lifecycle callbacks without
     calls to `super`.
   Enabled: true
-  AllowedParentClasses: []
   VersionAdded: '0.89'
-  VersionChanged: '1.4'
+  VersionChanged: '1.89'
+  AllowedParentClasses: []
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintmixedcaserange
@@ -610,6 +644,7 @@ Lint/MixedCaseRange:
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintmixedregexpcapturetypes
 Lint/MixedRegexpCaptureTypes:
   Description: Do not mix named captures and numbered captures in a Regexp literal.
+  StyleGuide: "#do-not-mix-named-and-numbered-captures"
   Enabled: true
   VersionAdded: '0.85'
 
@@ -620,6 +655,16 @@ Lint/MultipleComparison:
   Enabled: true
   VersionAdded: '0.47'
   VersionChanged: '1.1'
+
+# https://docs.rubocop.org/rubocop/cops_lint.html#lintnametypo
+Lint/NameTypo:
+  Description: Checks for probable typos in constant and method names, using the project
+    index.
+  Enabled: true # was pending
+  CheckConstants: true
+  CheckMethods: true
+  AllowedNames: []
+  VersionAdded: '1.89'
 
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintnestedmethoddefinition
 Lint/NestedMethodDefinition:
@@ -678,11 +723,11 @@ Lint/NumberConversion:
   Description: Checks unsafe usage of number conversion methods.
   Enabled: true # was false
   VersionAdded: '0.53'
-  VersionChanged: '1.1'
+  VersionChanged: '1.88'
   SafeAutoCorrect: false
   AllowedMethods: []
   AllowedPatterns: []
-  IgnoredClasses:
+  AllowedClasses:
   - Time
   - DateTime
 
@@ -697,7 +742,9 @@ Lint/NumberedParameterAssignment:
 Lint/NumericOperationWithConstantResult:
   Description: Checks for numeric operations with constant results.
   Enabled: true # was pending
+  SafeAutoCorrect: false
   VersionAdded: '1.69'
+  VersionChanged: '1.88'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintorassignmenttoconstant
@@ -715,7 +762,7 @@ Lint/OrderedMagicComments:
   Enabled: true
   SafeAutoCorrect: false
   VersionAdded: '0.53'
-  VersionChanged: '1.37'
+  VersionChanged: '1.91'
 
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintoutofrangeregexpref
 Lint/OutOfRangeRegexpRef:
@@ -783,6 +830,7 @@ Lint/RedundantCopEnableDirective:
   Description: Checks for rubocop:enable comments that can be removed.
   Enabled: true
   VersionAdded: '0.76'
+  VersionChanged: '1.90'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintredundantdirglobsort
@@ -867,8 +915,11 @@ Lint/RedundantWithIndex:
 Lint/RedundantWithObject:
   Description: Checks for redundant `with_object`.
   Enabled: true
+  SafeAutoCorrect: false
   VersionAdded: '0.51'
+  VersionChanged: '1.88'
 
+# Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintrefinementimportmethods
 Lint/RefinementImportMethods:
   Description: Use `Refinement#import_methods` when using `include` or `prepend` in
@@ -876,6 +927,7 @@ Lint/RefinementImportMethods:
   Enabled: true # was pending
   SafeAutoCorrect: false
   VersionAdded: '1.27'
+  VersionChanged: '1.88'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintregexpascondition
@@ -932,8 +984,9 @@ Lint/ReturnInVoidContext:
 Lint/SafeNavigationChain:
   Description: Do not chain ordinary method call after safe navigation operator.
   Enabled: true
+  SafeAutoCorrect: false
   VersionAdded: '0.47'
-  VersionChanged: '0.77'
+  VersionChanged: '1.89'
   AllowedMethods:
   - present?
   - blank?
@@ -999,6 +1052,7 @@ Lint/ShadowedArgument:
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintshadowedexception
 Lint/ShadowedException:
   Description: Avoid rescuing a higher level exception before a lower level exception.
+  StyleGuide: "#exception-ordering"
   Enabled: true
   VersionAdded: '0.41'
 
@@ -1023,15 +1077,22 @@ Lint/StructNewOverride:
   Enabled: true
   VersionAdded: '0.81'
 
+# https://docs.rubocop.org/rubocop/cops_lint.html#lintsuperargumentmismatch
+Lint/SuperArgumentMismatch:
+  Description: Checks for `super` calls that pass the wrong number of positional arguments
+    to the overridden implementation, using the project index.
+  Enabled: true # was pending
+  VersionAdded: '1.90'
+
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintsuppressedexception
 Lint/SuppressedException:
   Description: Don't suppress exceptions.
   StyleGuide: "#dont-hide-exceptions"
   Enabled: true
-  AllowComments: true
-  AllowNil: true
   VersionAdded: '0.9'
   VersionChanged: '1.12'
+  AllowComments: true
+  AllowNil: true
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintsuppressedexceptioninnumberconversion
@@ -1135,6 +1196,7 @@ Lint/UnexpectedBlockArity:
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintunifiedinteger
 Lint/UnifiedInteger:
   Description: Use Integer instead of Fixnum or Bignum.
+  StyleGuide: "#integer-type-checking"
   Enabled: true
   VersionAdded: '0.43'
 
@@ -1148,7 +1210,7 @@ Lint/UnmodifiedReduceAccumulator:
 
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintunreachablecode
 Lint/UnreachableCode:
-  Description: Unreachable code.
+  Description: Checks for unreachable code.
   Enabled: true
   VersionAdded: '0.9'
 
@@ -1195,6 +1257,16 @@ Lint/UnusedMethodArgument:
   NotImplementedExceptions:
   - NotImplementedError
 
+# https://docs.rubocop.org/rubocop/cops_lint.html#lintunusedprivatemethod
+Lint/UnusedPrivateMethod:
+  Description: Checks for private instance methods that are not referenced anywhere
+    in the project. Requires `AllCops/UseProjectIndex` to be enabled.
+  Enabled: true # was false
+  AllowedNames: []
+  AllowedPatterns: []
+  VersionAdded: '1.89'
+  VersionChanged: '1.90'
+
 # https://docs.rubocop.org/rubocop/cops_lint.html#linturiescapeunescape
 Lint/UriEscapeUnescape:
   Description: "`URI.escape` method is obsolete and should not be used. Instead, use
@@ -1238,6 +1310,7 @@ Lint/UselessConstantScoping:
   Description: Checks for useless constant scoping.
   Enabled: true # was pending
   VersionAdded: '1.72'
+  VersionChanged: '1.90'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintuselessdefaultvalueargument
@@ -1324,7 +1397,7 @@ Lint/UselessTimes:
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintvoid
 Lint/Void:
-  Description: Possible use of operator/literal/variable in void context.
+  Description: Checks for operators, literals, lambdas, and procs used in void context.
   Enabled: true
   AutoCorrect: contextual
   VersionAdded: '0.9'

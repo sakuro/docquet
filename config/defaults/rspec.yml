@@ -1,4 +1,4 @@
-# Department 'RSpec' (113):
+# Department 'RSpec' (115):
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecalignleftletbrace
 RSpec/AlignLeftLetBrace:
@@ -224,6 +224,14 @@ RSpec/Dialect:
   VersionAdded: '1.33'
   Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Dialect
 
+# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecdiscardedmatcher
+RSpec/DiscardedMatcher:
+  Description: Checks for matchers that are used in void context.
+  Enabled: true # was pending
+  VersionAdded: '3.10'
+  CustomMatcherMethods: []
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/DiscardedMatcher
+
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecduplicatedmetadata
 RSpec/DuplicatedMetadata:
@@ -398,7 +406,8 @@ RSpec/ExpectChange:
   - block
   SafeAutoCorrect: false
   VersionAdded: '1.22'
-  VersionChanged: '2.5'
+  VersionChanged: '3.10'
+  NegatedMatcher:
   Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/ExpectChange
 
 # https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecexpectinhook
@@ -616,6 +625,15 @@ RSpec/MatchArray:
   Enabled: true
   VersionAdded: '2.19'
   Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/MatchArray
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecmatchwithsimpleregex
+RSpec/MatchWithSimpleRegex:
+  Description: Enforces the use of `include` matcher instead of `match` when the matcher
+    is a simple string literal without regex-specific features.
+  Enabled: true # was pending
+  VersionAdded: '3.10'
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/MatchWithSimpleRegex
 
 # https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecmessagechain
 RSpec/MessageChain:
@@ -931,7 +949,9 @@ RSpec/ScatteredSetup:
 RSpec/SharedContext:
   Description: Checks for proper shared_context and shared_examples usage.
   Enabled: true
+  Strict: false
   VersionAdded: '1.13'
+  VersionChanged: '3.10'
   Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/SharedContext
 
 # Supports --autocorrect
@@ -1011,6 +1031,7 @@ RSpec/StubbedMock:
   VersionAdded: '1.44'
   Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/StubbedMock
 
+# Supports --autocorrect
 # https://docs.rubocop.org/rubocop-rspec/cops_rspec.html#rspecsubjectdeclaration
 RSpec/SubjectDeclaration:
   Description: Ensure that subject is defined using subject helper.

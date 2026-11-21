@@ -49,7 +49,7 @@ Style/ExplicitBlockArgument:
   Enabled: false
 
 Style/FetchEnvVar:
-  AllowedVars: []
+  AllowedVariables: []
 
 Style/FormatString:
   EnforcedStyle: percent
