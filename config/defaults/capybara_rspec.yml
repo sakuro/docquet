@@ -1,45 +1,66 @@
-# Department 'Capybara/RSpec' (9):
+# Department 'Capybara/RSpec' (11):
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop-capybara/cops_capybara_rspec.html#capybararspeccurrentpathexpectation
 Capybara/RSpec/CurrentPathExpectation:
   Description: Checks that no expectations are set on Capybara's `current_path`.
-  Enabled: true # was pending
+  Enabled: true
   VersionAdded: '1.18'
-  VersionChanged: '2.23'
+  VersionChanged: '3.0'
   Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/RSpec/CurrentPathExpectation
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara_rspec.html#capybararspeccurrenturlexpectation
+Capybara/RSpec/CurrentUrlExpectation:
+  Description: Checks expectations on `current_url` that bypass Capybara's waiting.
+  Enabled: true # was pending
+  SafeAutoCorrect: false
+  VersionAdded: '3.1'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/RSpec/CurrentUrlExpectation
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara_rspec.html#capybararspecfindelementvalueeq
+Capybara/RSpec/FindElementValueEq:
+  Description: Checks for expectations on the value of an element found by Capybara.
+  Enabled: true # was pending
+  SafeAutoCorrect: false
+  VersionAdded: '3.1'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/RSpec/FindElementValueEq
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop-capybara/cops_capybara_rspec.html#capybararspechavecontent
 Capybara/RSpec/HaveContent:
   Description: Checks for usage of `have_content` and `have_no_content`.
-  Enabled: true # was pending
+  Enabled: true
   VersionAdded: '2.23'
+  VersionChanged: '3.0'
   Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/RSpec/HaveContent
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop-capybara/cops_capybara_rspec.html#capybararspechaveselector
 Capybara/RSpec/HaveSelector:
-  Description: Use `have_css` or `have_xpath` instead of `have_selector`.
-  Enabled: true # was pending
+  Description: Use CSS or XPath matchers instead of generic selector matchers.
+  Enabled: true
   DefaultSelector: css
   VersionAdded: '2.19'
+  VersionChanged: '3.0'
   Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/RSpec/HaveSelector
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop-capybara/cops_capybara_rspec.html#capybararspecmatchstyle
 Capybara/RSpec/MatchStyle:
   Description: Checks for usage of deprecated style methods in RSpec matchers.
-  Enabled: true # was pending
+  Enabled: true
   VersionAdded: '2.23'
+  VersionChanged: '3.0'
   Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/RSpec/MatchStyle
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop-capybara/cops_capybara_rspec.html#capybararspecnegationmatcher
 Capybara/RSpec/NegationMatcher:
   Description: Enforces use of `have_no_*` or `not_to` for negated expectations.
-  Enabled: true # was pending
+  Enabled: true
   VersionAdded: '2.14'
-  VersionChanged: '2.23'
+  VersionChanged: '3.0'
   EnforcedStyle: have_no
   SupportedStyles:
   - have_no
@@ -49,16 +70,16 @@ Capybara/RSpec/NegationMatcher:
 # https://docs.rubocop.org/rubocop-capybara/cops_capybara_rspec.html#capybararspecnegationmatcheraftervisit
 Capybara/RSpec/NegationMatcherAfterVisit:
   Description: Do not allow negative matchers to be used immediately after `visit`.
-  Enabled: true # was pending
+  Enabled: true
   VersionAdded: '2.22'
-  VersionChanged: '2.23'
+  VersionChanged: '3.0'
   Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/RSpec/NegationMatcherAfterVisit
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop-capybara/cops_capybara_rspec.html#capybararspecpredicatematcher
 Capybara/RSpec/PredicateMatcher:
   Description: Prefer using predicate matcher over using predicate method directly.
-  Enabled: true # was pending
+  Enabled: true
   Strict: true
   EnforcedStyle: inflected
   AllowedExplicitMatchers: []
@@ -66,21 +87,25 @@ Capybara/RSpec/PredicateMatcher:
   - inflected
   - explicit
   VersionAdded: '2.19'
+  VersionChanged: '3.0'
   Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/RSpec/PredicateMatcher
 
 # https://docs.rubocop.org/rubocop-capybara/cops_capybara_rspec.html#capybararspecspecificmatcher
 Capybara/RSpec/SpecificMatcher:
   Description: Checks for there is a more specific matcher offered by Capybara.
-  Enabled: true # was pending
+  Enabled: true
   VersionAdded: '2.12'
-  VersionChanged: '2.23'
+  VersionChanged: '3.0'
   Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/RSpec/SpecificMatcher
 
+# Supports --autocorrect
 # https://docs.rubocop.org/rubocop-capybara/cops_capybara_rspec.html#capybararspecvisibilitymatcher
 Capybara/RSpec/VisibilityMatcher:
-  Description: Checks for boolean visibility in Capybara finders.
-  Enabled: true # was pending
+  Description: Checks for boolean visibility in Capybara RSpec matchers.
+  Enabled: true
+  SafeAutoCorrect: false
+  DefaultSelector: css
   VersionAdded: '1.39'
-  VersionChanged: '2.23'
+  VersionChanged: "<<next>>"
   Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/RSpec/VisibilityMatcher
 

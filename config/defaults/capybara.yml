@@ -1,4 +1,18 @@
-# Department 'Capybara' (7):
+# Department 'Capybara' (14):
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybaraabsolutexpathinelementscope
+Capybara/AbsoluteXPathInElementScope:
+  Description: Checks for absolute XPath searches on Capybara elements.
+  Enabled: true # was pending
+  VersionAdded: '3.1'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/AbsoluteXPathInElementScope
+
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybaraalwaystruecountquery
+Capybara/AlwaysTrueCountQuery:
+  Description: Checks for positive queries that succeed when there are no matches.
+  Enabled: true # was pending
+  VersionAdded: '3.1'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/AlwaysTrueCountQuery
+
 # https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybaraambiguousclick
 Capybara/AmbiguousClick:
   Description: Specify the exact target to click on.
@@ -10,52 +24,94 @@ Capybara/AmbiguousClick:
 # https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybaraassertstyle
 Capybara/AssertStyle:
   Description: Checks for usage of deprecated assert style method.
-  Enabled: true # was pending
+  Enabled: true
   VersionAdded: '2.23'
+  VersionChanged: '3.0'
   Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/AssertStyle
 
-# https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybaraclicklinkorbuttonstyle
-Capybara/ClickLinkOrButtonStyle:
-  Description: Checks for methods of button or link clicks.
-  Enabled: true # was false
-  VersionAdded: '2.19'
-  VersionChanged: '2.22'
-  EnforcedStyle: link_or_button
-  SupportedStyles:
-  - link_or_button
-  - strict
-  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/ClickLinkOrButtonStyle
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybarachainedfind
+Capybara/ChainedFind:
+  Description: Avoid chaining `find` methods and combine selectors.
+  Enabled: true # was pending
+  DefaultSelector: css
+  VersionAdded: '3.1'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/ChainedFind
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybarafindallfirst
 Capybara/FindAllFirst:
   Description: Enforces use of `first` instead of `all` with `first` or `[0]`.
-  Enabled: true # was pending
+  Enabled: true
   SafeAutoCorrect: false
   VersionAdded: '2.22'
-  VersionChanged: '2.23'
+  VersionChanged: '3.0'
   Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/FindAllFirst
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybaraignoredqueryoption
+Capybara/IgnoredQueryOption:
+  Description: Checks for query options that have no effect in Capybara.
+  Enabled: true # was pending
+  DefaultSelector: css
+  VersionAdded: '3.1'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/IgnoredQueryOption
+
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybaramodalmethodwithoutblock
+Capybara/ModalMethodWithoutBlock:
+  Description: Checks that modal handling methods are called with a block.
+  Enabled: true # was pending
+  VersionAdded: '3.1'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/ModalMethodWithoutBlock
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybaranativeattribute
+Capybara/NativeAttribute:
+  Description: Enforces use of `Element#[]` instead of `native.attribute`.
+  Enabled: true # was pending
+  SafeAutoCorrect: false
+  VersionAdded: '3.1'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/NativeAttribute
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybararedundantwithinfind
 Capybara/RedundantWithinFind:
   Description: Checks for redundant `within find(...)` calls.
-  Enabled: true # was pending
+  Enabled: true
   VersionAdded: '2.20'
+  VersionChanged: '3.0'
   Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/RedundantWithinFind
 
 # https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybaraspecificactions
 Capybara/SpecificActions:
   Description: Checks for there is a more specific actions offered by Capybara.
-  Enabled: true # was pending
+  Enabled: true
   VersionAdded: '2.14'
+  VersionChanged: '3.0'
   Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/SpecificActions
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybaraspecificfinders
 Capybara/SpecificFinders:
   Description: Checks if there is a more specific finder offered by Capybara.
-  Enabled: true # was pending
+  Enabled: true
   VersionAdded: '2.13'
+  VersionChanged: '3.0'
   Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/SpecificFinders
+
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybaraunorderedwindowaccess
+Capybara/UnorderedWindowAccess:
+  Description: Checks positional access to Capybara windows, whose order is undefined.
+  Enabled: true # was pending
+  VersionAdded: '3.1'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/UnorderedWindowAccess
+
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop-capybara/cops_capybara.html#capybaravisibilityoption
+Capybara/VisibilityOption:
+  Description: Checks for boolean values passed to Capybara's `visible` option.
+  Enabled: true # was pending
+  DefaultSelector: css
+  VersionAdded: '3.1'
+  Reference: https://www.rubydoc.info/gems/rubocop-capybara/RuboCop/Cop/Capybara/VisibilityOption
 

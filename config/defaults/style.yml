@@ -1,4 +1,4 @@
-# Department 'Style' (298):
+# Department 'Style' (299):
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#styleaccessmodifierdeclarations
 Style/AccessModifierDeclarations:
@@ -67,6 +67,8 @@ Style/ArgumentsForwarding:
   Description: Use arguments forwarding.
   StyleGuide: "#arguments-forwarding"
   Enabled: true # was pending
+  VersionAdded: '1.1'
+  VersionChanged: '1.58'
   UseAnonymousForwarding: true
   RedundantRestArgumentNames:
   - args
@@ -79,8 +81,6 @@ Style/ArgumentsForwarding:
   - blk
   - block
   - proc
-  VersionAdded: '1.1'
-  VersionChanged: '1.58'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#stylearraycoercion
@@ -96,6 +96,7 @@ Style/ArrayCoercion:
 # https://docs.rubocop.org/rubocop/cops_style.html#stylearrayfirstlast
 Style/ArrayFirstLast:
   Description: Use `arr.first` and `arr.last` instead of `arr[0]` and `arr[-1]`.
+  StyleGuide: "#first-and-last"
   References:
   - "#first-and-last"
   Enabled: true # was false
@@ -278,7 +279,7 @@ Style/ClassAndModuleChildren:
   SafeAutoCorrect: false
   Enabled: true
   VersionAdded: '0.19'
-  VersionChanged: '1.74'
+  VersionChanged: '1.89'
   EnforcedStyle: nested
   SupportedStyles:
   - nested
@@ -365,7 +366,7 @@ Style/CollectionCompact:
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#stylecollectionmethods
 Style/CollectionMethods:
-  Description: Preferred collection methods.
+  Description: Enforces the use of consistent method names from the `Enumerable` module.
   StyleGuide: "#map-find-select-reduce-include-size"
   Enabled: true # was false
   VersionAdded: '0.9'
@@ -390,6 +391,7 @@ Style/CollectionQuerying:
   StyleGuide: "#collection-querying"
   Enabled: true # was pending
   VersionAdded: '1.77'
+  VersionChanged: '1.92'
   Safe: false
 
 # Supports --autocorrect
@@ -470,11 +472,11 @@ Style/CommentedKeyword:
 # https://docs.rubocop.org/rubocop/cops_style.html#stylecomparablebetween
 Style/ComparableBetween:
   Description: Enforces the use of `Comparable#between?` instead of logical comparison.
+  StyleGuide: "#ranges-or-between"
   Enabled: true # was pending
   Safe: false
   VersionAdded: '1.74'
   VersionChanged: '1.75'
-  StyleGuide: "#ranges-or-between"
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#stylecomparableclamp
@@ -499,6 +501,7 @@ Style/ConditionalAssignment:
   Description: Use the return value of `if` and `case` statements for assignment to
     a variable and variable comparison instead of assigning that variable inside of
     each branch.
+  StyleGuide: "#use-if-case-returns"
   Enabled: true
   VersionAdded: '0.36'
   VersionChanged: '0.47'
@@ -540,7 +543,7 @@ Style/DataInheritance:
 # https://docs.rubocop.org/rubocop/cops_style.html#styledatetime
 Style/DateTime:
   Description: Use Time over DateTime.
-  StyleGuide: "#date-time"
+  StyleGuide: "#no-datetime"
   Enabled: true # was false
   VersionAdded: '0.51'
   VersionChanged: '0.92'
@@ -581,13 +584,26 @@ Style/DirEmpty:
   VersionAdded: '1.48'
 
 # Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styledirectivescope
+Style/DirectiveScope:
+  Description: Checks for directive scopes that can be expressed with the tighter `disable-next`
+    form.
+  Enabled: true # was pending
+  SafeAutoCorrect: false
+  VersionAdded: '1.90'
+  VersionChanged: '1.91'
+
+# Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#styledisablecopswithinsourcecodedirective
 Style/DisableCopsWithinSourceCodeDirective:
   Description: Forbids disabling/enabling cops within source code.
   Enabled: true # was false
   VersionAdded: '0.82'
-  VersionChanged: '1.9'
+  VersionChanged: '1.92'
   AllowedCops: []
+  DisallowedCops: []
+  AllowWithReason: false
+  AllowedDirectives: []
 
 # https://docs.rubocop.org/rubocop/cops_style.html#styledocumentdynamicevaldefinition
 Style/DocumentDynamicEvalDefinition:
@@ -603,6 +619,7 @@ Style/Documentation:
   Description: Document classes and non-namespace modules.
   Enabled: true
   VersionAdded: '0.9'
+  VersionChanged: '1.89'
   AllowedConstants: []
   Exclude:
   - "spec/**/*"
@@ -618,13 +635,6 @@ Style/DocumentationMethod:
   - "spec/**/*"
   - "test/**/*"
   RequireForNonPublicMethods: false
-
-# Supports --autocorrect
-# https://docs.rubocop.org/rubocop/cops_style.html#styledoublecopdisabledirective
-Style/DoubleCopDisableDirective:
-  Description: Checks for double rubocop:disable comments on a single line.
-  Enabled: true
-  VersionAdded: '0.73'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#styledoublenegation
@@ -674,6 +684,7 @@ Style/EmptyCaseCondition:
 # https://docs.rubocop.org/rubocop/cops_style.html#styleemptyclassdefinition
 Style/EmptyClassDefinition:
   Description: Enforces consistent style for empty class definitions.
+  StyleGuide: "#single-line-classes"
   Enabled: true # was pending
   VersionAdded: '1.84'
   VersionChanged: '1.86'
@@ -834,8 +845,7 @@ Style/ExplicitBlockArgument:
 
 # https://docs.rubocop.org/rubocop/cops_style.html#styleexponentialnotation
 Style/ExponentialNotation:
-  Description: When using exponential notation, favor a mantissa between 1 (inclusive)
-    and 10 (exclusive).
+  Description: Enforces consistency in the use of exponential (scientific) notation.
   StyleGuide: "#exponential-notation"
   Enabled: true
   VersionAdded: '0.82'
@@ -853,7 +863,8 @@ Style/FetchEnvVar:
   - https://rubystyle.guide/#hash-fetch-defaults
   Enabled: true # was pending
   VersionAdded: '1.28'
-  AllowedVars: []
+  VersionChanged: '1.88'
+  AllowedVariables: []
   DefaultToNil: true
 
 # Supports --autocorrect
@@ -869,6 +880,7 @@ Style/FileEmpty:
 # https://docs.rubocop.org/rubocop/cops_style.html#stylefilenull
 Style/FileNull:
   Description: Use `File::NULL` instead of hardcoding "dev/null".
+  StyleGuide: "#null-devices"
   Enabled: true # was pending
   SafeAutoCorrect: false
   VersionAdded: '1.69'
@@ -876,6 +888,7 @@ Style/FileNull:
 # https://docs.rubocop.org/rubocop/cops_style.html#stylefileopen
 Style/FileOpen:
   Description: Checks for `File.open` without a block, which can leak file descriptors.
+  StyleGuide: "#auto-release-resources"
   Enabled: true # was pending
   Safe: false
   VersionAdded: '1.85'
@@ -954,7 +967,10 @@ Style/FormatString:
 # https://docs.rubocop.org/rubocop/cops_style.html#styleformatstringtoken
 Style/FormatStringToken:
   Description: Use a consistent style for format string tokens.
+  StyleGuide: "#named-format-tokens"
   Enabled: true
+  VersionAdded: '0.49'
+  VersionChanged: '1.74'
   EnforcedStyle: annotated
   SupportedStyles:
   - annotated
@@ -962,8 +978,6 @@ Style/FormatStringToken:
   - unannotated
   MaxUnannotatedPlaceholdersAllowed: 1
   Mode: aggressive
-  VersionAdded: '0.49'
-  VersionChanged: '1.74'
   AllowedMethods: []
   AllowedPatterns: []
 
@@ -1126,6 +1140,7 @@ Style/HashSyntax:
 # https://docs.rubocop.org/rubocop/cops_style.html#stylehashtransformkeys
 Style/HashTransformKeys:
   Description: Prefer `transform_keys` over `each_with_object`, `map`, or `to_h`.
+  StyleGuide: "#hash-transform-methods"
   Enabled: true
   VersionAdded: '0.80'
   VersionChanged: '0.90'
@@ -1135,6 +1150,7 @@ Style/HashTransformKeys:
 # https://docs.rubocop.org/rubocop/cops_style.html#stylehashtransformvalues
 Style/HashTransformValues:
   Description: Prefer `transform_values` over `each_with_object`, `map`, or `to_h`.
+  StyleGuide: "#hash-transform-methods"
   Enabled: true
   VersionAdded: '0.80'
   VersionChanged: '0.90'
@@ -1155,9 +1171,9 @@ Style/IdenticalConditionalBranches:
 Style/IfInsideElse:
   Description: Finds if nodes inside else, which can be converted to elsif.
   Enabled: true
-  AllowIfModifier: false
   VersionAdded: '0.36'
   VersionChanged: '1.3'
+  AllowIfModifier: false
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#styleifunlessmodifier
@@ -1295,14 +1311,14 @@ Style/ItBlockParameter:
   Description: Checks for blocks with one argument where `it` block parameter can be
     used.
   Enabled: true # was pending
+  VersionAdded: '1.75'
+  VersionChanged: '1.76'
   EnforcedStyle: allow_single_line
   SupportedStyles:
   - allow_single_line
   - only_numbered_parameters
   - always
   - disallow
-  VersionAdded: '1.75'
-  VersionChanged: '1.76'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#stylekeywordargumentsmerging
@@ -1318,7 +1334,7 @@ Style/KeywordArgumentsMerging:
 Style/KeywordParametersOrder:
   Description: Enforces that optional keyword parameters are placed at the end of the
     parameters list.
-  StyleGuide: "#keyword-parameters-order"
+  StyleGuide: "#keyword-arguments-order"
   Enabled: true
   VersionAdded: '0.90'
   VersionChanged: '1.7'
@@ -1355,6 +1371,7 @@ Style/LambdaCall:
 # https://docs.rubocop.org/rubocop/cops_style.html#stylelineendconcatenation
 Style/LineEndConcatenation:
   Description: Use \ instead of + or << to concatenate two string literals at line end.
+  StyleGuide: "#heredoc-long-strings"
   Enabled: true
   SafeAutoCorrect: false
   VersionAdded: '0.18'
@@ -1366,6 +1383,7 @@ Style/MagicCommentFormat:
   Description: Use a consistent style for magic comments.
   Enabled: true # was pending
   VersionAdded: '1.35'
+  VersionChanged: '1.91'
   EnforcedStyle: snake_case
   SupportedStyles:
   - snake_case
@@ -1381,7 +1399,9 @@ Style/MagicCommentFormat:
 Style/MapCompactWithConditionalBlock:
   Description: Prefer `select` or `reject` over `map { ... }.compact`.
   Enabled: true # was pending
+  SafeAutoCorrect: false
   VersionAdded: '1.30'
+  VersionChanged: '1.88'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#stylemapintoarray
@@ -1446,10 +1466,10 @@ Style/MethodCallWithoutArgsParentheses:
   Description: Do not use parentheses for method calls with no arguments.
   StyleGuide: "#method-invocation-parens"
   Enabled: true
-  AllowedMethods: []
-  AllowedPatterns: []
   VersionAdded: '0.47'
   VersionChanged: '0.55'
+  AllowedMethods: []
+  AllowedPatterns: []
 
 # https://docs.rubocop.org/rubocop/cops_style.html#stylemethodcalledondoendblock
 Style/MethodCalledOnDoEndBlock:
@@ -1510,6 +1530,7 @@ Style/MissingRespondToMissing:
   StyleGuide: "#no-method-missing"
   Enabled: true
   VersionAdded: '0.56'
+  VersionChanged: '1.89'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#stylemixingrouping
@@ -1564,7 +1585,7 @@ Style/MultilineBlockChain:
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#stylemultilineifmodifier
 Style/MultilineIfModifier:
-  Description: Only use if/unless modifiers on single line statements.
+  Description: Checks for uses of `if`/`unless` modifiers with multiline bodies.
   StyleGuide: "#no-multiline-if-modifiers"
   Enabled: true
   VersionAdded: '0.45'
@@ -1640,12 +1661,13 @@ Style/MutableConstant:
   Description: Do not assign mutable objects to constants.
   Enabled: true
   VersionAdded: '0.34'
-  VersionChanged: '1.8'
+  VersionChanged: '1.88'
   SafeAutoCorrect: false
   EnforcedStyle: literals
   SupportedStyles:
   - literals
   - strict
+  Recursive: false
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#stylenegatedif
@@ -1673,7 +1695,7 @@ Style/NegatedIfElseCondition:
 # https://docs.rubocop.org/rubocop/cops_style.html#stylenegatedunless
 Style/NegatedUnless:
   Description: Favor if over unless for negative conditions.
-  StyleGuide: "#if-for-negatives"
+  StyleGuide: "#unless-for-negatives"
   Enabled: true
   VersionAdded: '0.69'
   EnforcedStyle: both
@@ -1697,7 +1719,9 @@ Style/NegativeArrayIndex:
     a value. Also handles range patterns with length calculations. Recognizes preserving
     methods and their combinations, allowing safe replacement when the receiver matches.
   Enabled: true # was pending
+  Safe: false
   VersionAdded: '1.84'
+  VersionChanged: '1.92'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#stylenestedfiledirname
@@ -1880,6 +1904,7 @@ Style/ObjectThen:
 # https://docs.rubocop.org/rubocop/cops_style.html#styleoneclassperfile
 Style/OneClassPerFile:
   Description: Checks that each source file defines at most one top-level class or module.
+  StyleGuide: "#one-class-per-file"
   Enabled: true # was pending
   VersionAdded: '1.85'
   VersionChanged: '1.86'
@@ -1895,9 +1920,9 @@ Style/OneLineConditional:
     if/then/else/end constructs.
   StyleGuide: "#ternary-operator"
   Enabled: true
-  AlwaysCorrectToMultiline: false
   VersionAdded: '0.9'
   VersionChanged: '0.90'
+  AlwaysCorrectToMultiline: false
 
 # https://docs.rubocop.org/rubocop/cops_style.html#styleopenstructuse
 Style/OpenStructUse:
@@ -1997,6 +2022,7 @@ Style/PercentLiteralDelimiters:
   StyleGuide: "#percent-literal-braces"
   Enabled: true
   VersionAdded: '0.19'
+  VersionChanged: '0.48'
   PreferredDelimiters:
     default: "()"
     "%i": "[]"
@@ -2004,7 +2030,6 @@ Style/PercentLiteralDelimiters:
     "%r": "{}"
     "%w": "[]"
     "%W": "[]"
-  VersionChanged: '0.48'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#stylepercentqliterals
@@ -2179,6 +2204,7 @@ Style/RedundantConditional:
 # https://docs.rubocop.org/rubocop/cops_style.html#styleredundantconstantbase
 Style/RedundantConstantBase:
   Description: Avoid redundant `::` prefix on constant.
+  VersionChanged: '1.89'
   Enabled: true # was pending
   VersionAdded: '1.40'
 
@@ -2278,9 +2304,9 @@ Style/RedundantInitialize:
   Enabled: true # was pending
   AutoCorrect: contextual
   Safe: false
-  AllowComments: true
   VersionAdded: '1.27'
   VersionChanged: '1.61'
+  AllowComments: true
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#styleredundantinterpolation
@@ -2302,6 +2328,7 @@ Style/RedundantInterpolationUnfreeze:
 # https://docs.rubocop.org/rubocop/cops_style.html#styleredundantlinecontinuation
 Style/RedundantLineContinuation:
   Description: Checks for redundant line continuation.
+  StyleGuide: "#no-trailing-backslash"
   Enabled: true # was pending
   VersionAdded: '1.49'
 
@@ -2354,6 +2381,7 @@ Style/RedundantRegexpConstructor:
 # https://docs.rubocop.org/rubocop/cops_style.html#styleredundantregexpescape
 Style/RedundantRegexpEscape:
   Description: Checks for redundant escapes in Regexps.
+  StyleGuide: "#limit-escapes"
   Enabled: true
   VersionAdded: '0.85'
 
@@ -2486,10 +2514,10 @@ Style/ReturnNilInPredicateMethodDefinition:
   StyleGuide: "#bool-methods-qmark"
   Enabled: true # was pending
   SafeAutoCorrect: false
-  AllowedMethods: []
-  AllowedPatterns: []
   VersionAdded: '1.53'
   VersionChanged: '1.67'
+  AllowedMethods: []
+  AllowedPatterns: []
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#stylereversefind
@@ -2704,6 +2732,7 @@ Style/StabbyLambdaParentheses:
 Style/StaticClass:
   Description: Prefer modules to classes with only class methods.
   StyleGuide: "#modules-vs-classes"
+  VersionChanged: '1.89'
   Enabled: true # was false
   Safe: false
   VersionAdded: '1.3'
@@ -2883,6 +2912,15 @@ Style/TernaryParentheses:
   - require_parentheses_when_complex
   AllowSafeAssignment: true
 
+# Supports --autocorrect
+# https://docs.rubocop.org/rubocop/cops_style.html#styletimenow
+Style/TimeNow:
+  Description: Prefer `Time.now` over `Time.new` when retrieving the current system
+    time.
+  StyleGuide: "#time-now"
+  Enabled: true # was pending
+  VersionAdded: '1.90'
+
 # https://docs.rubocop.org/rubocop/cops_style.html#styletoplevelmethoddefinition
 Style/TopLevelMethodDefinition:
   Description: Looks for top-level method definitions.
@@ -2900,14 +2938,14 @@ Style/TrailingBodyOnClass:
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#styletrailingbodyonmethoddefinition
 Style/TrailingBodyOnMethodDefinition:
-  Description: Method body goes below definition.
+  Description: Checks for trailing code after the method definition.
   Enabled: true
   VersionAdded: '0.52'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#styletrailingbodyonmodule
 Style/TrailingBodyOnModule:
-  Description: Module body goes below module statement.
+  Description: Checks for trailing code after the module definition.
   Enabled: true
   VersionAdded: '0.53'
 
@@ -2972,10 +3010,11 @@ Style/TrailingMethodEndStatement:
 Style/TrailingUnderscoreVariable:
   Description: Checks for the usage of unneeded trailing underscores at the end of parallel
     variable assignment.
-  AllowNamedUnderscoreVariables: true
+  StyleGuide: "#trailing-underscore-variables"
   Enabled: true
   VersionAdded: '0.31'
   VersionChanged: '0.35'
+  AllowNamedUnderscoreVariables: true
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#styletrivialaccessors
@@ -3098,15 +3137,15 @@ Style/YodaCondition:
   References:
   - https://en.wikipedia.org/wiki/Yoda_conditions
   Enabled: true
+  Safe: false
+  VersionAdded: '0.49'
+  VersionChanged: '0.75'
   EnforcedStyle: forbid_for_all_comparison_operators
   SupportedStyles:
   - forbid_for_all_comparison_operators
   - forbid_for_equality_operators_only
   - require_for_all_comparison_operators
   - require_for_equality_operators_only
-  Safe: false
-  VersionAdded: '0.49'
-  VersionChanged: '0.75'
 
 # Supports --autocorrect
 # https://docs.rubocop.org/rubocop/cops_style.html#styleyodaexpression

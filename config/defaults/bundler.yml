@@ -27,12 +27,12 @@ Bundler/GemComment:
   Description: Add a comment describing each gem.
   Enabled: true # was false
   VersionAdded: '0.59'
-  VersionChanged: '0.85'
+  VersionChanged: '1.88'
   Include:
   - "**/*.gemfile"
   - "**/Gemfile"
   - "**/gems.rb"
-  IgnoredGems: []
+  AllowedGems: []
   OnlyFor: []
 
 # https://docs.rubocop.org/rubocop/cops_bundler.html#bundlergemfilename
