@@ -1,32 +1,17 @@
 # frozen_string_literal: true
 
+# Configuration only; SimpleCov.start is called from spec/spec_helper.rb.
 SimpleCov.configure do
-  # Start coverage measurement
-  SimpleCov.start do
-    # Add coverage filter for non-production code
-    add_filter "/spec/"
-    add_filter "/vendor/"
-    add_filter "/examples/"
+  skip "/spec/"
+  skip "/vendor/"
+  skip "/examples/"
 
-    # Track these directories
-    add_group "Library", "lib"
+  group "Library", "lib"
 
-    # Coverage thresholds - restored and improved beyond original target
-    minimum_coverage 90.0 # Achieved: 96.99% line coverage, 90.73% branch coverage
-    # minimum_coverage_by_file 80  # Could be enabled with current high coverage
+  minimum_coverage 90.0
+  enable_coverage :branch
 
-    # Enable branch coverage (Ruby 2.5+)
-    enable_coverage :branch if respond_to?(:enable_coverage)
+  formats :html, :simple
 
-    # Coverage formats
-    formatter SimpleCov::Formatter::MultiFormatter.new(
-      [
-        SimpleCov::Formatter::HTMLFormatter, # HTML report in coverage/
-        SimpleCov::Formatter::SimpleFormatter # Console output
-      ]
-    )
-
-    # Merge multiple test runs (useful for parallel testing)
-    merge_timeout 3600
-  end
+  merge_timeout 3600
 end
